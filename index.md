@@ -8,3 +8,9 @@
 * [Web tech](https://thezeroalpha.github.io/webtech-notes)
 * [Computer Networks](https://thezeroalpha.github.io/compnet-notes)
 * [Networks & graphs](https://thezeroalpha.github.io/networksgraphs-notes)
+
+---
+
+# Dotfiles
+
+Here's my [dotfiles repository](https://github.com/thezeroalpha/personal-configs).
