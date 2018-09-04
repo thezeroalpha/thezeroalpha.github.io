@@ -13,4 +13,4 @@
 
 # Dotfiles
 
-Here's my [dotfiles repository](https://github.com/thezeroalpha/personal-configs).
+Here's my [dotfiles repository](https://github.com/thezeroalpha/dotfiles).
