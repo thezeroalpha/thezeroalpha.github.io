@@ -23,6 +23,18 @@ git stash save                      # optionally save cwd
 git checkout HEAD                   # check out the latest commit, applying sparse checkout changes
 ```
 
+submodule setup:
+
+```bash
+git submodule add $url (<name>)                 # add submodule
+git -C <name> config core.sparseCheckout true   # setup sparse checkout for submodule
+git submodule absorbgitdirs                     # absorb submodule .git dir
+vim .git/modules/<name>/info/sparse-checkout    # modify the sparse checkout file for submodule
+git submodule update --force --checkout         # update, removing excluded dirs
+cd <name> && git checkout master                # move back to submodule branch
+cd .. && git add . && git commit && git push    # push commit with added submodule
+```
+
 # Rebase onto
 ```bash
 git rebase --onto newbase from_commit to_commit
