@@ -41,6 +41,8 @@ cd .. && git add . && git commit && git push    # push commit with added submodu
 # Rebase onto
 ```bash
 git rebase --onto newbase from_commit to_commit
+```
+```bash
 git checkout branch
 git rebase --onto newbase from_commit     # will rebase up to latest commit on ‘branch'
 ```
