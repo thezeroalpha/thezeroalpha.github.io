@@ -1,3 +1,7 @@
+---
+title: Bash/Shell stuff
+---
+
 # Sparse checkout
 initialise:
 

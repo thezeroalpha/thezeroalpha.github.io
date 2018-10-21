@@ -1,3 +1,7 @@
+---
+title: Git stuff
+---
+
 # Keyboard shortcuts
 * `C-x C-e` — edit command in $EDITOR (vim for me)
 * `C-a` — go to start of command

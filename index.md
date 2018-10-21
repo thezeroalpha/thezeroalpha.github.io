@@ -1,3 +1,7 @@
+---
+title: ZeroAlpha
+---
+
 # University notes
 ---
 ## Subject notes: Year 1
