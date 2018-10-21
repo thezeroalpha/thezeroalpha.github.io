@@ -11,6 +11,11 @@
 
 ---
 
+# Tech-related notes
+
+* [Bash/Shell](techstuff/shell.md)
+* [Git](techstuff/git.md)
+
 # Dotfiles
 
 Here's my [dotfiles repository](https://github.com/thezeroalpha/dotfiles).
