@@ -62,3 +62,17 @@ git bisect good|bad              # and this until the causing commit is identifi
 ```bash
 git blame <file>                # find out whodunnit
 ```
+
+# Update gitignored files
+
+If you previously committed a file/folder, then decided to added it to `.gitignore`, you have to run:
+
+```bash
+git rm -r --cached .
+```
+
+Do this in the root. But **make sure you saved/committed any changes to code**. Then push force with lease.
+
+# Remove sensitive data from all commits
+
+There's a way to do it through git, using git-filter-branch, but it's a bit tedious. Just get [bfg](https://rtyley.github.io/bfg-repo-cleaner/).
