@@ -1,0 +1,3 @@
+[submodule "zerotab"]
+	path = zerotab
+	url = git@github.com:thezeroalpha/zerotab.git
