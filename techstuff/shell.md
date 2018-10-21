@@ -73,8 +73,9 @@ exec 5<&-                # close the file for reading
 * `2>&1` — redirect stderr to stdout
 * `>file` — redirect stdout to file, overwriting
 * `>>file` — redirect stdout to file, appending
-* `<(command)` — pass output of command as file
+* `<(command)` — pass output of command as stdin
 * `>(command)` — redirect stdout to command
-* `<<<` — here string/document, pass from stdin as input
+* `<<<` — here string, pass string from stdin as input
+* `<<EOF ... EOF` - here document, pass multiline string as input
 
 order matters, creating a new redirection essentially duplicates the file descriptor (e.g. “command > file 2>&1” != “command 2>&1 > file"
