@@ -23,8 +23,11 @@ git stash save                      # optionally save cwd
 git checkout HEAD                   # check out the latest commit, applying sparse checkout changes
 ```
 
-submodule setup:
+# Submodules
 
+Change URL: change in `.gitmodules`, then `git submodule sync`.
+
+Sparse checkout for submodules:
 ```bash
 git submodule add $url (<name>)                 # add submodule
 git -C <name> config core.sparseCheckout true   # setup sparse checkout for submodule
