@@ -65,7 +65,7 @@ exec 5<&-                # close the file for reading
 * `!*` — all arguments of previous command
 * `!:a-b` — arguments number a to b of previous command
 * `!$:h` — only the head of the previous argument (e.g. “~/Documents” in “~/Documents/file.txt”)
-* `^x^y^` — replace x by y
+* `^x^y^` — replace x by y in previous command
 
 # Redirection
 * `&> file` — redirect all output to a file
