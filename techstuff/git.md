@@ -18,19 +18,19 @@ git pull                                      # pull from repository
 modify:
 
 ```bash
-vim .git/info/sparse-checkout    # modify sparse checkout config
-[git stash save]                 # optionally save cwd
-git checkout HEAD                # check out the latest commit, applying sparse checkout changes
+vim .git/info/sparse-checkout       # modify sparse checkout config
+git stash save                      # optionally save cwd
+git checkout HEAD                   # check out the latest commit, applying sparse checkout changes
 ```
 
-# Rebase onto:
+# Rebase onto
 ```bash
 git rebase --onto newbase from_commit to_commit
 git checkout branch
 git rebase --onto newbase from_commit     # will rebase up to latest commit on ‘branch'
 ```
 
-# Bisect:
+# Bisect
 ```bash
 git bisect start
 git checkout <working commit>    # check out a good commit
@@ -43,5 +43,7 @@ git bisect next                  # this
 git bisect good|bad              # and this until the causing commit is identified
 ```
 
-# Blame:
+# Blame
+```bash
 git blame <file>                # find out whodunnit
+```
