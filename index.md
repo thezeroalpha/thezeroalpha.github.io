@@ -4,6 +4,10 @@ title: ZeroAlpha
 
 # University notes
 ---
+## Subject notes: Year 2
+
+* [Data Structures & Algorithms](https://thezeroalpha.github.io/dsa-notes)
+
 ## Subject notes: Year 1
 
 * [Computational thinking](https://thezeroalpha.github.io/compthink-notes)
