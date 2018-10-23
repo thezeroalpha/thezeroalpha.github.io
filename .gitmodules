@@ -1,3 +1,6 @@
 [submodule "zerotab"]
 	path = zerotab
 	url = https://github.com/thezeroalpha/zerotab.git
+[submodule "year2-notes/dsa-notes"]
+	path = year2-notes/dsa-notes
+	url = https://github.com/thezeroalpha/dsa-notes.git
