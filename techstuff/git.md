@@ -23,6 +23,26 @@ git stash save                      # optionally save cwd
 git checkout HEAD                   # check out the latest commit, applying sparse checkout changes
 ```
 
+File format, from [Git documentation](https://git-scm.com/docs/git-read-tree):
+
+> While $GIT_DIR/info/sparse-checkout is usually used to specify what files are in, you can also specify what files are not in, using negate patterns. 
+> For example, to remove the file unwanted:
+> 
+> ```
+> /*
+> !unwanted
+> ```
+> 
+> Another tricky thing is fully repopulating the working directory when you no longer want sparse checkout. 
+> You cannot just disable "sparse checkout" because skip-worktree bits are still in the index and your working directory is still sparsely populated. 
+> You should re-populate the working directory with the $GIT_DIR/info/sparse-checkout file content as follows:
+> 
+> ```
+> /*
+> ```
+>
+> Then you can disable sparse checkout. Sparse checkout support in git read-tree and similar commands is disabled by default. You need to turn core.sparseCheckout on in order to have sparse checkout support.
+
 # Submodules
 
 Change URL: change in `.gitmodules`, then `git submodule sync`.
