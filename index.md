@@ -23,6 +23,7 @@ title: ZeroAlpha
 
 * [Bash/Shell](techstuff/shell.md)
 * [Git](techstuff/git.md)
+* [SSH](techstuff/ssh.md)
 * [Macbook troubleshooting](techstuff/macbook-repair.md)
 
 # Dotfiles
