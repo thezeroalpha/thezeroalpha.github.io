@@ -12,6 +12,7 @@ title: ZeroAlpha
 
 * [Computational thinking](https://thezeroalpha.github.io/compthink-notes)
 * [Systems architecture](https://thezeroalpha.github.io/sysarch-notes)
+* [Physical Computing](https://thezeroalpha.github.io/physcomp-notes)
 * [Logic & sets](https://thezeroalpha.github.io/logicsets-notes)
 * [Web tech](https://thezeroalpha.github.io/webtech-notes)
 * [Computer Networks](https://thezeroalpha.github.io/compnet-notes)
