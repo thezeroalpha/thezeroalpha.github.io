@@ -3,19 +3,19 @@
 
 | Course                                                         | Schedule                                           | Period                   | Period (N) |
 |----------------------------------------------------------------|----------------------------------------------------|--------------------------|------------|
-| Illness, Image, Metaphor: Cancer in public discourse           | 4 meetings total, but 2 on weekends, 9:30-17:00    | January, February, March | P3-4       |
-| Biosocial Aspects of Antisocial Behavior                       | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
-| Brain and Behavior                                             | Monday, Tuesday, 18:15-21:30                       | February, March          | P4         |
-| Climate Change                                                 | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
-| Robust Timetabling for Railway Systems                         | Monday, Thursday, 18:00-20:30                      | February, March          | P4         |
-| The Future Entrepreneur                                        | Wednesday, 18:00-20:30                             | February, March, April   | P4+5       |
-| A Likelihood Approach to Statistical Evidence                  | Wednesday, 18:00-21:00                             | April, May               | P5         |
-| Human Rights and Globalisation                                 | Thursday, 18:00-20:30                              | April, May               | P5         |
-| Impact of an Empire                                            | Tuesday and 2 fridays, 18:30-20:45                 | April, May               | P5         |
-| International Development                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
-| Robot Law                                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
-| The Genetics Era: Finding Genes for Human Behavior and Disease | Monday, Wednesday, 18:00-20:30                     | April, May               | P5         |
-| Thinking and Emotions                                          | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+| [Illness, Image, Metaphor: Cancer in public discourse](#illness-image-metaphor-cancer-in-public-discourse)           | 4 meetings total, but 2 on weekends, 9:30-17:00    | January, February, March | P3-4       |
+| [Biosocial Aspects of Antisocial Behavior](#biosocial-aspects-of-antisocial-behavior)                       | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
+| [Brain and Behavior](#brain-and-behavior)                                             | Monday, Tuesday, 18:15-21:30                       | February, March          | P4         |
+| [Climate Change](#climate-change)                                                 | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
+| [Robust Timetabling for Railway Systems](#robust-timetabling-for-railway-systems)                         | Monday, Thursday, 18:00-20:30                      | February, March          | P4         |
+| [The Future Entrepreneur](#the-future-entrepreneur)                                        | Wednesday, 18:00-20:30                             | February, March, April   | P4+5       |
+| [A Likelihood Approach to Statistical Evidence](#a-likelihood-approach-to-statistical-evidence)                  | Wednesday, 18:00-21:00                             | April, May               | P5         |
+| [Human Rights and Globalisation](#human-rights-and-globalisation)                                 | Thursday, 18:00-20:30                              | April, May               | P5         |
+| [Impact of an Empire](#impact-of-an-empire)                                            | Tuesday and 2 fridays, 18:30-20:45                 | April, May               | P5         |
+| [International Development](#international-development)                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+| [Robot Law](#robot-law)                                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+| [The Genetics Era: Finding Genes for Human Behavior and Disease](#the-genetics-era-finding-genes-for-human-behavior-and-disease) | Monday, Wednesday, 18:00-20:30                     | April, May               | P5         |
+| [Thinking and Emotions](#thinking-and-emotions)                                          | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
 
 ## Detailed description
 ### [A Likelihood Approach to Statistical Evidence](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/the-use-of-statistics-in-course-cases/index.aspx)
