@@ -1,6 +1,24 @@
 # VU honours courses (semester 2)
+## Schedule (table)
 
-## [A Likelihood Approach to Statistical Evidence](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/the-use-of-statistics-in-course-cases/index.aspx)
+| Course                                                         | Schedule                                           | Period                   | Period (N) |
+|----------------------------------------------------------------|----------------------------------------------------|--------------------------|------------|
+| Illness, Image, Metaphor: Cancer in public discourse           | 4 meetings total, but 2 on weekends, 9:30-17:00    | January, February, March | P3-4       |
+| Biosocial Aspects of Antisocial Behavior                       | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
+| Brain and Behavior                                             | Monday, Tuesday, 18:15-21:30                       | February, March          | P4         |
+| Climate Change                                                 | Monday, Wednesday, 18:00-20:00                     | February, March          | P4         |
+| Robust Timetabling for Railway Systems                         | Monday, Thursday, 18:00-20:30                      | February, March          | P4         |
+| The Future Entrepreneur                                        | Wednesday, 18:00-20:30                             | February, March, April   | P4+5       |
+| A Likelihood Approach to Statistical Evidence                  | Wednesday, 18:00-21:00                             | April, May               | P5         |
+| Human Rights and Globalisation                                 | Thursday, 18:00-20:30                              | April, May               | P5         |
+| Impact of an Empire                                            | Tuesday and 2 fridays, 18:30-20:45                 | April, May               | P5         |
+| International Development                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+| Robot Law                                                      | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+| The Genetics Era: Finding Genes for Human Behavior and Disease | Monday, Wednesday, 18:00-20:30                     | April, May               | P5         |
+| Thinking and Emotions                                          | Tuesday, Thursday, 18:00-21:00                     | April, May               | P5         |
+
+## Detailed description
+### [A Likelihood Approach to Statistical Evidence](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/the-use-of-statistics-in-course-cases/index.aspx)
 
 Topic:
 * stats, hypothesis testing
@@ -16,7 +34,7 @@ Assessment:
 Working format:
 * lectures, working problems
 
-## [Biosocial Aspects of Antisocial Behavior](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/biosocial-aspects-antisocial-behaviour-2/index.aspx)
+### [Biosocial Aspects of Antisocial Behavior](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/biosocial-aspects-antisocial-behaviour-2/index.aspx)
 
 Topic:
 * biosocial concepts, criminology
@@ -33,7 +51,7 @@ Working format:
 * 10 meetings of 2.5 hours, excursion to youth detention facility
 * 2 presentation meetings, reading & reflection
 
-## [Brain and Behavior](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/brain-and-behavior/index.aspx)
+### [Brain and Behavior](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/brain-and-behavior/index.aspx)
 
 Topic:
 * how we perceive world, learn, think
@@ -42,6 +60,7 @@ Topic:
 Schedule
 * Monday, Tuesday
 * 18:15-21:30 (3:15h)
+* February, March (P4)
 
 Assessment:
 * exam, group presentation
@@ -49,7 +68,7 @@ Assessment:
 Working format:
 * discussions, excursion to VU imaging facilities
 
-## [Climate Change](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/climate-change/index.aspx)
+### [Climate Change](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/climate-change/index.aspx)
 
 Topic:
 * physics of climate, discuss climate change on academic level
@@ -67,7 +86,7 @@ Assessment:
 Working format:
 * lectures, writing in teams, peer-reviewing, presenting, debating
 
-## [Human Rights and Globalisation](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/human-rights-globalisation/index.aspx)
+### [Human Rights and Globalisation](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/human-rights-globalisation/index.aspx)
 
 Topic:
 * insight into complexity of human rights regulation
@@ -87,7 +106,7 @@ Working format:
 * reflect on framework
 * prepre, present, report on judgments of various courts
 
-## [Illness, Image, Metaphor: Cancer in public discourse](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/illness-image-metaphor-cancer-in-public-discourse/index.aspx)
+### [Illness, Image, Metaphor: Cancer in public discourse](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/illness-image-metaphor-cancer-in-public-discourse/index.aspx)
 
 Topic:
 * metaphors and images of cancer, their effect in reality
@@ -104,7 +123,7 @@ Working format:
 * reading poetry, novels, autobiographies
 * watching films & documentaries about cancer
 
-## [Impact of an Empire](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/impact-of-an-empire/index.aspx)
+### [Impact of an Empire](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/impact-of-an-empire/index.aspx)
 
 Topic:
 * impact of the Roman Empire
@@ -122,7 +141,7 @@ Working format:
 * lectures, presentations, discussions, research paper, responses, workshop, museum visit
 * course concludes with individual paper
 
-## [International Development](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/international-development/index.aspx)
+### [International Development](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/international-development/index.aspx)
 
 Topic:
 * insight into complexities of intl. development
@@ -132,6 +151,7 @@ Topic:
 Schedule
 * Tuesday, Thursday
 * 18:00-21:00 (3h)
+* April, May (P5)
 
 Assessment:
 * individual assgnments: 70%
@@ -142,7 +162,7 @@ Working format:
 * group work
 * essay
 
-## [Robot Law](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/robot-law/index.aspx)
+### [Robot Law](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/robot-law/index.aspx)
 
 Topic:
 * frontiers between natural & artificial people
@@ -160,7 +180,7 @@ Assessment:
 Working format:
 *  ???
 
-## [Robust Timetabling for Railway Systems](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/robust-timetabling-railway-systems/index.aspx)
+### [Robust Timetabling for Railway Systems](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/robust-timetabling-railway-systems/index.aspx)
 
 Topic:
 * full cycle of use of mathematics
@@ -182,7 +202,7 @@ Working format:
 * 1 essay (group)
 * 1 exam
 
-## [The Future Entrepreneur](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/the-future-entrepreneur/index.aspx)
+### [The Future Entrepreneur](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/the-future-entrepreneur/index.aspx)
 
 Topic:
 * knowledge about current & future conceptions of entrepreneurship
@@ -203,7 +223,7 @@ Working format:
 * interactive, engagin
 * presentations of future business idea
 
-## [The Genetics Era: Finding Genes for Human Behavior and Disease](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/complex-trait-genetics/index.aspx)
+### [The Genetics Era: Finding Genes for Human Behavior and Disease](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/complex-trait-genetics/index.aspx)
 
 Topic:
 * behaviour genetics research, basics of genome and DNA
@@ -224,7 +244,7 @@ Working format:
 * lectures, lab practical
 * paper reading, each session some students present
 
-## [Thinking and Emotions](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/thinking-and-emotions/index.aspx)
+### [Thinking and Emotions](https://vu.nl/nl/opleidingen/overig-onderwijs/honours-programme/interdepartmental-courses/thinking-and-emotions/index.aspx)
 
 Topic:
 * how do we think & make decisions?
