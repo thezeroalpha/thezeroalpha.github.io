@@ -7,6 +7,7 @@ title: ZeroAlpha
 ## Subject notes: Year 2
 
 * [Data Structures & Algorithms](https://thezeroalpha.github.io/dsa-notes)
+* [Statistical Methods](https://thezeroalpha.github.io/stats-notes)
 
 ## Subject notes: Year 1
 
