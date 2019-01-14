@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="Stylesheet" type="text/css" href="style.css">
+<title>IS Lecture</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<body>
+
+
+<div id="Intelligent Systems"><h1 id="Intelligent Systems">Intelligent Systems</h1></div>
+
+<p>
+core topics:
+</p>
+<ul>
+<li>
+search &amp; heuristics
+
+<li>
+knowledge
+
+<li>
+adaptivity
+
+</ul>
+
+<p>
+<img src="img/is/decision-making.png" alt="Decision making diagram" />
+</p>
+
+<div id="State Space Representations Intro"><h1 id="State Space Representations Intro">State Space Representations Intro</h1></div>
+<ul>
+<li>
+real world is complex, state space must be <em>abstracted</em> for problem solving
+
+<ul>
+<li>
+abstract states map to sets of real states
+
+<li>
+abstract action maps to combination of real actions
+
+<li>
+abstract solution = set of real paths that are solutions in real world
+
+</ul>
+<li>
+there may be multiple different state space representations
+
+</ul>
+
+<p>
+Problem-solving agent uses this representation:
+</p>
+<ol>
+<li>
+what are actions to move between states?
+
+<li>
+what are appropriate states &amp; initial states?
+
+<li>
+what is the cost of an action?
+
+<li>
+goal: what are the successful world states?
+
+<li>
+search: determine possible sequences of actions leading to goal, choose 'best' sequence
+
+<li>
+execute: give solution, perform actions
+
+</ol>
+
+<p>
+State space representation (example - vacuum cleaner):
+</p>
+<ul>
+<li>
+start with real-life problem
+
+<li>
+formulate abstract problem (states, actions)
+
+<li>
+formulate concrete (clean house) &amp; algorithmic goal (be in state 7 and 8)
+
+<li>
+find solution (sequence of actions to get to state 7 or 8)
+
+<li>
+execute plan (clean house according to abstract solution)
+
+</ul>
+
+<div id="State space search"><h1 id="State space search">State space search</h1></div>
+<p>
+How do we find the solutions of previous problems?
+</p>
+<ul>
+<li>
+search the state space
+
+<li>
+search through explicit tree generation: root is initial state, nodes/leaves generated through successor function
+
+<li>
+search generates a graph
+
+</ul>
+
+<p>
+state: representation of a physical configuration
+node: data structure in the search tree. it contains state, parent node, actions, etc.
+</p>
+
+<div id="State space search-Uninformed search strategies"><h2 id="Uninformed search strategies">Uninformed search strategies</h2></div>
+<p>
+strategy defines picking order of node expansion
+uninformed methods: only use problem definition
+informed methods: use heuristic function to estimate cost of solution
+evaluating performance:
+</p>
+<ul>
+<li>
+does it always find a solution if there is one? (completeness)
+
+<li>
+does it find least-cost solution? (optimality)
+
+<li>
+how many nodes generated/expanded? (time complexity)
+
+<li>
+how many nodes are stored in memory during search? (space complexity)
+
+<li>
+complexity measured in terms of:
+
+<ul>
+<li>
+b: max branching factor of search tree)
+
+<li>
+d: depth of least cost solution
+
+<li>
+m: max depth of state space, could be infinite
+
+</ul>
+<li>
+time/space complexity measured in terms of max branching factor of search tree, depth of least cost solution, max depth of state space (could be infinite)
+
+</ul>
+
+<p>
+<img src="img/is/search-alg-summary.png" alt="Summary of uninformed search algorithms" />
+</p>
+
+<div id="State space search-Uninformed search strategies-Breadth-first (BF) search"><h3 id="Breadth-first (BF) search">Breadth-first (BF) search</h3></div>
+<ul>
+<li>
+algorithm:
+
+<ul>
+<li>
+expand shallowest unexpanded node
+
+<li>
+implementation - fringe (nodes that have to be explored) is a FIFO queue
+
+</ul>
+<li>
+evaluation:
+
+<ul>
+<li>
+completeness: yes, if branching factor b is finite
+
+<li>
+time complexity: if every state has b successors, and solution is at depth d, then \(O(b^{d+1})\) because of number of nodes generated
+
+<li>
+space complexity: shitty if every node has to be in memory - \(O(b^{d+1})\)
+
+<li>
+optimality: in general yes, unless actions have different cost
+
+</ul>
+<li>
+memory requirements are bigger problem than execution time
+
+</ul>
+
+<div id="State space search-Uninformed search strategies-Depth-first (DF) search"><h3 id="Depth-first (DF) search">Depth-first (DF) search</h3></div>
+<ul>
+<li>
+algorithm:
+
+<ul>
+<li>
+expand deepest unexpanded node
+
+<li>
+implementation: fringe is a stack
+
+</ul>
+<li>
+evaluation:
+
+<ul>
+<li>
+completeness: no, unless search space is finite and no loops are possible
+
+<li>
+time complexity: shitty if m is larger than d (depth of optimal solution) -- \(O(b^m)\). but if many solutions, faster than BF
+
+<li>
+space complexity: backtracking search uses less memory, one successor instead of all b -- \(O(bm+1)\)
+
+<li>
+optimality: no, same issues as completeness
+
+</ul>
+</ul>
+
+<div id="State space search-Uninformed search strategies-Depth-limited search"><h3 id="Depth-limited search">Depth-limited search</h3></div>
+<ul>
+<li>
+DF-search with depth limit l (nodes at depth l have no successors)
+
+<li>
+solves infinite-path problem
+
+<li>
+evaluation:
+
+<ul>
+<li>
+time: \(O(b^l)\)
+
+<li>
+space: \(O(bl)\)
+
+<li>
+completeness: not if l &lt; d
+
+<li>
+optimality: not if if l &gt; d
+
+</ul>
+</ul>
+
+<div id="State space search-Uninformed search strategies-Iterative deepening search"><h3 id="Iterative deepening search">Iterative deepening search</h3></div>
+<ul>
+<li>
+strategy to find best depth limit l
+
+<li>
+often used in combination with DF search
+
+<li>
+after each iteration, throw away everything and increase depth limit
+
+<li>
+combines benefits of DF (space complexity) and BF search (time complexity)
+
+<li>
+evaluation:
+
+<ul>
+<li>
+completeness: yes (no infinite paths)
+
+<li>
+time: \(O(b^d)\)
+
+<li>
+space: \(O(bd)\)
+
+</ul>
+</ul>
+
+<div id="State space search-Informed search (heuristics)"><h2 id="Informed search (heuristics)">Informed search (heuristics)</h2></div>
+
+<p>
+Heuristic function: "educated guess that reduces/limits search for solutions"
+</p>
+
+<p>
+informedness property of heuristics:
+</p>
+<ul>
+<li>
+two heuristics \(h_1(n),\; h_2(n)\) with \(0 \leq h_1(n) \leq h_2(n) \leq h*(n)\)
+
+<li>
+then \(h_2(n)\) is more informed than \(h_1(n)\)
+
+<li>
+with \(h_1\) fewer nodes have to be searched with \(h_2\)
+
+<li>
+but \(h_2\) is often more expensive to calculate
+
+<li>
+perfect heuristics: \(h(n) = h*(n)\)
+
+<li>
+trivial heuristics: \(h(n) = 0\)
+
+</ul>
+
+<p>
+Best-first search
+</p>
+<ul>
+<li>
+the general approach of informed search
+
+<li>
+node selected for expansion based on <em>evaluation function f(n)</em>
+
+<li>
+evaluation function measures distance to goal, choose node which appears best
+
+<li>
+fringe is queue in order of decreasing desirability
+
+</ul>
+
+<div id="State space search-Informed search (heuristics)-A Search"><h3 id="A Search">A Search</h3></div>
+
+<p>
+best-known form of best-first search
+avoid expanding paths that are already expensive
+</p>
+
+<p>
+evaluation function: \(f(n) = g(n) + h(n)\)
+</p>
+<ul>
+<li>
+g(n) the cost so far to reach node n
+
+<li>
+h(n) estimated cost to get from node n to goal
+
+<li>
+f(n) estimated total cost of path through node n to goal
+
+</ul>
+
+<div id="State space search-Informed search (heuristics)-A* Search"><h3 id="A* Search">A* Search</h3></div>
+
+<p>
+A search, but with an admissible heuristic
+</p>
+<ul>
+<li>
+heuristic is admissible if it <em>never</em> overestimates the cost to get to goal
+
+<li>
+admissible heuristics are optimistic
+
+<li>
+formally: \(h(n) \leq h*(n)\) where \(h*(n)\) is true cost from n to goal
+
+</ul>
+
+<p>
+evaluation:
+</p>
+<ul>
+<li>
+complete: yes
+
+<li>
+time: exponential with path length
+
+<li>
+space: all nodes are stored
+
+<li>
+optimal: yes
+
+</ul>
+
+<div id="State space search-Adversarial search"><h2 id="Adversarial search">Adversarial search</h2></div>
+<p>
+search has no adversary, solution is a (heuristic) method for finding a goal
+games have an adversary, solution is a strategy. time limits force an <em>approximate</em> solution.
+you need a function to evaluate the "goodness" of a game position
+</p>
+
+<p>
+types of games:
+</p>
+
+<table>
+<tr>
+<th>
+_____________________
+</th>
+<th>
+deterministic
+</th>
+<th>
+chance
+</th>
+</tr>
+<tr>
+<td>
+perfect information
+</td>
+<td>
+chess, checkers, go, othello
+</td>
+<td>
+backgammon, monopoly
+</td>
+</tr>
+<tr>
+<td>
+imperfect information
+</td>
+<td>
+&nbsp;
+</td>
+<td>
+bridge poker, scrabble, nuclear war
+</td>
+</tr>
+</table>
+
+<div id="State space search-Adversarial search-Minimax"><h3 id="Minimax">Minimax</h3></div>
+
+<div id="State space search-Adversarial search-Minimax-Setup"><h4 id="Setup">Setup</h4></div>
+<p>
+two players: MAX, MIN
+MAX moves first, take turns until game is over. winner gets award, loser gets penalty.
+</p>
+
+<p>
+how does this relate to search?
+</p>
+<ul>
+<li>
+initial state: game configuration e.g. with chess
+
+<li>
+successor function: list of &lt;move, state&gt; pairs with legal moves
+
+<li>
+terminal test: game finished?
+
+<li>
+utility function: numerical value of terminal states (win +1, lose -1, draw 0)
+
+<li>
+MAX uses search tree to determine next move
+
+</ul>
+
+<div id="State space search-Adversarial search-Minimax-Optimal strategies"><h4 id="Optimal strategies">Optimal strategies</h4></div>
+
+<p>
+find contingent strategy for MAX assuming infallible MIN.
+assume that both players play optimally.
+given game tree, optimal strategy can be found with minimax value of each node:
+</p>
+<ul>
+<li>
+minimax(n) =
+        utility(n)                      if n is a terminal
+        minimax(max(successors of n))   if n is a max node
+        minimax(min(successors of n))   if n is a min node
+
+</ul>
+
+<div id="State space search-Adversarial search-Minimax-Evaluation"><h4 id="Evaluation">Evaluation</h4></div>
+<p>
+complete: yes
+time: \(O(b^m)\)
+space: \(O(bm)\)
+optimal: yes
+</p>
+
+<div id="State space search-Adversarial search-Reducing problems of complexity with Minimax"><h3 id="Reducing problems of complexity with Minimax">Reducing problems of complexity with Minimax</h3></div>
+
+<div id="State space search-Adversarial search-Reducing problems of complexity with Minimax-Cutting off search:"><h4 id="Cutting off search:">Cutting off search:</h4></div>
+<ul>
+<li>
+instead of <code>if TERMINAL(state) then return UTILITY(state)</code>
+              do <code>if CUTOFF-TEST(state, depth) then return EVAL(state)</code>
+
+<li>
+this introduces fixed-limit depth
+
+<li>
+also loses completeness!
+
+</ul>
+
+<p>
+utility: value based on quality of state
+heuristics: value based on estimation of quality of state
+</p>
+
+<p>
+heuristic EVAL:
+</p>
+<ul>
+<li>
+produces estimate of expected utility of a game from a given position
+
+<li>
+should order terminal nodes in same way as utility
+
+<li>
+computation shouldn't take too long
+
+</ul>
+
+<div id="State space search-Adversarial search-Reducing problems of complexity with Minimax-Alpha-Beta pruning (efficient Minimax)"><h4 id="Alpha-Beta pruning (efficient Minimax)">Alpha-Beta pruning (efficient Minimax)</h4></div>
+
+<p>
+with minimax, the number of states is exponential to number of moves
+so, don't examine every node and prune the subtrees you don't have to examine
+</p>
+
+<p>
+Alpha: value of best MAX choice so far
+Beta: value of best MIN choice so far
+</p>
+
+<p>
+you prune the rest of the level if, at any point, beta &lt;= alpha.
+</p>
+
+<p>
+pruning doesn't affect final results, entire subtrees can be pruned
+good move ordering improves effectiveness of pruning
+with 'perfect ordering', time complexity is: \(O(b^{m/2})\)
+</p>
+
+<div id="State space search-Adversarial search-Search with no or partial information"><h3 id="Search with no or partial information">Search with no or partial information</h3></div>
+
+<p>
+problems:
+</p>
+<ul>
+<li>
+contingency: percepts provide new info
+
+<li>
+exploration: when states/actions of environment are unknown
+
+<li>
+sensorless/conformant: agent may have no idea where it is
+
+</ul>
+
+<div id="State space search-Adversarial search-Search with no or partial information-Perfect information Monte Carlo sampling (`rdeep`)"><h4 id="Perfect information Monte Carlo sampling (`rdeep`)">Perfect information Monte Carlo sampling (<code>rdeep</code>)</h4></div>
+<ol>
+<li>
+rollout:
+
+<ul>
+<li>
+assume a belief state (with perfect info)
+
+<li>
+play random game in that state.
+
+</ul>
+<li>
+average the rollouts
+
+<li>
+choose one with max average
+
+</ol>
+
+<div id="State space search-Adversarial search-Games with chance"><h3 id="Games with chance">Games with chance</h3></div>
+<p>
+<img src="img/is/games-chance.png" alt="Games with chance" />
+</p>
+
+<div id="State space search-Summary"><h2 id="Summary">Summary</h2></div>
+<p>
+Phase 2: minimax &amp; alpha-beta pruning
+Phase 1: PIMC sampling
+</p>
+
+<p>
+what next? give the agent information about the game
+</p>
+
+<div id="State space search-Search direction"><h2 id="Search direction">Search direction</h2></div>
+<p>
+Data-driven: start with initial state (e.g. a maze)
+Goal-driven: start with goal state, but has bigger branching factor (<span class="todo">TODO</span> confirm this)
+</p>
+
+<div id="Rational agents"><h1 id="Rational agents">Rational agents</h1></div>
+
+<p>
+"A rational agent chooses whichever action maximizes the expected value of the performance measure given the percept sequence to date and prior environment knowledge."
+</p>
+
+<div id="Rational agents-Agents"><h2 id="Agents">Agents</h2></div>
+<p>
+agent function maps percept sequence to actions (\(f: P* \rightarrow A\))
+function is internally represented by agent program
+program runs on physical architecture to produce f
+</p>
+
+<div id="Rational agents-Rationality"><h2 id="Rationality">Rationality</h2></div>
+<p>
+what is rational at a specific time depends on:
+</p>
+<ul>
+<li>
+expected value of performance measure -- heuristics
+
+<li>
+actions and choices -- search
+
+<li>
+percept sequence to date -- learning
+
+<li>
+prior environment-- KR
+
+</ul>
+
+<p>
+rationality is not omniscience or perfection
+</p>
+
+<div id="Rational agents-Task environments"><h2 id="Task environments">Task environments</h2></div>
+
+<p>
+to design rational agent, we must specify environment (PEAS):
+</p>
+<ul>
+<li>
+performance: safety, destination, profits, legality, comfort
+
+<li>
+environment: streets, traffic, pedestrians, weather
+
+<li>
+actuators: steering, accelerating, brake, horn, speaker/display
+
+<li>
+sensors: video, sonar, speedometer, etc.
+
+</ul>
+
+<p>
+environment types:
+</p>
+<ul>
+<li>
+observable: fully (can detect all relevant aspects with sensors) or partially
+
+<li>
+deterministic: (yes or no)
+
+<li>
+static: (yes, no, semi)
+
+<li>
+discrete: (yes or no)
+
+<li>
+single-agent: (yes or no)
+
+</ul>
+
+<p>
+<img src="img/is/environment-types.png" alt="Environment types table" />
+</p>
+
+<p>
+For Schnapsen:
+</p>
+<ul>
+<li>
+observable: not fully
+
+<li>
+deterministic: yes
+
+<li>
+static: yes
+
+<li>
+discrete: yes
+
+<li>
+single-agent: no
+
+</ul>
+
+<div id="Rational agents-Agent types"><h2 id="Agent types">Agent types</h2></div>
+
+<div id="Rational agents-Agent types-Simple Reflex"><h3 id="Simple Reflex">Simple Reflex</h3></div>
+<p>
+select action on basis of <em>only the current percept</em>
+large reduction in possible percept/action situations
+implemented using condition-action rules
+</p>
+
+<p>
+only works if environment is fully observable, otherwise may result in infinite loops.
+</p>
+
+<div id="Rational agents-Agent types-Reflex &amp; State"><h3 id="Reflex &amp; State">Reflex &amp; State</h3></div>
+<p>
+to tackle partially observable environments, maintain internal state
+over time, update state using world knowledge.
+</p>
+
+<div id="Rational agents-Agent types-Goal-Based"><h3 id="Goal-Based">Goal-Based</h3></div>
+<p>
+agent needs a goal to know the desirable situations
+future is taken into account
+</p>
+
+<div id="Rational agents-Agent types-Learning"><h3 id="Learning">Learning</h3></div>
+<p>
+teach agents instead of instructing them
+very robust toward initially unknown environments.
+</p>
+
+<div id="Logical agents"><h1 id="Logical agents">Logical agents</h1></div>
+
+<div id="Logical agents-What is logic"><h2 id="What is logic">What is logic</h2></div>
+<p>
+logic: generic method to deal with partial/imperfect/implicit information
+</p>
+
+<p>
+we need:
+</p>
+<ul>
+<li>
+syntax to write statement about rules &amp; knowledge of the game (a language)
+
+<li>
+semantics to say what legal expressions mean, the meaning of each sentence with respect to interpretations
+
+<li>
+calculus for how to determine meaning for legal expressions
+
+</ul>
+
+<p>
+knowledge-based/logical agents must be able to:
+</p>
+<ul>
+<li>
+represent states &amp; actions
+
+<li>
+incorporate new percepts, update internal representation of world
+
+<li>
+deduce hidden properties of the world &amp; appropriate actions
+
+</ul>
+
+<p>
+online/exploratory search: go to position, evaluate all options, possibly look ahead. have to re-evaluate current position.
+</p>
+
+<div id="Logical agents-Models"><h2 id="Models">Models</h2></div>
+<p>
+models are formal interpretations of the world with respect to which truth can be evaluated.
+<em>m</em> is a model of a sentence <em>α</em> if <em>α</em> holds in <em>m</em>.
+M(a) is the set of all models of a.
+</p>
+
+<p>
+each model specifies true/false for each proposition symbol (∧, ∨, ¬, ⇒, ⇐, ⇔)
+</p>
+
+<div id="Logical agents-Entailment"><h2 id="Entailment">Entailment</h2></div>
+<p>
+the knowledge base (KB) entails <em>α</em>: <em>α</em> follows from the information in the knowledge base (KB |= <em>α</em>)
+KB entails <em>α</em> iff <em>α</em> holds in all worlds where KB is true.
+a knowledge base is the rules + observations.
+</p>
+
+<p>
+a sentence is:
+</p>
+<ul>
+<li>
+entailed by KB iff α holds in all models of KB
+
+<li>
+valid if it is true in all models
+
+<li>
+satisfiable  if it is true in some model
+
+<li>
+unsatisfiable if it is true in no models
+
+</ul>
+
+<p>
+two statements are logically equivalent if they are true in same set of models:
+  α ≡ β iff α |= β and β |= α
+</p>
+
+<div id="Logical agents-Propositional logic"><h2 id="Propositional logic">Propositional logic</h2></div>
+<p>
+assumes world contains facts
+uses proposition symbols to state these facts.
+</p>
+
+<p>
+pros:
+</p>
+<ul>
+<li>
+declarative
+
+<li>
+allows partial/disjunctive/negated information
+
+<li>
+is compositional
+
+<li>
+meaning of statements is context-independent
+
+</ul>
+
+<p>
+cons:
+</p>
+<ul>
+<li>
+very limited expressive power
+
+</ul>
+
+<div id="Logical agents-First order logic"><h2 id="First order logic">First order logic</h2></div>
+<p>
+an extension of propositional logic.
+allows variables to range over atomic symbols in the domain.
+</p>
+
+<p>
+assumes world contains:
+</p>
+<ul>
+<li>
+objects: people, houses, colors, baseball games, etc.
+
+<li>
+relations: red, round, prime, brother of, comes between, bigger than, etc.
+
+<li>
+functions: father of, best friend, one more than, plus, etc.  
+
+</ul>
+
+<div id="Logical agents-First order logic-Basic elements:"><h3 id="Basic elements:">Basic elements:</h3></div>
+<p>
+Constants: KingJohn, 2, UCB, ...
+Predicates: Brother, &gt;, ...
+Functions: Sqrt, LeftLegOf, ...
+Variables: x, y, ...
+Connectives: ∧, ∨, ¬, ⇒, ⇔
+</p>
+
+<div id="Logical agents-First order logic-Sentences"><h3 id="Sentences">Sentences</h3></div>
+<p>
+Atomic sentence = predicate (term_1,..., term_n)
+</p>
+<blockquote>
+or term_1 = term_2
+</blockquote>
+<p>
+Term = function(term_1,..., term_n)
+</p>
+<blockquote>
+or constant 
+or variable
+</blockquote>
+
+<p>
+Complex sentences are made from atomic sentences using connectives.
+</p>
+
+<div id="Logical agents-First order logic-Truth"><h3 id="Truth">Truth</h3></div>
+<p>
+sentences are true with respect to model and interpretation.
+model contains objects and relations among them
+</p>
+
+<p>
+interpretation specifies referents for:
+</p>
+<ul>
+<li>
+constant symbols -- objects
+
+<li>
+predicate symbols -- relations
+
+<li>
+function symbols -- functional relations
+
+</ul>
+
+<p>
+an atomic sentence \(predicate(term_1, ..., term_n)\) is true
+iff the objects referred to by \(term_1,..., term_n\)
+are in the relation referred to by \(predicate\)
+</p>
+
+<div id="Logical agents-First order logic-Universal quantification"><h3 id="Universal quantification">Universal quantification</h3></div>
+<p>
+∀ &lt;variables&gt; &lt;sentence&gt;
+</p>
+
+<p>
+∀x P is true in a model <em>m</em> iff P is true with x being each possible object in the model
+(you can roughly translate that to conjunctions) 
+</p>
+
+<p>
+typically used with ⇒
+</p>
+
+<p>
+∀x ∀y ≠ ∀y ∀x
+</p>
+
+<div id="Logical agents-First order logic-Existential quantification"><h3 id="Existential quantification">Existential quantification</h3></div>
+<p>
+∃ &lt;variables&gt; &lt;sentence&gt;
+</p>
+
+<p>
+∃x P is true in a model <em>m</em> iff P is true with x being some possible object in the model
+(you can roughly translate that to disjunction of instantiations of P)
+</p>
+
+<p>
+typically used with ∧
+if you use it with ⇒, it works even if the LHS is false!
+</p>
+
+<p>
+∃x ∃y ≠ ∃y ∃x
+</p>
+
+
+<div id="Logical agents-Knowledge engineering in FOL"><h2 id="Knowledge engineering in FOL">Knowledge engineering in FOL</h2></div>
+
+<ol>
+<li>
+Identify the task
+
+<li>
+Assemble relevant knowledge
+
+<li>
+Decide on vocabulary of predicates, functions, and constants
+
+<li>
+Encode general knowledge about the domain (terms that we want to use)
+
+<li>
+Encode description of the specific problem instance
+
+<li>
+Pose queries to the inference procedure and get answers
+
+</ol>
+
+</body>
+</html>
