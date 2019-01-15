@@ -180,10 +180,10 @@ evaluation:
 completeness: yes, if branching factor b is finite
 
 <li>
-time complexity: if every state has b successors, and solution is at depth d, then \(O(b^{d+1})\) because of number of nodes generated
+time complexity: if every state has b successors, and solution is at depth d, then (O(b^{d+1})) because of number of nodes generated
 
 <li>
-space complexity: shitty if every node has to be in memory - \(O(b^{d+1})\)
+space complexity: shitty if every node has to be in memory - (O(b^{d+1}))
 
 <li>
 optimality: in general yes, unless actions have different cost
@@ -215,10 +215,10 @@ evaluation:
 completeness: no, unless search space is finite and no loops are possible
 
 <li>
-time complexity: shitty if m is larger than d (depth of optimal solution) -- \(O(b^m)\). but if many solutions, faster than BF
+time complexity: shitty if m is larger than d (depth of optimal solution) -- (O(b^m)). but if many solutions, faster than BF
 
 <li>
-space complexity: backtracking search uses less memory, one successor instead of all b -- \(O(bm+1)\)
+space complexity: backtracking search uses less memory, one successor instead of all b -- (O(bm+1))
 
 <li>
 optimality: no, same issues as completeness
@@ -239,10 +239,10 @@ evaluation:
 
 <ul>
 <li>
-time: \(O(b^l)\)
+time: (O(b^l))
 
 <li>
-space: \(O(bl)\)
+space: (O(bl))
 
 <li>
 completeness: not if l &lt; d
@@ -275,10 +275,10 @@ evaluation:
 completeness: yes (no infinite paths)
 
 <li>
-time: \(O(b^d)\)
+time: (O(b^d))
 
 <li>
-space: \(O(bd)\)
+space: (O(bd))
 
 </ul>
 </ul>
@@ -294,22 +294,22 @@ informedness property of heuristics:
 </p>
 <ul>
 <li>
-two heuristics \(h_1(n),\; h_2(n)\) with \(0 \leq h_1(n) \leq h_2(n) \leq h*(n)\)
+two heuristics (h_1(n),; h_2(n)) with (0 leq h_1(n) leq h_2(n) leq h*(n))
 
 <li>
-then \(h_2(n)\) is more informed than \(h_1(n)\)
+then (h_2(n)) is more informed than (h_1(n))
 
 <li>
-with \(h_1\) fewer nodes have to be searched with \(h_2\)
+with (h_1) fewer nodes have to be searched with (h_2)
 
 <li>
-but \(h_2\) is often more expensive to calculate
+but (h_2) is often more expensive to calculate
 
 <li>
-perfect heuristics: \(h(n) = h*(n)\)
+perfect heuristics: (h(n) = h*(n))
 
 <li>
-trivial heuristics: \(h(n) = 0\)
+trivial heuristics: (h(n) = 0)
 
 </ul>
 
@@ -339,7 +339,7 @@ avoid expanding paths that are already expensive
 </p>
 
 <p>
-evaluation function: \(f(n) = g(n) + h(n)\)
+evaluation function: (f(n) = g(n) + h(n))
 </p>
 <ul>
 <li>
@@ -366,7 +366,7 @@ heuristic is admissible if it <em>never</em> overestimates the cost to get to go
 admissible heuristics are optimistic
 
 <li>
-formally: \(h(n) \leq h*(n)\) where \(h*(n)\) is true cost from n to goal
+formally: (h(n) leq h*(n)) where (h*(n)) is true cost from n to goal
 
 </ul>
 
@@ -483,8 +483,8 @@ minimax(n) =
 <div id="State space search-Adversarial search-Minimax-Evaluation"><h4 id="Evaluation">Evaluation</h4></div>
 <p>
 complete: yes
-time: \(O(b^m)\)
-space: \(O(bm)\)
+time: (O(b^m))
+space: (O(bm))
 optimal: yes
 </p>
 
@@ -543,7 +543,7 @@ you prune the rest of the level if, at any point, beta &lt;= alpha.
 <p>
 pruning doesn't affect final results, entire subtrees can be pruned
 good move ordering improves effectiveness of pruning
-with 'perfect ordering', time complexity is: \(O(b^{m/2})\)
+with 'perfect ordering', time complexity is: (O(b^{m/2}))
 </p>
 
 <div id="State space search-Adversarial search-Search with no or partial information"><h3 id="Search with no or partial information">Search with no or partial information</h3></div>
@@ -613,7 +613,7 @@ Goal-driven: start with goal state, but has bigger branching factor (<span class
 
 <div id="Rational agents-Agents"><h2 id="Agents">Agents</h2></div>
 <p>
-agent function maps percept sequence to actions (\(f: P* \rightarrow A\))
+agent function maps percept sequence to actions ((f: P* rightarrow A))
 function is internally represented by agent program
 program runs on physical architecture to produce f
 </p>
@@ -820,7 +820,7 @@ two statements are logically equivalent if they are true in same set of models:
   α ≡ β iff α |= β and β |= α
 </p>
 
-<div id="Logical agents-Propositional logic"><h2 id="Propositional logic">Propositional logic</h2></div>
+<div id="Logical agents-Propositional logic (PL)"><h2 id="Propositional logic (PL)">Propositional logic (PL)</h2></div>
 <p>
 assumes world contains facts
 uses proposition symbols to state these facts.
@@ -853,7 +853,7 @@ very limited expressive power
 
 </ul>
 
-<div id="Logical agents-First order logic"><h2 id="First order logic">First order logic</h2></div>
+<div id="Logical agents-First order logic (FOL)"><h2 id="First order logic (FOL)">First order logic (FOL)</h2></div>
 <p>
 an extension of propositional logic.
 allows variables to range over atomic symbols in the domain.
@@ -874,7 +874,7 @@ functions: father of, best friend, one more than, plus, etc.
 
 </ul>
 
-<div id="Logical agents-First order logic-Basic elements:"><h3 id="Basic elements:">Basic elements:</h3></div>
+<div id="Logical agents-First order logic (FOL)-Basic elements:"><h3 id="Basic elements:">Basic elements:</h3></div>
 <p>
 Constants: KingJohn, 2, UCB, ...
 Predicates: Brother, &gt;, ...
@@ -883,7 +883,7 @@ Variables: x, y, ...
 Connectives: ∧, ∨, ¬, ⇒, ⇔
 </p>
 
-<div id="Logical agents-First order logic-Sentences"><h3 id="Sentences">Sentences</h3></div>
+<div id="Logical agents-First order logic (FOL)-Sentences"><h3 id="Sentences">Sentences</h3></div>
 <p>
 Atomic sentence = predicate (term_1,..., term_n)
 </p>
@@ -902,7 +902,7 @@ or variable
 Complex sentences are made from atomic sentences using connectives.
 </p>
 
-<div id="Logical agents-First order logic-Truth"><h3 id="Truth">Truth</h3></div>
+<div id="Logical agents-First order logic (FOL)-Truth"><h3 id="Truth">Truth</h3></div>
 <p>
 sentences are true with respect to model and interpretation.
 model contains objects and relations among them
@@ -924,12 +924,14 @@ function symbols -- functional relations
 </ul>
 
 <p>
-an atomic sentence \(predicate(term_1, ..., term_n)\) is true
-iff the objects referred to by \(term_1,..., term_n\)
-are in the relation referred to by \(predicate\)
+an atomic sentence (predicate(term_1, ..., term_n)) is true
+iff the objects referred to by (term_1,..., term_n)
+are in the relation referred to by (predicate)
 </p>
 
-<div id="Logical agents-First order logic-Universal quantification"><h3 id="Universal quantification">Universal quantification</h3></div>
+<div id="Logical agents-First order logic (FOL)-Quantifiers"><h3 id="Quantifiers">Quantifiers</h3></div>
+
+<div id="Logical agents-First order logic (FOL)-Quantifiers-Universal quantification"><h4 id="Universal quantification">Universal quantification</h4></div>
 <p>
 ∀ &lt;variables&gt; &lt;sentence&gt;
 </p>
@@ -944,10 +946,10 @@ typically used with ⇒
 </p>
 
 <p>
-∀x ∀y ≠ ∀y ∀x
+<span id="Logical agents-First order logic (FOL)-Quantifiers-Universal quantification-CARE:"></span><strong id="CARE:">CARE:</strong> ∀x ∀y ≠ ∀y ∀x
 </p>
 
-<div id="Logical agents-First order logic-Existential quantification"><h3 id="Existential quantification">Existential quantification</h3></div>
+<div id="Logical agents-First order logic (FOL)-Quantifiers-Existential quantification"><h4 id="Existential quantification">Existential quantification</h4></div>
 <p>
 ∃ &lt;variables&gt; &lt;sentence&gt;
 </p>
@@ -963,11 +965,25 @@ if you use it with ⇒, it works even if the LHS is false!
 </p>
 
 <p>
-∃x ∃y ≠ ∃y ∃x
+<span id="Logical agents-First order logic (FOL)-Quantifiers-Existential quantification-CARE"></span><strong id="CARE">CARE</strong>: ∃x ∃y ≠ ∃y ∃x
 </p>
 
 
-<div id="Logical agents-Knowledge engineering in FOL"><h2 id="Knowledge engineering in FOL">Knowledge engineering in FOL</h2></div>
+<div id="Logical agents-First order logic (FOL)-Quantifiers-Quantifier Duality"><h4 id="Quantifier Duality">Quantifier Duality</h4></div>
+<p>
+each quantifier can be expressed in terms of the other
+e.g. these are the same:
+</p>
+<ul>
+<li>
+∀x Likes(x, IceCream) -- "everyone likes ice cream"
+
+<li>
+¬∃x ¬Likes(x, IceCream) -- "there is nobody who doesn't like ice cream"
+
+</ul>
+
+<div id="Logical agents-First order logic (FOL)-Knowledge engineering in FOL"><h3 id="Knowledge engineering in FOL">Knowledge engineering in FOL</h3></div>
 
 <ol>
 <li>
@@ -989,6 +1005,143 @@ Encode description of the specific problem instance
 Pose queries to the inference procedure and get answers
 
 </ol>
+
+<div id="Logical agents-Decidability vs undecidability"><h2 id="Decidability vs undecidability">Decidability vs undecidability</h2></div>
+<p>
+undecidability
+</p>
+<ul>
+<li>
+Turing machine can calculate everything that can be calculated
+
+<li>
+halting problem: (K := { (i,x) | text{program i halts when run on input x}))
+
+</ul>
+
+<p>
+  decidability
+</p>
+<ul>
+<li>
+validity of FOL is not decidable (but semi-decidable)
+
+<li>
+if a theorem is logically entailed by an axiom, you can prove that it is.
+
+<li>
+if not, you can't necessarily prove that it's not (because you can continue with your proof infinitely).
+
+</ul>
+
+<div id="Logical agents-Choice of formalisms"><h2 id="Choice of formalisms">Choice of formalisms</h2></div>
+<p>
+first-order logic: represents knowledge
+propositional logic: used for reasoning ("propositionalisation")
+</p>
+
+<p>
+then use reasoner to check for entailment of propositional logic knowledge base an decision query
+</p>
+<ul>
+<li>
+Davis Putnam (DPLL) algorithm
+
+<li>
+formulas have to be in clause normal form (CNF)
+
+<li>
+calculus is proof by refutation:
+
+<ul>
+<li>
+DPLL determines satisfiability of a KB
+
+<li>
+entailment of KB |= a by "refutation":
+
+<ul>
+<li>
+KB |= a if KB ∩ {~a} is unsatisfiable
+
+<li>
+assume the opposite and prove it's impossible
+
+</ul>
+</ul>
+</ul>
+
+<div id="Logical agents-Applying in Schnapsen - Strategies (examples)"><h2 id="Applying in Schnapsen - Strategies (examples)">Applying in Schnapsen - Strategies (examples)</h2></div>
+<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play Jack"><h3 id="Play Jack">Play Jack</h3></div>
+
+<p>
+check whether card is a jack: 
+  (KB |= PlayJack(x) ?)
+</p>
+
+<p>
+represent strategy: 
+  (∀x PlayJack(x) ⇔ Jack(x))
+</p>
+
+<p>
+represent game information: 
+  (KB = {Jack(4), Jack(0), Jack(14), Jack(19)})
+</p>
+
+<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play cheap"><h3 id="Play cheap">Play cheap</h3></div>
+<p>
+only play Jacks: check whether card is cheap
+  (KB |= PlayCheap(x) ?)
+</p>
+
+<p>
+represent strategy:
+  (∀x PlayCheap(x) ⇔ Jack(x) ∨ Queen(x) ∨ King(x))
+</p>
+  
+<p>
+represent game information:
+  (KB = {Jack(4), Jack(9), Jack(14), Jack(19), Queen(5), ...})
+</p>
+  
+<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play trump marriage"><h3 id="Play trump marriage">Play trump marriage</h3></div>
+<p>
+(TrumpMarriage(x) ⇔ Q(x) &amp; Trump(x) &amp; ∃y: SameColor(x,y) &amp; K(y) &amp; MyCard(y))
+(SameColor(x,y) ⇔ (C(x) &amp; C(y)) ∨ (D(x) &amp; D(y)) ∨ (H(x) &amp; H(y)) ∨ (S(x) &amp; S(y)))
+</p>
+
+<div id="Logical agents-Propositionalising FOL"><h2 id="Propositionalising FOL">Propositionalising FOL</h2></div>
+
+<div id="Logical agents-Propositionalising FOL-Universal instantiation (UI):"><h3 id="Universal instantiation (UI):">Universal instantiation (UI):</h3></div>
+<p>
+every instantiation of a universally quantified sentence is entailed by it.
+<img src="img/is/univ-instant.png" />
+</p>
+
+<p>
+example:
+  (∀x King(x) ∧ Greedy(x) ⇒ Evil(x))
+  (King(John) ∧ Greedy(John) ⇒ Evil(John))
+  etc.
+</p>
+
+<div id="Logical agents-Propositionalising FOL-Existential instantiation (EI):"><h3 id="Existential instantiation (EI):">Existential instantiation (EI):</h3></div>
+<p>
+<img src="img/is/exist-instant.png" />
+</p>
+
+<p>
+example:
+  (∃x Crown(x) ∧ OnHead(x,John))
+  (Crown(C_1) ∧ OnHead(C_1, John))
+</p>
+
+<div id="Logical agents-Propositionalising FOL-Reduction to propositional inference"><h3 id="Reduction to propositional inference">Reduction to propositional inference</h3></div>
+<p>
+every FOL KB can be propositionalised so as to preserve entailment
+if a sentence α is entailed by an FOL KB, it is entailed by a <em>finite</em> subset of the propositionalised KB
+</p>
 
 </body>
 </html>
