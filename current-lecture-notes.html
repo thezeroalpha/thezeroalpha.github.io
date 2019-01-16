@@ -1,11 +1,66 @@
-<!DOCTYPE html>
 <html>
 <head>
-<link rel="Stylesheet" type="text/css" href="style.css">
-<title>IS Lecture</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>IS Lecture</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
+    <a href="index.html">Index</a>
+    <hr>
+    <div class="content">
+    
+<div id="Contents" class="toc"><h1 id="Contents">Contents</h1></div>
+<ul>
+<li>
+<a href="#State Space Representations Intro">State Space Representations Intro</a>
+
+<li>
+<a href="#State space search">State space search</a>
+
+<ul>
+<li>
+<a href="#State space search-Uninformed search strategies">Uninformed search strategies</a>
+
+<li>
+<a href="#State space search-Informed search (heuristics)">Informed search (heuristics)</a>
+
+<li>
+<a href="#State space search-Adversarial search">Adversarial search</a>
+
+<ul>
+<li>
+<a href="#State space search-Adversarial search-Games with chance">Games with chance</a>
+
+</ul>
+<li>
+<a href="#State space search-Summary">Summary</a>
+
+<li>
+<a href="#State space search-Search direction">Search direction</a>
+
+</ul>
+<li>
+<a href="#Rational agents">Rational agents</a>
+
+<li>
+<a href="#Logical agents">Logical agents</a>
+
+<ul>
+<li>
+<a href="#Logical agents-What is logic">What is logic</a>
+
+<li>
+<a href="#Logical agents-Syntax">Syntax</a>
+
+<li>
+<a href="#Logical agents-Semantics">Semantics</a>
+
+<li>
+<a href="#Logical agents-Calculus (algorithms for inference)">Calculus (algorithms for inference)</a>
+
+</ul>
+</ul>
 
 
 <div id="Intelligent Systems"><h1 id="Intelligent Systems">Intelligent Systems</h1></div>
@@ -180,10 +235,10 @@ evaluation:
 completeness: yes, if branching factor b is finite
 
 <li>
-time complexity: if every state has b successors, and solution is at depth d, then (O(b^{d+1})) because of number of nodes generated
+time complexity: if every state has b successors, and solution is at depth d, then \(O(b^{d+1})\) because of number of nodes generated
 
 <li>
-space complexity: shitty if every node has to be in memory - (O(b^{d+1}))
+space complexity: shitty if every node has to be in memory - \(O(b^{d+1})\)
 
 <li>
 optimality: in general yes, unless actions have different cost
@@ -215,10 +270,10 @@ evaluation:
 completeness: no, unless search space is finite and no loops are possible
 
 <li>
-time complexity: shitty if m is larger than d (depth of optimal solution) -- (O(b^m)). but if many solutions, faster than BF
+time complexity: shitty if m is larger than d (depth of optimal solution) -- \(O(b^m)\). but if many solutions, faster than BF
 
 <li>
-space complexity: backtracking search uses less memory, one successor instead of all b -- (O(bm+1))
+space complexity: backtracking search uses less memory, one successor instead of all b -- \(O(bm+1)\)
 
 <li>
 optimality: no, same issues as completeness
@@ -239,10 +294,10 @@ evaluation:
 
 <ul>
 <li>
-time: (O(b^l))
+time: \(O(b^l)\)
 
 <li>
-space: (O(bl))
+space: \(O(bl)\)
 
 <li>
 completeness: not if l &lt; d
@@ -275,10 +330,10 @@ evaluation:
 completeness: yes (no infinite paths)
 
 <li>
-time: (O(b^d))
+time: \(O(b^d)\)
 
 <li>
-space: (O(bd))
+space: \(O(bd)\)
 
 </ul>
 </ul>
@@ -294,22 +349,22 @@ informedness property of heuristics:
 </p>
 <ul>
 <li>
-two heuristics (h_1(n),; h_2(n)) with (0 leq h_1(n) leq h_2(n) leq h*(n))
+two heuristics \(h_1(n),\; h_2(n)\) with \(0 \leq h_1(n) \leq h_2(n) \leq h*(n)\)
 
 <li>
-then (h_2(n)) is more informed than (h_1(n))
+then \(h_2(n)\) is more informed than \(h_1(n)\)
 
 <li>
-with (h_1) fewer nodes have to be searched with (h_2)
+with \(h_1\) fewer nodes have to be searched with \(h_2\)
 
 <li>
-but (h_2) is often more expensive to calculate
+but \(h_2\) is often more expensive to calculate
 
 <li>
-perfect heuristics: (h(n) = h*(n))
+perfect heuristics: \(h(n) = h*(n)\)
 
 <li>
-trivial heuristics: (h(n) = 0)
+trivial heuristics: \(h(n) = 0\)
 
 </ul>
 
@@ -339,7 +394,7 @@ avoid expanding paths that are already expensive
 </p>
 
 <p>
-evaluation function: (f(n) = g(n) + h(n))
+evaluation function: \(f(n) = g(n) + h(n)\)
 </p>
 <ul>
 <li>
@@ -366,7 +421,7 @@ heuristic is admissible if it <em>never</em> overestimates the cost to get to go
 admissible heuristics are optimistic
 
 <li>
-formally: (h(n) leq h*(n)) where (h*(n)) is true cost from n to goal
+formally: \(h(n) \leq h*(n)\) where \(h*(n)\) is true cost from n to goal
 
 </ul>
 
@@ -402,7 +457,7 @@ types of games:
 <table>
 <tr>
 <th>
-_____________________
+&nbsp;
 </th>
 <th>
 deterministic
@@ -483,8 +538,8 @@ minimax(n) =
 <div id="State space search-Adversarial search-Minimax-Evaluation"><h4 id="Evaluation">Evaluation</h4></div>
 <p>
 complete: yes
-time: (O(b^m))
-space: (O(bm))
+time: \(O(b^m)\)
+space: \(O(bm)\)
 optimal: yes
 </p>
 
@@ -543,7 +598,7 @@ you prune the rest of the level if, at any point, beta &lt;= alpha.
 <p>
 pruning doesn't affect final results, entire subtrees can be pruned
 good move ordering improves effectiveness of pruning
-with 'perfect ordering', time complexity is: (O(b^{m/2}))
+with 'perfect ordering', time complexity is: \(O(b^{m/2})\)
 </p>
 
 <div id="State space search-Adversarial search-Search with no or partial information"><h3 id="Search with no or partial information">Search with no or partial information</h3></div>
@@ -613,7 +668,7 @@ Goal-driven: start with goal state, but has bigger branching factor (<span class
 
 <div id="Rational agents-Agents"><h2 id="Agents">Agents</h2></div>
 <p>
-agent function maps percept sequence to actions ((f: P* rightarrow A))
+agent function maps percept sequence to actions (\(f: P* \rightarrow A\))
 function is internally represented by agent program
 program runs on physical architecture to produce f
 </p>
@@ -779,48 +834,8 @@ deduce hidden properties of the world &amp; appropriate actions
 online/exploratory search: go to position, evaluate all options, possibly look ahead. have to re-evaluate current position.
 </p>
 
-<div id="Logical agents-Models"><h2 id="Models">Models</h2></div>
-<p>
-models are formal interpretations of the world with respect to which truth can be evaluated.
-<em>m</em> is a model of a sentence <em>α</em> if <em>α</em> holds in <em>m</em>.
-M(a) is the set of all models of a.
-</p>
-
-<p>
-each model specifies true/false for each proposition symbol (∧, ∨, ¬, ⇒, ⇐, ⇔)
-</p>
-
-<div id="Logical agents-Entailment"><h2 id="Entailment">Entailment</h2></div>
-<p>
-the knowledge base (KB) entails <em>α</em>: <em>α</em> follows from the information in the knowledge base (KB |= <em>α</em>)
-KB entails <em>α</em> iff <em>α</em> holds in all worlds where KB is true.
-a knowledge base is the rules + observations.
-</p>
-
-<p>
-a sentence is:
-</p>
-<ul>
-<li>
-entailed by KB iff α holds in all models of KB
-
-<li>
-valid if it is true in all models
-
-<li>
-satisfiable  if it is true in some model
-
-<li>
-unsatisfiable if it is true in no models
-
-</ul>
-
-<p>
-two statements are logically equivalent if they are true in same set of models:
-  α ≡ β iff α |= β and β |= α
-</p>
-
-<div id="Logical agents-Propositional logic (PL)"><h2 id="Propositional logic (PL)">Propositional logic (PL)</h2></div>
+<div id="Logical agents-Syntax"><h2 id="Syntax">Syntax</h2></div>
+<div id="Logical agents-Syntax-Propositional logic (PL)"><h3 id="Propositional logic (PL)">Propositional logic (PL)</h3></div>
 <p>
 assumes world contains facts
 uses proposition symbols to state these facts.
@@ -853,7 +868,7 @@ very limited expressive power
 
 </ul>
 
-<div id="Logical agents-First order logic (FOL)"><h2 id="First order logic (FOL)">First order logic (FOL)</h2></div>
+<div id="Logical agents-Syntax-First order logic (FOL)"><h3 id="First order logic (FOL)">First order logic (FOL)</h3></div>
 <p>
 an extension of propositional logic.
 allows variables to range over atomic symbols in the domain.
@@ -874,7 +889,7 @@ functions: father of, best friend, one more than, plus, etc.
 
 </ul>
 
-<div id="Logical agents-First order logic (FOL)-Basic elements:"><h3 id="Basic elements:">Basic elements:</h3></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Basic elements:"><h4 id="Basic elements:">Basic elements:</h4></div>
 <p>
 Constants: KingJohn, 2, UCB, ...
 Predicates: Brother, &gt;, ...
@@ -883,55 +898,21 @@ Variables: x, y, ...
 Connectives: ∧, ∨, ¬, ⇒, ⇔
 </p>
 
-<div id="Logical agents-First order logic (FOL)-Sentences"><h3 id="Sentences">Sentences</h3></div>
-<p>
+<div id="Logical agents-Syntax-First order logic (FOL)-Sentences"><h4 id="Sentences">Sentences</h4></div>
+<pre>
 Atomic sentence = predicate (term_1,..., term_n)
-</p>
-<blockquote>
-or term_1 = term_2
-</blockquote>
-<p>
+                  or term_1 = term_2
 Term = function(term_1,..., term_n)
-</p>
-<blockquote>
-or constant 
-or variable
-</blockquote>
+      or constant 
+      or variable
+</pre>
 
 <p>
 Complex sentences are made from atomic sentences using connectives.
 </p>
 
-<div id="Logical agents-First order logic (FOL)-Truth"><h3 id="Truth">Truth</h3></div>
-<p>
-sentences are true with respect to model and interpretation.
-model contains objects and relations among them
-</p>
-
-<p>
-interpretation specifies referents for:
-</p>
-<ul>
-<li>
-constant symbols -- objects
-
-<li>
-predicate symbols -- relations
-
-<li>
-function symbols -- functional relations
-
-</ul>
-
-<p>
-an atomic sentence (predicate(term_1, ..., term_n)) is true
-iff the objects referred to by (term_1,..., term_n)
-are in the relation referred to by (predicate)
-</p>
-
-<div id="Logical agents-First order logic (FOL)-Quantifiers"><h3 id="Quantifiers">Quantifiers</h3></div>
-
-<div id="Logical agents-First order logic (FOL)-Quantifiers-Universal quantification"><h4 id="Universal quantification">Universal quantification</h4></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Quantification"><h4 id="Quantification">Quantification</h4></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Quantification-Universal quantification"><h5 id="Universal quantification">Universal quantification</h5></div>
 <p>
 ∀ &lt;variables&gt; &lt;sentence&gt;
 </p>
@@ -946,10 +927,10 @@ typically used with ⇒
 </p>
 
 <p>
-<span id="Logical agents-First order logic (FOL)-Quantifiers-Universal quantification-CARE:"></span><strong id="CARE:">CARE:</strong> ∀x ∀y ≠ ∀y ∀x
+<span id="Logical agents-Syntax-First order logic (FOL)-Quantification-Universal quantification-CARE:"></span><strong id="CARE:">CARE:</strong> ∀x ∀y ≠ ∀y ∀x
 </p>
 
-<div id="Logical agents-First order logic (FOL)-Quantifiers-Existential quantification"><h4 id="Existential quantification">Existential quantification</h4></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Quantification-Existential quantification"><h5 id="Existential quantification">Existential quantification</h5></div>
 <p>
 ∃ &lt;variables&gt; &lt;sentence&gt;
 </p>
@@ -961,15 +942,14 @@ typically used with ⇒
 
 <p>
 typically used with ∧
-if you use it with ⇒, it works even if the LHS is false!
+watch out, if you use it with ⇒, it works even if the LHS is false!
 </p>
 
 <p>
-<span id="Logical agents-First order logic (FOL)-Quantifiers-Existential quantification-CARE"></span><strong id="CARE">CARE</strong>: ∃x ∃y ≠ ∃y ∃x
+<span id="Logical agents-Syntax-First order logic (FOL)-Quantification-Existential quantification-CARE"></span><strong id="CARE">CARE</strong>: ∃x ∃y ≠ ∃y ∃x
 </p>
 
-
-<div id="Logical agents-First order logic (FOL)-Quantifiers-Quantifier Duality"><h4 id="Quantifier Duality">Quantifier Duality</h4></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Quantification-Quantifier Duality"><h5 id="Quantifier Duality">Quantifier Duality</h5></div>
 <p>
 each quantifier can be expressed in terms of the other
 e.g. these are the same:
@@ -983,8 +963,35 @@ e.g. these are the same:
 
 </ul>
 
-<div id="Logical agents-First order logic (FOL)-Knowledge engineering in FOL"><h3 id="Knowledge engineering in FOL">Knowledge engineering in FOL</h3></div>
+<div id="Logical agents-Syntax-First order logic (FOL)-Decidability vs undecidability"><h4 id="Decidability vs undecidability">Decidability vs undecidability</h4></div>
+<p>
+undecidability
+</p>
+<ul>
+<li>
+Turing machine can calculate everything that can be calculated
 
+<li>
+halting problem: \(K := { (i,x) | \text{program i halts when run on input x})\)
+
+</ul>
+
+<p>
+decidability
+</p>
+<ul>
+<li>
+validity of FOL is not decidable (but semi-decidable)
+
+<li>
+if a theorem is logically entailed by an axiom, you can prove that it is.
+
+<li>
+if not, you can't necessarily prove that it's not (because you can continue with your proof infinitely).
+
+</ul>
+
+<div id="Logical agents-Syntax-First order logic (FOL)-Knowledge engineering in FOL"><h4 id="Knowledge engineering in FOL">Knowledge engineering in FOL</h4></div>
 <ol>
 <li>
 Identify the task
@@ -1006,35 +1013,7 @@ Pose queries to the inference procedure and get answers
 
 </ol>
 
-<div id="Logical agents-Decidability vs undecidability"><h2 id="Decidability vs undecidability">Decidability vs undecidability</h2></div>
-<p>
-undecidability
-</p>
-<ul>
-<li>
-Turing machine can calculate everything that can be calculated
-
-<li>
-halting problem: (K := { (i,x) | text{program i halts when run on input x}))
-
-</ul>
-
-<p>
-  decidability
-</p>
-<ul>
-<li>
-validity of FOL is not decidable (but semi-decidable)
-
-<li>
-if a theorem is logically entailed by an axiom, you can prove that it is.
-
-<li>
-if not, you can't necessarily prove that it's not (because you can continue with your proof infinitely).
-
-</ul>
-
-<div id="Logical agents-Choice of formalisms"><h2 id="Choice of formalisms">Choice of formalisms</h2></div>
+<div id="Logical agents-Syntax-Choice of formalisms"><h3 id="Choice of formalisms">Choice of formalisms</h3></div>
 <p>
 first-order logic: represents knowledge
 propositional logic: used for reasoning ("propositionalisation")
@@ -1071,49 +1050,14 @@ assume the opposite and prove it's impossible
 </ul>
 </ul>
 
-<div id="Logical agents-Applying in Schnapsen - Strategies (examples)"><h2 id="Applying in Schnapsen - Strategies (examples)">Applying in Schnapsen - Strategies (examples)</h2></div>
-<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play Jack"><h3 id="Play Jack">Play Jack</h3></div>
-
+<div id="Logical agents-Syntax-Propositionalising FOL"><h3 id="Propositionalising FOL">Propositionalising FOL</h3></div>
+<div id="Logical agents-Syntax-Propositionalising FOL-Reduction to propositional inference"><h4 id="Reduction to propositional inference">Reduction to propositional inference</h4></div>
 <p>
-check whether card is a jack: 
-  (KB |= PlayJack(x) ?)
+every FOL KB can be propositionalised so as to preserve entailment
+if a sentence α is entailed by an FOL KB, it is entailed by a <em>finite</em> subset of the propositionalised KB
 </p>
 
-<p>
-represent strategy: 
-  (∀x PlayJack(x) ⇔ Jack(x))
-</p>
-
-<p>
-represent game information: 
-  (KB = {Jack(4), Jack(0), Jack(14), Jack(19)})
-</p>
-
-<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play cheap"><h3 id="Play cheap">Play cheap</h3></div>
-<p>
-only play Jacks: check whether card is cheap
-  (KB |= PlayCheap(x) ?)
-</p>
-
-<p>
-represent strategy:
-  (∀x PlayCheap(x) ⇔ Jack(x) ∨ Queen(x) ∨ King(x))
-</p>
-  
-<p>
-represent game information:
-  (KB = {Jack(4), Jack(9), Jack(14), Jack(19), Queen(5), ...})
-</p>
-  
-<div id="Logical agents-Applying in Schnapsen - Strategies (examples)-Play trump marriage"><h3 id="Play trump marriage">Play trump marriage</h3></div>
-<p>
-(TrumpMarriage(x) ⇔ Q(x) &amp; Trump(x) &amp; ∃y: SameColor(x,y) &amp; K(y) &amp; MyCard(y))
-(SameColor(x,y) ⇔ (C(x) &amp; C(y)) ∨ (D(x) &amp; D(y)) ∨ (H(x) &amp; H(y)) ∨ (S(x) &amp; S(y)))
-</p>
-
-<div id="Logical agents-Propositionalising FOL"><h2 id="Propositionalising FOL">Propositionalising FOL</h2></div>
-
-<div id="Logical agents-Propositionalising FOL-Universal instantiation (UI):"><h3 id="Universal instantiation (UI):">Universal instantiation (UI):</h3></div>
+<div id="Logical agents-Syntax-Propositionalising FOL-Universal instantiation (UI):"><h4 id="Universal instantiation (UI):">Universal instantiation (UI):</h4></div>
 <p>
 every instantiation of a universally quantified sentence is entailed by it.
 <img src="img/is/univ-instant.png" />
@@ -1121,27 +1065,699 @@ every instantiation of a universally quantified sentence is entailed by it.
 
 <p>
 example:
-  (∀x King(x) ∧ Greedy(x) ⇒ Evil(x))
-  (King(John) ∧ Greedy(John) ⇒ Evil(John))
-  etc.
 </p>
+<pre>
+∀x King(x) ∧ Greedy(x) ⇒ Evil(x)
+King(John) ∧ Greedy(John) ⇒ Evil(John)
+etc.
+</pre>
 
-<div id="Logical agents-Propositionalising FOL-Existential instantiation (EI):"><h3 id="Existential instantiation (EI):">Existential instantiation (EI):</h3></div>
+<div id="Logical agents-Syntax-Propositionalising FOL-Existential instantiation (EI):"><h4 id="Existential instantiation (EI):">Existential instantiation (EI):</h4></div>
 <p>
 <img src="img/is/exist-instant.png" />
 </p>
 
 <p>
 example:
-  (∃x Crown(x) ∧ OnHead(x,John))
-  (Crown(C_1) ∧ OnHead(C_1, John))
 </p>
+<pre>
+∃x Crown(x) ∧ OnHead(x,John)
+Crown(C_1) ∧ OnHead(C_1, John)
+</pre>
 
-<div id="Logical agents-Propositionalising FOL-Reduction to propositional inference"><h3 id="Reduction to propositional inference">Reduction to propositional inference</h3></div>
+<div id="Logical agents-Syntax-Propositionalising FOL-Applying in Schnapsen - Strategies (examples)"><h4 id="Applying in Schnapsen - Strategies (examples)">Applying in Schnapsen - Strategies (examples)</h4></div>
+<div id="Logical agents-Syntax-Propositionalising FOL-Applying in Schnapsen - Strategies (examples)-Play Jack"><h5 id="Play Jack">Play Jack</h5></div>
+
 <p>
-every FOL KB can be propositionalised so as to preserve entailment
-if a sentence α is entailed by an FOL KB, it is entailed by a <em>finite</em> subset of the propositionalised KB
+check whether card is a jack: 
 </p>
 
+<pre>
+KB |= PlayJack(x) ?
+</pre>
+
+<p>
+represent strategy: 
+</p>
+
+<pre>
+∀x PlayJack(x) ⇔ Jack(x)
+</pre>
+
+<p>
+represent game information: 
+</p>
+
+<pre>
+KB = {Jack(4), Jack(0), Jack(14), Jack(19)}
+</pre>
+
+<div id="Logical agents-Syntax-Propositionalising FOL-Applying in Schnapsen - Strategies (examples)-Play cheap"><h5 id="Play cheap">Play cheap</h5></div>
+<p>
+only play Jacks: check whether card is cheap
+</p>
+
+<pre>
+KB |= PlayCheap(x) ?
+</pre>
+
+<p>
+represent strategy:
+</p>
+
+<pre>
+∀x PlayCheap(x) ⇔ Jack(x) ∨ Queen(x) ∨ King(x)
+</pre>
+  
+<p>
+represent game information:
+</p>
+
+<pre>
+KB = {Jack(4), Jack(9), Jack(14), Jack(19), Queen(5), ...}
+</pre>
+  
+<div id="Logical agents-Syntax-Propositionalising FOL-Applying in Schnapsen - Strategies (examples)-Play trump marriage"><h5 id="Play trump marriage">Play trump marriage</h5></div>
+<pre>
+TrumpMarriage(x) ⇔ Q(x) &amp; Trump(x) &amp; ∃y: SameColor(x,y) &amp; K(y) &amp; MyCard(y)
+SameColor(x,y) ⇔ (C(x) &amp; C(y)) ∨ (D(x) &amp; D(y)) ∨ (H(x) &amp; H(y)) ∨ (S(x) &amp; S(y))
+</pre>
+
+<div id="Logical agents-Semantics"><h2 id="Semantics">Semantics</h2></div>
+<div id="Logical agents-Semantics-Interpretations &amp; Models"><h3 id="Interpretations &amp; Models">Interpretations &amp; Models</h3></div>
+<p>
+interpretation: assignment of meaning to symbols of formal language
+model: interpretation that satisfies defining axios of knowledge base
+</p>
+
+<p>
+<em>m</em> is a model of a sentence <em>α</em> if <em>α</em> holds in <em>m</em>.
+M(a) is the set of all models of a.
+</p>
+
+<p>
+each model specifies true/false for each proposition symbol (∧, ∨, ¬, ⇒, ⇐, ⇔)
+</p>
+
+<div id="Logical agents-Semantics-Entailment"><h3 id="Entailment">Entailment</h3></div>
+<p>
+the knowledge base (KB) entails <em>α</em>: <em>α</em> follows from the information in the knowledge base (KB |= <em>α</em>)
+KB entails <em>α</em> iff <em>α</em> holds in all worlds where KB is true.
+a knowledge base is the rules + observations.
+</p>
+
+<p>
+a sentence is:
+</p>
+<ul>
+<li>
+entailed by KB iff α holds in all models of KB
+
+<li>
+valid if it is true in all models
+
+<li>
+satisfiable  if it is true in some model
+
+<li>
+unsatisfiable if it is true in no models
+
+</ul>
+
+<p>
+two statements are logically equivalent if they are true in same set of models:
+α ≡ β iff α |= β and β |= α
+</p>
+
+<div id="Logical agents-Semantics-Truth"><h3 id="Truth">Truth</h3></div>
+<p>
+sentences are true with respect to model and interpretation.
+model contains objects and relations among them
+</p>
+
+<p>
+interpretation specifies referents for:
+</p>
+<ul>
+<li>
+constant symbols -- objects
+
+<li>
+predicate symbols -- relations
+
+<li>
+function symbols -- functional relations
+
+</ul>
+
+<p>
+an atomic sentence \(predicate(term_1, ..., term_n)\) is true
+iff the objects referred to by \(term_1,..., term_n\)
+are in the relation referred to by \(predicate\)
+</p>
+
+<div id="Logical agents-Semantics-Validity"><h3 id="Validity">Validity</h3></div>
+<p>
+valid if it is true in all models.
+e.g. True, A ∨ ¬A, A ⇒ A, (A ∧ (A e.g. True, A ∨ ⇒ B)) ⇒ B)
+</p>
+
+<div id="Logical agents-Semantics-Satisfiability"><h3 id="Satisfiability">Satisfiability</h3></div>
+<p>
+satisfiable if it is true in <em>some</em> model
+unsatisfiable if it is true in <em>no</em> models
+</p>
+
+<div id="Logical agents-Calculus (algorithms for inference)"><h2 id="Calculus (algorithms for inference)">Calculus (algorithms for inference)</h2></div>
+<div id="Logical agents-Calculus (algorithms for inference)-Properties of inference"><h3 id="Properties of inference">Properties of inference</h3></div>
+<p>
+sound: if an algorithm \(|-\) only derives entailed sentences
+  i.e. if KB \(|-\) α also KB |= α
+</p>
+
+<p>
+complete: if an algorithm derives any sentence that is entailed
+  i.e. KB |= α implies KB |- α
+</p>
+
+<p>
+a calculus terminates if it finds entailed sentences in finite time.
+</p>
+
+<p>
+a logic is <em>decidable</em> if there is <em>sound and complete</em> calculus that <em>terminates</em>.
+</p>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods"><h3 id="Proof methods">Proof methods</h3></div>
+<ol>
+<li>
+Model checking and search
+
+<ul>
+<li>
+truth table enumeration (exponential in n)
+
+<li>
+improved backtrackgin (DPLL)
+
+<li>
+heuristics for choosing right order
+
+</ul>
+<li>
+application of inference rules
+
+<ul>
+<li>
+sound generation of new sentences from old
+
+<li>
+proof = sequence of rule applications (actions)
+
+</ul>
+</ol>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search"><h4 id="Model checking &amp; search">Model checking &amp; search</h4></div>
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-Truth Tables for inference"><h5 id="Truth Tables for inference">Truth Tables for inference</h5></div>
+<p>
+enumerate interpretations and check that where KB is true, α is true.
+</p>
+
+<table>
+<tr>
+<th>
+\(fact_1\)
+</th>
+<th>
+\(fact_2\)
+</th>
+<th>
+\(fact_3\)
+</th>
+<th>
+\(KB\)
+</th>
+<th>
+\(α\)
+</th>
+</tr>
+<tr>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+</tr>
+<tr>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+false
+</td>
+<td>
+true
+</td>
+</tr>
+<tr>
+<td>
+false
+</td>
+<td>
+true
+</td>
+<td>
+false
+</td>
+<td>
+<em>true</em>
+</td>
+<td>
+<em>true</em>
+</td>
+</tr>
+</table>
+
+<p>
+algorithm:
+</p>
+
+<pre>
+for (m in truth assignments) {
+  if (m makes F true) return "satisfiable"
+}
+return "unsatisfiable"
+</pre>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-Effective proofs by model checking"><h5 id="Effective proofs by model checking">Effective proofs by model checking</h5></div>
+
+<p>
+Clever search (depth first, redundancy, heuristics)
+Two families of efficient algorithms for propositional inference based on model checking
+</p>
+<ul>
+<li>
+complete backtracking search algorithms -- DPLL (Davis, Putnam, Logemann, Loveland)
+
+<li>
+incomplete local search algorithm (WalkSAT algorithm)
+
+</ul>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-Clause Normal Form (CNF)"><h5 id="Clause Normal Form (CNF)">Clause Normal Form (CNF)</h5></div>
+
+<p>
+memo technique: the C in CNF for <em>conjunction</em> normal form
+</p>
+
+<p>
+A PL formula is in CNF if it is a conjunction of disjunctions of literals.
+</p>
+<ul>
+<li>
+e.g.: {{a,b}, {~a, c}, {~b, c}}
+
+<li>
+equivalent to (a ∨ b) ∧ (~ a ∨ c) ∧ (~ b ∨ c)
+
+</ul>
+
+<p>
+calculating CNF:
+</p>
+<ol>
+<li>
+Remove implications: 
+
+<ul>
+<li>
+(p ⇔ q) to ((p ⇒ q) ∧ (q ⇒ p))
+
+<li>
+(p → q) to (¬ p ∨ q)
+
+</ul>
+<li>
+Move negations inward: 
+
+<ul>
+<li>
+¬ (p ∨ q) to (¬ p ∧ ¬ q)
+
+<li>
+¬ (p ∧ q) to (¬ p ∨ ¬ q)
+
+</ul>
+<li>
+Move conjunctions outward:
+
+<ul>
+<li>
+(r ∨ (p ∧ q)) to ((r ∨ p) ∧ (r ∨ q))
+
+</ul>
+<li>
+Split up conjunctive clauses:
+
+<ul>
+<li>
+( (p1 ∨ p2) ∧ (q1 ∨ q2) ) to (p1 ∨ p2), (q1 ∨ q2)
+
+</ul>
+</ol>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-DPLL algorithm"><h5 id="DPLL algorithm">DPLL algorithm</h5></div>
+
+<p>
+when you have CNF, you can run the DPLL algorithm. determines if propositional logic sentence in CNF is satsfiable.
+</p>
+
+<p>
+returns true if F is satisfiable, false otherwise.
+</p>
+
+<p>
+basically assign values until contradiction, then backtrack.
+</p>
+
+<p>
+Improving DPLL:
+</p>
+<ul>
+<li>
+if a literal in a disjunction clause is true, the clause is true
+
+<li>
+if a literal in a disjunction clause is false, the literal can be removed
+
+<li>
+if a clause is empty, it is false
+
+<li>
+a unit literal has to be true
+
+<li>
+a pure literal (only appears non-negated) has to be true
+
+</ul>
+
+<p>
+the algorithm:
+</p>
+
+<pre>
+dpll (F, literal) {
+  remove clauses containing literal
+  shorten clauses containing ¬literal
+  if (F contains no clauses) 
+    return true
+  if (F contains empty clause) 
+    return false
+  if (F contains a unit or pure literal)
+    return dpll(F, literal)
+  
+  choose P in F
+  if (dpll(F, ¬P)) 
+    return true
+  
+  return dpll(F, P)
+}
+</pre>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-DPLL algorithm-Heuristic search in DPLL"><h6 id="Heuristic search in DPLL">Heuristic search in DPLL</h6></div>
+
+<p>
+used in DPLL to select proposition for branching
+idea: identify most constrained variable, likely to create many unit clauses
+</p>
+
+<p>
+MOM's heuristic: most occurences in clauses of minimum length
+</p>
+
+<p>
+why is it better than truth table enumeration?
+</p>
+<ul>
+<li>
+early termination: clause is true if any literal is true. sentence is false if any clause is false.
+
+<li>
+pure symbol heauristic: always appears with the same sign in all clauses, has to be true
+
+<li>
+unit clause heuristic: only one literal in the clause, so it must be true
+
+</ul>
+
+<p>
+proving entailment KB |= a by refutation:
+</p>
+<ol>
+<li>
+translate KB into CNF to get cnf(KB)
+
+<li>
+translate ~a into CNF to get cnf(~a)
+
+<li>
+add cnf(~a) to cnf(KB)
+
+<li>
+apply DPLL until either satisfiable (model is found) or unsatisfiable (search exhausted)
+
+<li>
+if satsfiable, not entailed. otherwise, entailed.
+
+</ol>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-Satisfiability modulo theory"><h5 id="Satisfiability modulo theory">Satisfiability modulo theory</h5></div>
+
+<p>
+Boolean satisfiability (SAT): is there an assignment to the \(p_1, p_2, ..., p_n\) variables such that \(\phi\) evaluates to 1?
+</p>
+
+<p>
+<img src="img/is/boolean-satisfiability.png" />
+</p>
+
+<p>
+SAT vs SMT:
+</p>
+<ul>
+<li>
+SMT (satisfiability modulo theories) extend SAT solving by adding extensions.
+
+<li>
+SMT solver can solve SAT problem, but not vice-versa.
+
+<li>
+SMT is used in analog circuit verification, RTL, verification, and card games.
+
+</ul>
+
+<p>
+SMT theories:
+</p>
+<ul>
+<li>
+real or integer arithmetic
+
+<li>
+equality and uninterpreted functions
+
+<li>
+bitvectors and arrays
+
+<li>
+properties:
+
+<ul>
+<li>
+decidable: an effective procedure exists to determine if formula is member of theory T
+
+<li>
+often quantifier-free
+
+</ul>
+<li>
+core theory:
+
+<ul>
+<li>
+type boolean
+
+<li>
+constants {TRUE, FALSE}
+
+<li>
+functions {AND, OR, XOR, =&gt;}
+
+</ul>
+<li>
+integer theory:
+
+<ul>
+<li>
+type int
+
+<li>
+all numerals are int constants
+
+<li>
+functions {+, -, x, mod, div, abs}
+
+</ul>
+<li>
+reals theory:
+
+<ul>
+<li>
+type real
+
+<li>
+functions {+, -, x, /, &lt;, &gt;}
+
+<li>
+
+
+</ul>
+</ul>
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning"><h4 id="Rule-based reasoning">Rule-based reasoning</h4></div>
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Inference rules"><h5 id="Inference rules">Inference rules</h5></div>
+<p>
+inference rule: logical form consisting of function taking premises, analysing their syntax, and returning one or more conclusions
+</p>
+
+<p>
+Modens Ponens: \(\frac{\alpha\implies\beta,\;\alpha}{\beta}\)
+</p>
+
+<p>
+And-elimination: \(\frac{\alpha\land\beta}{\alpha}\)
+</p>
+
+<p>
+logical equivalences used as rules: \(\frac{\alpha\Leftrightarrow\beta}{(\alpha\implies\beta)\land(\beta\implies\alpha)}\)
+</p>
+
+<p>
+all logical equivalence rewriting rules:
+</p>
+
+<p>
+<img src="img/is/logical-rewriting-rules.png" />
+</p>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Searching for proofs"><h5 id="Searching for proofs">Searching for proofs</h5></div>
+<p>
+Finding proofs is like finding solutions to search problems.
+</p>
+
+<p>
+monotonicity: set of entailed sentences can only increase as info is added to the knowledge base.
+</p>
+<ul>
+<li>
+for any sentence α and β,
+
+<li>
+if KB |= α, then KB ∧ β |= α
+
+</ul>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Forward and backward chaining"><h5 id="Forward and backward chaining">Forward and backward chaining</h5></div>
+<p>
+FC is data-driven, automatic, unconscious:
+</p>
+<ul>
+<li>
+derive all facts entailed by the KB
+
+<li>
+may do lots of work irrelevant to the goal
+
+</ul>
+
+<p>
+BC is goal-driven, appropriate for problem-solving
+</p>
+<ul>
+<li>
+specific fact entailed by the KB
+
+<li>
+complexity of BC can be much less than linear in size of KB
+
+</ul>
+
+<div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Resolution"><h5 id="Resolution">Resolution</h5></div>
+<p>
+a rule is sound if its conclusion is evaluated to true whenever the premise is evaluated to true.
+</p>
+
+<p>
+can be shown to be sound using truth table:
+</p>
+
+<p>
+<img src="img/is/sound-rules-inference.png" />
+</p>
+
+<p>
+properties resolution:
+</p>
+<ul>
+<li>
+resolution rule is sound
+
+<li>
+resolution rule is complete (on its own) for formulas in CNF
+
+<li>
+resolution can only decide satisfiability
+
+</ul>
+
+<p>
+algorithm (again proof by refutation):
+</p>
+<ol>
+<li>
+Convert KB ∧ ¬ α into CNF
+
+<li>
+Apply resolution rule to resulting clauses
+
+<li>
+Continue until:
+
+<ol>
+<li>
+no new clauses can be added, hence α does not entail β
+
+<li>
+two clauses resolve to entail empty clause, hence α entails β
+
+</ol>
+</ol>
+
+    </div>
 </body>
 </html>
