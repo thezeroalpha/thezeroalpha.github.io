@@ -10,8 +10,12 @@
     <hr>
     <div class="content">
     
+
 <div id="Contents" class="toc"><h1 id="Contents">Contents</h1></div>
 <ul>
+<li>
+<a href="#Intelligent Systems">Intelligent Systems</a>
+
 <li>
 <a href="#State Space Representations Intro">State Space Representations Intro</a>
 
@@ -28,11 +32,6 @@
 <li>
 <a href="#State space search-Adversarial search">Adversarial search</a>
 
-<ul>
-<li>
-<a href="#State space search-Adversarial search-Games with chance">Games with chance</a>
-
-</ul>
 <li>
 <a href="#State space search-Summary">Summary</a>
 
@@ -60,8 +59,21 @@
 <a href="#Logical agents-Calculus (algorithms for inference)">Calculus (algorithms for inference)</a>
 
 </ul>
-</ul>
+<li>
+<a href="#Probability and Uncertainty">Probability and Uncertainty</a>
 
+<ul>
+<li>
+<a href="#Probability and Uncertainty-Vagueness: Fuzzy Set Theory">Vagueness: Fuzzy Set Theory</a>
+
+<li>
+<a href="#Probability and Uncertainty-Uncertainties: Probability Theory">Uncertainties: Probability Theory</a>
+
+</ul>
+<li>
+<a href="#Assessment info">Assessment info</a>
+
+</ul>
 
 <div id="Intelligent Systems"><h1 id="Intelligent Systems">Intelligent Systems</h1></div>
 
@@ -168,14 +180,26 @@ search generates a graph
 
 <p>
 state: representation of a physical configuration
+</p>
+
+<p>
 node: data structure in the search tree. it contains state, parent node, actions, etc.
 </p>
 
 <div id="State space search-Uninformed search strategies"><h2 id="Uninformed search strategies">Uninformed search strategies</h2></div>
 <p>
 strategy defines picking order of node expansion
+</p>
+
+<p>
 uninformed methods: only use problem definition
+</p>
+
+<p>
 informed methods: use heuristic function to estimate cost of solution
+</p>
+
+<p>
 evaluating performance:
 </p>
 <ul>
@@ -387,9 +411,11 @@ fringe is queue in order of decreasing desirability
 </ul>
 
 <div id="State space search-Informed search (heuristics)-A Search"><h3 id="A Search">A Search</h3></div>
-
 <p>
 best-known form of best-first search
+</p>
+
+<p>
 avoid expanding paths that are already expensive
 </p>
 
@@ -446,7 +472,13 @@ optimal: yes
 <div id="State space search-Adversarial search"><h2 id="Adversarial search">Adversarial search</h2></div>
 <p>
 search has no adversary, solution is a (heuristic) method for finding a goal
+</p>
+
+<p>
 games have an adversary, solution is a strategy. time limits force an <em>approximate</em> solution.
+</p>
+
+<p>
 you need a function to evaluate the "goodness" of a game position
 </p>
 
@@ -495,6 +527,9 @@ bridge poker, scrabble, nuclear war
 <div id="State space search-Adversarial search-Minimax-Setup"><h4 id="Setup">Setup</h4></div>
 <p>
 two players: MAX, MIN
+</p>
+
+<p>
 MAX moves first, take turns until game is over. winner gets award, loser gets penalty.
 </p>
 
@@ -523,44 +558,53 @@ MAX uses search tree to determine next move
 
 <p>
 find contingent strategy for MAX assuming infallible MIN.
+</p>
+
+<p>
 assume that both players play optimally.
+</p>
+
+<p>
 given game tree, optimal strategy can be found with minimax value of each node:
 </p>
-<ul>
-<li>
-minimax(n) =
-        utility(n)                      if n is a terminal
-        minimax(max(successors of n))   if n is a max node
-        minimax(min(successors of n))   if n is a min node
-
-</ul>
+<blockquote>
+minimax(n) = utility(n)                      if n is a terminal
+minimax(max(successors of n))   if n is a max node
+minimax(min(successors of n))   if n is a min node
+</blockquote>
 
 <div id="State space search-Adversarial search-Minimax-Evaluation"><h4 id="Evaluation">Evaluation</h4></div>
-<p>
+<ul>
+<li>
 complete: yes
+
+<li>
 time: \(O(b^m)\)
+
+<li>
 space: \(O(bm)\)
+
+<li>
 optimal: yes
-</p>
+
+</ul>
 
 <div id="State space search-Adversarial search-Reducing problems of complexity with Minimax"><h3 id="Reducing problems of complexity with Minimax">Reducing problems of complexity with Minimax</h3></div>
 
 <div id="State space search-Adversarial search-Reducing problems of complexity with Minimax-Cutting off search:"><h4 id="Cutting off search:">Cutting off search:</h4></div>
-<ul>
-<li>
-instead of <code>if TERMINAL(state) then return UTILITY(state)</code>
-              do <code>if CUTOFF-TEST(state, depth) then return EVAL(state)</code>
+<p>
+instead of <code>if TERMINAL(state) then return UTILITY(state)</code> do <code>if CUTOFF-TEST(state, depth) then return EVAL(state)</code>
+</p>
 
-<li>
-this introduces fixed-limit depth
-
-<li>
-also loses completeness!
-
-</ul>
+<p>
+this introduces fixed-limit depth. also loses completeness!
+</p>
 
 <p>
 utility: value based on quality of state
+</p>
+
+<p>
 heuristics: value based on estimation of quality of state
 </p>
 
@@ -583,11 +627,17 @@ computation shouldn't take too long
 
 <p>
 with minimax, the number of states is exponential to number of moves
+</p>
+
+<p>
 so, don't examine every node and prune the subtrees you don't have to examine
 </p>
 
 <p>
 Alpha: value of best MAX choice so far
+</p>
+
+<p>
 Beta: value of best MIN choice so far
 </p>
 
@@ -597,7 +647,13 @@ you prune the rest of the level if, at any point, beta &lt;= alpha.
 
 <p>
 pruning doesn't affect final results, entire subtrees can be pruned
+</p>
+
+<p>
 good move ordering improves effectiveness of pruning
+</p>
+
+<p>
 with 'perfect ordering', time complexity is: \(O(b^{m/2})\)
 </p>
 
@@ -644,9 +700,12 @@ choose one with max average
 <img src="img/is/games-chance.png" alt="Games with chance" />
 </p>
 
-<div id="State space search-Summary"><h2 id="Summary">Summary</h2></div>
+<div id="State space search-Summary (Schnapsen)"><h2 id="Summary (Schnapsen)">Summary (Schnapsen)</h2></div>
 <p>
 Phase 2: minimax &amp; alpha-beta pruning
+</p>
+
+<p>
 Phase 1: PIMC sampling
 </p>
 
@@ -657,6 +716,9 @@ what next? give the agent information about the game
 <div id="State space search-Search direction"><h2 id="Search direction">Search direction</h2></div>
 <p>
 Data-driven: start with initial state (e.g. a maze)
+</p>
+
+<p>
 Goal-driven: start with goal state, but has bigger branching factor (<span class="todo">TODO</span> confirm this)
 </p>
 
@@ -669,7 +731,13 @@ Goal-driven: start with goal state, but has bigger branching factor (<span class
 <div id="Rational agents-Agents"><h2 id="Agents">Agents</h2></div>
 <p>
 agent function maps percept sequence to actions (\(f: P* \rightarrow A\))
+</p>
+
+<p>
 function is internally represented by agent program
+</p>
+
+<p>
 program runs on physical architecture to produce f
 </p>
 
@@ -767,7 +835,13 @@ single-agent: no
 <div id="Rational agents-Agent types-Simple Reflex"><h3 id="Simple Reflex">Simple Reflex</h3></div>
 <p>
 select action on basis of <em>only the current percept</em>
+</p>
+
+<p>
 large reduction in possible percept/action situations
+</p>
+
+<p>
 implemented using condition-action rules
 </p>
 
@@ -778,18 +852,27 @@ only works if environment is fully observable, otherwise may result in infinite 
 <div id="Rational agents-Agent types-Reflex &amp; State"><h3 id="Reflex &amp; State">Reflex &amp; State</h3></div>
 <p>
 to tackle partially observable environments, maintain internal state
+</p>
+
+<p>
 over time, update state using world knowledge.
 </p>
 
 <div id="Rational agents-Agent types-Goal-Based"><h3 id="Goal-Based">Goal-Based</h3></div>
 <p>
 agent needs a goal to know the desirable situations
+</p>
+
+<p>
 future is taken into account
 </p>
 
 <div id="Rational agents-Agent types-Learning"><h3 id="Learning">Learning</h3></div>
 <p>
 teach agents instead of instructing them
+</p>
+
+<p>
 very robust toward initially unknown environments.
 </p>
 
@@ -838,6 +921,9 @@ online/exploratory search: go to position, evaluate all options, possibly look a
 <div id="Logical agents-Syntax-Propositional logic (PL)"><h3 id="Propositional logic (PL)">Propositional logic (PL)</h3></div>
 <p>
 assumes world contains facts
+</p>
+
+<p>
 uses proposition symbols to state these facts.
 </p>
 
@@ -871,6 +957,9 @@ very limited expressive power
 <div id="Logical agents-Syntax-First order logic (FOL)"><h3 id="First order logic (FOL)">First order logic (FOL)</h3></div>
 <p>
 an extension of propositional logic.
+</p>
+
+<p>
 allows variables to range over atomic symbols in the domain.
 </p>
 
@@ -890,13 +979,23 @@ functions: father of, best friend, one more than, plus, etc.
 </ul>
 
 <div id="Logical agents-Syntax-First order logic (FOL)-Basic elements:"><h4 id="Basic elements:">Basic elements:</h4></div>
-<p>
+<ul>
+<li>
 Constants: KingJohn, 2, UCB, ...
+
+<li>
 Predicates: Brother, &gt;, ...
+
+<li>
 Functions: Sqrt, LeftLegOf, ...
+
+<li>
 Variables: x, y, ...
+
+<li>
 Connectives: ∧, ∨, ¬, ⇒, ⇔
-</p>
+
+</ul>
 
 <div id="Logical agents-Syntax-First order logic (FOL)-Sentences"><h4 id="Sentences">Sentences</h4></div>
 <pre>
@@ -919,6 +1018,9 @@ Complex sentences are made from atomic sentences using connectives.
 
 <p>
 ∀x P is true in a model <em>m</em> iff P is true with x being each possible object in the model
+</p>
+
+<p>
 (you can roughly translate that to conjunctions) 
 </p>
 
@@ -937,11 +1039,17 @@ typically used with ⇒
 
 <p>
 ∃x P is true in a model <em>m</em> iff P is true with x being some possible object in the model
+</p>
+
+<p>
 (you can roughly translate that to disjunction of instantiations of P)
 </p>
 
 <p>
 typically used with ∧
+</p>
+
+<p>
 watch out, if you use it with ⇒, it works even if the LHS is false!
 </p>
 
@@ -952,6 +1060,9 @@ watch out, if you use it with ⇒, it works even if the LHS is false!
 <div id="Logical agents-Syntax-First order logic (FOL)-Quantification-Quantifier Duality"><h5 id="Quantifier Duality">Quantifier Duality</h5></div>
 <p>
 each quantifier can be expressed in terms of the other
+</p>
+
+<p>
 e.g. these are the same:
 </p>
 <ul>
@@ -1016,6 +1127,9 @@ Pose queries to the inference procedure and get answers
 <div id="Logical agents-Syntax-Choice of formalisms"><h3 id="Choice of formalisms">Choice of formalisms</h3></div>
 <p>
 first-order logic: represents knowledge
+</p>
+
+<p>
 propositional logic: used for reasoning ("propositionalisation")
 </p>
 
@@ -1054,13 +1168,19 @@ assume the opposite and prove it's impossible
 <div id="Logical agents-Syntax-Propositionalising FOL-Reduction to propositional inference"><h4 id="Reduction to propositional inference">Reduction to propositional inference</h4></div>
 <p>
 every FOL KB can be propositionalised so as to preserve entailment
+</p>
+
+<p>
 if a sentence α is entailed by an FOL KB, it is entailed by a <em>finite</em> subset of the propositionalised KB
 </p>
 
 <div id="Logical agents-Syntax-Propositionalising FOL-Universal instantiation (UI):"><h4 id="Universal instantiation (UI):">Universal instantiation (UI):</h4></div>
 <p>
 every instantiation of a universally quantified sentence is entailed by it.
-<img src="img/is/univ-instant.png" />
+</p>
+
+<p>
+<img src="img/is/univ-instant.png" alt="Universal instantiation" />
 </p>
 
 <p>
@@ -1074,7 +1194,7 @@ etc.
 
 <div id="Logical agents-Syntax-Propositionalising FOL-Existential instantiation (EI):"><h4 id="Existential instantiation (EI):">Existential instantiation (EI):</h4></div>
 <p>
-<img src="img/is/exist-instant.png" />
+<img src="img/is/exist-instant.png" alt="Existential instantiation" />
 </p>
 
 <p>
@@ -1147,11 +1267,17 @@ SameColor(x,y) ⇔ (C(x) &amp; C(y)) ∨ (D(x) &amp; D(y)) ∨ (H(x) &amp; H(y))
 <div id="Logical agents-Semantics-Interpretations &amp; Models"><h3 id="Interpretations &amp; Models">Interpretations &amp; Models</h3></div>
 <p>
 interpretation: assignment of meaning to symbols of formal language
+</p>
+
+<p>
 model: interpretation that satisfies defining axios of knowledge base
 </p>
 
 <p>
 <em>m</em> is a model of a sentence <em>α</em> if <em>α</em> holds in <em>m</em>.
+</p>
+
+<p>
 M(a) is the set of all models of a.
 </p>
 
@@ -1162,7 +1288,13 @@ each model specifies true/false for each proposition symbol (∧, ∨, ¬, ⇒, 
 <div id="Logical agents-Semantics-Entailment"><h3 id="Entailment">Entailment</h3></div>
 <p>
 the knowledge base (KB) entails <em>α</em>: <em>α</em> follows from the information in the knowledge base (KB |= <em>α</em>)
+</p>
+
+<p>
 KB entails <em>α</em> iff <em>α</em> holds in all worlds where KB is true.
+</p>
+
+<p>
 a knowledge base is the rules + observations.
 </p>
 
@@ -1186,12 +1318,18 @@ unsatisfiable if it is true in no models
 
 <p>
 two statements are logically equivalent if they are true in same set of models:
+</p>
+
+<p>
 α ≡ β iff α |= β and β |= α
 </p>
 
 <div id="Logical agents-Semantics-Truth"><h3 id="Truth">Truth</h3></div>
 <p>
 sentences are true with respect to model and interpretation.
+</p>
+
+<p>
 model contains objects and relations among them
 </p>
 
@@ -1219,24 +1357,31 @@ are in the relation referred to by \(predicate\)
 <div id="Logical agents-Semantics-Validity"><h3 id="Validity">Validity</h3></div>
 <p>
 valid if it is true in all models.
+</p>
+
+<p>
 e.g. True, A ∨ ¬A, A ⇒ A, (A ∧ (A e.g. True, A ∨ ⇒ B)) ⇒ B)
 </p>
 
 <div id="Logical agents-Semantics-Satisfiability"><h3 id="Satisfiability">Satisfiability</h3></div>
-<p>
+<ul>
+<li>
 satisfiable if it is true in <em>some</em> model
+
+<li>
 unsatisfiable if it is true in <em>no</em> models
-</p>
+
+</ul>
 
 <div id="Logical agents-Calculus (algorithms for inference)"><h2 id="Calculus (algorithms for inference)">Calculus (algorithms for inference)</h2></div>
 <div id="Logical agents-Calculus (algorithms for inference)-Properties of inference"><h3 id="Properties of inference">Properties of inference</h3></div>
 <p>
-sound: if an algorithm \(|-\) only derives entailed sentences
+sound: if an algorithm \(|-\) only derives entailed sentences. 
   i.e. if KB \(|-\) α also KB |= α
 </p>
 
 <p>
-complete: if an algorithm derives any sentence that is entailed
+complete: if an algorithm derives any sentence that is entailed. 
   i.e. KB |= α implies KB |- α
 </p>
 
@@ -1369,6 +1514,9 @@ return "unsatisfiable"
 
 <p>
 Clever search (depth first, redundancy, heuristics)
+</p>
+
+<p>
 Two families of efficient algorithms for propositional inference based on model checking
 </p>
 <ul>
@@ -1504,6 +1652,9 @@ dpll (F, literal) {
 
 <p>
 used in DPLL to select proposition for branching
+</p>
+
+<p>
 idea: identify most constrained variable, likely to create many unit clauses
 </p>
 
@@ -1554,7 +1705,7 @@ Boolean satisfiability (SAT): is there an assignment to the \(p_1, p_2, ..., p_n
 </p>
 
 <p>
-<img src="img/is/boolean-satisfiability.png" />
+<img src="img/is/boolean-satisfiability.png" alt="Boolean satisfiability diagram" />
 </p>
 
 <p>
@@ -1654,7 +1805,7 @@ And-elimination: \(\frac{\alpha\land\beta}{\alpha}\)
 </p>
 
 <p>
-logical equivalences used as rules: \(\frac{\alpha\Leftrightarrow\beta}{(\alpha\implies\beta)\land(\beta\implies\alpha)}\)
+logical equivalences used as rules: \(\frac{\alpha\iff\beta}{(\alpha\implies\beta)\land(\beta\implies\alpha)}\)
 </p>
 
 <p>
@@ -1662,7 +1813,7 @@ all logical equivalence rewriting rules:
 </p>
 
 <p>
-<img src="img/is/logical-rewriting-rules.png" />
+<img src="img/is/logical-rewriting-rules.png" alt="Rewriting rules for logic" />
 </p>
 
 <div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Searching for proofs"><h5 id="Searching for proofs">Searching for proofs</h5></div>
@@ -1717,7 +1868,7 @@ can be shown to be sound using truth table:
 </p>
 
 <p>
-<img src="img/is/sound-rules-inference.png" />
+<img src="img/is/sound-rules-inference.png" alt="Sound rules for inference" />
 </p>
 
 <p>
@@ -1757,6 +1908,489 @@ two clauses resolve to entail empty clause, hence α entails β
 
 </ol>
 </ol>
+
+<div id="Probability and Uncertainty"><h1 id="Probability and Uncertainty">Probability and Uncertainty</h1></div>
+<p>
+one often has to deal with info that is underspecified, incomplete, vague, etc.
+</p>
+
+<p>
+logic by itself is not sufficient for these problems.
+</p>
+
+<div id="Probability and Uncertainty-Vagueness: Fuzzy Set Theory"><h2 id="Vagueness: Fuzzy Set Theory">Vagueness: Fuzzy Set Theory</h2></div>
+<p>
+model theory often based on set theory
+</p>
+
+<p>
+fuzzy set theory allows something to be <em>to some degree</em> an element of a set
+</p>
+
+<p>
+dominant approach to vagueness (mostly because wtf else can you do)
+</p>
+
+<div id="Probability and Uncertainty-Vagueness: Fuzzy Set Theory-Fuzzy sets"><h3 id="Fuzzy sets">Fuzzy sets</h3></div>
+<ul>
+<li>
+universe U, object x ∈ U
+
+<li>
+membership function for fuzzy set A is defined to be function \(f_A\) from U to [0,1]:
+
+<ul>
+<li>
+\(f_A(x)=y\): x is a member of A to degree y
+
+<li>
+\(f_A(x)=1\): x is cerainly member of A
+
+<li>
+\(f_A(x)=0\): x is certainly not a member of A
+
+<li>
+\({x | f_A(x)&gt;0}\): support of A
+
+</ul>
+</ul>
+
+<p>
+modifiers (hedges)
+</p>
+
+<p>
+<img src="img/is/modifiers-hedges.png" alt="Example of modifiers' effects on graphs" />
+</p>
+
+<p>
+operations on fuzzy sets:
+</p>
+<ul>
+<li>
+complement: \(f_{\sim{A}}(x)=1-f_A(x)\)
+
+<li>
+union: \(f_{A\cup B}(x)=\max(f_A(x),f_B(x))\)
+
+<li>
+intersection: \(f_{A\cap B}(x)=\min(f_A(x), f_B(x))\)
+
+<li>
+subset: \(A\subset B \iff \forall{x}(f_A(x)\leq f_B(x))\)
+
+</ul>
+
+<p>
+semantics -- multivalued fuzzy logic
+</p>
+<ul>
+<li>
+v(¬ A) = 1-v(A)
+
+<li>
+v(A ∨ B) = max(v(A), v(B))
+
+<li>
+v(A ∧ B) = min(v(A), v(B))
+
+<li>
+v(A → B) = min(1, 1 - v(A) + v(B))
+
+</ul>
+
+<div id="Probability and Uncertainty-Vagueness: Fuzzy Set Theory-Fuzzy relations"><h3 id="Fuzzy relations">Fuzzy relations</h3></div>
+<p>
+fuzzy sets can denote fuzzy relations between objects. e.g. approximately equal, close to, much larger than, etc.
+</p>
+
+<p>
+fuzzy composition:
+</p>
+
+<p>
+\(f_{R \circ S} (\langle x,z\rangle ) = \max_{y \in Y} \min(f_R (\langle x,y\rangle ), f_S (\langle y,z\rangle ))\)
+</p>
+
+<p>
+hands-on example:
+</p>
+
+<p>
+<img src="img/is/fuzzy-composition.png" alt="Fuzzy composition table" />
+</p>
+
+<div id="Probability and Uncertainty-Vagueness: Fuzzy Set Theory-Evaluation"><h3 id="Evaluation">Evaluation</h3></div>
+<ul>
+<li>
+good -- flexible, coincides with classical set theory, sever successful applications of fuzzy control
+
+<li>
+bad -- requires many arbitraty choices, tends to blur differences between probabilistic uncertainty/ambiguity/vagueness
+
+</ul>
+
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory"><h2 id="Uncertainties: Probability Theory">Uncertainties: Probability Theory</h2></div>
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory-General"><h3 id="General">General</h3></div>
+<p>
+main interpretations of probability theory:
+</p>
+<ul>
+<li>
+optivist (frequentist) probability
+
+<ul>
+<li>
+frequentism: probability is only property of repeated experiments
+
+<li>
+probability of event: limit of <em>relative frequency</em> of occurence of event, as number of repetitions goes to infinity
+
+</ul>
+<li>
+subjective probability
+
+<ul>
+<li>
+Bayesianism: probability is an expression of our uncertainty and beliefs
+
+<li>
+probability of event: <em>degree of belief</em> of idealised rational individual
+
+</ul>
+</ul>
+
+<p>
+sample space Ω: set of single outcomes of experiment
+</p>
+
+<p>
+event space E: things that have probability (subsets of sample space). if sample space is finite, event space is usually powerset.
+</p>
+
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory-Axioms of probability"><h3 id="Axioms of probability">Axioms of probability</h3></div>
+<p>
+for any event A, B:
+</p>
+<ul>
+<li>
+\(0 \leq P(A) \leq 1\)
+
+<li>
+\(P(\Omega) = 1\)
+
+<li>
+\(P(A \cup B) = P(A) + P(B) - P(A \cap B)\)
+
+</ul>
+
+<p>
+can derive:
+</p>
+<ul>
+<li>
+\(P({}) = 0\)
+
+<li>
+\(P(\Omega) = 1\)
+
+<li>
+\(\text{if} A \subset B, P(A) \leq P(B)\)
+
+</ul>
+
+<p>
+conditional probability ("A given B"):
+</p>
+
+<p>
+\(P(A|B) = \frac{P(A \cap B)}{P(B)}\)
+</p>
+
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory-Joint probability distributions"><h3 id="Joint probability distributions">Joint probability distributions</h3></div>
+<p>
+for a set of random variables, it gives probability of every atomic even on those random variables.
+</p>
+
+<p>
+e.g. P(Toothache, Catch, Cavity):
+</p>
+
+<table>
+<tr>
+<th>
+&nbsp;
+</th>
+<th colspan="2">
+toothache
+</th>
+<th colspan="2">
+¬ toothache
+</th>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+catch
+</td>
+<td>
+¬ catch
+</td>
+<td>
+catch
+</td>
+<td>
+¬ catch
+</td>
+</tr>
+<tr>
+<td>
+cavity
+</td>
+<td>
+0.108
+</td>
+<td>
+0.012
+</td>
+<td>
+0.072
+</td>
+<td>
+0.008
+</td>
+</tr>
+<tr>
+<td>
+¬ cavity
+</td>
+<td>
+0.015
+</td>
+<td>
+0.064
+</td>
+<td>
+0.144
+</td>
+<td>
+0.576
+</td>
+</tr>
+</table>
+
+<p>
+inference by enumeration:
+</p>
+<ul>
+<li>
+for any proposition Φ, sum atomic events where it's true -- \(P(\Phi) = \sum_{\omega : \omega \models \Phi} P(\omega)\)
+
+<li>
+compute conditional probability by selecting cells -- e.g. for P(¬ cavity | toothache), select toothache column and (¬ cavity) cells
+
+</ul>
+
+<p>
+use Bayes' rule for opposite conditionals (like finding P(disease | symptom) from P(symptom | disease))
+</p>
+
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory-Bayesian networks"><h3 id="Bayesian networks">Bayesian networks</h3></div>
+<p>
+simple graphical notation for 
+</p>
+<ul>
+<li>
+conditional independence assertions
+
+<li>
+compact specification of full joint distributions
+
+</ul>
+
+<p>
+syntax:
+</p>
+<ul>
+<li>
+set of nodes, one per variable
+
+<li>
+directed acyclic graph, with a link meaning "directly influences"
+
+<li>
+conditional distribution for each node given its parents -- \(P(X_i | Parents(X_i))\)
+
+</ul>
+
+<p>
+topology example:
+</p>
+
+<p>
+<img src="img/is/bayesian-topology.png" alt="Bayesian network topology" />
+</p>
+
+<p>
+what does it mean?
+</p>
+<ul>
+<li>
+<em>weather</em> is independent of other variables
+
+<li>
+<em>toothache</em> and <em>catch</em> are conditionally independent given <em>cavity</em>.
+
+</ul>
+
+<div id="Probability and Uncertainty-Uncertainties: Probability Theory-Evaluation of probabilities"><h3 id="Evaluation of probabilities">Evaluation of probabilities</h3></div>
+<ul>
+<li>
+good -- sound theoretical basis, can be extended to decision-making, some good tools available
+
+<li>
+bad -- not always computationally easy, need lots of data which may be hard to get
+
+</ul>
+
+<div id="Assessment info"><h1 id="Assessment info">Assessment info</h1></div>
+<p>
+check learning goals on canvas.
+</p>
+
+<p>
+everything in working groups (this means go through the sheets again)
+</p>
+<ul>
+<li>
+informed search (DF, BF, DFID)
+
+<li>
+uninformed search (Hill Climbing, BF, A, A*)
+
+<li>
+adversarial search (minimax with alpha-beta)
+
+<li>
+logical representations
+
+<li>
+DPLL
+
+<li>
+uncertainty representations
+
+<li>
+Bayesian learning
+
+<li>
+NN/Deep learning
+
+</ul>
+
+<p>
+research procedure
+</p>
+<ul>
+<li>
+take at least 4 bots you implemented
+
+<li>
+compare performance -- play against each other, in different environments
+
+<li>
+study results: outperforming, speed
+
+<li>
+define interesting hypotheses and research questions, use analysis to verify/falsify them
+
+</ul>
+
+<p>
+scientific paper structure:
+</p>
+<ul>
+<li>
+title page with abstract
+
+<ul>
+<li>
+title and authors
+
+<li>
+abstract of 2-3 paragraphs
+
+</ul>
+<li>
+introduction: intro to problem, solution, some results (2 pages)
+
+<li>
+background info
+
+<ul>
+<li>
+describe game, challenge, IS framework, whatever else is needed (1-2 pages)
+
+</ul>
+<li>
+research question
+
+<ul>
+<li>
+describe approach
+
+<li>
+what are:
+
+<ul>
+<li>
+possible outcomes of setup and contribution
+
+<li>
+e.g. whether one method works, whether it works better than others
+
+</ul>
+<li>
+also, define "working better"
+
+</ul>
+<li>
+experimental setup (2 pages)
+
+<ul>
+<li>
+explain how experiments were set up
+
+<li>
+what you did in terms of implementation
+
+<li>
+compare different methods
+
+<li>
+define metrics
+
+</ul>
+<li>
+results (2 pages)
+
+<ul>
+<li>
+20escribe results in overview tables
+
+<li>
+point reader to most significant, interesting results
+
+</ul>
+<li>
+findings
+
+<li>
+conclusions
+
+</ul>
 
     </div>
 </body>
