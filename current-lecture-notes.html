@@ -14,64 +14,64 @@
 <div id="Contents" class="toc"><h1 id="Contents">Contents</h1></div>
 <ul>
 <li>
-<a href="#Intelligent Systems">Intelligent Systems</a>
+<a href="IS Lecture.html#Intelligent Systems">Intelligent Systems</a>
 
 <li>
-<a href="#State Space Representations Intro">State Space Representations Intro</a>
+<a href="IS Lecture.html#State Space Representations Intro">State Space Representations Intro</a>
 
 <li>
-<a href="#State space search">State space search</a>
-
-<ul>
-<li>
-<a href="#State space search-Uninformed search strategies">Uninformed search strategies</a>
-
-<li>
-<a href="#State space search-Informed search (heuristics)">Informed search (heuristics)</a>
-
-<li>
-<a href="#State space search-Adversarial search">Adversarial search</a>
-
-<li>
-<a href="#State space search-Summary">Summary</a>
-
-<li>
-<a href="#State space search-Search direction">Search direction</a>
-
-</ul>
-<li>
-<a href="#Rational agents">Rational agents</a>
-
-<li>
-<a href="#Logical agents">Logical agents</a>
+<a href="IS Lecture.html#State space search">State space search</a>
 
 <ul>
 <li>
-<a href="#Logical agents-What is logic">What is logic</a>
+<a href="IS Lecture.html#State space search-Uninformed search strategies">Uninformed search strategies</a>
 
 <li>
-<a href="#Logical agents-Syntax">Syntax</a>
+<a href="IS Lecture.html#State space search-Informed search (heuristics)">Informed search (heuristics)</a>
 
 <li>
-<a href="#Logical agents-Semantics">Semantics</a>
+<a href="IS Lecture.html#State space search-Adversarial search">Adversarial search</a>
 
 <li>
-<a href="#Logical agents-Calculus (algorithms for inference)">Calculus (algorithms for inference)</a>
+<a href="IS Lecture.html#State space search-Summary">Summary</a>
+
+<li>
+<a href="IS Lecture.html#State space search-Search direction">Search direction</a>
 
 </ul>
 <li>
-<a href="#Probability and Uncertainty">Probability and Uncertainty</a>
+<a href="IS Lecture.html#Rational agents">Rational agents</a>
+
+<li>
+<a href="IS Lecture.html#Logical agents">Logical agents</a>
 
 <ul>
 <li>
-<a href="#Probability and Uncertainty-Vagueness: Fuzzy Set Theory">Vagueness: Fuzzy Set Theory</a>
+<a href="IS Lecture.html#Logical agents-What is logic">What is logic</a>
 
 <li>
-<a href="#Probability and Uncertainty-Uncertainties: Probability Theory">Uncertainties: Probability Theory</a>
+<a href="IS Lecture.html#Logical agents-Syntax">Syntax</a>
+
+<li>
+<a href="IS Lecture.html#Logical agents-Semantics">Semantics</a>
+
+<li>
+<a href="IS Lecture.html#Logical agents-Calculus (algorithms for inference)">Calculus (algorithms for inference)</a>
 
 </ul>
 <li>
-<a href="#Assessment info">Assessment info</a>
+<a href="IS Lecture.html#Probability and Uncertainty">Probability and Uncertainty</a>
+
+<ul>
+<li>
+<a href="IS Lecture.html#Probability and Uncertainty-Vagueness: Fuzzy Set Theory">Vagueness: Fuzzy Set Theory</a>
+
+<li>
+<a href="IS Lecture.html#Probability and Uncertainty-Uncertainties: Probability Theory">Uncertainties: Probability Theory</a>
+
+</ul>
+<li>
+<a href="IS Lecture.html#Assessment info">Assessment info</a>
 
 </ul>
 
@@ -93,8 +93,145 @@ adaptivity
 </ul>
 
 <p>
-<img src="img/is/decision-making.png" alt="Decision making diagram" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/decision-making.png" alt="Decision making diagram" />
 </p>
+
+<div id="Intelligent Systems-Assessment info"><h2 id="Assessment info">Assessment info</h2></div>
+<p>
+check learning goals on canvas.
+</p>
+
+<p>
+everything in working groups (this means go through the sheets again)
+</p>
+<ul>
+<li>
+informed search (DF, BF, DFID)
+
+<li>
+uninformed search (Hill Climbing, BF, A, A*)
+
+<li>
+adversarial search (minimax with alpha-beta)
+
+<li>
+logical representations
+
+<li>
+DPLL
+
+<li>
+uncertainty representations
+
+<li>
+Bayesian learning
+
+<li>
+NN/Deep learning
+
+</ul>
+
+<p>
+research procedure
+</p>
+<ul>
+<li>
+take at least 4 bots you implemented
+
+<li>
+compare performance -- play against each other, in different environments
+
+<li>
+study results: outperforming, speed
+
+<li>
+define interesting hypotheses and research questions, use analysis to verify/falsify them
+
+</ul>
+
+<p>
+scientific paper structure:
+</p>
+<ul>
+<li>
+title page with abstract
+
+<ul>
+<li>
+title and authors
+
+<li>
+abstract of 2-3 paragraphs
+
+</ul>
+<li>
+introduction: intro to problem, solution, some results (2 pages)
+
+<li>
+background info
+
+<ul>
+<li>
+describe game, challenge, IS framework, whatever else is needed (1-2 pages)
+
+</ul>
+<li>
+research question
+
+<ul>
+<li>
+describe approach
+
+<li>
+what are:
+
+<ul>
+<li>
+possible outcomes of setup and contribution
+
+<li>
+e.g. whether one method works, whether it works better than others
+
+</ul>
+<li>
+also, define "working better"
+
+</ul>
+<li>
+experimental setup (2 pages)
+
+<ul>
+<li>
+explain how experiments were set up
+
+<li>
+what you did in terms of implementation
+
+<li>
+compare different methods
+
+<li>
+define metrics
+
+</ul>
+<li>
+results (2 pages)
+
+<ul>
+<li>
+describe results in overview tables
+
+<li>
+point reader to most significant, interesting results
+
+</ul>
+<li>
+findings
+
+<li>
+conclusions
+
+</ul>
 
 <div id="State Space Representations Intro"><h1 id="State Space Representations Intro">State Space Representations Intro</h1></div>
 <ul>
@@ -235,7 +372,7 @@ time/space complexity measured in terms of max branching factor of search tree, 
 </ul>
 
 <p>
-<img src="img/is/search-alg-summary.png" alt="Summary of uninformed search algorithms" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/search-alg-summary.png" alt="Summary of uninformed search algorithms" />
 </p>
 
 <div id="State space search-Uninformed search strategies-Breadth-first (BF) search"><h3 id="Breadth-first (BF) search">Breadth-first (BF) search</h3></div>
@@ -697,7 +834,7 @@ choose one with max average
 
 <div id="State space search-Adversarial search-Games with chance"><h3 id="Games with chance">Games with chance</h3></div>
 <p>
-<img src="img/is/games-chance.png" alt="Games with chance" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/games-chance.png" alt="Games with chance" />
 </p>
 
 <div id="State space search-Summary (Schnapsen)"><h2 id="Summary (Schnapsen)">Summary (Schnapsen)</h2></div>
@@ -806,7 +943,7 @@ single-agent: (yes or no)
 </ul>
 
 <p>
-<img src="img/is/environment-types.png" alt="Environment types table" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/environment-types.png" alt="Environment types table" />
 </p>
 
 <p>
@@ -1180,7 +1317,7 @@ every instantiation of a universally quantified sentence is entailed by it.
 </p>
 
 <p>
-<img src="img/is/univ-instant.png" alt="Universal instantiation" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/univ-instant.png" alt="Universal instantiation" />
 </p>
 
 <p>
@@ -1194,7 +1331,7 @@ etc.
 
 <div id="Logical agents-Syntax-Propositionalising FOL-Existential instantiation (EI):"><h4 id="Existential instantiation (EI):">Existential instantiation (EI):</h4></div>
 <p>
-<img src="img/is/exist-instant.png" alt="Existential instantiation" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/exist-instant.png" alt="Existential instantiation" />
 </p>
 
 <p>
@@ -1270,7 +1407,7 @@ interpretation: assignment of meaning to symbols of formal language
 </p>
 
 <p>
-model: interpretation that satisfies defining axios of knowledge base
+model: interpretation that satisfies defining axioms of knowledge base
 </p>
 
 <p>
@@ -1403,7 +1540,7 @@ Model checking and search
 truth table enumeration (exponential in n)
 
 <li>
-improved backtrackgin (DPLL)
+improved backtracking (DPLL)
 
 <li>
 heuristics for choosing right order
@@ -1593,7 +1730,7 @@ Split up conjunctive clauses:
 <div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Model checking &amp; search-DPLL algorithm"><h5 id="DPLL algorithm">DPLL algorithm</h5></div>
 
 <p>
-when you have CNF, you can run the DPLL algorithm. determines if propositional logic sentence in CNF is satsfiable.
+when you have CNF, you can run the DPLL algorithm. determines if propositional logic sentence in CNF is satisfiable.
 </p>
 
 <p>
@@ -1659,7 +1796,7 @@ idea: identify most constrained variable, likely to create many unit clauses
 </p>
 
 <p>
-MOM's heuristic: most occurences in clauses of minimum length
+MOM's heuristic: most occurrences in clauses of minimum length
 </p>
 
 <p>
@@ -1670,7 +1807,7 @@ why is it better than truth table enumeration?
 early termination: clause is true if any literal is true. sentence is false if any clause is false.
 
 <li>
-pure symbol heauristic: always appears with the same sign in all clauses, has to be true
+pure symbol heuristic: always appears with the same sign in all clauses, has to be true
 
 <li>
 unit clause heuristic: only one literal in the clause, so it must be true
@@ -1694,7 +1831,7 @@ add cnf(~a) to cnf(KB)
 apply DPLL until either satisfiable (model is found) or unsatisfiable (search exhausted)
 
 <li>
-if satsfiable, not entailed. otherwise, entailed.
+if satisfiable, not entailed. otherwise, entailed.
 
 </ol>
 
@@ -1705,7 +1842,7 @@ Boolean satisfiability (SAT): is there an assignment to the \(p_1, p_2, ..., p_n
 </p>
 
 <p>
-<img src="img/is/boolean-satisfiability.png" alt="Boolean satisfiability diagram" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/boolean-satisfiability.png" alt="Boolean satisfiability diagram" />
 </p>
 
 <p>
@@ -1734,7 +1871,7 @@ real or integer arithmetic
 equality and uninterpreted functions
 
 <li>
-bitvectors and arrays
+bit vectors and arrays
 
 <li>
 properties:
@@ -1793,7 +1930,7 @@ functions {+, -, x, /, &lt;, &gt;}
 <div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning"><h4 id="Rule-based reasoning">Rule-based reasoning</h4></div>
 <div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Inference rules"><h5 id="Inference rules">Inference rules</h5></div>
 <p>
-inference rule: logical form consisting of function taking premises, analysing their syntax, and returning one or more conclusions
+inference rule: logical form consisting of function taking premises, analyzing their syntax, and returning one or more conclusions
 </p>
 
 <p>
@@ -1813,7 +1950,7 @@ all logical equivalence rewriting rules:
 </p>
 
 <p>
-<img src="img/is/logical-rewriting-rules.png" alt="Rewriting rules for logic" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/logical-rewriting-rules.png" alt="Rewriting rules for logic" />
 </p>
 
 <div id="Logical agents-Calculus (algorithms for inference)-Proof methods-Rule-based reasoning-Searching for proofs"><h5 id="Searching for proofs">Searching for proofs</h5></div>
@@ -1868,7 +2005,7 @@ can be shown to be sound using truth table:
 </p>
 
 <p>
-<img src="img/is/sound-rules-inference.png" alt="Sound rules for inference" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/sound-rules-inference.png" alt="Sound rules for inference" />
 </p>
 
 <p>
@@ -1944,7 +2081,7 @@ membership function for fuzzy set A is defined to be function \(f_A\) from U to 
 \(f_A(x)=y\): x is a member of A to degree y
 
 <li>
-\(f_A(x)=1\): x is cerainly member of A
+\(f_A(x)=1\): x is certainly member of A
 
 <li>
 \(f_A(x)=0\): x is certainly not a member of A
@@ -1960,7 +2097,7 @@ modifiers (hedges)
 </p>
 
 <p>
-<img src="img/is/modifiers-hedges.png" alt="Example of modifiers' effects on graphs" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/modifiers-hedges.png" alt="Example of modifiers' effects on graphs" />
 </p>
 
 <p>
@@ -2017,7 +2154,7 @@ hands-on example:
 </p>
 
 <p>
-<img src="img/is/fuzzy-composition.png" alt="Fuzzy composition table" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/fuzzy-composition.png" alt="Fuzzy composition table" />
 </p>
 
 <div id="Probability and Uncertainty-Vagueness: Fuzzy Set Theory-Evaluation"><h3 id="Evaluation">Evaluation</h3></div>
@@ -2026,7 +2163,7 @@ hands-on example:
 good -- flexible, coincides with classical set theory, sever successful applications of fuzzy control
 
 <li>
-bad -- requires many arbitraty choices, tends to blur differences between probabilistic uncertainty/ambiguity/vagueness
+bad -- requires many arbitrary choices, tends to blur differences between probabilistic uncertainty/ambiguity/vagueness
 
 </ul>
 
@@ -2044,7 +2181,7 @@ optivist (frequentist) probability
 frequentism: probability is only property of repeated experiments
 
 <li>
-probability of event: limit of <em>relative frequency</em> of occurence of event, as number of repetitions goes to infinity
+probability of event: limit of <em>relative frequency</em> of occurrence of event, as number of repetitions goes to infinity
 
 </ul>
 <li>
@@ -2055,7 +2192,7 @@ subjective probability
 Bayesianism: probability is an expression of our uncertainty and beliefs
 
 <li>
-probability of event: <em>degree of belief</em> of idealised rational individual
+probability of event: <em>degree of belief</em> of idealized rational individual
 
 </ul>
 </ul>
@@ -2065,7 +2202,7 @@ sample space Ω: set of single outcomes of experiment
 </p>
 
 <p>
-event space E: things that have probability (subsets of sample space). if sample space is finite, event space is usually powerset.
+event space E: things that have probability (subsets of sample space). if sample space is finite, event space is usually power set.
 </p>
 
 <div id="Probability and Uncertainty-Uncertainties: Probability Theory-Axioms of probability"><h3 id="Axioms of probability">Axioms of probability</h3></div>
@@ -2230,7 +2367,7 @@ topology example:
 </p>
 
 <p>
-<img src="img/is/bayesian-topology.png" alt="Bayesian network topology" />
+<img src="/Users/alex/Dropbox/vimwiki/img/is/bayesian-topology.png" alt="Bayesian network topology" />
 </p>
 
 <p>
@@ -2255,142 +2392,304 @@ bad -- not always computationally easy, need lots of data which may be hard to g
 
 </ul>
 
-<div id="Assessment info"><h1 id="Assessment info">Assessment info</h1></div>
-<p>
-check learning goals on canvas.
-</p>
+
+<div id="Machine Learning"><h1 id="Machine Learning">Machine Learning</h1></div>
 
 <p>
-everything in working groups (this means go through the sheets again)
+design of a learning element is affected by:
 </p>
 <ul>
 <li>
-informed search (DF, BF, DFID)
+which components of performance element are to be learned
 
 <li>
-uninformed search (Hill Climbing, BF, A, A*)
+what feedback is available to learn these components
 
 <li>
-adversarial search (minimax with alpha-beta)
-
-<li>
-logical representations
-
-<li>
-DPLL
-
-<li>
-uncertainty representations
-
-<li>
-Bayesian learning
-
-<li>
-NN/Deep learning
+what representation is used for the components
 
 </ul>
 
 <p>
-research procedure
+offline learning: learn based on some data, then apply results to situation
+</p>
+
+<p>
+feedback types (get input, make decision, learn based on feedback):
 </p>
 <ul>
 <li>
-take at least 4 bots you implemented
+supervised learning: correct answers for each example.
+
+<ul>
+<li>
+only positive examples
 
 <li>
-compare performance -- play against each other, in different environments
+positive and negative examples
+
+</ul>
+<li>
+unsupervised learning: no correct answers given
 
 <li>
-study results: outperforming, speed
+semi-supervised learning: learn which questions to ask (active learning)
 
 <li>
-define interesting hypotheses and research questions, use analysis to verify/falsify them
+reinforcement learning: occasional rewards
 
 </ul>
 
 <p>
-scientific paper structure:
+<img src="/Users/alex/Dropbox/vimwiki/img/is/neurons-vs-nn.png" />
+</p>
+
+<div id="Machine Learning-Learning problems"><h2 id="Learning problems">Learning problems</h2></div>
+
+<p>
+Classification
 </p>
 <ul>
 <li>
-title page with abstract
+use: from data to discrete classes.
+
+<li>
+examples: handwriting recognition, spam filtering, facial recognition.
+
+</ul>
+
+<p>
+Regression
+</p>
+<ul>
+<li>
+use: predicting a numeric value
+
+<li>
+examples: stock market, weather predictions
+
+</ul>
+
+<p>
+Ranking
+</p>
+<ul>
+<li>
+use: comparing items
+
+<li>
+examples: web search
+
+</ul>
+
+<p>
+Collaborative filtering
+</p>
+<ul>
+<li>
+use: take some else's information, based on that, give prediction
+
+<li>
+examples: recommendation systems (books, movies/shows)
+
+</ul>
+
+<p>
+Clustering
+</p>
+<ul>
+<li>
+use: discovering structure/patterns in data
+
+<li>
+examples: clustering images
+
+</ul>
+
+<div id="Machine Learning-Methodology"><h2 id="Methodology">Methodology</h2></div>
+<div id="Machine Learning-Methodology-Data"><h3 id="Data">Data</h3></div>
+<p>
+labeled instances (like spam, not spam)
+</p>
+<ul>
+<li>
+training set
+
+<li>
+held out set (e.g. for validation)
+
+<li>
+test set (don't even look at this until you want to test your model)
+
+</ul>
+
+<p>
+randomly allocate to data sets.
+</p>
+
+<p>
+features: attribute-value pairs characterizing each x
+</p>
+
+<div id="Machine Learning-Methodology-Experimentation"><h3 id="Experimentation">Experimentation</h3></div>
+<p>
+experimentation cycle:
+</p>
+<ol>
+<li>
+select hypothesis, tune hyperparameters on held-out/validation set
+
+<li>
+compute accuracy of test set (never "peek" at test set itself)
+
+</ol>
+
+<div id="Machine Learning-Methodology-Evaluation"><h3 id="Evaluation">Evaluation</h3></div>
+<p>
+accuracy -- fraction of instances predicted correctly
+</p>
+
+<p>
+Cross validation:
+</p>
+
+<p>
+<img src="/Users/alex/Dropbox/vimwiki/img/is/cross-validation.png" alt="Cross validation diagram" />
+</p>
+
+<p>
+create a confusion matrix (<span class="todo">TODO</span>: there's a diagram for this but not in the old slides)
+</p>
+
+<div id="Machine Learning-ML Recipe:"><h2 id="ML Recipe:">ML Recipe:</h2></div>
+<ol>
+<li>
+choose the features
+
+<li>
+choose the model class
+
+<li>
+choose a search method
+
+</ol>
+
+<div id="Machine Learning-ML Recipe:-Choose the features"><h3 id="Choose the features">Choose the features</h3></div>
+<p>
+create a feature space: features on x-y axes, points are individual data, classification would be a color scheme.
+</p>
+
+<p>
+<img src="/Users/alex/Dropbox/vimwiki/img/is/feature-space.png" alt="Feature space graph" />
+</p>
+
+
+<div id="Machine Learning-ML Recipe:-Choose the features-Inductive learning method"><h4 id="Inductive learning method">Inductive learning method</h4></div>
+<ul>
+<li>
+construct/adjust h to agree with f (function predicting value) on training set
+
+<li>
+h is consistent if it agrees with f on all examples
+
+<li>
+for example, curve fitting:
+    <img src="/Users/alex/Dropbox/vimwiki/img/is/curve-fitting.png" alt="Curve fitting graph" />
+
+</ul>
+
+<p>
+Occam's razor: "one should not increase, beyond what is necessary, the number of entities required to explain anything"
+basically, choose the simplest option.
+</p>
+
+<p>
+linear classifier: come up with a line that divides feature space, use that for prediction.
+</p>
+
+<div id="Machine Learning-ML Recipe:-Choose the features-Classifying with naive Bayes"><h4 id="Classifying with naive Bayes">Classifying with naive Bayes</h4></div>
+
+<p>
+Binary classification
+</p>
+<ul>
+<li>
+input: email
+
+<li>
+output: spam, not spam
+
+<li>
+setup:
 
 <ul>
 <li>
-title and authors
+get large collection of example emails, labeled "spam/not spam"
 
 <li>
-abstract of 2-3 paragraphs
+someone has to hand-label that
+
+<li>
+want to learn to predict label for new emails in future
 
 </ul>
 <li>
-introduction: intro to problem, solution, some results (2 pages)
-
-<li>
-background info
+features: attributes used to make label decision
 
 <ul>
 <li>
-describe game, challenge, IS framework, whatever else is needed (1-2 pages)
+words, text patterns (e.g. caps), non-text
 
 </ul>
-<li>
-research question
-
-<ul>
-<li>
-describe approach
-
-<li>
-what are:
-
-<ul>
-<li>
-possible outcomes of setup and contribution
-
-<li>
-e.g. whether one method works, whether it works better than others
-
 </ul>
-<li>
-also, define "working better"
 
-</ul>
-<li>
-experimental setup (2 pages)
+<p>
+calculation for Bayesian classifier: \(P(C|F_1,...,F_n)\)
+</p>
 
-<ul>
-<li>
-explain how experiments were set up
+<p>
+using Bayes' theorem:
+</p>
 
-<li>
-what you did in terms of implementation
+<p>
+\(P(C|F_1,...F_n)=\frac{P(C)P(F_1,...,F_n|C)}{P(F_1,...,F_n)}\)
+</p>
 
-<li>
-compare different methods
+<p>
+rewrite the numerator of the equation:
+</p>
 
-<li>
-define metrics
+\begin{align}
+P(C)P(F_1,...,F_n |C)\\
+= P(C)P(F_1 | C)P(F_2 | C, F_1)P(F_3|C, F_1, F_2)P(F_4,...,F_n | C, F_1, F_2, F_3)
+\end{align}
 
-</ul>
-<li>
-results (2 pages)
+<p>
+that uses the chaining rule. but it's too computationally expensive.
+so naively assume conditional independence:
+</p>
 
-<ul>
-<li>
-20escribe results in overview tables
+\[
+P(F_i | C, F_j) = P(F_i | C)
+\]
 
-<li>
-point reader to most significant, interesting results
+<p>
+This simplifies the formula to:
+</p>
 
-</ul>
-<li>
-findings
+\[
+P(C)P(F_1,...,F_n | C) = P(C) PI(0 to n) P(F_i | C)
+\]
 
-<li>
-conclusions
+<p>
+<img src="/Users/alex/Dropbox/vimwiki/img/is/bayes-calculation.png" />
+</p>
 
-</ul>
+<p>
+Laplace smoothing helps with really small probabilities.
+Naive Bayes often works. sometimes performs well even if the assumptions are badly violated.
+classification is about predicting correct class label, <em>not</em> about accurately estimating probabilities
+</p>
 
     </div>
 </body>
