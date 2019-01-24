@@ -79,3 +79,7 @@ exec 5<&-                # close the file for reading
 * `<<EOF ... EOF` - here document, pass multiline string as input
 
 order matters, creating a new redirection essentially duplicates the file descriptor (e.g. “command > file 2>&1” != “command 2>&1 > file"
+
+# ffmpeg
+* `ffmpeg -i in.mkv -f srt -i in.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt out.mkv` - add subtitles to video
+* `for f in ./*.ext; do echo "file '$f'" >> list.txt; done; ffmpeg -f concat -safe 0 -i list.txt -c copy output.ext` - concatenate videos
