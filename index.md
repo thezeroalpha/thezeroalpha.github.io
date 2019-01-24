@@ -9,6 +9,7 @@ title: ZeroAlpha
 * [Data Structures & Algorithms](https://thezeroalpha.github.io/dsa-notes)
 * [Statistical Methods](https://thezeroalpha.github.io/stats-notes)
 * [Operating Systems](https://thezeroalpha.github.io/os-notes)
+* [Intelligent Systems](https://thezeroalpha.github.io/is-notes)
 
 ## Subject notes: Year 1
 
