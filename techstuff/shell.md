@@ -1,5 +1,5 @@
 ---
-title: Git stuff
+title: Bash/shell stuff
 ---
 
 # Keyboard shortcuts
