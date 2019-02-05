@@ -3,13 +3,167 @@
     <link rel="Stylesheet" type="text/css" href="style.css" />
     <title>Linear Algebra</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
     <a href="index.html">Index</a>
     <hr>
     <div class="content">
     
+
 <div id="Linear Algebra"><h1 id="Linear Algebra">Linear Algebra</h1></div>
+
+<div id="Linear Algebra-Introduction"><h2 id="Introduction">Introduction</h2></div>
+
+<div id="Linear Algebra-Introduction-Linear Equations"><h3 id="Linear Equations">Linear Equations</h3></div>
+<p>
+"the study of linear equations"
+</p>
+
+<p>
+a linear equation in the variables \(x_1, \dots, x_n\) has the form \(a_1 x_1+\dots+a_n x_n = b\), with \(a_1, \dots, a_n\) being the <em>coefficients</em>
+</p>
+
+<p>
+geometric interpretation:
+</p>
+
+\[
+\begin{alignat*}{3}
+&amp;n=1\qquad &amp;&amp;a_1 x_1 = b \longrightarrow x_1 = \frac{b}{a_1}\qquad &amp;&amp;\text{(point on a line in $\Re$)}\\
+&amp;n=2\qquad &amp;&amp;a_1 x_1 + a_2 x_2 = b \longrightarrow x_2 = \frac{b}{a_2} - \frac{a_1}{a_2}\qquad &amp;&amp;\text{(line in a plane in $\Re^2$)}\\
+&amp;n=3\qquad &amp;&amp;a_1 x_1 + a_2 x_2 + a_3 x_3 = b\qquad &amp;&amp;\text{(planes in 3D space, in $\Re^3$)}
+\end{alignat*}
+\]
+
+<p>
+in general, \(n-1\)-dimensional planes in n-dimensional space
+</p>
+
+<p>
+system of linear equations \(x_1, \dots, x_n\) is a collection of linear equations in these variables.
+</p>
+
+<p>
+\(x_1 - 2x_2 = -1\)
+</p>
+
+<p>
+\(-x_1 + 3x_2 = 3\)
+</p>
+
+<p>
+If you graph them, you get this:
+</p>
+
+<p>
+<img src="img-algebra/graph-example.png" alt="System of equations graph" />
+</p>
+
+<p>
+the solution is the intersection.
+</p>
+
+<p>
+a system of linear equations has:
+</p>
+<ol>
+<li>
+no solutions (inconsistent) -- e.g. parallel lines
+
+<li>
+exactly 1 solution (consistent)
+
+<li>
+infinitely many solutions (consistent) - e.g. the same line twice
+
+</ol>
+
+<p>
+two linear systems are "equivalent" if they have the same solutions.
+</p>
+
+<div id="Linear Algebra-Introduction-Matrix notation"><h3 id="Matrix notation">Matrix notation</h3></div>
+<table>
+<tr>
+<th>
+Equation
+</th>
+<th>
+(Augmented) coefficient matrix notation
+</th>
+</tr>
+<tr>
+<td>
+\(\begin{alignat*}{6} &amp;x_1 &amp;&amp;-&amp;&amp;2x_2 &amp;&amp;+&amp;&amp;x_3 &amp;&amp;= 0\\ &amp; &amp;&amp; &amp;&amp;2x_2 &amp;&amp;-&amp;&amp;8x_3 &amp;&amp;= 8\\ &amp;5x_1 &amp;&amp; &amp;&amp; &amp;&amp;-&amp;&amp;5x_3 &amp;&amp;= 10\end{alignat*}\)
+</td>
+<td>
+\(\begin{bmatrix} 1 &amp; -2 &amp; 1 &amp; 0\\ 0 &amp; 2 &amp; -8 &amp; 8\\ 5 &amp; 0 &amp; -5 &amp; 10 \end{bmatrix}\)
+</td>
+</tr>
+</table>
+
+<p>
+the strategy to solve is to replace the system with an equivalent system that is easier to solve.
+</p>
+
+<p>
+elementary row operations:
+</p>
+<ol>
+<li>
+replacement: add rows
+
+<li>
+scaling: multiply by constant (non-zero scalar)
+
+<li>
+interchange: swap two rows
+
+</ol>
+
+<p>
+all of these are reversible &amp; don't change the solution set.
+</p>
+
+<p>
+Matrices A and B are equivalent (\(A \sim B\)) if there is a sequence of elementary operations to transform A to B.
+</p>
+
+<p>
+If augmented matrices of two systems are row-equivalent, then the systems are equivalent.
+</p>
+
+<p>
+Matrix A is in echelon form if:
+</p>
+<ol>
+<li>
+zero rows are below non-zero rows
+
+<li>
+the leading entry of a row is contained in a column that is to the left of the leading entry of the row below it.
+
+</ol>
+
+<p>
+A is in reduced echelon form if:
+</p>
+<ol>
+<li>
+A is in echelon form
+
+<li>
+all leading entries are 1
+
+<li>
+the leading entry is the only non-zero entry in that column
+
+</ol>
+
+<p>
+The reduced echelon form of a matrix is unique. 
+</p>
 
     </div>
 </body>
