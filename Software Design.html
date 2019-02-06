@@ -29,6 +29,275 @@ Grading: project is 70%, exam is 30% (!)
 project goal: develop a ROBOSEARCH system with various UML-based techniques. implement a simple demonstrator via a robotic 3D simulator.
 </p>
 
+<div id="Software abstraction &amp; modeling"><h1 id="Software abstraction &amp; modeling">Software abstraction &amp; modeling</h1></div>
+<p>
+software engineering: the application of engineering to software. a programmer writes a complete program, a software engineer creates a component.
+</p>
+
+<p>
+engineers abstract away from details that can be <em>safely</em> ignored.
+</p>
+
+<p>
+model: simplified/partial representation of reality, defined to accomplish a task or reach an agreement
+</p>
+
+<p>
+abstraction: generalizing – setting aside specific and individual features
+</p>
+
+<p>
+software design: creating models representing an abstract view of the system
+</p>
+
+<div id="Software abstraction &amp; modeling-Models"><h2 id="Models">Models</h2></div>
+<p>
+what is a model?
+</p>
+<ul>
+<li>
+mapping feature: a model is based on an original
+
+<li>
+reduction feature: a model only reflects a relevant selection of the original's properties
+
+<li>
+pragmatic feature: a model needs to be usable in place of an original with respect to some purpose
+
+</ul>
+
+<p>
+consumer and intent influence the abstraction level of a model
+</p>
+
+<p>
+descriptive models:
+</p>
+<ul>
+<li>
+a subject is described by the model
+
+<li>
+sketches and throw-away models – short life time, used to better understand the reality
+
+<li>
+models of ideas and vision about the system to be developed – to exploit model for having feedback before actually implementing the system
+
+<li>
+models extracted from a running system or code – e.g. to visualize all calls between Java classes
+
+</ul>
+
+<p>
+prescriptive models:
+</p>
+<ul>
+<li>
+a model prescribes the subject
+
+<li>
+the subject does not yet exist
+
+<li>
+the models guide the development of the system
+
+<li>
+most common consumers are code generators
+
+<li>
+often used for development, so their importance may decay when the system is implemented
+
+</ul>
+
+<div id="Software development process"><h1 id="Software development process">Software development process</h1></div>
+
+<p>
+main activities:
+</p>
+<ul>
+<li>
+requirements engineering
+
+<ul>
+<li>
+specifies the main functionalities of the system
+
+<li>
+defines the qualities to be met
+
+</ul>
+<li>
+design
+
+<ul>
+<li>
+give shape to a system via models
+
+<li>
+not a clear-cut sequential process
+
+</ul>
+<li>
+implementation and testing
+
+<ul>
+<li>
+involves actual development of the system
+
+<li>
+component testing – test individual components independently
+
+<li>
+system testing – test the system as a whole (including emergent properties like overall performance)
+
+<li>
+acceptance testing – test with customer data to see if the system meets the customer's needs
+
+</ul>
+<li>
+evolution
+
+<ul>
+<li>
+software is inherently flexible and can change
+
+</ul>
+</ul>
+
+<div id="Software development process-Waterfall development process"><h2 id="Waterfall development process">Waterfall development process</h2></div>
+
+<p>
+<img src="img-design/waterfall-dev.png" alt="Waterfall dev process image" />
+</p>
+
+<p>
+exists in many variants, all with sequential flow. it's document-driven.
+</p>
+
+<p>
+issues: poor agility (when do you know how far you are in the project?), poor quality (cuts if you run out of time), high risk (finding issues in test phase)
+</p>
+
+<p>
+critical evaluation:
+</p>
+<ul>
+<li>
+positive:
+
+<ul>
+<li>
+precise planning and management – standard-oriented
+
+<li>
+postpone implementation to after understanding objectives
+
+<li>
+good documentation
+
+</ul>
+<li>
+negative:
+
+<ul>
+<li>
+hard to get all requirements once and for all (users might not even know what they want)
+
+<li>
+rigid
+
+<li>
+no feedback from the customer
+
+<li>
+no parallelism, all phases are blocking (because sequential)
+
+<li>
+a single delivery date at the end
+
+</ul>
+</ul>
+
+<div id="Software development process-Agile development process"><h2 id="Agile development process">Agile development process</h2></div>
+<p>
+iterative development processes with:
+</p>
+<ul>
+<li>
+frequent releases of the product
+
+<li>
+continuous interaction between dev team and customer
+
+<li>
+reduced product documentation
+
+<li>
+continuous and systematic assessment of produced value and risks
+
+</ul>
+
+<p>
+agile in practice:
+</p>
+<ul>
+<li>
+make a list
+
+<li>
+estimate
+
+<li>
+set priorities
+
+<li>
+start executing
+
+<li>
+update the plan at run time
+
+</ul>
+
+<p>
+critical evaluation:
+</p>
+<ul>
+<li>
+positive:
+
+<ul>
+<li>
+acceptance of change – less risky
+
+<li>
+frequent and short iterations
+
+<li>
+emphasis on working code
+
+<li>
+associates a test with every piece of functionality
+
+<li>
+continuous integration and delivery
+
+</ul>
+<li>
+negative:
+
+<ul>
+<li>
+feature-based development &amp; ignorance of dependencies
+
+<li>
+no strong quality plan
+
+<li>
+less focus on architecture of system (in fact, dismisses everything that isn't shippable)
+
+</ul>
+</ul>
+
     </div>
 </body>
 </html>
