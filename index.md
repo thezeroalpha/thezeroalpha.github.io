@@ -4,6 +4,9 @@ title: ZeroAlpha
 
 # University notes
 ---
+
+[Current work-in-progress lecture notes.](/current-lecture-notes.html)
+
 ## Subject notes: Year 2
 
 * [Data Structures & Algorithms](https://thezeroalpha.github.io/dsa-notes)

@@ -161,8 +161,71 @@ the leading entry is the only non-zero entry in that column
 
 </ol>
 
+<div id="Linear Algebra-Introduction-Reducing a matrix"><h3 id="Reducing a matrix">Reducing a matrix</h3></div>
 <p>
 The reduced echelon form of a matrix is unique. 
+</p>
+
+<p>
+every matrix is row-equivalent to a unique reduced echelon matrix.
+</p>
+
+<p>
+the positions of the leading entries in an echelon matrix are unique
+</p>
+
+<p>
+\(\begin{bmatrix} \textbf{1} &amp; * &amp; * &amp; *\\ 0 &amp; 0 &amp; \textbf{1} &amp; *\\ 0 &amp; 0 &amp; 0 &amp; 0\\ 0 &amp; 0 &amp; 0 &amp; 0 \end{bmatrix}\)
+</p>
+
+<p>
+the values in bold are pivot positions. the columns containing those values are pivot columns.
+</p>
+
+<p>
+Row reduction algorithm:
+</p>
+<ol>
+<li>
+Start with leftmost non-zero column (pivot column)
+
+<li>
+Select a non-zero entry as pivot and move it to the pivot position.
+
+<li>
+Create zeros below the pivot position.
+
+<li>
+Ignore the row containing the pivot position &amp; repeat steps 1-3 until solved. The matrix will be in echelon form.
+
+<li>
+Make pivot positions equal to 1, create zeros in all pivot columns. Start with the rightmost column. The matrix will be in reduced echelon form.
+
+</ol>
+
+<p>
+Side note: a computer chooses as pivot the entry that's smallest in absolute value to minimize the round-off error. 
+</p>
+
+<p>
+Basic variables correspond to pivot columns. Free variables correspond to non-pivot columns. You solve the equation by expressing basic variables in terms of free variables.
+</p>
+
+<p>
+The matrix can be written in parametric form, example with \(x_3\) being a free variable:
+</p>
+
+<p>
+\(\binom{x_1}{x_2} = \big\{ \binom{1}{4} + \binom{5}{-1} x_3 \;\rvert\; x_3 \in \Re \big\}\)
+</p>
+
+<p>
+if there are any free variables, there are infinite solutions.
+</p>
+
+<div id="Linear Algebra-Introduction-Vectors"><h3 id="Vectors">Vectors</h3></div>
+<p>
+I have better notes on this (not from the lecture) but that has to wait until I get home.
 </p>
 
     </div>
