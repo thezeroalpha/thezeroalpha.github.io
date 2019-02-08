@@ -225,8 +225,48 @@ if there are any free variables, there are infinite solutions.
 
 <div id="Linear Algebra-Introduction-Vectors"><h3 id="Vectors">Vectors</h3></div>
 <p>
-I have better notes on this (not from the lecture) but that has to wait until I get home.
+A vector is a line. If you have a vector in the form \(\begin{bmatrix} a\\b\end{bmatrix}\), you can draw it as an arrow from the origin ending at the point \((a,b)\).
 </p>
+
+<p>
+To add vectors, add the individual cells together.
+</p>
+
+<p>
+A vector equation \(a_1 x_1 + a_2 x_2 + \dots + a_n x_n = b\) has the same solution set as \(\begin{bmatrix} a_1 &amp; a_2 &amp; \dots &amp; a_n &amp; b \end{bmatrix}\).
+</p>
+
+<p>
+When asked whether \(b\) is in \(\text{Span} \{v_1, \dots, v_p\}\), you have to check whether the augmented matrix \(\begin{bmatrix} v_1 &amp; \dots &amp; v_p &amp; b \end{bmatrix}\) has a solution.
+</p>
+
+<p>
+\(b\) is a linear combination of \(A\) if \(Ax = b\) has a solution.
+</p>
+
+<p>
+The span is the set of all linear combinations of the vectors.
+</p>
+
+<p>
+To calculate \(Ax\), if the number of columns in A is the same as the number of rows in x, you can follow the definition:
+</p>
+
+\[
+Ax = \begin{bmatrix} a_1 &amp; a_2 &amp; \dots &amp; a_n \end{bmatrix} \begin{bmatrix} x_1 \\ \dots \\ x_n \end{bmatrix} = x_1 a_1 + x_2 a_2 + \dots + x_n a_n
+\]
+
+<p>
+You also have the rules (matrix A,  vectors u and v, scalar c):
+</p>
+<ul>
+<li>
+\(A(u+v) = Au + Av\)
+
+<li>
+\(A(cu) = c(Au)\)
+
+</ul>
 
     </div>
 </body>
