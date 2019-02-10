@@ -83,3 +83,4 @@ order matters, creating a new redirection essentially duplicates the file descri
 # ffmpeg
 * `ffmpeg -i in.mkv -f srt -i in.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt out.mkv` - add subtitles to video
 * `for f in ./*.ext; do echo "file '$f'" >> list.txt; done; ffmpeg -f concat -safe 0 -i list.txt -c copy output.ext` - concatenate videos
+* `ffmpeg -i in.vtt out.srt` - convert vtt subtitles to srt
