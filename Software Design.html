@@ -9,7 +9,6 @@
     <hr>
     <div class="content">
     
-
 <div id="Software Design"><h1 id="Software Design">Software Design</h1></div>
 
 <div id="Introduction"><h1 id="Introduction">Introduction</h1></div>
@@ -297,6 +296,460 @@ less focus on architecture of system (in fact, dismisses everything that isn't s
 
 </ul>
 </ul>
+
+<div id="Requirements engineering with UML"><h1 id="Requirements engineering with UML">Requirements engineering with UML</h1></div>
+
+<div id="Requirements engineering with UML-What is UML?"><h2 id="What is UML?">What is UML?</h2></div>
+<p>
+A unified modelling language, the defacto standard for software design.
+</p>
+
+<p>
+pros:
+</p>
+<ul>
+<li>
+not tied to a development process
+
+<li>
+can be used across the whole life cycle
+
+<li>
+general purpose, can model all sorts of shit
+
+<li>
+has different representations (graphical, but also text)
+
+</ul>
+
+<p>
+main characteristics:
+</p>
+<ul>
+<li>
+comprehensive: can describe all parts of a system
+
+<li>
+scalable: "zoom in" and add more details if you want
+
+<li>
+originally intended for descriptive models
+
+<li>
+now also supports prescriptive models
+
+</ul>
+
+<p>
+formal modeling language — its core concepts have a well-defined meaning
+</p>
+
+<p>
+UML model is represented graphically with diagrams
+</p>
+
+<p>
+The different types:
+</p>
+
+<p>
+<img src="img-design/uml-diagrams.png" alt="Diagram of diagrams" />
+</p>
+
+<p>
+The ones we will use:
+</p>
+<ul>
+<li>
+use case diagram: to specify the basic functionality of a software system (requirements)
+
+<li>
+class diagram: to define data structures within the system
+
+<li>
+state machine diagram: to define intra-object behavior
+
+<li>
+sequence diagram: to specify inter-object behavior and communication
+
+</ul>
+
+<p>
+a UML <em>model</em> contains everything related to the system. a <em>diagram</em> is just a "window" on the model (shows some parts, but not necessarily everything).
+</p>
+
+<div id="Requirements engineering with UML-Requirements engineering"><h2 id="Requirements engineering">Requirements engineering</h2></div>
+<p>
+the process of establishing:
+</p>
+<ul>
+<li>
+features that a system should and will have
+
+<li>
+constraints under which it operates and is developed
+
+</ul>
+
+<p>
+requirement can range between:
+</p>
+<ul>
+<li>
+high-level abstract statement of a feature
+
+<li>
+detailed mathematical functional specification
+
+</ul>
+
+<p>
+functional vs non-functional requirements
+</p>
+<ul>
+<li>
+functional: services the system should provide, how it should react to inputs, how it should behave in specific situations, opt. what it shouldn't do.
+
+<ul>
+<li>
+precise — ambiguous requirements may be interpreted in different ways by developers and users
+
+<li>
+complete — they should include descriptions of <em>all</em> facilities required
+
+<li>
+consistent — there should be no conflicts or contradictions in descriptions of system facilities
+
+<li>
+verifiable — requirements should be directly mapped to parts of system
+
+</ul>
+<li>
+non-functional: constraints on services/functions offered by the system, often apply to system as a whole instead of individual features/services
+
+<ul>
+<li>
+system properties and constraints (e.g. reliability, response time, storage requirements)
+
+<li>
+may be more critical than functional, like safety requirements
+
+<li>
+may affect overall architecture of a system instead of individual components (like organisation to minimize communications between robots)
+
+<li>
+different types:
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/non-func-requirements.png" alt="Non-functional requirement types" />
+</blockquote>
+
+<p>
+in UML: use case diagrams for functional requirements.
+</p>
+
+<p>
+How to write requirements specifications:
+</p>
+
+<table>
+<tr>
+<th>
+<span id="Requirements engineering with UML-Requirements engineering-Notation"></span><strong id="Notation">Notation</strong>
+</th>
+<th>
+<span id="Requirements engineering with UML-Requirements engineering-Description"></span><strong id="Description">Description</strong>
+</th>
+</tr>
+<tr>
+<td>
+Natural language
+</td>
+<td>
+Use numbered sentences in natural language. Each sentence is one requirement.
+</td>
+</tr>
+<tr>
+<td>
+Structured natural language.
+</td>
+<td>
+Requirements are written in natural language on standard form/template. Each field gives info about an aspect of the requirement.
+</td>
+</tr>
+<tr>
+<td>
+Design description languages
+</td>
+<td>
+Use language like programming language, but with more abstract features specifying requirements by defining an operational model of the system.
+</td>
+</tr>
+<tr>
+<td>
+Graphical notations
+</td>
+<td>
+Graphical models with text annotations. e.g. UML use case and sequence diagrams.
+</td>
+</tr>
+<tr>
+<td>
+Mathematical specifications
+</td>
+<td>
+Based on math concepts like finite-state machines or sets. Most customers don't understand this so not often used.
+</td>
+</tr>
+</table>
+
+<div id="Requirements engineering with UML-Requirements engineering-Natural language specification"><h3 id="Natural language specification">Natural language specification</h3></div>
+<p>
+requirements are written as natural language sentences. used because it's expressive, intuitive, universal, easily understood by customers.
+</p>
+
+<p>
+guidelines:
+</p>
+<ul>
+<li>
+invent a standard format, use it for all requirements.
+
+<li>
+use language in a consistent way ("shall" for mandatory requirements, "should" for desirable requirements)
+
+<li>
+highlight text to identify important parts of requirement
+
+<li>
+avoid use of computer jargon
+
+<li>
+include explanation (rationale) of why a requirement is needed
+
+</ul>
+
+<div id="Requirements engineering with UML-Requirements engineering-Use case diagrams"><h3 id="Use case diagrams">Use case diagrams</h3></div>
+<p>
+express expectations of customers/stakeholders.
+</p>
+
+<p>
+answers questions:
+</p>
+<ul>
+<li>
+what is being described? (the system)
+
+<li>
+who interacts with the system? (the actors)
+
+<li>
+what can the actors do? (use cases)
+
+</ul>
+
+<p>
+use case:
+</p>
+<ul>
+<li>
+describes functionality expected from system under development
+
+<li>
+set of all use cases describes functionality that a system shall provide.
+
+<li>
+notations:
+
+</ul>
+<blockquote>
+<img src="img-design/use-case-notations.png" alt="Use case notations" />
+</blockquote>
+
+<p>
+actors:
+</p>
+<ul>
+<li>
+interact with the system by using use cases, or by being used by use cases.
+
+<li>
+represent roles that users adopt (users can have multiple roles)
+
+<li>
+not part of the system, so outside of system boundaries.
+
+<li>
+human or non-human
+
+<li>
+primary/secondary:
+
+<ul>
+<li>
+if primary, has main benefit of execution of use case.
+
+<li>
+if secondary, receives no direct benefit.
+
+</ul>
+<li>
+active or passive
+
+<ul>
+<li>
+active: initiates execution of the use case
+
+<li>
+passive: provides functionality for the execution of the use case
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/actor-notations.png" alt="Actor notations" />
+</blockquote>
+    
+<p>
+relationships between use cases and actors:
+</p>
+<ul>
+<li>
+actors are connected with use cases via associations (solid lines)
+
+<li>
+every actors has to communicate with at least one use case
+
+<li>
+association is always binary, multiplicities can be specified
+
+</ul>
+<blockquote>
+<img src="img-design/usecase-actor-rel.png" alt="Relationships between actors and use cases" />
+</blockquote>
+
+<p>
+relationships between use cases:
+</p>
+<ul>
+<li>
+«include»
+
+<ul>
+<li>
+behavior of one use case ('included') <em>is always</em> integrated in the behavior of another use case ('base')
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/usecase-include-rel.png" alt="Include relationship" />
+</blockquote>
+<ul>
+<li>
+«extend»
+
+<ul>
+<li>
+behavior of one use case ('extending') <em>may be</em> integrated in behavior of another use case ('base')
+
+<li>
+both use cases can also be executed independently of each other
+
+<li>
+extension points are written directly in the use case. you can specify multiple extension points.
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/use-case-extensions.png" alt="Extensions in use cases" />
+</blockquote>
+<ul>
+<li>
+generalisation of use cases
+
+<ul>
+<li>
+if use case A generalises use case B, then B inherits behavior of A and may extend/overwrite it. B also inherits all relationships form A.
+
+<li>
+A may be labeled {absttract} — cannot be executed directly, only B is executable
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/usecase-generalisation.png" alt="Generalisation" />
+</blockquote>
+
+<p>
+relationships between actors
+</p>
+<ul>
+<li>
+generalisation
+
+<ul>
+<li>
+actor A inherits from actor B. e.g. A can communicate with X and Y, B can only communicate with Y.
+
+<li>
+abstract actors are possible
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/actor-generalization.png" alt="Actor generalization" />
+</blockquote>
+
+<p>
+Description of use cases:
+</p>
+<ul>
+<li>
+Name
+
+<li>
+Short description
+
+<li>
+Precondition: prerequisite for successful execution
+
+<li>
+Postcondition: system state after successful execution
+
+<li>
+Error situations: errors relevant to problem domain
+
+<li>
+System state on occurrence of an error
+
+<li>
+Actors that communicate with the use cas
+
+<li>
+Trigger: events which initiate the use case
+
+<li>
+Standard process: individual steps to bbe taken
+
+<li>
+Alternative processes: deviations from the standard process
+
+</ul>
+
+<p>
+Remember, it's an abstraction. Many small use cases with the same objective should be grouped. Don't decompose functionality into use cases.
+</p>
+
+<div id="Requirements engineering with UML-Summary of notation"><h2 id="Summary of notation">Summary of notation</h2></div>
+<p>
+<img src="img-design/requirement-notation-p1.png" alt="Requirements notation" />
+</p>
+
+<p>
+<img src="img-design/requirement-notation-p2.png" alt="Requirements notation" />
+</p>
 
     </div>
 </body>
