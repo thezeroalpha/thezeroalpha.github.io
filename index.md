@@ -24,6 +24,10 @@ title: ZeroAlpha
 * [Computer Networks](https://thezeroalpha.github.io/compnet-notes)
 * [Networks & graphs](https://thezeroalpha.github.io/networksgraphs-notes)
 
+## Various
+* [Requirements for honours, cum laude, etc.](/uni-requirements.md)
+* [Honours courses summary](/vu-hons-2.md)
+
 ---
 
 # Tech-related notes
@@ -32,6 +36,7 @@ title: ZeroAlpha
 * [Git](techstuff/git.md)
 * [SSH](techstuff/ssh.md)
 * [Macbook troubleshooting](techstuff/macbook-repair.md)
+* [Ranger's `rifle.conf` on a Mac](techstuff/ranger_rifle_conf_mac.md)
 
 # Dotfiles
 
