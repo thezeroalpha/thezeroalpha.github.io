@@ -13,6 +13,49 @@
 
 <div id="Linear Algebra"><h1 id="Linear Algebra">Linear Algebra</h1></div>
 
+<div id="Contents" class="toc"><h2 id="Contents">Contents</h2></div>
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra">Linear Algebra</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Introduction">Introduction</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Introduction-Linear Equations">Linear Equations</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Introduction-Matrix notation">Matrix notation</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Introduction-Reducing a matrix">Reducing a matrix</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Introduction-Vectors">Vectors</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Solution sets of linear systems">Solution sets of linear systems</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Solution sets of linear systems-Homogeneous linear systems">Homogeneous linear systems</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Solution sets of linear systems-Parametric vector form">Parametric vector form</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Solution sets of linear systems-Linear independence">Linear independence</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Linear transformations">Linear transformations</a>
+
+</ul>
+</ul>
+
 <div id="Linear Algebra-Introduction"><h2 id="Introduction">Introduction</h2></div>
 
 <div id="Linear Algebra-Introduction-Linear Equations"><h3 id="Linear Equations">Linear Equations</h3></div>
@@ -163,7 +206,7 @@ the leading entry is the only non-zero entry in that column
 
 <div id="Linear Algebra-Introduction-Reducing a matrix"><h3 id="Reducing a matrix">Reducing a matrix</h3></div>
 <p>
-The reduced echelon form of a matrix is unique. 
+The reduced echelon form of a matrix is unique.
 </p>
 
 <p>
@@ -204,7 +247,7 @@ Make pivot positions equal to 1, create zeros in all pivot columns. Start with t
 </ol>
 
 <p>
-Side note: a computer chooses as pivot the entry that's smallest in absolute value to minimize the round-off error. 
+Side note: a computer chooses as pivot the entry that's smallest in absolute value to minimize the round-off error.
 </p>
 
 <p>
@@ -265,6 +308,235 @@ You also have the rules (matrix A,  vectors u and v, scalar c):
 
 <li>
 \(A(cu) = c(Au)\)
+
+</ul>
+
+<div id="Linear Algebra-Solution sets of linear systems"><h2 id="Solution sets of linear systems">Solution sets of linear systems</h2></div>
+<div id="Linear Algebra-Solution sets of linear systems-Homogeneous linear systems"><h3 id="Homogeneous linear systems">Homogeneous linear systems</h3></div>
+<p>
+homogeneous: if you can write it in \(Ax = 0\) where A is an \(m \times n\) matrix and 0 is the zero vector in \(\Re^m\)
+</p>
+<ul>
+<li>
+always has at least one solution (the trivial solution, \(x = 0\)).
+
+<li>
+has a nontrivial solution iff there is a free variable
+
+<ul>
+<li>
+if the equation has only one free variable, the solution is a line through the origin
+
+<li>
+when there are two or more free variables, it's a line through the origin
+
+</ul>
+<li>
+solution set is \(\text{Span} \{v_1, \ldots, v_p\}\) for suitable vectors
+
+</ul>
+
+<div id="Linear Algebra-Solution sets of linear systems-Parametric vector form"><h3 id="Parametric vector form">Parametric vector form</h3></div>
+<p>
+implicit description:
+</p>
+<ul>
+<li>
+a simple equation
+
+<li>
+e.g. \(10x_1 - 3x_2 - 2x_3 = 0\)
+
+</ul>
+
+<p>
+explicit description (parametric vector form):
+</p>
+<ul>
+<li>
+the solution to the equation as a set spanned by u and v
+
+<li>
+of the form \(x = su + tv\), with \(s,t \in \Re\)
+
+</ul>
+
+<p>
+the solution set of \(Ax = 0\) is \(x = tv\) with \(t \in \Re\).
+</p>
+
+<p>
+if \(Ax = b\) has a solution, then you get the solution set by translating the solution set of \(Ax = 0\) using any particular solution p of \(Ax = b\). The set is then \(x = p + tv\)
+</p>
+
+<p>
+Writing a solution set in parametric vector form:
+</p>
+<ol>
+<li>
+Row reduce augmented matrix to echelon form
+
+<li>
+Express each basic variable in terms of any free variables.
+
+<li>
+Write a typical solution x as a vector, with entries depending on the (potential) free variables.
+
+<li>
+Decompose x into a linear combination of vectors using free vars as parameters.
+
+</ol>
+
+<div id="Linear Algebra-Solution sets of linear systems-Linear independence"><h3 id="Linear independence">Linear independence</h3></div>
+
+<p>
+linearly independent:
+</p>
+<ul>
+<li>
+set of vector equations: iff the vector equation has only the trivial solution (\(x_1 = x_2 = x_3 = 0\))
+
+<li>
+columns of matrix: iff \(Ax = 0\) has <em>only</em> the trivial solution
+
+<li>
+one vector: iff v is not the zero vector
+
+<li>
+two vectors: if neither of the vectors is a multiple of the other
+
+</ul>
+
+<p>
+linearly dependent:
+</p>
+<ul>
+<li>
+iff at least one of the vectors is a linear combination of the others
+
+<li>
+if there are more vectors than entries in each vector
+
+<li>
+if the set contains the zero vector
+
+</ul>
+
+<p>
+a set is linearly dependent iff it's not linearly independent.
+</p>
+
+<div id="Linear Algebra-Linear transformations"><h2 id="Linear transformations">Linear transformations</h2></div>
+<p>
+definitions:
+</p>
+<ul>
+<li>
+transformation, function, mapping: rule assigning to each vector in \(\Re^n\) a vector \(T(x)\) in \(\Re^m\)
+
+<li>
+domain: set \(\Re^n\)
+
+<li>
+codomain: set \(\Re^m\)
+
+<li>
+image: vector T(x)
+
+<li>
+range: set of all images T(x)
+
+</ul>
+
+<p>
+a projection transformation happens if you go to a lower dimension (e.g. \(x_3\) becomes 0). a shear transformation happens if a 2D square is tilted sideways into a parallelogram.
+</p>
+
+<p>
+a transformation T is linear if:
+</p>
+<ol>
+<li>
+\(T(u + v) = T(u) + T(v)\) for all \(u,v \in \text{Domain}(T)\)
+
+<li>
+\(T(cu) = cT(u)\) for all scalars c and all \(u \in \text{Domain}(T)\)
+
+</ol>
+
+<p>
+linear transformations preserve operations of vector addition and scalar multiplication.
+</p>
+
+<p>
+if T is a linear transformation, then:
+</p>
+<ul>
+<li>
+\(T(0) = 0)\)
+
+<li>
+\(T(cu + dv) = cT(u) + dT(v)\)
+
+<li>
+\(T(c_1 v_2 + \dots + c_p v_p) = c_1 T(v_1) + \dots + c_p T(v_p)\) (superposition principle)
+
+</ul>
+
+<p>
+given scalar r, and \(T: \Re^2 \rightarrow \Re^2\) by \(T(x) = rx\)
+</p>
+<ul>
+<li>
+contraction: when \(0 \leq r \leq 1\)
+
+<li>
+dilation: when \(r &gt; 1\)
+
+</ul>
+
+<p>
+every linear transformation \(\Re^n \rightarrow \Re^m\) is a matrix transformation \(x \mapsto Ax\). 
+</p>
+
+<p>
+\(A = [[T(e_1) \dots T(e_n)]\), where \(e_j\) is the jth column of the identity matrix in \(\Re^n\)
+</p>
+
+<p>
+geometric linear transformations of \(\Re^2\):
+</p>
+
+<p>
+<img src="img-algebra/geo-reflections.png" alt="Reflections" /> <img src="img-algebra/geo-contract-shears.png" alt="Contractions/expansions and shears" /> <img src="img-algebra/geo-projections.png" alt="Projections" />
+</p>
+
+<p>
+types of mappings:
+</p>
+<ul>
+<li>
+\(T: \Re^n \rightarrow \Re^m\) is 'onto' \(\Re^m\) if <em>each</em> b in \(\Re^m\) is the image of <em>at least one</em> x in \(\Re^n\).
+
+<li>
+\(T: \Re^n \rightarrow \Re^m\) is one-to-one if <em>each</em> b in \(\Re^m\) is the image of <em>max one</em> x in \(\Re^n\).
+
+<ul>
+<li>
+so if \(T(x) = 0\) only has the trivial solution
+
+</ul>
+</ul>
+
+<p>
+for mapping \(T: \Re^n \rightarrow \Re^m\) and standard matrix \(A\):
+</p>
+<ul>
+<li>
+T maps \(\Re^n\) onto \(\Re^m\) iff columns of matrix span \(\Re^m\)
+
+<li>
+T is one-to-one iff columns of matrix are linearly independent.
 
 </ul>
 
