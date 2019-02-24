@@ -1,3 +1,33 @@
 [submodule "zerotab"]
 	path = zerotab
 	url = https://github.com/thezeroalpha/zerotab.git
+[submodule "uni-notes/compnet-notes"]
+	path = uni-notes/compnet-notes
+	url = https://github.com/thezeroalpha/compnet-notes.git
+[submodule "uni-notes/is-notes"]
+	path = uni-notes/is-notes
+	url = https://github.com/thezeroalpha/is-notes.git
+[submodule "uni-notes/webtech-notes"]
+	path = uni-notes/webtech-notes
+	url = https://github.com/thezeroalpha/webtech-notes.git
+[submodule "uni-notes/sysarch-notes"]
+	path = uni-notes/sysarch-notes
+	url = https://github.com/thezeroalpha/sysarch-notes.git
+[submodule "uni-notes/logicsets-notes"]
+	path = uni-notes/logicsets-notes
+	url = https://github.com/thezeroalpha/logicsets-notes.git
+[submodule "uni-notes/networksgraphs-notes"]
+	path = uni-notes/networksgraphs-notes
+	url = https://github.com/thezeroalpha/networksgraphs-notes.git
+[submodule "uni-notes/physcomp-notes"]
+	path = uni-notes/physcomp-notes
+	url = https://github.com/thezeroalpha/physcomp-notes.git
+[submodule "uni-notes/stats-notes"]
+	path = uni-notes/stats-notes
+	url = https://github.com/thezeroalpha/stats-notes.git
+[submodule "uni-notes/dsa-notes"]
+	path = uni-notes/dsa-notes
+	url = https://github.com/thezeroalpha/dsa-notes.git
+[submodule "uni-notes/os-notes"]
+	path = uni-notes/os-notes
+	url = https://github.com/thezeroalpha/os-notes.git
