@@ -10,14 +10,8 @@
     <hr>
     <div class="content">
     
-
 <div id="Linear Algebra"><h1 id="Linear Algebra">Linear Algebra</h1></div>
-
-<div id="Contents" class="toc"><h2 id="Contents">Contents</h2></div>
-<ul>
-<li>
-<a href="Linear Algebra.html#Linear Algebra">Linear Algebra</a>
-
+<div id="Contents" class="toc"><h1 id="Contents">Contents</h2></div>
 <ul>
 <li>
 <a href="Linear Algebra.html#Linear Algebra-Introduction">Introduction</a>
@@ -53,11 +47,62 @@
 <li>
 <a href="Linear Algebra.html#Linear Algebra-Linear transformations">Linear transformations</a>
 
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations">Matrix operations</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations-Sums and scalar multiples">Sums and scalar multiples</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations-Powers of a matrix">Powers of a matrix</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations-Transpose of a matrix">Transpose of a matrix</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations-Inverse of a matrix">Inverse of a matrix</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Matrix operations-Elementary matrices">Elementary matrices</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics">Applications to computer graphics</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics-Homogeneous coordinates">Homogeneous coordinates</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics-Homogeneous coordinates-2D">2D</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics-Homogeneous coordinates-3D">3D</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics-Composite transformations">Composite transformations</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Applications to computer graphics-Perspective projections">Perspective projections</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Subspaces">Subspaces</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Subspaces-Column space and null space of a matrix">Column space and null space of a matrix</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Subspaces-Basis for a subspace">Basis for a subspace</a>
+
 </ul>
 </ul>
 
 <div id="Linear Algebra-Introduction"><h2 id="Introduction">Introduction</h2></div>
-
 <div id="Linear Algebra-Introduction-Linear Equations"><h3 id="Linear Equations">Linear Equations</h3></div>
 <p>
 "the study of linear equations"
@@ -539,6 +584,265 @@ T maps \(\Re^n\) onto \(\Re^m\) iff columns of matrix span \(\Re^m\)
 T is one-to-one iff columns of matrix are linearly independent.
 
 </ul>
+
+<div id="Linear Algebra-Matrix operations"><h2 id="Matrix operations">Matrix operations</h2></div>
+<p>
+\(a_{ij}\) is the entry in the ith row and jth column of A
+</p>
+
+<p>
+diagonal entries are \(a_{11}\), \(a_{22}\), etc. and form the main diagonal. if non-diagonal entries are zero, then it's a diagonal matrix.
+</p>
+
+<p>
+equal matrices have same size <em>and</em> their corresponding entries are equal.
+</p>
+
+<div id="Linear Algebra-Matrix operations-Sums and scalar multiples"><h3 id="Sums and scalar multiples">Sums and scalar multiples</h3></div>
+<p>
+sum A+B: sum corresponding entries in A and B.
+</p>
+
+<p>
+scalar multiple \(rA\) is matrix whose columns are r times the corresponding columns in A (with r scalar).
+</p>
+
+<p>
+the usual rules of algebra apply to sums and scalar multiples of matrices.
+</p>
+
+<p>
+when matrix B multiplies vector x, it transforms x into vector \(Bx\). if \(Bx\) is multiplied by A, the result is \(A(Bx)\). \(A(Bx)\) is produced from x by composition of mappings, which can be represented as multiplication by a single matrix AB.
+</p>
+
+<p>
+\(A(Bx) = (AB)x\)
+</p>
+
+<p>
+\(AB = A \begin{bmatrix} b_1 &amp; b_2 &amp; \dots &amp; b_p \end{bmatrix} = \begin{bmatrix} Ab_1 &amp; Ab_2 &amp; \dots &amp; Ab_p \end{bmatrix}\)
+</p>
+
+<p>
+A is matrix, B is matrix with columns \(b_1 \dots b_p\).
+</p>
+
+<p>
+each column of AB is a linear combination of columns of A using weights from corresponding column of B. AB has the same number of rows as A and same number of columns as B. if the number of columns of A does not match number of rows of B, the product is undefined. in general, AB ≠ BA.
+</p>
+
+<p>
+if product AB is defined, then:
+</p>
+
+
+<p>
+\((AB)_{ij} = a_{i1} b_{1j} + a_{i2} b_{2j} + \dots + a_{in} b_{nj}\)
+</p>
+
+<p>
+\(row_i (AB) = row_i (A) \times B\)
+</p>
+
+<div id="Linear Algebra-Matrix operations-Powers of a matrix"><h3 id="Powers of a matrix">Powers of a matrix</h3></div>
+<p>
+\(A^k = \underbrace{A \dots A}_{k}\)
+</p>
+
+<p>
+with \(A\) an n × n matrix and k a positive integer.
+</p>
+
+<div id="Linear Algebra-Matrix operations-Transpose of a matrix"><h3 id="Transpose of a matrix">Transpose of a matrix</h3></div>
+<p>
+a matrix \(A'\) whose columns are made up of the corresponding rows of \(A\)
+</p>
+
+<p>
+properties:
+</p>
+<ul>
+<li>
+\((A^T)^T = A\)
+
+<li>
+\((A+B)^T = A^T + B^T\)
+
+<li>
+\((rA)^T = rA^T\) with r a scalar
+
+<li>
+\((AB)^T = B^T A^T\)$
+
+</ul>
+
+<p>
+the transpose of a product of matrices == product of their transposes in reverse order
+</p>
+
+<div id="Linear Algebra-Matrix operations-Inverse of a matrix"><h3 id="Inverse of a matrix">Inverse of a matrix</h3></div>
+<p>
+invertible (singular) if there is same size matrix C such that \(CA = I\) and \(AC = I\) where I is the n × n identity matrix.
+</p>
+
+<p>
+identity matrix: a matrix where the diagonals are all 1.
+</p>
+
+<p>
+C is uniquely determined by A, so: \(A^{-1} A = I\).
+</p>
+
+<p>
+let \(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}.\) if \(ad - bc \ne 0\) then \(A^{-1} = \frac{1}{ad - bc} \begin{bmatrix} d &amp; -b \\ -c &amp; a \end{bmatrix}\)
+</p>
+
+<p>
+determinant: \(\det A = ad - bc\)
+</p>
+
+<p>
+if A is invertible (determinant is not 0), then for each \(b \in \Re^n\) the solution of \(Ax = b\) is \(A^{-1} b\).
+</p>
+
+<p>
+properties of inverse:
+</p>
+<ul>
+<li>
+\((A^{-1})^{-1} = A\)
+
+<li>
+\((AB)^{-1} = B^{-1} A^{-1}\) (watch out for order!)
+
+<li>
+\((A^T)^{-1} = (A^{-1})^T\)
+
+</ul>
+
+<p>
+finding \(A^{-1}\):
+</p>
+<ul>
+<li>
+Row reduce augmented matrix \(\begin{bmatrix} A &amp; I \end{bmatrix}\).
+
+<li>
+if A is row equivalent to I, then \(\begin{bmatrix} A &amp; I \end{bmatrix}\) is row equivalent to \(\begin{bmatrix} I &amp; A^{-1} \end{bmatrix}\)
+
+<li>
+otherwise, A doesn't have an inverse.
+
+</ul>
+
+<div id="Linear Algebra-Matrix operations-Elementary matrices"><h3 id="Elementary matrices">Elementary matrices</h3></div>
+<p>
+elementary matrix: obtained by performing single elementary row operation on identity matrix
+</p>
+
+<p>
+if elementary row operation is performed on m × n matrix A, result is EA, with E an m × m matrix obtained by performing same row operation on \(I_m\)
+</p>
+
+<p>
+inverse of any elementary matrix E is of same type that transforms E back into I.
+</p>
+
+<p>
+an n × n matrix A is only invertible if A is row equivalent to \(I_n\). any sequence of elementary operations reducing A to \(I_n\) also transforms \(I_n\) into \(A^{-1}\).
+</p>
+
+<div id="Linear Algebra-Applications to computer graphics"><h2 id="Applications to computer graphics">Applications to computer graphics</h2></div>
+<p>
+graphics are stored in a matrix, such as this:
+</p>
+
+<p>
+<img src="img-algebra/graphics-coordinate-matrix.png" alt="Graphics coordinate matrix" /> <img src="img-algebra/vector-letter-n.png" alt="Vector letter N" />
+</p>
+
+<div id="Linear Algebra-Applications to computer graphics-Homogeneous coordinates"><h3 id="Homogeneous coordinates">Homogeneous coordinates</h3></div>
+<div id="Linear Algebra-Applications to computer graphics-Homogeneous coordinates-2D"><h4 id="2D">2D</h4></div>
+<p>
+each point (x, y) in 2D can be identified with point (x, y, 1) in 3D. so we say that (x, y) has homogeneous coordinates (x, y, 1).
+</p>
+
+<p>
+e.g. translation is not a linear transformation. but \((x, y) \mapsto (x+h, y+k)\) can be written in homogeneous coordinates as \((x, y, 1) \mapsto (x+h, y+k, 1)\), and can be computed using matrix multiplication:
+</p>
+
+<p>
+\(\begin{bmatrix} 1 &amp; 0 &amp; h\\ 0 &amp; 1 &amp; k\\ 0 &amp; 0 &amp; 1\end{bmatrix} \begin{bmatrix} x \\ y \\ 1 \end{bmatrix} = \begin{bmatrix} x+h \\ y+k \\ 1 \end{bmatrix}\)
+</p>
+
+<div id="Linear Algebra-Applications to computer graphics-Homogeneous coordinates-3D"><h4 id="3D">3D</h4></div>
+<p>
+(X, Y, Z, H) are homogeneous coordinates for (x, y, z) if H ≠ 0 and
+</p>
+
+<p>
+\(x = \frac{X}{H}, \quad y = \frac{Y}{H}, \quad \text{and} \; z = \frac{Z}{H}\)
+</p>
+
+<div id="Linear Algebra-Applications to computer graphics-Composite transformations"><h3 id="Composite transformations">Composite transformations</h3></div>
+<p>
+when you need two or more basic transformations, such a composite transformation is a matrix multiplication.
+</p>
+
+<div id="Linear Algebra-Applications to computer graphics-Perspective projections"><h3 id="Perspective projections">Perspective projections</h3></div>
+<p>
+maps each point (x, y, z) onto an image point (x*, y*, 0) so that two points and eye position (center of projection) are on a line.
+</p>
+
+<p>
+<img src="img-algebra/perspective-projection-diagram.png" alt="Perspective projection diagram" />
+</p>
+
+<div id="Linear Algebra-Subspaces"><h2 id="Subspaces">Subspaces</h2></div>
+<p>
+subspace of \(\Re^n\) is any set H in \(\Re^n\) that has properties:
+</p>
+<ol>
+<li>
+The zero vector is in H
+
+<li>
+For each u and v in H, the sum \(u + v\) is in H
+
+<li>
+For each u in H and each scalar c, the vector \(cu\) is in H
+
+</ol>
+
+<p>
+the zero subspace is the set that only contains zero vector in \(\Re^n\)
+</p>
+
+<div id="Linear Algebra-Subspaces-Column space and null space of a matrix"><h3 id="Column space and null space of a matrix">Column space and null space of a matrix</h3></div>
+<p>
+column space: set of all linear combinations of the columns of a matrix
+</p>
+
+<p>
+column space of m × n matrix is subspace of \(\Re^m\)
+</p>
+
+<p>
+null space: set of all solutions of equation \(Ax = 0\).
+</p>
+
+<p>
+null space of an m × n matrix is subspace of \(\Re^n\).
+</p>
+
+<div id="Linear Algebra-Subspaces-Basis for a subspace"><h3 id="Basis for a subspace">Basis for a subspace</h3></div>
+<p>
+basis for subspace H of \(\Re^n\) is linearly independent set in H spanning H
+</p>
+
+<p>
+the pivot columns of a matrix form the basis for its column space.
+</p>
 
     </div>
 </body>
