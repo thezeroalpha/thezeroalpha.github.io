@@ -107,6 +107,41 @@
 <a href="Software Design.html#Software Design-Structure modeling with UML-Creating a class diagram">Creating a class diagram</a>
 
 </ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML">Object-oriented design patterns in UML</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Creational">Creational</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Creational-Singleton">Singleton</a>
+
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Creational-Factory method">Factory method</a>
+
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Structural">Structural</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Structural-Adapter">Adapter</a>
+
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Behavioral">Behavioral</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Behavioral-Observer">Observer</a>
+
+<li>
+<a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Behavioral-Chain of responsibility">Chain of responsibility</a>
+
+</ul>
+</ul>
 </ul>
 
 <div id="Software Design-Introduction"><h2 id="Introduction">Introduction</h2></div>
@@ -1205,6 +1240,466 @@ generalization: "some research associates hold courses. then they are called lec
 <p>
 <img src="img-design/uml-natural-text-inheritance.png" alt="UML Natural text inheritance" />
 </p>
+
+<div id="Software Design-Object-oriented design patterns in UML"><h2 id="Object-oriented design patterns in UML">Object-oriented design patterns in UML</h2></div>
+<p>
+design pattern: a reusable form of solution to a common design problem (like a 'template')
+</p>
+
+<p>
+not a finished design, cannot be transformed directly into source code
+</p>
+
+<p>
+not prescriptive, so don't memorize them. it's important to understand when and why they're needed.
+</p>
+
+<p>
+speaking of, they're not always needed. don't over-complicate shit, you'll end up with a dumpster fire that nobody can maintain.
+</p>
+
+<p>
+essential parts of a design pattern
+</p>
+<ul>
+<li>
+Pattern name
+
+<ul>
+<li>
+provides common vocab for software designers
+
+</ul>
+<li>
+Intent
+
+<ul>
+<li>
+What does the design pattern do?
+
+<li>
+What is its rationale and intent?
+
+<li>
+What design issue/problem does it address?
+
+</ul>
+<li>
+Solution
+
+<ul>
+<li>
+the basic elements providing solution to the problem (structure, participants, collaborations)
+
+</ul>
+<li>
+Consequences
+
+<ul>
+<li>
+results and trade offs by applying the pattern
+
+</ul>
+</ul>
+
+<div id="Software Design-Object-oriented design patterns in UML-Creational"><h3 id="Creational">Creational</h3></div>
+<p>
+how objects can be created (maintainability, control, extensibility)
+</p>
+
+<p>
+we study the singleton and factory method. then there are also abstract factory, object pool, and prototype.
+</p>
+
+<div id="Software Design-Object-oriented design patterns in UML-Creational-Singleton"><h4 id="Singleton">Singleton</h4></div>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Singleton
+</th>
+</tr>
+<tr>
+<td>
+Intent
+</td>
+<td>
+To ensure that only one instance of a class is allowed in a system. <br>Controlled access to a single object is needed
+</td>
+</tr>
+<tr>
+<td>
+Solution
+</td>
+<td>
+<img src="img-design/singleton-solution-diagram.png" alt="Singleton solution diagram" />
+</td>
+</tr>
+<tr>
+<td>
+Consequences
+</td>
+<td>
+Controlled access to sole instance <br> Reduced name space (fewer 'global' variables) <br> permits variable number of instances
+</td>
+</tr>
+</table>
+
+<p>
+Implementation
+</p>
+
+<pre java>
+public class SingleObject {
+    // private constructor, cannot be instantiated from outside
+    private SingleObject(){}
+    
+    // create the one single instance
+    private static SingleObject instance = new SingleObject();
+    
+    // get the only instance
+    public static SingleObject getInstance() {
+        return instance;
+    }
+    
+    public void showMessage() {
+        System.out.println("Hello world!");
+    }
+</pre>
+
+<div id="Software Design-Object-oriented design patterns in UML-Creational-Factory method"><h4 id="Factory method">Factory method</h4></div>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Factory method
+</th>
+</tr>
+<tr>
+<td>
+Intent
+</td>
+<td>
+to abstract process of object creation so that type of created object can be determined at run time <br> to make design more customizable in terms of which objects can be created <br> avoiding the <code>new</code> operator because you don't want to hard code the class to be instantiated
+</td>
+</tr>
+<tr>
+<td>
+Solution
+</td>
+<td>
+<img src="img-design/factory-method-diagram.png" alt="Factory method diagram" />
+</td>
+</tr>
+<tr>
+<td>
+Consequences
+</td>
+<td>
+end up with dedicated class to create instances of objects <br> can pass arguments to the class to control the features of the objects
+</td>
+</tr>
+</table>
+
+<p>
+Implementation
+</p>
+
+<pre java>
+public class ShapeFactory {
+    public Shape getShape(String shapeTYpe) {
+        if (shapeType == null) {
+            return null;
+        }
+        if (shapeType.equalsIgnoreCase("CIRCLE")) {
+            return new Circle();
+        }
+        else if (shapeType.equalsIgnoreCase("RECTANGLE")) {
+            return new Rectangle();
+        }
+        else if (shapeType.equalsIgnoreCase("SQUARE")) {
+            return new Square();
+        }
+        
+        return null;
+    }
+}
+</pre>
+
+<div id="Software Design-Object-oriented design patterns in UML-Structural"><h3 id="Structural">Structural</h3></div>
+<p>
+how to form larger structures (management of complexity, efficiency)
+</p>
+
+<p>
+adapter is studied in this course. also have proxy, bridge, decorator, facade, flyweight, composite, private class data.
+</p>
+
+<div id="Software Design-Object-oriented design patterns in UML-Structural-Adapter"><h4 id="Adapter">Adapter</h4></div>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Adapter
+</th>
+</tr>
+<tr>
+<td>
+Intent
+</td>
+<td>
+to convert interface of class into another interface <br> to let two or more classes with incompatible interfaces work together <br> to wrap an existing class with a new one <br> to have a kinda homogeneous interface that masks diversity of some set of various objects
+</td>
+</tr>
+<tr>
+<td>
+Solution
+</td>
+<td>
+<img src="img-design/adapter-diagram-1.png" alt="Adapter diagram 1" /> <img src="img-design/adapter-diagram-2.png" alt="Adapter diagram 2" />
+</td>
+</tr>
+<tr>
+<td>
+Consequences
+</td>
+<td>
+single class is responsible to join functionalities of independent/incompatible classes
+</td>
+</tr>
+</table>
+
+<p>
+Implementation
+</p>
+
+<pre java>
+public class Wrapper {
+    // the wrapped object
+    private LegacyComponent legacyComponent;
+    
+    // constructor
+    public Wrapper (LegacyComponent instance) {
+        this.legacyComponent = instance;
+    }
+    
+    // call to wrapped method
+    public int doThis() {
+        int result = 0;
+        float value = this.legacyComponent.doThat();
+        // magic the value into an integer somehow, then
+        return result;
+    }
+}
+</pre>
+
+<div id="Software Design-Object-oriented design patterns in UML-Behavioral"><h3 id="Behavioral">Behavioral</h3></div>
+<p>
+how responsibilities can be assigned to objects (objects decoupling, flexibility, better communication)
+</p>
+
+<p>
+we study observer and chain of responsibility. there are also command, interpreter, iterator, mediator, memento, null object, state, strategy, template method, and visitor.
+</p>
+
+<div id="Software Design-Object-oriented design patterns in UML-Behavioral-Observer"><h4 id="Observer">Observer</h4></div>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Observer
+</th>
+</tr>
+<tr>
+<td>
+Intent
+</td>
+<td>
+to let some object(s) be notified of state changes in other objects in the system <br> when on object changes state, all dependents are notified and updated automatically
+</td>
+</tr>
+<tr>
+<td>
+Solution
+</td>
+<td>
+<img src="img-design/observer-diagram.png" alt="Observer diagram" />
+</td>
+</tr>
+<tr>
+<td>
+Consequences
+</td>
+<td>
+supports broadcast communication <br> state changes in object(s) should trigger behavior in other objects <br> you can reuse objects without reusing their observers and v-v. <br> you can remove observers without changing the subjects
+</td>
+</tr>
+</table>
+
+<p>
+Implementation
+</p>
+
+<pre java>
+public abstract class Observer {
+    protected Subject subject;
+    public abstract void update();
+}
+
+class MappingRover extends Observer {
+    // specify observed subject in constructor
+    public MappingRover(Subject subject) P
+        this.subject = subject;
+        subject.attach(this);
+    }
+    
+    // observers "pull" information
+    public void update() {
+        if (this.subject.getState() == 0) {
+            // map the environment
+        }
+        else {
+            // "come back home", whatever that means
+        }
+    }
+}
+public abstract class Subject {
+    private List&lt;Observer&gt; observers = new ArrayList&lt;Observer&gt;();
+    private int state;
+    
+    public int getState() { ... }
+    public void setState(int state) { ... } // and notify all observers
+    public void attach(Observer observer) { ... } // add to observers list
+    public void detach(Observer observer) { ... } //remove from observers list
+    
+    public void notifyAllObservers() { ... } // run the update function for each observer in list
+}
+
+public static void main(String[] args) {
+    CentralStation cs = new CentralStation();
+    cs.setState(0);
+    
+    MappingRover rover1 = new MappingRover(cs);
+    CameraRover rover2 = new CameraRover(cs);
+    CameraRover rover3 = new CameraRover(cs);
+    
+    cs.setState(1);
+}
+</pre>
+
+<div id="Software Design-Object-oriented design patterns in UML-Behavioral-Chain of responsibility"><h4 id="Chain of responsibility">Chain of responsibility</h4></div>
+<table>
+<tr>
+<th>
+Name
+</th>
+<th>
+Chain of responsibility
+</th>
+</tr>
+<tr>
+<td>
+Intent
+</td>
+<td>
+avoid coupling sender of request to receiver by giving more than one object a chance to handle request <br> chain receiving objects and pass request along chain until an object handles it (sequential)
+</td>
+</tr>
+<tr>
+<td>
+Solution
+</td>
+<td>
+<img src="img-design/chain-of-responsibility-diagram.png" alt="Chain of responsibility diagram" />
+</td>
+</tr>
+<tr>
+<td>
+Consequences
+</td>
+<td>
+Reduced coupling between objects (every object needs to know its successor) <br> handler(s) are not known a priori and a request might be unhandled <br> you can change responsibilities by changing chain at runtime
+</td>
+</tr>
+</table>
+
+<p>
+Implementation
+</p>
+
+<pre java>
+public class Task {
+    private Coordinate coords;
+    private RequestEnum request;
+    
+    // basic getters and setters
+    public Coordinate getcoords() { ... }
+    public setCoords(Coordinate coords) { ... }
+    
+    public RequestEnum getRequest() { ... }
+    public setRequest(RequestEnum request) { ... }
+}
+
+public enum RequestEnum {
+    PICTURE, MAP;
+}
+
+public class Coordinate {
+    private float lat, lon;
+    
+    // basic getters and setters
+    public float getLat() { ... };
+    public setLat(float lat) { ... };
+    public float getLon() { ... };
+    public setLon(float lon) { ... };
+}
+
+public abstract class TaskHandler {
+    TaskHandler successor;
+    publicc void setSuccessor(TaskHandler successor) {
+        this.successor = successor;
+    }
+    public abstract void handleRequest(Task task);
+}
+
+public class CameraRover extends TaskHandler {
+    public void handleRequest(Task task) {
+        if (task.request == RequestEnum.PICTURE) {
+            // take a picture
+        }
+        else {
+            // pass on to successor
+            if (successor != null) {
+                successor.handleRequest(request);
+            }
+        }
+    }
+}
+
+public class Main {
+    public static TaskHandler setUpChain() {
+        MapRover mapper = new MapRover();
+        CameraRover photographer1 = new CameraRover();
+        CameraRover photographer2 = new CameraRover();
+        CameraRover photographer3 = new CameraRover();
+        
+        return mapper;
+    }
+    public static void main(Striing[] args) {
+        TaskHandler chain = setUpChain;
+        
+        chain.handleRequest(...);
+    }
+}
+</pre>
 
     </div>
 </body>
