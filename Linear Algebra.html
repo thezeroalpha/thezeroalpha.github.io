@@ -10,6 +10,7 @@
     <hr>
     <div class="content">
     
+
 <div id="Linear Algebra"><h1 id="Linear Algebra">Linear Algebra</h1></div>
 <div id="Contents" class="toc"><h1 id="Contents">Contents</h2></div>
 <ul>
@@ -99,7 +100,16 @@
 <li>
 <a href="Linear Algebra.html#Linear Algebra-Subspaces-Basis for a subspace">Basis for a subspace</a>
 
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Subspaces-Coordinates">Coordinates</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Subspaces-Dimension of a subspace">Dimension of a subspace</a>
+
 </ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Eigenvectors &amp; eigenvalues">Eigenvectors &amp; eigenvalues</a>
+
 </ul>
 
 <div id="Linear Algebra-Introduction"><h2 id="Introduction">Introduction</h2></div>
@@ -842,6 +852,97 @@ basis for subspace H of \(\Re^n\) is linearly independent set in H spanning H
 
 <p>
 the pivot columns of a matrix form the basis for its column space.
+</p>
+
+<div id="Linear Algebra-Subspaces-Coordinates"><h3 id="Coordinates">Coordinates</h3></div>
+<p>
+let \(H \in \Re^n\) be subspace with \(B = \{ b_1, \dots, b_p\}\). then for all x ∈ H, there are unique \(c_1, \dots, c_p\) such that \(x = c_1 b_2 + \dots + c_p b_p\). (to prove this theorem, use a contradiction on uniqueness)
+</p>
+
+<p>
+the coordinates of x w.r.t. B are \(c_1, \dots, c_p\).
+</p>
+
+<p>
+the coordinate system of x w.r.t. B is \([x]_B = \begin{bmatrix}c_1\\ \dots\\ c_p\end{bmatrix}\)
+</p>
+
+<div id="Linear Algebra-Subspaces-Dimension of a subspace"><h3 id="Dimension of a subspace">Dimension of a subspace</h3></div>
+<p>
+let \(H \in \Re^n\) be a subspace with basis \(B=\{ b_1, \dots, b_p \}\). then every basis for H comprises p vectors.
+</p>
+
+<p>
+the dimension of H is the number of basis vectors in <em>any</em> basis for H.
+</p>
+
+<p>
+dim Col A = #pivot columns (rank A)
+</p>
+
+<p>
+dim Nul A = #free variables in Ax = 0
+</p>
+
+<p>
+Rank theorem: dim Col A + dim Nul A = #columns
+</p>
+
+<div id="Linear Algebra-Eigenvectors &amp; eigenvalues"><h2 id="Eigenvectors &amp; eigenvalues">Eigenvectors &amp; eigenvalues</h2></div>
+<p>
+let A be n × n, \(x \in \Re^n\) is an eigenvector of A if x ≠ 0 and \(\exists \lambda \in \Re\) such that \(Ax = \lambda x\) 
+</p>
+
+<p>
+x is eigenvector with corresponding eigenvalue λ.
+</p>
+
+<p>
+Is a given vector \(u \in \Re^n\) an eigenvector of a given A (n × n)?
+</p>
+<ul>
+<li>
+Do \(Au\), check if result is a multiple of u.
+
+</ul>
+
+<p>
+Is a given λ an eigenvalue of A?
+</p>
+<ul>
+<li>
+\(\exists x \ne 0\) such that \(Ax - \lambda x = 0 \leftrightarrow (A-\lambda I_n)x = 0\) with nontrivial solutions.
+
+</ul>
+
+<p>
+The solution set of \((A-\lambda I_n)x = 0\) is the eigenspace corresponding to λ.
+</p>
+
+<p>
+How to find a basis for the eigenspace of a given λ?
+</p>
+<ol>
+<li>
+calculate matrix for \(A-\lambda I_n\) where n is the number of rows or columns of A
+
+<li>
+reduce matrix to reduced echelon form
+
+<li>
+express solutions in parametric form (basic variables in terms of free variables)
+
+<li>
+basis for eigenspace is the set of the coefficients
+
+</ol>
+
+<p>
+If λ = 0, then Ax = 0 has a nontrivial solution (and A is <em>not</em> invertible).
+</p>
+
+<p>
+Eigenvectors corresponding to distinct eigenvalues are linearly independent.
 </p>
 
     </div>
