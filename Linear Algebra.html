@@ -10,7 +10,6 @@
     <hr>
     <div class="content">
     
-
 <div id="Linear Algebra"><h1 id="Linear Algebra">Linear Algebra</h1></div>
 <div id="Contents" class="toc"><h1 id="Contents">Contents</h2></div>
 <ul>
@@ -109,6 +108,15 @@
 </ul>
 <li>
 <a href="Linear Algebra.html#Linear Algebra-Eigenvectors &amp; eigenvalues">Eigenvectors &amp; eigenvalues</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Determinant">Determinant</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Similarity">Similarity</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Diagonalization">Diagonalization</a>
 
 </ul>
 
@@ -943,6 +951,82 @@ If λ = 0, then Ax = 0 has a nontrivial solution (and A is <em>not</em> invertib
 
 <p>
 Eigenvectors corresponding to distinct eigenvalues are linearly independent.
+</p>
+
+<div id="Linear Algebra-Determinant"><h2 id="Determinant">Determinant</h2></div>
+<p>
+Geometric interpretation: let \(A = [a_1 \; a_2]\). then the determinant (absolute value) is the surface area (or volume in 3D):
+</p>
+
+<p>
+<img src="img-algebra/determinant-geometric-diagram.png" alt="Determinant geometric diagram" />
+</p>
+
+<p>
+Let A (n × n). A ~ U without scaling and using <em>r</em> row interchanges. then \(\det A = (-1)^r u_{11} \times \dots \times u_{nn}\)
+</p>
+
+<p>
+A is invertible iff \(\det A \ne 0\)
+</p>
+
+<p>
+\(\det AB = (\det A)(\det B)\)
+</p>
+
+<p>
+λ is an eigenvalue of A iff \(\det (A-\lambda I) = 0\) (the characteristic equation of A)
+</p>
+
+<p>
+The eigenvalues of A (n × n) are the solutions for λ. Multiplicity is the number of solutions for λ.
+</p>
+
+<div id="Linear Algebra-Similarity"><h2 id="Similarity">Similarity</h2></div>
+<p>
+given A and B (n × n), A is similar to B if ∃p s.t. \(A = PBP^{-1}\)
+</p>
+
+<p>
+If A and B are similar, then they have the same characteristic polynomials (and the same eigenvalues with the same multiplicities)
+</p>
+
+<div id="Linear Algebra-Diagonalization"><h2 id="Diagonalization">Diagonalization</h2></div>
+<p>
+A is diagonalizable if A is similar to a diagonal matrix.
+</p>
+
+<p>
+Diagonalization Theorem: A (n × n) is diagonalizable iff A has n linearly independent eigenvectors (the eigenbasis for \(\Re^n\))
+</p>
+
+<p>
+\(A = P D P^{-1} \leftrightarrow\) columns of D are linearly independent eigenvectors and the diagonals of D are corresponding eigenvectors.
+</p>
+
+<p>
+How to diagonalize a matrix:
+</p>
+<ol>
+<li>
+Find eigenvalues of A
+
+<li>
+Find n = λ linearly independent eigenvectors
+
+<li>
+Construct \(P = \begin{bmatrix} p_1 &amp; p_2 &amp; \ldots &amp; p_n \end{bmatrix}\)
+
+<li>
+Construct D from the corresponding eigenvalues on the diagonal. Order of eigenvalues must match the order for columns of P.
+
+<li>
+Check \(A = p D p^{-1} \leftrightarrow Ap = pD\) (if p is invertible)
+
+</ol>
+
+<p>
+If A (n × n) has n distinct eigenvalues, it is diagonalizable.
 </p>
 
     </div>
