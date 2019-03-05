@@ -118,6 +118,28 @@
 <li>
 <a href="Linear Algebra.html#Linear Algebra-Diagonalization">Diagonalization</a>
 
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Inner (dot) product &amp; uses">Inner (dot) product &amp; uses</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Inner (dot) product &amp; uses-Length of a vector">Length of a vector</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Inner (dot) product &amp; uses-Distance between vectors">Distance between vectors</a>
+
+</ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Orthogonality">Orthogonality</a>
+
+<ul>
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Orthogonality-Orthogonal complement">Orthogonal complement</a>
+
+<li>
+<a href="Linear Algebra.html#Linear Algebra-Orthogonality-Orthogonal sets">Orthogonal sets</a>
+
+</ul>
 </ul>
 
 <div id="Linear Algebra-Introduction"><h2 id="Introduction">Introduction</h2></div>
@@ -1028,6 +1050,100 @@ Check \(A = p D p^{-1} \leftrightarrow Ap = pD\) (if p is invertible)
 <p>
 If A (n × n) has n distinct eigenvalues, it is diagonalizable.
 </p>
+
+<div id="Linear Algebra-Inner (dot) product &amp; uses"><h2 id="Inner (dot) product &amp; uses">Inner (dot) product &amp; uses</h2></div>
+<p>
+let \(u,v \in \Re^n\). then, \(u \cdot v = u^T v \in \Re\).
+</p>
+
+<p>
+in English, to calculate you just multiply the vectors row-wise, and sum all the results.
+</p>
+
+<p>
+Regular algebraic rules apply.
+</p>
+
+<p>
+\(u \cdot u \geq 0\), only 0 iff u = 0.
+</p>
+
+<div id="Linear Algebra-Inner (dot) product &amp; uses-Length of a vector"><h3 id="Length of a vector">Length of a vector</h3></div>
+<p>
+Let \(v \in \Re^n\), then the norm (length) of v is \(\|v\| = \sqrt{v \cdot v}\).
+</p>
+
+<p>
+Does the norm coincide with length of line segments? Yes:
+</p>
+
+<p>
+\(x = \begin{bmatrix}a\\b\end{bmatrix}, \quad \|v\| = \sqrt{v \cdot v} = \sqrt{a^2 + b^2} = \text{Pythagoras}\)
+</p>
+
+<div id="Linear Algebra-Inner (dot) product &amp; uses-Distance between vectors"><h3 id="Distance between vectors">Distance between vectors</h3></div>
+<p>
+Let \(u,v \in \Re^n\). then, \(\text{dist}(u,v) = \|u-v\|\).
+</p>
+
+<div id="Linear Algebra-Orthogonality"><h2 id="Orthogonality">Orthogonality</h2></div>
+<p>
+let \(u,v \in \Re^n\). orthogonal iff:
+</p>
+<ul>
+<li>
+\(u \cdot v = 0\)
+
+<li>
+or \(\|u\|^2 + \|v\|^2 = \|u+v\|^2\)
+
+</ul>
+
+<div id="Linear Algebra-Orthogonality-Orthogonal complement"><h3 id="Orthogonal complement">Orthogonal complement</h3></div>
+<p>
+Let \(W \subset \Re^n\) a subspace, then orthogonal complement of W is \(W^\perp = \{x \in \Re^n | x \cdot v = 0 \forall u \in W \}\)
+</p>
+
+<p>
+properties:
+</p>
+<ul>
+<li>
+\((colA)^\perp = (NulA)^T\)
+
+<li>
+\((NulA)^\perp = (colA)^T\)
+
+</ul>
+
+<div id="Linear Algebra-Orthogonality-Orthogonal sets"><h3 id="Orthogonal sets">Orthogonal sets</h3></div>
+<p>
+a set \(\{v_1 \dots v_p\}\) is orthogonal if \(v_i \cdot v_j = 0 \forall i,j\). then \(\{v_1 \dots v_p\} is a basis for \)\text{Span}\{v_1 \dots v_p\}$
+</p>
+
+<p>
+An orthogonal basis is a basis that is also an orthogonal set
+</p>
+
+<p>
+Why orthogonal basis? Let \(W \in \Re^n\) be subspace with orthogonal basis \(\{u_1 \dots u_p\}\), then \(W \ni y = c_1 u_1 + \ldots + c_p u_p\), with \(c_i = \frac{y \cdot u_i}{u_i \cdot u_i}\) for i = 1...p.
+</p>
+
+<p>
+An orthonormal set/basis is an orthogonal set/basis consisting of unit vectors (like \(\{e_1, \ldots, e_n\}\text{ for }\Re^n\)).
+</p>
+
+<p>
+An m × matrix A has orthonormal columns iff \(A^T A = I_n\)
+</p>
+<ul>
+<li>
+\((Ax) \cdot (Ay) = x \cdot y\)
+
+<li>
+\(\| Ax \| = \| x \|\)
+
+</ul>
 
     </div>
 </body>
