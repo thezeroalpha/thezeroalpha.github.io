@@ -84,3 +84,6 @@ order matters, creating a new redirection essentially duplicates the file descri
 * `ffmpeg -i in.mkv -f srt -i in.srt -map 0:0 -map 0:1 -map 1:0 -c:v copy -c:a copy -c:s srt out.mkv` - add subtitles to video
 * `for f in ./*.ext; do echo "file '$f'" >> list.txt; done; ffmpeg -f concat -safe 0 -i list.txt -c copy output.ext` - concatenate videos
 * `ffmpeg -i in.vtt out.srt` - convert vtt subtitles to srt
+
+# bc
+* `bc <<< "obase=2; ibase=16; F"` - convert hex to binary (when you set ibase, everything has to be in that base. so if you wanted to reset output to decimal, you'd have to set `obase=A`).
