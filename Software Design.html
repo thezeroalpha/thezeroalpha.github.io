@@ -10,7 +10,6 @@
     <div class="content">
     
 <div id="Software Design"><h1 id="Software Design">Software Design</h1></div>
-
 <div id="Contents" class="toc"><h1 id="Contents">Contents</h2></div>
 <ul>
 <li>
@@ -141,6 +140,29 @@
 <a href="Software Design.html#Software Design-Object-oriented design patterns in UML-Behavioral-Chain of responsibility">Chain of responsibility</a>
 
 </ul>
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines">Modeling behavior with UML State Machines</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Introduction">Introduction</a>
+
+<li>
+<a href="Software Design.html#States">States</a>
+
+<li>
+<a href="Software Design.html#Transitions">Transitions</a>
+
+<li>
+<a href="Software Design.html#Types of events">Types of events</a>
+
+<li>
+<a href="Software Design.html#Types of states">Types of states</a>
+
+<li>
+<a href="Software Design.html#Entry and exit points">Entry and exit points</a>
+
 </ul>
 </ul>
 
@@ -1700,6 +1722,393 @@ public class Main {
     }
 }
 </pre>
+
+<div id="Software Design-Modeling behavior with UML State Machines"><h2 id="Modeling behavior with UML State Machines">Modeling behavior with UML State Machines</h2></div>
+<div id="Software Design-Modeling behavior with UML State Machines-Introduction"><h3 id="Introduction">Introduction</h3></div>
+<p>
+every object has finite set of states during life.
+</p>
+
+<p>
+state machine diagram is used to:
+</p>
+<ul>
+<li>
+model possible states of system/object
+
+<li>
+show how state transitions occur as consequence of events
+
+<li>
+show behavior of system in each state
+
+</ul>
+
+<p>
+<img src="img-design/simple-example.png" alt="Simple example" />
+</p>
+
+<div id="Software Design-Modeling behavior with UML State Machines-States"><h3 id="States">States</h3></div>
+<p>
+states are the nodes of state machine
+</p>
+
+<p>
+when a state is active:
+</p>
+<ul>
+<li>
+object is in that state
+
+<li>
+all internal activities in that state can be executed:
+
+<ul>
+<li>
+<code>entry/Activity</code> - when object enters the state
+
+<li>
+<code>do/Activity</code> - while object remains in this state
+
+<li>
+<code>exit/Activity</code> - when object exits the state
+
+</ul>
+</ul>
+
+<div id="Software Design-Modeling behavior with UML State Machines-Transitions"><h3 id="Transitions">Transitions</h3></div>
+<p>
+change from one state to another
+</p>
+
+<p>
+<img src="img-design/transition-diagram.png" alt="Transition diagram" />
+</p>
+
+<p>
+Syntax of transitions:
+</p>
+<blockquote>
+<img src="img-design/syntax-of-transitions.png" alt="Syntax of transitions" />
+</blockquote>
+    
+<ul>
+<li>
+Event (trigger)
+
+<ul>
+<li>
+can trigger state transition
+
+</ul>
+<li>
+Guard (condition)
+
+<ul>
+<li>
+boolean expression
+
+<li>
+if event occurs, guard is checked
+
+<li>
+if guard is true:
+
+<ol>
+<li>
+all activities in current state are terminated
+
+<li>
+exit activity is executed
+
+<li>
+transition happens
+
+</ol>
+</ul>
+<li>
+Activity (effect)
+
+<ul>
+<li>
+sequence of actions that happen during transition
+
+</ul>
+</ul>
+
+<p>
+Types:
+</p>
+<ul>
+<li>
+internal:
+
+</ul>
+<blockquote>
+<img src="img-design/internal-state-transition.png" alt="Internal state transition" />
+</blockquote>
+
+<ul>
+<li>
+if <code>event1</code> happens, object stays in <code>state1</code> and <code>Activity3</code> runs
+
+</ul>
+
+<ul>
+<li>
+external:
+
+</ul>
+<blockquote>
+<img src="img-design/external-state-transition.png" alt="External state transition" />
+</blockquote>
+
+<ul>
+<li>
+if <code>event1</code> happens:
+
+<ul>
+<li>
+object leaves <code>state1</code>, <code>Activity2</code> runs
+
+<li>
+<code>Activity3</code> runs
+
+<li>
+object enters <code>state1</code> and <code>Activity1</code> runs
+
+</ul>
+</ul>
+
+<p>
+Timing of transitions:
+</p>
+
+<p>
+<img src="img-design/table-of-transition-timing.png" alt="Table of transition timing" />
+</p>
+
+<div id="Software Design-Modeling behavior with UML State Machines-Types of events"><h3 id="Types of events">Types of events</h3></div>
+<ul>
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Signal event:"></span><strong id="Signal event:">Signal event:</strong> receipt of a signal (<code>rightmousedown</code>, <code>sendSMS(message)</code>)
+
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Call event:"></span><strong id="Call event:">Call event:</strong> operation call (<code>occupy(user, lectureHall)</code>, <code>register(exam)</code>)
+
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Time event:"></span><strong id="Time event:">Time event:</strong> time-based state transition (relative or absolute time)
+
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Any receive event:"></span><strong id="Any receive event:">Any receive event:</strong> when any event occurs that doesn't trigger another transition from the active state
+
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Completion event:"></span><strong id="Completion event:">Completion event:</strong> automatic when everything is completed in the current state
+
+<li>
+<span id="Software Design-Modeling behavior with UML State Machines-Types of events-Change event:"></span><strong id="Change event:">Change event:</strong> permanently checking when a condition becomes true
+
+</ul>
+
+<p>
+A change event is permanently checked. A guard is only checked when the event occurs.
+</p>
+
+<div id="Software Design-Modeling behavior with UML State Machines-Types of states"><h3 id="Types of states">Types of states</h3></div>
+<p>
+Initial state:
+</p>
+<ul>
+<li>
+"start" of the diagram
+
+<li>
+pseudo-state, system can't remain in this state
+
+<li>
+no incoming edges
+
+<li>
+outgoing edges have to be mutually exclusive and at least one target must be reachable. no events allowed.
+
+<li>
+system immediately switches from initial state.
+
+<li>
+notation: <img src="img-design/initial-state-notation.png" alt="Initial state notation" />
+
+</ul>
+
+<p>
+Final state:
+</p>
+<ul>
+<li>
+real state
+
+<li>
+end of sequence of states
+
+<li>
+can remain in this state forever
+
+<li>
+notation: <img src="img-design/final-state-notation.png" alt="Final state notation" />
+
+</ul>
+
+<p>
+Terminate node:
+</p>
+<ul>
+<li>
+pseudo-state
+
+<li>
+terminates state machine
+
+<li>
+modeled object is deleted
+
+<li>
+notation: <img src="img-design/terminate-node-notation.png" alt="Terminate node notation" />
+
+</ul>
+
+<p>
+Decision node:
+</p>
+<ul>
+<li>
+pseudo-state
+
+<li>
+used for alternative transitions
+
+<li>
+notation: <img src="img-design/decision-node-notation.png" alt="Decision node notation" />
+
+</ul>
+
+<p>
+Parallelization node:
+</p>
+<ul>
+<li>
+pseudo-state
+
+<li>
+splits control flow into multiple concurrent flows
+
+<li>
+1 incoming edge, &gt;1 outgoing edges
+
+<li>
+notation: <img src="img-design/parallelization-node-notation.png" alt="Parallelization node notation" />
+
+</ul>
+
+<p>
+Synchronization node:
+</p>
+<ul>
+<li>
+pseudo-state
+
+<li>
+merges multiple concurrent flows
+
+<li>
+&gt;1 incoming edge, 1 outgoing edge
+
+<li>
+notation: <img src="img-design/synchronization-node-notation.png" alt="Synchronization node notation" />
+
+</ul>
+
+<p>
+Composite state:
+</p>
+<ul>
+<li>
+contains substates, with only one of them active at any time
+
+<li>
+arbitrary nesting depth
+
+<li>
+higher level events take priority
+
+</ul>
+<blockquote>
+<img src="img-design/composite-state-diagram.png" alt="Composite state diagram" />
+</blockquote>
+    
+<p>
+Orthogonal state:
+</p>
+<ul>
+<li>
+composite state divided into two or more regions, separated by dashed line
+
+<li>
+one state of each region is always active at some point (concurrent substates)
+
+<li>
+final state has to be reached in all regions to trigger completion
+
+</ul>
+<blockquote>
+<img src="img-design/orthogonal-state-diagram.png" alt="Orthogonal state diagram" />
+</blockquote>
+
+<p>
+Submachine state (SMS)
+</p>
+<ul>
+<li>
+to reuse parts of state machine diagrams in other ones
+
+<li>
+as soon as submachine state is activated, behavior of submachine is executed (subroutine)
+
+<li>
+notation: <code>state:submachineState</code>
+
+</ul>
+<blockquote>
+<img src="img-design/submachine-state-diagram.png" alt="Submachine state diagram" />
+</blockquote>
+
+<p>
+History state:
+</p>
+<ul>
+<li>
+remembers the last active substate of a composite state
+
+<li>
+activates 'old' substate and all entry activities run sequentially from outside to inside of composite state
+
+<li>
+exactly one outgoing edge of history state points to a substate. used if the composite state was never active, or it was exited via final state.
+
+<li>
+shallow history state restores state on the same level of the composite state (<code>H</code>)
+
+<li>
+deep history state restores last active substate over <em>all levels</em> (<code>H*</code>)
+
+</ul>
+
+<div id="Software Design-Modeling behavior with UML State Machines-Entry and exit points"><h3 id="Entry and exit points">Entry and exit points</h3></div>
+<p>
+Encapsulation mechanism: a composite state shall be entered/exited via a state other than initial and final states.
+</p>
+
+<p>
+external transition must/need not know structure of composite state.
+</p>
 
     </div>
 </body>
