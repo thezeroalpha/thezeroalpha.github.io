@@ -10,7 +10,7 @@
     <div class="content">
     
 <div id="Software Design"><h1 id="Software Design">Software Design</h1></div>
-<div id="Contents" class="toc"><h1 id="Contents">Contents</h2></div>
+<div id="Contents" class="toc"><h1 id="Contents">Contents</h3></div>
 <ul>
 <li>
 <a href="Software Design.html#Software Design-Introduction">Introduction</a>
@@ -146,22 +146,58 @@
 
 <ul>
 <li>
-<a href="Software Design.html#Introduction">Introduction</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-Introduction">Introduction</a>
 
 <li>
-<a href="Software Design.html#States">States</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-States">States</a>
 
 <li>
-<a href="Software Design.html#Transitions">Transitions</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-Transitions">Transitions</a>
 
 <li>
-<a href="Software Design.html#Types of events">Types of events</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-Types of events">Types of events</a>
 
 <li>
-<a href="Software Design.html#Types of states">Types of states</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-Types of states">Types of states</a>
 
 <li>
-<a href="Software Design.html#Entry and exit points">Entry and exit points</a>
+<a href="Software Design.html#Software Design-Modeling behavior with UML State Machines-Entry and exit points">Entry and exit points</a>
+
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams">Sequence Diagrams</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Introduction">Introduction</a>
+
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Basics">Basics</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Basics-Interactions, interaction partners">Interactions, interaction partners</a>
+
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Basics-Messages">Messages</a>
+
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Combined fragments">Combined fragments</a>
+
+<ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Combined fragments-Branches &amp; loops">Branches &amp; loops</a>
+
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Combined fragments-Concurrency and order">Concurrency and order</a>
+
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Combined fragments-Filters and assertions">Filters and assertions</a>
+
+</ul>
+<li>
+<a href="Software Design.html#Software Design-Sequence Diagrams-Further language elements">Further language elements</a>
 
 </ul>
 </ul>
@@ -2109,6 +2145,531 @@ Encapsulation mechanism: a composite state shall be entered/exited via a state o
 <p>
 external transition must/need not know structure of composite state.
 </p>
+
+<div id="Software Design-Sequence Diagrams"><h2 id="Sequence Diagrams">Sequence Diagrams</h2></div>
+<div id="Software Design-Sequence Diagrams-Introduction"><h3 id="Introduction">Introduction</h3></div>
+<p>
+it's a way to model interactions between objects
+</p>
+
+<p>
+interaction specifies how messages and data are exchanged between objects
+</p>
+
+<p>
+interaction partners: human (lecturer, admin) or non-human (server, printer, software)
+</p>
+
+<p>
+interactions: conversation between people, message exchange between human and software, communication protocols, sequence of method calls in program, etc.
+</p>
+
+<div id="Software Design-Sequence Diagrams-Basics"><h3 id="Basics">Basics</h3></div>
+<div id="Software Design-Sequence Diagrams-Basics-Interactions, interaction partners"><h4 id="Interactions, interaction partners">Interactions, interaction partners</h4></div>
+<p>
+a sequence diagram is 2D:
+</p>
+<ul>
+<li>
+horizontal axis: involved interaction partners
+
+<li>
+vertical axis: chronological order of interaction
+
+</ul>
+
+<p>
+interaction: sequence of event specifications
+</p>
+
+<p>
+<img src="img-design/sequence-diagram-example.png" alt="Sequence diagram example" />
+</p>
+
+<p>
+interaction partners are lifelines:
+</p>
+<ul>
+<li>
+head of lifeline is rectangle containing <code>object:Class</code>
+
+<li>
+body of lifeline is vertical dashed line representing lifetime of associated object
+
+</ul>
+
+<div id="Software Design-Sequence Diagrams-Basics-Messages"><h4 id="Messages">Messages</h4></div>
+<p>
+message is defined via send and receive events
+</p>
+
+<p>
+execution specification (optional):
+</p>
+<ul>
+<li>
+continuous bar
+
+<li>
+used to visualize when interaction partner executes a behavior
+
+</ul>
+
+<p>
+<img src="img-design/exchanging-messages-example-on-diagram.png" alt="Exchanging messages example on diagram" />
+</p>
+
+<p>
+rules:
+</p>
+
+<p>
+<img src="img-design/exchanging-messages-rules.png" alt="Exchanging messages rules" />
+</p>
+
+<p>
+synchronous message:
+</p>
+<ul>
+<li>
+sender waits until it has received response message before continuing
+
+<li>
+syntax: <code>msg(par₁, par₂)</code>
+
+<ul>
+<li>
+<code>msg</code>: name of message
+
+<li>
+<code>par</code>: parameters
+
+</ul>
+<li>
+notation: <img src="img-design/synchronous-message.png" alt="Synchronous message" />
+
+</ul>
+
+<p>
+asynchronous message:
+</p>
+<ul>
+<li>
+sender continues without waiting for response msg
+
+<li>
+syntax: <code>msg(par₁, par₂)</code>
+
+<li>
+notation: <img src="img-design/asynchronous-message.png" alt="asynchronous message" />
+
+</ul>
+
+<p>
+response message:
+</p>
+<ul>
+<li>
+can be omitted if content and location are obvious
+
+<li>
+syntax: <code>att = msg(par₁, par₂): val</code>
+
+<ul>
+<li>
+<code>att</code>: return value assigned to variable (optional)
+
+<li>
+<code>msg</code>: name of message
+
+<li>
+<code>par</code>: parameters
+
+<li>
+<code>val</code>: return value
+
+</ul>
+<li>
+notation: <img src="img-design/response-message.png" alt="response message" />
+
+</ul>
+
+<p>
+object creation:
+</p>
+<ul>
+<li>
+dashed arrow, arrowhead pointing to head of lifeline of object that's being created
+
+<li>
+keyword <code>new</code>
+
+<li>
+notation: <img src="img-design/object-creation-.png" alt="Object creation" />
+
+</ul>
+
+<p>
+object destruction:
+</p>
+<ul>
+<li>
+object is deleted
+
+<li>
+large cross at end of lifeline
+
+<li>
+notation: <img src="img-design/object-destruction-.png" alt="Object destruction" />
+
+</ul>
+ 
+<p>
+found message:
+</p>
+<ul>
+<li>
+sender unknown/not relevant
+
+<li>
+notation: <img src="img-design/found-message.png" alt="Found message" />
+
+</ul>
+ 
+<p>
+lost message:
+</p>
+<ul>
+<li>
+receiver unknown/not relevant
+
+<li>
+notation: <img src="img-design/lost-message.png" alt="Lost message" />
+
+</ul>
+
+<p>
+Time-consuming message:
+</p>
+<ul>
+<li>
+message with duration
+
+<li>
+usually messages transmitted instantly (by assumption); not in this case
+
+<li>
+notation: <img src="img-design/time-consuming-message.png" alt="Time-consuming message" />
+
+</ul>
+
+<div id="Software Design-Sequence Diagrams-Combined fragments"><h3 id="Combined fragments">Combined fragments</h3></div>
+<p>
+model various control structures, have 12 predefined operators.
+</p>
+
+<p>
+Example:
+</p>
+
+<p>
+<img src="img-design/combined-fragment-example.png" alt="Combined fragment example" />
+</p>
+
+<div id="Software Design-Sequence Diagrams-Combined fragments-Branches &amp; loops"><h4 id="Branches &amp; loops">Branches &amp; loops</h4></div>
+<p>
+<code>alt</code>:
+</p>
+<ul>
+<li>
+alternative sequence
+
+<li>
+like a switch statement, with guards selecting the path to be executed
+
+<li>
+guards modeled in square brackets, default true
+
+<li>
+guards have to be disjoint so that behavior is deterministic!
+
+</ul>
+<blockquote>
+<img src="img-design/alt-fragment.png" alt="Alt fragment" />
+</blockquote>
+
+<p>
+<code>opt</code>:
+</p>
+<ul>
+<li>
+optional sequence
+
+<li>
+like an if without an else
+
+<li>
+actual execution depends on guard
+
+<li>
+exactly one operand
+
+</ul>
+<blockquote>
+<img src="img-design/opt-fragment.png" alt="Opt fragment" />
+</blockquote>
+
+<p>
+<code>loop</code>:
+</p>
+<ul>
+<li>
+repeated sequence
+
+<li>
+min/max number of iterations - <code>(min..max)</code> or <code>(min, max)</code>. default <code>(*)</code>, no upper limit.
+
+<li>
+guard evaluated when min number of iterations took place, checked on each iteration. loop quits if false.
+
+</ul>
+<blockquote>
+<img src="img-design/loop-fragment.png" alt="Loop fragment" />
+</blockquote>
+
+<p>
+<code>break</code>:
+</p>
+<ul>
+<li>
+exception handling
+
+<li>
+one operand with a guard. if true:
+
+<ul>
+<li>
+interactions within operand are executed
+
+<li>
+remaining operations of <em>surrounding</em> fragment don't run
+
+<li>
+interaction continues at next higher level fragment (so like you skip a level)
+
+</ul>
+</ul>
+<blockquote>
+<img src="img-design/break-fragment.png" alt="Break fragment" />
+</blockquote>
+
+<div id="Software Design-Sequence Diagrams-Combined fragments-Concurrency and order"><h4 id="Concurrency and order">Concurrency and order</h4></div>
+<p>
+<code>seq</code>:
+</p>
+<ul>
+<li>
+weak sequencing, default order of events
+
+<li>
+can't skip around on the same lifeline
+
+</ul>
+<blockquote>
+<img src="img-design/seq-fragment.png" alt="Seq fragment" />
+</blockquote>
+
+<p>
+<code>strict</code>:
+</p>
+<ul>
+<li>
+strict order
+
+<li>
+fixed sequence of events across lifelines
+
+<li>
+order of events on different lifelines between different operands is significant
+
+<li>
+messages in operand higher up on vertical axis are <em>always</em> exchanged before the ones that are lower
+
+</ul>
+<blockquote>
+<img src="img-design/strict-fragment.png" alt="Strict fragment" />
+</blockquote>
+
+<p>
+<code>par</code>:
+</p>
+<ul>
+<li>
+concurrent interaction
+
+<li>
+relax chronological order between messages in different operands
+
+<li>
+restrictions in each operand have to be respected
+
+<li>
+order of different operands is irrelevant
+
+</ul>
+<blockquote>
+<img src="img-design/par-fragment-.png" alt="Par fragment" />
+</blockquote>
+
+<p>
+<code>critical</code>:
+</p>
+<ul>
+<li>
+atomic interaction
+
+<li>
+make sure that certain parts of interaction aren't interrupted by unexpected events
+
+<li>
+<em>always</em> has to be in that order
+
+</ul>
+<blockquote>
+<img src="img-design/critical-fragment.png" alt="Critical fragment" />
+</blockquote>
+
+<div id="Software Design-Sequence Diagrams-Combined fragments-Filters and assertions"><h4 id="Filters and assertions">Filters and assertions</h4></div>
+<p>
+<code>ignore</code>:
+</p>
+<ul>
+<li>
+irrelevant interaction
+
+<li>
+messages can occur at runtime but don't have other significance
+
+<li>
+one operand, irrelevant messages in curly brackets after keyword <code>ignore</code>
+
+</ul>
+<blockquote>
+<img src="img-design/ignore-fragment.png" alt="Ignore fragment" />
+</blockquote>
+
+<p>
+<code>consider</code>:
+</p>
+<ul>
+<li>
+relevant interaction with a particular importance
+
+<li>
+one operand. "dual" to ignore fragment
+
+<li>
+considered messages in curly brackets
+
+<li>
+and yes, you can use <code>ignore</code> instead of <code>consider</code> and vice-versa
+
+</ul>
+<blockquote>
+<img src="img-design/consider-fragment.png" alt="Consider fragment" />
+</blockquote>
+
+<p>
+<code>assert</code>:
+</p>
+<ul>
+<li>
+asserted interaction
+
+<li>
+mandatory interactions. the model is complete. can't have any deviations.
+
+</ul>
+<blockquote>
+<img src="img-design/assert-fragment.png" alt="Assert fragment" />
+</blockquote>
+
+<p>
+<code>neg</code>:
+</p>
+<ul>
+<li>
+invalid interaction
+
+<li>
+describe situations that must not occur
+
+<li>
+depicting relevant but <em>incorrect</em> sequences
+
+</ul>
+
+<p>
+<img src="img-design/neg-fragment.png" alt="Neg fragment" />
+</p>
+
+<div id="Software Design-Sequence Diagrams-Further language elements"><h3 id="Further language elements">Further language elements</h3></div>
+<p>
+time constraints:
+</p>
+<ul>
+<li>
+point in time for event occurrence: <code>after(5sec)</code>, <code>at(12.00)</code>
+
+<li>
+time period between two events: <code>{lower..upper}</code>
+
+<li>
+<code>now</code>: current time
+
+<li>
+duration: calculation of duration of message transmission
+
+</ul>
+
+<p>
+Interaction reference:
+</p>
+<ul>
+<li>
+integrates one sequence diagram in another sequence diagram
+
+<li>
+define with <code>sd name</code> in the corner, then use the name in the diagram with <code>ref</code> in the corner
+
+</ul>
+
+<p>
+Gate:
+</p>
+<ul>
+<li>
+allows to send and receive messages beyond boundaries of interaction fragment
+
+</ul>
+
+<p>
+state invariant:
+</p>
+<ul>
+<li>
+asserts certain condition has to be true at certain time
+
+<li>
+if state invariant is not true, either model or implementation is wrong 
+
+<li>
+notations:
+
+</ul>
+<blockquote>
+<img src="img-design/state-invariant-diagram.png" alt="State invariant diagram" />
+</blockquote>
 
     </div>
 </body>
