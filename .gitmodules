@@ -31,3 +31,6 @@
 [submodule "uni-notes/os-notes"]
 	path = uni-notes/os-notes
 	url = https://github.com/thezeroalpha/os-notes.git
+[submodule "uni-notes/lin-algebra-notes"]
+	path = uni-notes/lin-algebra-notes
+	url = https://github.com/thezeroalpha/lin-algebra-notes.git
