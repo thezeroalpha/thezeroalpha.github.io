@@ -14,6 +14,7 @@ title: ZeroAlpha
 * [Operating Systems](https://thezeroalpha.github.io/os-notes)
 * [Intelligent Systems](https://thezeroalpha.github.io/is-notes)
 * [Linear Algebra](https://thezeroalpha.github.io/lin-algebra-notes)
+* [Software Design](https://thezeroalpha.github.io/softdesign-notes)
 
 ## Subject notes: Year 1
 
