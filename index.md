@@ -22,6 +22,7 @@ title: ZeroAlpha
 * [Logic & sets](https://thezeroalpha.github.io/logicsets-notes)
 * [Web tech](https://thezeroalpha.github.io/webtech-notes)
 * [Computer Networks](https://thezeroalpha.github.io/compnet-notes)
+* [History of Science](https://thezeroalpha.github.io/history-science-notes)
 * [Networks & graphs](https://thezeroalpha.github.io/networksgraphs-notes)
 
 ## Various
