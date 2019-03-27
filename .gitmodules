@@ -37,3 +37,6 @@
 [submodule "uni-notes/softdesign-notes"]
 	path = uni-notes/softdesign-notes
 	url = https://github.com/thezeroalpha/softdesign-notes.git
+[submodule "uni-notes/history-science-notes"]
+	path = uni-notes/history-science-notes
+	url = https://github.com/thezeroalpha/history-science-notes.git
