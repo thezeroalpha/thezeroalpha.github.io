@@ -1,0 +1,427 @@
+<html>
+<head>
+    <link rel="Stylesheet" type="text/css" href="style.css" />
+    <title>Databases</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+    <a href="index.html">Index</a>
+    <hr>
+    <div class="content">
+    
+<div id="Databases"><h1 id="Databases" class="header"><a href="#Databases">Databases</a></h1></div>
+<p>
+Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
+</p>
+
+<div id="Databases-Introduction"><h2 id="Introduction" class="header"><a href="#Databases-Introduction">Introduction</a></h2></div>
+<p>
+database: collection of data with
+</p>
+<ul>
+<li>
+logical structure
+
+<li>
+specific semantics
+
+<li>
+specific group of users
+
+</ul>
+
+<p>
+Why not in files? There's no query language, a weak logical structure, no efficient access, almost no protection from data loss, no parallel access control.
+</p>
+
+<p>
+ANSI SPARC architecture stores data in three levels:
+</p>
+<ol>
+<li>
+View level: application programs hide details of data types. Hide information for privacy/security
+
+<li>
+Logical level ('conceptual schema'): describes data and relations among data
+
+<li>
+Physical level: how data is stored, in disk pages, index structures, whatever else.
+
+</ol>
+
+<div id="Databases-Introduction-Relational databases"><h3 id="Relational databases" class="header"><a href="#Databases-Introduction-Relational databases">Relational databases</a></h3></div>
+<p>
+view and logical levels are data representations in relations/tables
+</p>
+
+<p>
+a row is a tuple record. the order of the elements of the tuples doesn't matter.
+</p>
+
+<p>
+a database instance is a 'snapshot' of a database at a certain point in time.
+</p>
+
+<p>
+the database schema is the structure of the database - the relations and constraints.
+</p>
+
+<p>
+constraints:
+</p>
+<ul>
+<li>
+primary key (would be underlined) uniquely identifies a row in a table (<code>customer(id, name, street, city)</code>)
+
+<li>
+a foreign key that points to a record in a different table (<code>account(depository → customer, accountnr)</code>)
+
+<li>
+data types, constrained data types
+
+<li>
+columns constraints (e.g. unique, nullability, counter)
+
+<li>
+check constraints (logical expression for a domain)
+
+</ul>
+
+<p>
+create an entity relationship model in UML:
+</p>
+
+<p>
+<img src="img-databases/entity-relationship-model.png" alt="Entity relationship model" />
+</p>
+
+<p>
+then translate that into relations
+</p>
+
+<div id="Databases-Introduction-Database management system"><h3 id="Database management system" class="header"><a href="#Databases-Introduction-Database management system">Database management system</a></h3></div>
+<p>
+database management system (DBMS) allows:
+</p>
+<ul>
+<li>
+create, modify database
+
+<li>
+query data using query language (retrieve)
+
+<li>
+support persistent storage of large amounts of data
+
+<li>
+allow durability and recovery
+
+<li>
+control access to data by users in parallel, without unexpected interactions among users (isolation) or partial actions (atomicity)
+
+</ul>
+
+<p>
+multiple users, concurrent access. transactions have ACID proeprties:
+</p>
+<ul>
+<li>
+Atomicity: transaction executes fully or not at all (commit/abort)
+
+<li>
+Consistency: database remains in a consistent state where all integrity constraints hold
+
+<li>
+Isolation: multiple users can modify database at same time but will not see each other's partial actions
+
+<li>
+Durability: when a transaction is successfully committed, modified data is persistent regardless of disk crashes
+
+</ul>
+
+<p>
+DBMS have data independence and duplication avoidance.
+</p>
+<ul>
+<li>
+Logical independence: logical schema doesn't depend on views
+
+<li>
+Physical independence: changing physical schema doesn't break the logical schema
+
+</ul>
+
+
+<div id="Databases-Introduction-SQL: Structured Query Language"><h3 id="SQL: Structured Query Language" class="header"><a href="#Databases-Introduction-SQL: Structured Query Language">SQL: Structured Query Language</a></h3></div>
+<p>
+SQL is declarative data manipulation language. The user says which conditions the retrieved data has to fulfill.
+</p>
+
+<p>
+It's more concise than imperaive languages, thus easier to maintain and cheaper to develop programs in it.
+</p>
+
+<p>
+Users usually don't have to think about efficiency, the DBMS will manage that.
+</p>
+
+<p>
+Creating a table with constraints:
+</p>
+
+<pre>
+CREATE TABLE solved (
+    id INT AUTO_INCREMENT,
+    name VARCHAR(40) NOT NULL,
+    homework NUMERIC(2) NOT NULL,
+    points NUMERIC(2) NOT NULL CHECK (points &lt;= 10),
+    PRIMARY KEY (id)
+);
+</pre>
+
+<p>
+Creating a view:
+</p>
+
+<pre>
+CREATE VIEW solved_homework AS
+    SELECT id, name, homework FROM solved;
+</pre>
+
+<div id="Databases-The relational model"><h2 id="The relational model" class="header"><a href="#Databases-The relational model">The relational model</a></h2></div>
+<div id="Databases-The relational model-Concepts: schema, state"><h3 id="Concepts: schema, state" class="header"><a href="#Databases-The relational model-Concepts: schema, state">Concepts: schema, state</a></h3></div>
+<p>
+<img src="img-databases/database-schema-tree.png" alt="Database schema tree" />
+</p>
+
+<div id="Databases-The relational model-Concepts: schema, state-Data types"><h4 id="Data types" class="header"><a href="#Databases-The relational model-Concepts: schema, state-Data types">Data types</a></h4></div>
+<p>
+all table entries are data values that conform to some selection of data types.
+</p>
+
+<p>
+example data types:
+</p>
+<ul>
+<li>
+strings:
+
+<ul>
+<li>
+<code>VARCHAR(n)</code> strings up to n characters, use this if you know a certain maximum length
+
+<li>
+<code>TEXT</code> variable length up to 2 GB (but does not always take up 2 GB)
+
+</ul>
+<li>
+numbers:
+
+<ul>
+<li>
+<code>INT</code> integer
+
+<li>
+<code>NUMERIC(n)</code> decimal number with n digits
+
+</ul>
+<li>
+date and time
+
+<li>
+binary data, like a <code>BLOB</code> (binary large object)
+
+</ul>
+
+<p>
+domain <code>val(D)</code> of a type D is the set of possible values for that type
+</p>
+
+<p>
+with SQL, we can create our own application-specific domains (new data types). examples:
+</p>
+<ul>
+<li>
+<code>CREATE DOMAIN EXNUM AS NUMERIC(2)</code>
+
+<li>
+<code>CREATE DOMAIN EXNUM AS NUMERIC(2) CHECK(VALUE &gt; 0)</code>
+
+</ul>
+
+<div id="Databases-The relational model-Concepts: schema, state-Relation schema"><h4 id="Relation schema" class="header"><a href="#Databases-The relational model-Concepts: schema, state-Relation schema">Relation schema</a></h4></div>
+<p>
+relation schema s (schema of single relation) defines:
+</p>
+<ul>
+<li>
+finite sequence A₁..An of distinct attribute names
+
+<li>
+for each attribute Ai a data type (domain) Di
+
+</ul>
+
+<p>
+written as: s = { A₁ : D₁, ..., An : Dn }
+</p>
+
+<p>
+SQL notation:
+</p>
+
+<pre>
+CREATE TABLE exercises 
+    (CAT    CHAR(1),
+     ENO    NUMERIC(2),
+     TOPIC  VARCHAR(40),
+     MAXPT  NUMERIC(2))
+</pre>
+
+<p>
+a relational database schema S defines:
+</p>
+<ul>
+<li>
+finite set of relation names {R₁, ..., Rm}
+
+<li>
+for every relation R a relation schema sch(R)
+
+<li>
+a set of C integrity constraints
+
+</ul>
+
+<p>
+so S = ({R₁, ..., Rm}, sch, C)
+</p>
+
+<div id="Databases-The relational model-Concepts: schema, state-Tuples"><h4 id="Tuples" class="header"><a href="#Databases-The relational model-Concepts: schema, state-Tuples">Tuples</a></h4></div>
+<p>
+used to formalize table rows.
+so e.g. in table exercises: <code>(’H’, 1, ’Rel.Alg.’, 10)</code>
+</p>
+
+<div id="Databases-The relational model-Concepts: schema, state-Database states"><h4 id="Database states" class="header"><a href="#Databases-The relational model-Concepts: schema, state-Database states">Database states</a></h4></div>
+<p>
+let a database schema ({R₁, ..., Rm}, schema, C) be given.
+</p>
+
+<p>
+a database state I for this database schema defines for every relation name Ri to a finite set of tuples I(Ri) w.r.t the relation schema Schema(Ri)
+</p>
+
+
+
+<div id="Databases-The relational model-Null values"><h3 id="Null values" class="header"><a href="#Databases-The relational model-Null values">Null values</a></h3></div>
+<p>
+relational model allows missing attribute values.
+</p>
+
+<p>
+these are represented by <code>NULL</code>. not the same as 0 or an empty string.
+</p>
+
+<p>
+used to model scenarios like:
+</p>
+<ul>
+<li>
+a value exists IRL but is not known
+
+<li>
+no value exists
+
+<li>
+attribute is not applicable
+
+<li>
+any value will do
+
+</ul>
+
+<p>
+without null values, you'd have to split a relation into specific relations, like <code>student_with_email</code> and <code>student_without_email</code>. or the users would have to make up a fake value, which would not be uniform and you'd have no idea how to query.
+</p>
+
+<p>
+problems:
+</p>
+<ul>
+<li>
+no clear semantics, since null values can be used in many scenarios
+
+<li>
+SQL has three-valued logic (true, false, unknown), so if you want to check for null, you have to say <code>WHERE A IS NULL</code>
+
+</ul>
+
+<p>
+so declaring many attributes as NOT NULL simplifies the program, but only do that if you're sure that there's always a value.
+</p>
+
+<div id="Databases-The relational model-Constraints"><h3 id="Constraints" class="header"><a href="#Databases-The relational model-Constraints">Constraints</a></h3></div>
+<p>
+the database should be an image of the relevant subset of the real world. plain definition of tables often allows too many database states.
+</p>
+
+<p>
+Integrity constraints (IC): conditions which every database state has to satisfy, restricting the set of possible database states.
+</p>
+
+<p>
+In <code>CREATE TABLE</code>, possible constraints:
+</p>
+<ul>
+<li>
+<code>NOT NULL</code>: no value in this column can be null
+
+<li>
+<code>Keys</code>: each key value can only appear once
+
+<li>
+<code>Foreign keys</code>: values in a column must appear as key values in another table
+
+<li>
+<code>CHECK</code>: column values have to satisfy a given predicate
+
+</ul>
+
+<p>
+Why specify constraints:
+</p>
+<ul>
+<li>
+some protection against data input errors
+
+<li>
+document knowledge about database states
+
+<li>
+enforce law/company standards
+
+<li>
+protect against inconsistency
+
+<li>
+simplify queries in programs
+
+</ul>
+
+<div id="Databases-The relational model-Key Constraints"><h3 id="Key Constraints" class="header"><a href="#Databases-The relational model-Key Constraints">Key Constraints</a></h3></div>
+<p>
+key of relation R is attribute A that uniquely identifies tuples in R. this refers to all possible database states, not just the current one.
+</p>
+
+<p>
+key constraint is satisfied in database state iff all tuples have different values for A.
+</p>
+
+<p>
+once something is declared as a key, the DBMS refuses insertion of tuples with duplicate key values.. this refers to all possible database states, not just the current one.
+</p>
+
+    </div>
+</body>
+</html>
