@@ -11,12 +11,12 @@
     <div class="content">
     
 
-<div id="Logic and Modeling"><h1 id="Logic and Modeling">Logic and Modeling</h1></div>
+<div id="Logic and Modeling"><h1 id="Logic and Modeling" class="header"><a href="#Logic and Modeling">Logic and Modeling</a></h1></div>
 <p>
 <a href="http://avigad.github.io/logic_and_proof/propositional_logic.html">The book online.</a>
 </p>
 
-<div id="Logic and Modeling-Notation review"><h2 id="Notation review">Notation review</h2></div>
+<div id="Logic and Modeling-Notation review"><h2 id="Notation review" class="header"><a href="#Logic and Modeling-Notation review">Notation review</a></h2></div>
 <ul>
 <li>
 <code>A, B, C</code> -- propositions
@@ -41,7 +41,7 @@
 
 </ul>
 
-<div id="Logic and Modeling-Rules of inference"><h2 id="Rules of inference">Rules of inference</h2></div>
+<div id="Logic and Modeling-Rules of inference"><h2 id="Rules of inference" class="header"><a href="#Logic and Modeling-Rules of inference">Rules of inference</a></h2></div>
 <p>
 "C is a logical consequence of A and B":
 </p>
@@ -62,19 +62,107 @@ Conjunction
 <th>
 Negation
 </th>
+<th>
+Disjunction
+</th>
+<th>
+Bi-implication ("if and only if")
+</th>
 </tr>
 <tr>
 <td>
-<img src="img-logic/implication-elimination.png" alt="Implication elimination" /> <img src="img-logic/hypothesis.png" alt="Hypothesis" />
+<img src="img-logic/implication-elimination.png" alt="Implication elimination" />
 </td>
 <td>
-<img src="img-logic/conjunction-introduction.png" alt="Conjunction introduction" /> <img src="img-logic/and-elimination.png" alt="And elimination" />
+<img src="img-logic/conjunction-introduction.png" alt="Conjunction introduction" />
 </td>
 <td>
 <img src="img-logic/negation-hypothetical-reasoning.png" alt="Negation hypothetical reasoning" />
 </td>
+<td>
+<img src="img-logic/disjunction-introduction.png" alt="Disjunction introduction" />
+</td>
+<td>
+<img src="img-logic/bi-implication-introduction.png" alt="Bi-implication introduction" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="img-logic/hypothesis.png" alt="Hypothesis" />
+</td>
+<td>
+<img src="img-logic/and-elimination.png" alt="And elimination" />
+</td>
+<td>
+<img src="img-logic/negation-elimination.png" alt="Negation elimination" />
+</td>
+<td>
+<img src="img-logic/disjunction-elimination.png" alt="Disjunction elimination" />
+</td>
+<td>
+<img src="img-logic/bi-implication-elimination.png" alt="Bi-implication elimination" />
+</td>
 </tr>
 </table>
+
+<p>
+Truth and falsity: from false, you can conclude anything, and from nothing, you can conclude true.
+</p>
+
+<p>
+<img src="img-logic/falsum-elimination.png" alt="Falsum elimination" />, <img src="img-logic/truth-introduction.png" alt="Truth introduction" />
+</p>
+
+<p>
+You can also derive this conjunction rule:
+</p>
+
+<p>
+<img src="img-logic/conjunction-negation-rule.png" alt="Conjunction negation rule" />
+</p>
+
+<div id="Logic and Modeling-Forward and backward reasoning"><h2 id="Forward and backward reasoning" class="header"><a href="#Logic and Modeling-Forward and backward reasoning">Forward and backward reasoning</a></h2></div>
+<p>
+Backward reasoning: looking at the goal and seeing what rules need to be applied ("bottom-up")
+</p>
+
+<p>
+Forward reasoning: starting at some hypotheses/assumptions
+</p>
+
+<p>
+The general heuristic is to always work backwards, as much as possible. Only once you get stuck should you work from your assumptions or hypotheses.
+</p>
+
+<p>
+If all else fails, try proof by contradiction.
+</p>
+
+<div id="Logic and Modeling-Proof by contradiction"><h2 id="Proof by contradiction" class="header"><a href="#Logic and Modeling-Proof by contradiction">Proof by contradiction</a></h2></div>
+<p>
+Suppose a negation of a formula is true, prove that it's impossible, thereby proving the original formula.
+</p>
+
+<p>
+<img src="img-logic/proof-by-contradiction.png" alt="Proof by contradiction" />
+</p>
+
+<p>
+RAA stands for <em>"reductio ad absurdum"</em>
+</p>
+
+<div id="Logic and Modeling-Vocab definitions"><h2 id="Vocab definitions" class="header"><a href="#Logic and Modeling-Vocab definitions">Vocab definitions</a></h2></div>
+<ul>
+<li>
+derivable: a formula φ is "derivable" if we can prove φ with no global hypotheses (bottom line is φ, everything is closed). Then we write  |- φ.
+
+<li>
+φ is derivable from hypotheses ψ₁..ψn if we can compute φ assuming ψ₁..ψn
+
+<li>
+formulas φ and ψ are logically equivalent if |- φ ↔ ψ
+
+</ul>
 
     </div>
 </body>
