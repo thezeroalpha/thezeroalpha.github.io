@@ -164,6 +164,90 @@ formulas φ and ψ are logically equivalent if ⊢ φ ↔ ψ
 
 </ul>
 
+<div id="Logic and Modeling-Classical reasoning"><h2 id="Classical reasoning" class="header"><a href="#Logic and Modeling-Classical reasoning">Classical reasoning</a></h2></div>
+<p>
+Principles:
+</p>
+<ul>
+<li>
+Proof by contradiction: assume the contradiction, and show false, thereby proving the original.
+
+<li>
+Double negation elimination: ¬ ¬ A ↔ A.
+
+<li>
+Contrapositive: if A → B, then ¬ B → ¬ A
+
+</ul>
+
+<p>
+A general heuristic:
+</p>
+<ol>
+<li>
+Work backward from the conclusion, using introduction rules.
+
+<li>
+When you run out of stuff to do, work forward with elimination rules.
+
+<li>
+If you get stuck, [insert proof by contradiction meme]
+
+</ol>
+
+<div id="Logic and Modeling-Syntax vs Semantics"><h2 id="Syntax vs Semantics" class="header"><a href="#Logic and Modeling-Syntax vs Semantics">Syntax vs Semantics</a></h2></div>
+<p>
+Syntax:
+</p>
+<ul>
+<li>
+derivation, proofs
+
+<li>
+Γ ⊢ A ("A is derivable from hypotheses in Γ")
+
+</ul>
+
+<p>
+Semantics:
+</p>
+<ul>
+<li>
+truth and falsity
+
+<li>
+truth assignment says which propositional letters are true
+
+<li>
+valuation says which formulas are true
+
+</ul>
+
+<div id="Logic and Modeling-Soundness and completeness"><h2 id="Soundness and completeness" class="header"><a href="#Logic and Modeling-Soundness and completeness">Soundness and completeness</a></h2></div>
+<p>
+provable: if there is a formal proof of a formula (syntactic)
+</p>
+
+<p>
+tautology/valid: if true under any truth assigment (semantic)
+</p>
+
+<p>
+soundness: if a formula is provable, it is valid (if ⊢ A, then ⊨ A)
+</p>
+
+<p>
+completeness: if a formula is valid, it is provable (if ⊨ A, then ⊢ A)
+</p>
+
+<p>
+Proving soundness is easier than proving completeness.
+</p>
+
+<p>
+A is a logical consequence of Γ if, given any truth assignment that makes every formula in Γ true, A is true.
+</p>
+
     </div>
 </body>
 </html>

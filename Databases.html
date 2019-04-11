@@ -312,8 +312,6 @@ let a database schema ({R₁, ..., Rm}, schema, C) be given.
 a database state I for this database schema defines for every relation name Ri to a finite set of tuples I(Ri) w.r.t the relation schema Schema(Ri)
 </p>
 
-
-
 <div id="Databases-The relational model-Null values"><h3 id="Null values" class="header"><a href="#Databases-The relational model-Null values">Null values</a></h3></div>
 <p>
 relational model allows missing attribute values.
@@ -409,7 +407,7 @@ simplify queries in programs
 
 </ul>
 
-<div id="Databases-The relational model-Key Constraints"><h3 id="Key Constraints" class="header"><a href="#Databases-The relational model-Key Constraints">Key Constraints</a></h3></div>
+<div id="Databases-The relational model-Keys"><h3 id="Keys" class="header"><a href="#Databases-The relational model-Keys">Keys</a></h3></div>
 <p>
 key of relation R is attribute A that uniquely identifies tuples in R. this refers to all possible database states, not just the current one.
 </p>
@@ -420,6 +418,549 @@ key constraint is satisfied in database state iff all tuples have different valu
 
 <p>
 once something is declared as a key, the DBMS refuses insertion of tuples with duplicate key values.. this refers to all possible database states, not just the current one.
+</p>
+
+<p>
+keys can consist of several attributes, then they are composite keys. if columns A,B form a composite key, there cannot be two tuples t ≠ u which agree in both attributes. keys should never change.
+</p>
+
+<p>
+a key constraint becomes weaker (less restrictive) if attributes are added to it.
+</p>
+
+<p>
+a key is minimal if no attribute can be removed without destroying the key constraint.
+</p>
+
+<p>
+a relation may have more than one minimal key. one is the primary key, which cannot be null. other keys are alternate/secondary.
+</p>
+
+<p>
+choosing a primary key: single simple attribute, never updated
+</p>
+
+<div id="Databases-The relational model-Keys-Foreign keys"><h4 id="Foreign keys" class="header"><a href="#Databases-The relational model-Keys-Foreign keys">Foreign keys</a></h4></div>
+<p>
+use key attributes to uniquely reference a tuple, like a pointer. denoted with arrows:
+</p>
+
+<pre>
+RESULTS (SID → STUDENTS,
+        (CAT, ENO) → EXERCISES,
+        POINTS)
+        STUDENTS (SID,FIRST,LAST,EMAIL)
+        EXERCISES (CAT,ENO,TOPIC,MAXPT)
+</pre>
+
+<p>
+to refer from relation R to tuples of S, add primary key attributes of S to attributes of R. only stable if the logical 'address' of a tuple does not change.
+</p>
+
+<p>
+implements a one-to-many relationship.
+</p>
+
+<p>
+an existence guarantee is needed.
+</p>
+
+<p>
+foreign key constraints in SQL:
+</p>
+
+<pre>
+CREATE TABLE RESULTS (
+    ...
+    FOREIGN KEY (SID) REFERENCES STUDENTS(SID)
+)
+</pre>
+
+<p>
+this ensures that every referenced row exists, which ensures referential integrity of the database.
+</p>
+
+<p>
+these operations violate the constraints:
+</p>
+<ul>
+<li>
+insertion into table with foreign key without matching referenced tuple. DBMS rejects update.
+
+<li>
+deletion from table if the tuple is referenced via foreign key. either DBMS rejects, both are deleted (cascade), or foreign key is set to null.
+
+</ul>
+
+<p>
+only keys may be referenced. a table with composite key must be referenced by composite key that has same number of attributes. 
+</p>
+
+<div id="Databases-Database design: Conceptual models"><h2 id="Database design: Conceptual models" class="header"><a href="#Databases-Database design: Conceptual models">Database design: Conceptual models</a></h2></div>
+<p>
+Three phases:
+</p>
+<ul>
+<li>
+conceptual:
+
+<ul>
+<li>
+what do we store
+
+<li>
+how are the elements related to each other
+
+<li>
+what are the constraints
+
+<li>
+modles: Entity/Relationship, UML
+
+</ul>
+<li>
+logical:
+
+<ul>
+<li>
+transform conceptual schema into the schema supported by the database
+
+<li>
+models: relational model
+
+</ul>
+<li>
+physical:
+
+<ul>
+<li>
+design indices, table distribution, buffer sizes, etc.
+
+<li>
+try to maximise performance of the final system
+
+</ul>
+</ul>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML"><h3 id="Conceptual models: Entity-Relationship &amp; UML" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML">Conceptual models: Entity-Relationship &amp; UML</a></h3></div>
+<p>
+<img src="img-databases/er-diagram.png" alt="ER diagram" />
+</p>
+
+<p>
+static, models the structure and not operations. no methods or functions.
+</p>
+
+<ul>
+<li>
+rectangles represent entity sets
+
+<li>
+ellipses represent attributes
+
+<ul>
+<li>
+double line - multivalued attributes 
+
+<li>
+dashed line - derived attributes
+
+</ul>
+<li>
+diamonds are relationship sets
+
+<li>
+lines link attributes and relationship sets to entity sets
+
+<li>
+underline indicates primary key attributes
+
+</ul>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets"><h4 id="Entity sets" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets">Entity sets</a></h4></div>
+<p>
+entity is an abstract object (person, company, event..)
+</p>
+
+<p>
+entitties have attributes (names, addresses, ...)
+</p>
+
+<p>
+entity set is is a collection of similar entities (those sharing the same attributes).
+</p>
+
+<p>
+represented by a set of attributes - descriptive properties possessed by all entities. the domain is set of permitted values for each attribute.
+</p>
+
+<p>
+attribute types:
+</p>
+<ul>
+<li>
+simple and composite (e.g. street is composed of street name and number)
+
+<li>
+number of values:
+
+<ul>
+<li>
+single-valued: e.g. age of a person
+
+<li>
+multivalued: e.g. person can have multiple phone numbers
+
+</ul>
+<li>
+derived attributes:
+
+<ul>
+<li>
+can be computed from other attributes
+
+<li>
+e.g. age computed from date of birth
+
+</ul>
+</ul>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets-Weak entity sets"><h5 id="Weak entity sets" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets-Weak entity sets">Weak entity sets</a></h5></div>
+<p>
+a weak entity set doesn't have a primary key. its existence depends on existence of an identifying entity set. 
+</p>
+
+<p>
+there has to be a total, one-to-may relationship set from identifying to weak entity set, shown by double diamond.
+</p>
+
+<p>
+disciminator: a partial key, distinguishing weak entity only in combination with identifying entity. denoted by dashed underline.
+</p>
+
+<p>
+primary key of weak entity set is combination of discriminator and primary key of identifying entity set.
+</p>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Relationship sets"><h4 id="Relationship sets" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Relationship sets">Relationship sets</a></h4></div>
+<p>
+a relationship is association among several entities (a tuple (e₁, e₂, ...) of entities)
+</p>
+
+<p>
+a relationship set is a set of relationship of same kind. i.e. a set of tuples (e₁, e₂, ...) where e₁ ∈ E₁, e₂ ∈ E₂, etc. Can have attributes.
+</p>
+
+<p>
+example in UML with a relationship set <em>plays-in</em> and role indicators:
+</p>
+
+<p>
+<img src="img-databases/relationship-set-example.png" alt="Relationship set example" />
+</p>
+
+<p>
+cardinality limits express number of entities to which another entity can be associated via relationship set:
+</p>
+<ul>
+<li>
+0...1 means zero or one
+
+<li>
+1...1 means precisely one
+
+<li>
+0...* means any number
+
+<li>
+1...* means at least one
+
+</ul>
+
+<p>
+if cardinalities are not given, the default is many-to-many.
+</p>
+
+<p>
+total participation: every entity in the entity set participates in at least one relationship in the relatinoship set
+</p>
+
+<p>
+partial participation: entities may not participate in any relationship in the set
+</p>
+
+<p>
+degree of a relationship set is number of entity sets participating in the relationship.
+</p>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Is-a (inheritance)"><h4 id="Is-a (inheritance)" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Is-a (inheritance)">Is-a (inheritance)</a></h4></div>
+<p>
+lower-level entity sets are subgroups of the higher-level entity sets (e.g. an employee 'is a' person)
+</p>
+
+<p>
+<img src="img-databases/is-a-example.png" alt="Is a example" />
+</p>
+
+<p>
+lower-level entity sets inherit all attributes and relationships of the higher-level entity sets
+</p>
+
+<p>
+you can go top-down and find subgroups (specialisation) or bottom-up and combine entity sets (generalisation)
+</p>
+
+<p>
+constraints:
+</p>
+<ul>
+<li>
+membership: value-based, assigns entity to subclass based on attribute vlues
+
+<li>
+disjointness: an entity can belong to at most one subclass (default is overlapping, where it can belong to multiple)
+
+<li>
+completeness: total specialisation, each superclass entity must belong to a subclass
+
+</ul>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Aggregation"><h4 id="Aggregation" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Aggregation">Aggregation</a></h4></div>
+<p>
+treat relationship set as an abstract entity. allows relations between relations.
+</p>
+
+<div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Summary"><h4 id="Summary" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Summary">Summary</a></h4></div>
+<p>
+<img src="img-databases/er-symbols-1.png" alt="ER symbols 1" />
+<img src="img-databases/er-symbols-2.png" alt="ER symbols 2" />
+</p>
+
+
+<div id="Databases-Database design: Conceptual models-UML vs ER"><h3 id="UML vs ER" class="header"><a href="#Databases-Database design: Conceptual models-UML vs ER">UML vs ER</a></h3></div>
+<p>
+attributes are shown within box of entity set, not as separate ellipses.
+</p>
+
+<p>
+binary relationships are a line connecting entity sets, with name of relationship next to line.
+</p>
+
+<p>
+if relationship set has attributes, name of relationship set is written in box along with attributes of relation; box is connected with dashed line to the relation line.
+</p>
+
+<p>
+non-binary relationship sets are drawn witha diamond.
+</p>
+
+<p>
+important differences:
+</p>
+<ul>
+<li>
+keys:
+
+<ul>
+<li>
+ER supports keys with underlining
+
+<li>
+UML has no standard for keys
+
+</ul>
+<li>
+aggregation:
+
+<ul>
+<li>
+ER: treating relationship set as entity
+
+<li>
+UML: par-whole relation (non-exclusive composition)
+
+</ul>
+<li>
+weak entities:
+
+<ul>
+<li>
+ER: entities without own key
+
+<li>
+UML: composition is similar, but says nothing about keys
+
+</ul>
+</ul>
+
+<div id="Databases-Conceptual to relational models"><h2 id="Conceptual to relational models" class="header"><a href="#Databases-Conceptual to relational models">Conceptual to relational models</a></h2></div>
+<p>
+entity sets and relationship sets are represented as tables
+</p>
+<ul>
+<li>
+name of table is name of entity/relationship set
+
+<li>
+columns (unique names) usually correspond to attributes
+
+</ul>
+
+<p>
+a strong entity set becomes a table with columns for the attributes.
+</p>
+
+<p>
+a weak entity set becomes table with:
+</p>
+<ul>
+<li>
+columns for the attributes
+
+<li>
+columns for the primary keys of the identifying entity
+
+</ul>
+
+<p>
+many-to-many relationship set becomes table with:
+</p>
+<ul>
+<li>
+columns for attributes of relationship
+
+<li>
+columns for primary keys of participating entity sets
+
+</ul>
+
+<p>
+many-to-(zero or one) relations can be represented by adding extra attribute/column to the many-side with primary key of one-side
+</p>
+
+<p>
+for one-to-one relationship sets, either side can have the key of the other.
+</p>
+
+<p>
+if participation is partial (0..1), replacing table by an attribute will lead to null values for those that don't participate.
+</p>
+
+<p>
+if participation is total, foreign key should be <code>NOT NULL</code>.
+</p>
+
+<p>
+tables for relationship sets linking weak entity sets to identifying entity set can always be eliminated.o
+</p>
+
+<p>
+when translating sets to tables:
+</p>
+<ul>
+<li>
+every table should have a primary key
+
+<li>
+declared foreign key references for each relationship
+
+<li>
+declared whether foreign keys are nullable
+
+<li>
+declared unique if appropriate
+
+</ul>
+
+<p>
+composite attributes are flattened out by creating separate column for each component attribute. 
+</p>
+
+<p>
+multi-valued attribute A of entity set E is represented by separate table with:
+</p>
+<ul>
+<li>
+columns for primary key of E
+
+<li>
+column for attribute value
+
+<li>
+each single value of multi-valued attributes gets its own row
+
+</ul>
+
+<p>
+Is-a to relational model:
+</p>
+<ul>
+<li>
+Method 1: hierarchy of tables
+
+<ul>
+<li>
+table for higher-level entity set
+
+<li>
+table for each lower-level entity set (includes primary key of higher-level entity set &amp; local attributes)
+
+</ul>
+<li>
+Method 2: many tables
+
+<ul>
+<li>
+form table for each entity set with all local &amp; inherited attributes
+
+<li>
+if specialisation is total, we don't need table for generalised entity - table for generalised entity can be defined as view containing union of specialisation tables
+
+</ul>
+<li>
+Method 3: one table with null values
+
+<ul>
+<li>
+form a single table with all local and specialised attributes
+
+</ul>
+</ul>
+
+<p>
+recursive association: translates to foreign key that refers to the same table
+</p>
+<ul>
+<li>
+requires separate table with two foreign keys to parent table
+
+</ul>
+
+<div id="Databases-SQL Overview"><h2 id="SQL Overview" class="header"><a href="#Databases-SQL Overview">SQL Overview</a></h2></div>
+<p>
+Basic query: <code>SELECT columns FROM table WHERE condition is true</code>
+</p>
+
+<p>
+The <code>FROM</code> clause is like declaring variables that range over tuples of a relation.o
+</p>
+
+<pre SQL>
+SELECT  E.ENO, E.TOPIC  -- choose columns ENO, TOPIC
+FROM    EXERCISES E     -- table exercises, E being an 'alias' for the current row
+WHERE   E.CAT = 'H'     -- where the column CAT contains the value 'H'
+</pre>
+
+<p>
+If name of tuple variable ('E' in the code above) is not given explicitly, the variable will have the name of the relation ('EXERCISES' in the code above).
+</p>
+
+<p>
+A reference to attribute A of variable R may be written as <code>A</code> if R is <em>the only tuple variable</em> with an attribute named A.
+</p>
+
+<p>
+It is almost always an error if there are two tuple variables that aren't linked via join conditions.
 </p>
 
     </div>
