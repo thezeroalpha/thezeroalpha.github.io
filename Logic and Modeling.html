@@ -229,7 +229,7 @@ provable: if there is a formal proof of a formula (syntactic)
 </p>
 
 <p>
-tautology/valid: if true under any truth assigment (semantic)
+tautology/valid: if true under any truth assignment (semantic)
 </p>
 
 <p>
@@ -246,6 +246,96 @@ Proving soundness is easier than proving completeness.
 
 <p>
 A is a logical consequence of Γ if, given any truth assignment that makes every formula in Γ true, A is true.
+</p>
+
+<div id="Logic and Modeling-First order logic"><h2 id="First order logic" class="header"><a href="#Logic and Modeling-First order logic">First order logic</a></h2></div>
+<div id="Logic and Modeling-First order logic-Functions, predicates, relations"><h3 id="Functions, predicates, relations" class="header"><a href="#Logic and Modeling-First order logic-Functions, predicates, relations">Functions, predicates, relations</a></h3></div>
+<p>
+functions: take different numbers of arguments, returns a result. e.g. \(mul(x,y)\), \(square(x)\)
+</p>
+
+<p>
+predicates, relations: takes one or more arguments, is either true or false. e.g. \(even(x)\), \(divides(x,y)\)
+</p>
+
+<p>
+formulas: say things. make assertions about objects in the domain.
+</p>
+
+<div id="Logic and Modeling-First order logic-Quantifiers, binding"><h3 id="Quantifiers, binding" class="header"><a href="#Logic and Modeling-First order logic-Quantifiers, binding">Quantifiers, binding</a></h3></div>
+<p>
+Quantifiers:
+</p>
+<ul>
+<li>
+∀x: "for all x"
+
+<li>
+∃x: "there exists an x"
+
+</ul>
+
+<p>
+Generally bind tightly: ∀x P ∨ Q == (∀x P) ∨ Q
+</p>
+
+<p>
+free variable: variable that's not bound
+</p>
+
+<p>
+sentence: a formula that has no free variables
+</p>
+
+<div id="Logic and Modeling-First order logic-Quantifiers, binding-Natural deduction rules"><h4 id="Natural deduction rules" class="header"><a href="#Logic and Modeling-First order logic-Quantifiers, binding-Natural deduction rules">Natural deduction rules</a></h4></div>
+
+<table>
+<tr>
+<th>
+Universal quantification
+</th>
+<th>
+Existential quantification
+</th>
+</tr>
+<tr>
+<td>
+<img src="img-logic/universal-introduction.png" alt="Universal introduction" />
+</td>
+<td>
+<img src="img-logic/existential-introduction.png" alt="Existential introduction" />
+</td>
+</tr>
+<tr>
+<td>
+<img src="img-logic/universal-elimination.png" alt="Universal elimination" />
+</td>
+<td>
+<img src="img-logic/existential-elimination.png" alt="Existential elimination" />
+</td>
+</tr>
+</table>
+
+
+<div id="Logic and Modeling-First order logic-Relativization and sorts"><h3 id="Relativization and sorts" class="header"><a href="#Logic and Modeling-First order logic-Relativization and sorts">Relativization and sorts</a></h3></div>
+<p>
+You can use implication to relativize quantification (put it into a specific domain). 
+</p>
+
+<p>
+Universal quantification, e.g. "every prime number greater than two is odd":
+</p>
+
+<p>
+∀x (prime(x) ∧ x &gt; 2 → odd(x))
+</p>
+
+<p>
+Existential quantification, e.g. "some woman is strong":
+</p>
+
+<p>
+∃x (woman(x) ∧ strong(x))
 </p>
 
     </div>

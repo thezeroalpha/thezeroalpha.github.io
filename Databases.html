@@ -777,7 +777,7 @@ aggregation:
 ER: treating relationship set as entity
 
 <li>
-UML: par-whole relation (non-exclusive composition)
+UML: part-whole relation (non-exclusive composition)
 
 </ul>
 <li>
@@ -937,12 +937,13 @@ requires separate table with two foreign keys to parent table
 </ul>
 
 <div id="Databases-SQL Overview"><h2 id="SQL Overview" class="header"><a href="#Databases-SQL Overview">SQL Overview</a></h2></div>
+<div id="Databases-SQL Overview-Basics"><h3 id="Basics" class="header"><a href="#Databases-SQL Overview-Basics">Basics</a></h3></div>
 <p>
 Basic query: <code>SELECT columns FROM table WHERE condition is true</code>
 </p>
 
 <p>
-The <code>FROM</code> clause is like declaring variables that range over tuples of a relation.o
+The <code>FROM</code> clause is like declaring variables that range over tuples of a relation:
 </p>
 
 <pre SQL>
@@ -962,6 +963,105 @@ A reference to attribute A of variable R may be written as <code>A</code> if R i
 <p>
 It is almost always an error if there are two tuple variables that aren't linked via join conditions.
 </p>
+
+<p>
+Don't join more tables than needed.
+</p>
+
+<p>
+In some scenarios, we might have to consider more than one tuple of the same relation to get a result tuple.
+</p>
+
+<p>
+Duplicates have to be explicitly eliminated, using <code>DISTINCT</code>.
+</p>
+
+<p>
+Sufficient condition for superfluous DISTINCT, where K is set of attributes uniquely determined by result.
+</p>
+<ol>
+<li>
+Assume WHERE clause is a conjunction. Let K be the set of attributes in the SELECT clause.
+
+<li>
+Add to K attributes A s.t.:
+
+<ul>
+<li>
+A = c for a constant c is in the WHERE clause
+
+<li>
+A = B for B ∈ K is in the WHERE clause
+
+<li>
+if K contains key of a tuple variable, add all attributes of that variable
+
+</ul>
+<li>
+Repeat 2 until K is stable.
+
+<li>
+If K contains a key of every tuple variable listed under <code>FROM</code>, then <code>DISTINCT</code> is superfluous.
+
+</ol>
+
+<p>
+Typical mistakes:
+</p>
+<ul>
+<li>
+missing join conditions
+
+<li>
+unnecessary joins (may slow down query)
+
+<li>
+self joins with incorrect treatment of multiple tuple variables over same relation, missing conditions
+
+<li>
+unexpected duplicates
+
+<li>
+unnecessary <code>DISTINCT</code>
+
+</ul>
+
+<div id="Databases-SQL Overview-Subqueries &amp; non-monotonic constructs"><h3 id="Subqueries &amp; non-monotonic constructs" class="header"><a href="#Databases-SQL Overview-Subqueries &amp; non-monotonic constructs">Subqueries &amp; non-monotonic constructs</a></h3></div>
+<p>
+monotonic: if further rows get inserted, the queries yield a superset of rows
+</p>
+
+<p>
+non-monotonic: 'there is no', 'does not exist', 'for all', 'min/max'. testing whether or not a query yields an empty result.
+</p>
+
+<p>
+example to select students without any homework result:
+</p>
+
+<pre SQL>
+SELECT  FIRST, LAST
+FROM    STUDENTS
+WHERE   SID NOT IN (SELECT  SID
+                    FROM    RESULTS
+                    WHERE   CAT = 'H')
+</pre>
+
+<p>
+conceptually, the subquery (<code>SELECT SID...</code>) is evaluated before main query.
+</p>
+
+<p>
+constructs:
+</p>
+<ul>
+<li>
+<code>NOT IN</code>: something is not in result of subquery
+
+<li>
+<code>NOT EXISTS</code>: result of subquery is empty
+
+</ul>
 
     </div>
 </body>
