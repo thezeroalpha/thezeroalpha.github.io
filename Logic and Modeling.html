@@ -16,7 +16,109 @@
 <a href="http://avigad.github.io/logic_and_proof/propositional_logic.html">The book online.</a>
 </p>
 
-<div id="Logic and Modeling-Notation review"><h2 id="Notation review" class="header"><a href="#Logic and Modeling-Notation review">Notation review</a></h2></div>
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h2></div>
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic">Propositional logic</a>
+
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Notation review">Notation review</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Rules of inference">Rules of inference</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Forward and backward reasoning">Forward and backward reasoning</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Proof by contradiction">Proof by contradiction</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Vocab definitions">Vocab definitions</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Classical reasoning">Classical reasoning</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Syntax vs Semantics">Syntax vs Semantics</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Propositional logic-Soundness and completeness">Soundness and completeness</a>
+
+</ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic">First order logic</a>
+
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Functions, predicates, relations">Functions, predicates, relations</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Quantifiers, binding">Quantifiers, binding</a>
+
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Quantifiers, binding-Natural deduction rules">Natural deduction rules</a>
+
+</ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Relativization and sorts">Relativization and sorts</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Models">Models</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpreting formulas without quantifiers">Interpreting formulas without quantifiers</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpretation of formulas with quantifiers and free variables">Interpretation of formulas with quantifiers and free variables</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpreting terms in model with enironment">Interpreting terms in model with enironment</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Semantical entailment in predicate logic">Semantical entailment in predicate logic</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Logical equivalence">Logical equivalence</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Satisfiability, validity, consistency">Satisfiability, validity, consistency</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Translating into predicate logic">Translating into predicate logic</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Rules for quantifiers and connectives">Rules for quantifiers and connectives</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Semantics of first order logic">Semantics of first order logic</a>
+
+</ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Sets">Sets</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Relations">Relations</a>
+
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Relations-Order types">Order types</a>
+
+</ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Natural numbers &amp; induction">Natural numbers &amp; induction</a>
+
+<ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Natural numbers &amp; induction-Recursive definitions">Recursive definitions</a>
+
+</ul>
+</ul>
+
+<div id="Logic and Modeling-Propositional logic"><h2 id="Propositional logic" class="header"><a href="#Logic and Modeling-Propositional logic">Propositional logic</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Notation review"><h3 id="Notation review" class="header"><a href="#Logic and Modeling-Propositional logic-Notation review">Notation review</a></h3></div>
 <ul>
 <li>
 <code>A, B, C</code> -- propositions
@@ -41,7 +143,7 @@
 
 </ul>
 
-<div id="Logic and Modeling-Rules of inference"><h2 id="Rules of inference" class="header"><a href="#Logic and Modeling-Rules of inference">Rules of inference</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Rules of inference"><h3 id="Rules of inference" class="header"><a href="#Logic and Modeling-Propositional logic-Rules of inference">Rules of inference</a></h3></div>
 <p>
 "C is a logical consequence of A and B":
 </p>
@@ -121,7 +223,7 @@ You can also derive this conjunction rule:
 <img src="img-logic/conjunction-negation-rule.png" alt="Conjunction negation rule" />
 </p>
 
-<div id="Logic and Modeling-Forward and backward reasoning"><h2 id="Forward and backward reasoning" class="header"><a href="#Logic and Modeling-Forward and backward reasoning">Forward and backward reasoning</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Forward and backward reasoning"><h3 id="Forward and backward reasoning" class="header"><a href="#Logic and Modeling-Propositional logic-Forward and backward reasoning">Forward and backward reasoning</a></h3></div>
 <p>
 Backward reasoning: looking at the goal and seeing what rules need to be applied ("bottom-up")
 </p>
@@ -138,7 +240,7 @@ The general heuristic is to always work backwards, as much as possible. Only onc
 If all else fails, try proof by contradiction.
 </p>
 
-<div id="Logic and Modeling-Proof by contradiction"><h2 id="Proof by contradiction" class="header"><a href="#Logic and Modeling-Proof by contradiction">Proof by contradiction</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Proof by contradiction"><h3 id="Proof by contradiction" class="header"><a href="#Logic and Modeling-Propositional logic-Proof by contradiction">Proof by contradiction</a></h3></div>
 <p>
 Suppose a negation of a formula is true, prove that it's impossible, thereby proving the original formula.
 </p>
@@ -151,7 +253,7 @@ Suppose a negation of a formula is true, prove that it's impossible, thereby pro
 RAA stands for <em>"reductio ad absurdum"</em>
 </p>
 
-<div id="Logic and Modeling-Vocab definitions"><h2 id="Vocab definitions" class="header"><a href="#Logic and Modeling-Vocab definitions">Vocab definitions</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Vocab definitions"><h3 id="Vocab definitions" class="header"><a href="#Logic and Modeling-Propositional logic-Vocab definitions">Vocab definitions</a></h3></div>
 <ul>
 <li>
 derivable: a formula φ is "derivable" if we can prove φ with no global hypotheses (bottom line is φ, everything is closed). Then we write ⊢ φ.
@@ -164,7 +266,7 @@ formulas φ and ψ are logically equivalent if ⊢ φ ↔ ψ
 
 </ul>
 
-<div id="Logic and Modeling-Classical reasoning"><h2 id="Classical reasoning" class="header"><a href="#Logic and Modeling-Classical reasoning">Classical reasoning</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Classical reasoning"><h3 id="Classical reasoning" class="header"><a href="#Logic and Modeling-Propositional logic-Classical reasoning">Classical reasoning</a></h3></div>
 <p>
 Principles:
 </p>
@@ -195,7 +297,7 @@ If you get stuck, [insert proof by contradiction meme]
 
 </ol>
 
-<div id="Logic and Modeling-Syntax vs Semantics"><h2 id="Syntax vs Semantics" class="header"><a href="#Logic and Modeling-Syntax vs Semantics">Syntax vs Semantics</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Syntax vs Semantics"><h3 id="Syntax vs Semantics" class="header"><a href="#Logic and Modeling-Propositional logic-Syntax vs Semantics">Syntax vs Semantics</a></h3></div>
 <p>
 Syntax:
 </p>
@@ -223,7 +325,7 @@ valuation says which formulas are true
 
 </ul>
 
-<div id="Logic and Modeling-Soundness and completeness"><h2 id="Soundness and completeness" class="header"><a href="#Logic and Modeling-Soundness and completeness">Soundness and completeness</a></h2></div>
+<div id="Logic and Modeling-Propositional logic-Soundness and completeness"><h3 id="Soundness and completeness" class="header"><a href="#Logic and Modeling-Propositional logic-Soundness and completeness">Soundness and completeness</a></h3></div>
 <p>
 provable: if there is a formal proof of a formula (syntactic)
 </p>
@@ -297,6 +399,9 @@ Universal quantification
 <th>
 Existential quantification
 </th>
+<th>
+Equality
+</th>
 </tr>
 <tr>
 <td>
@@ -304,6 +409,9 @@ Existential quantification
 </td>
 <td>
 <img src="img-logic/existential-introduction.png" alt="Existential introduction" />
+</td>
+<td rowspan="2">
+<img src="img-logic/equality-rules.png" alt="Equality rules" />
 </td>
 </tr>
 <tr>
@@ -336,6 +444,488 @@ Existential quantification, e.g. "some woman is strong":
 
 <p>
 ∃x (woman(x) ∧ strong(x))
+</p>
+
+<ol>
+<li>
+<span class="todo">TODO</span>: some slides missed here
+
+</ol>
+
+<div id="Logic and Modeling-First order logic-Models"><h3 id="Models" class="header"><a href="#Logic and Modeling-First order logic-Models">Models</a></h3></div>
+<p>
+Let F be a set of function symbols, P a set of predicate symbols.
+</p>
+
+<p>
+Model M for (F, P) consists of:
+</p>
+<ul>
+<li>
+non-empty set A ("domain", "universe")
+
+<li>
+interpretation operation \((\cdot)^M\) for for symbols in F, P
+
+</ul>
+          
+<p>
+Universe A can be any non-empty set.
+</p>
+
+<p>
+only constraint: f<sup><small>M and P</small></sup>M have same number of arguments as f and P.
+</p>
+
+<div id="Logic and Modeling-First order logic-Interpreting formulas without quantifiers"><h3 id="Interpreting formulas without quantifiers" class="header"><a href="#Logic and Modeling-First order logic-Interpreting formulas without quantifiers">Interpreting formulas without quantifiers</a></h3></div>
+<p>
+Truth defintion for formula Φ without quantifiers and free variables in model M by induction on the structure of Φ:
+</p>
+<ul>
+<li>
+M ⊨ ¬Φ ↔ not: M ⊨ Φ ↔ M ⊭ Φ
+
+<li>
+M ⊨ Æ∧ Ψ ↔ M ⊨ Φ and M ⊨ Ψ
+
+<li>
+M ⊨ Φ ∨ Ψ ↔ M ⊨ Φ or M ⊨ Ψ
+
+<li>
+M ⊨ Φ → Ψ : if M ⊨ Φ then M ⊨ Ψ
+
+<li>
+M ⊨ P(t₁, .., tn) ↔ (t₁<sup><small>M, ..., tn</small></sup>M) ∈ P^M
+
+</ul>
+
+<p>
+Interpretation of terms t^M: 
+</p>
+<ul>
+<li>
+if t = c for constant c, then t<sup><small>M = c</small></sup>M
+
+<li>
+if t = f(t₁,..., tn), then t<sup><small>M = f</small></sup>M(t₁<sup><small>M,...,tn</small></sup>M)
+
+</ul>
+
+<div id="Logic and Modeling-First order logic-Interpretation of formulas with quantifiers and free variables"><h3 id="Interpretation of formulas with quantifiers and free variables" class="header"><a href="#Logic and Modeling-First order logic-Interpretation of formulas with quantifiers and free variables">Interpretation of formulas with quantifiers and free variables</a></h3></div>
+<p>
+to interpret free variables, you use an environment.
+</p>
+
+<p>
+an environment <code>l: var → A</code> (look up function) interprets free variables in the domain
+</p>
+
+<div id="Logic and Modeling-First order logic-Interpreting terms in model with enironment"><h3 id="Interpreting terms in model with enironment" class="header"><a href="#Logic and Modeling-First order logic-Interpreting terms in model with enironment">Interpreting terms in model with enironment</a></h3></div>
+<p>
+terms are built from variables, constants, function symbols
+</p>
+<ul>
+<li>
+variables are interpreted according to environment
+
+<li>
+cnstants are interpreted according to \((\cdot)^M\)
+
+<li>
+function symbols are interpreted according to \((\cdot)^M\)
+
+</ul>
+
+
+<p>
+Truth of formula Φ in model M wiht universe A with respect to environment e is defined by induction on the structure of Φ.
+</p>
+
+<p>
+Interpretation \(t^{M,l}\) of term t is
+</p>
+
+\begin{align}
+t^{M, l} = \begin{cases}
+            l(x) &amp;&amp;\text{if } t = x \text{ for a variable } x \\
+            c^M &amp;&amp;\text{if } t = c \text{ for a constant } c \\
+            f^M (t_1^{M, l}, \ldots, t_n^{M, l}) &amp;&amp;\text{if } t = f(t_1, \ldots, t_n)
+            \end{cases}
+\end{align}
+<p>
+by induction on term structure.
+</p>
+
+<p>
+M ⊨l ∀x HI ↔ for all a ∈ A it holds that \( M \models_{l [x \to a]} \phi \)
+</p>
+
+<p>
+M ⊨l ∃x Φ ↔ for some a ∈ A it holds that \( M \models_{l [x \to a]} \phi \)
+</p>
+
+<div id="Logic and Modeling-First order logic-Semantical entailment in predicate logic"><h3 id="Semantical entailment in predicate logic" class="header"><a href="#Logic and Modeling-First order logic-Semantical entailment in predicate logic">Semantical entailment in predicate logic</a></h3></div>
+<p>
+For all models M and all environments e, 
+such that M ⊨l Φ₁ and ... and M ⊨l Φn hold,
+it also holds that M ⊨l ψ
+</p>
+
+<div id="Logic and Modeling-First order logic-Logical equivalence"><h3 id="Logical equivalence" class="header"><a href="#Logic and Modeling-First order logic-Logical equivalence">Logical equivalence</a></h3></div>
+<p>
+Formulas φ and ψ are logically equivalent (φ ≡ ψ) if for all models M and environments l, M ⊨l φ ↔ M ⊨l ψ
+</p>
+
+<p>
+i.e. φ and ψ are true in precisely the same models when interpreted with the same environments.
+</p>
+
+<p>
+theorem: φ ≡ ψ  ↔ φ ⊨ ψ and ψ ⊨ φ
+</p>
+
+<div id="Logic and Modeling-First order logic-Satisfiability, validity, consistency"><h3 id="Satisfiability, validity, consistency" class="header"><a href="#Logic and Modeling-First order logic-Satisfiability, validity, consistency">Satisfiability, validity, consistency</a></h3></div>
+<p>
+Let φ be a formula, and Γ be a set of formulas.
+</p>
+
+<p>
+φ is satisfiable iff there is <em>some</em> model M and <em>some</em> environment l such that M ⊨l φ
+</p>
+
+<p>
+φ is valid iff M ⊨l φ holds for <em>all</em> models M and <em>all</em> environments l in which φ can be checked.
+</p>
+
+<p>
+Γ is consistent/satisfiable iff there is <em>some</em> model M and <em>some</em> environment l such tat M ⊨l ψ for all ψ ∈ Γ
+</p>
+
+<p>
+for all formulas φ, ψ: φ ≡ ψ means that φ ↔ ψ is valid
+</p>
+
+<div id="Logic and Modeling-First order logic-Translating into predicate logic"><h3 id="Translating into predicate logic" class="header"><a href="#Logic and Modeling-First order logic-Translating into predicate logic">Translating into predicate logic</a></h3></div>
+<p>
+Example: "Marie and Jan are clever."
+</p>
+
+<p>
+Specification and model used:
+</p>
+
+<p>
+two predicates:
+</p>
+<ul>
+<li>
+CC(x): x is clever
+
+<li>
+LL(x): x has learned logic
+
+</ul>
+
+<p>
+two constants:
+</p>
+<ul>
+<li>
+m: Marie
+
+<li>
+j: Jan
+
+</ul>
+
+<p>
+model M:
+</p>
+<ul>
+<li>
+domain A = the set of all humans
+
+<li>
+C^M = { x ∈ A | x is clever }
+
+<li>
+LL^M = { x ∈ A | x has learned logic }
+
+<li>
+j^M = Jan
+
+<li>
+m^M = Marie
+
+</ul>
+
+<p>
+Then:
+</p>
+<ul>
+<li>
+"Marie and Jan are clever": C(m) ∧ C(j)
+
+<li>
+"Not everybody is clever": ¬∀x C(x)
+
+<li>
+"Somebody has learned logic": ∃x LL(x)
+
+<li>
+"Not everybody has learned logic, but Marie and Jan have": ¬∀x LL(x) ∧ LL(m) ∧ LL(j)
+
+</ul>
+
+<p>
+∀ and →:
+</p>
+<ul>
+<li>
+∀x(LL(x) → C(x)): "everyone who has learned logic is clever"
+
+<li>
+not the same as ∀x LL(x) → ∀x C(x): "if everyone has learned logic, everyone is clever"
+
+</ul>
+
+<p>
+∃ and ∧:
+</p>
+<ul>
+<li>
+∃x(L(x) ∧ C(x)): "some logicians are clever"
+
+<li>
+not the same as ∃x(L(x) → C(x)): "if someone is a logician, they are clever"
+
+</ul>
+
+<p>
+Formulas with free variables express properties and relations:
+</p>
+<ul>
+<li>
+no free variables: a sentence
+
+<li>
+one free variable: a property
+
+<li>
+two or more free variables: a relation
+
+</ul>
+
+<div id="Logic and Modeling-First order logic-Rules for quantifiers and connectives"><h3 id="Rules for quantifiers and connectives" class="header"><a href="#Logic and Modeling-First order logic-Rules for quantifiers and connectives">Rules for quantifiers and connectives</a></h3></div>
+<p>
+If you move a negation around ∀, it becomes ∃, and vice versa.
+</p>
+
+<p>
+It also holds that:
+</p>
+<ul>
+<li>
+∀x(φ ∧ ψ) ≡ ∀x φ ∧ ∀x ψ
+
+<ul>
+<li>
+BUT in general doesn't hold for ∨
+
+</ul>
+<li>
+∃x(φ ∨ ψ) ≡ ∃x φ ∨ ∃x ψ
+
+<ul>
+<li>
+BUT in general doesn't hold for ∧
+
+</ul>
+</ul>
+
+<p>
+In general, you can't move quantifiers through an implication.
+</p>
+
+<p>
+Order of <em>repeated</em> ∀ or ∃ doesn't matter. But if you have <em>both</em> ∃ and ∀, the order is important.
+</p>
+
+<div id="Logic and Modeling-First order logic-Semantics of first order logic"><h3 id="Semantics of first order logic" class="header"><a href="#Logic and Modeling-First order logic-Semantics of first order logic">Semantics of first order logic</a></h3></div>
+<p>
+Interpretation: specifying the meaning of a predicate symbol. 
+</p>
+<ul>
+<li>
+unary predicate P: set of elements of domain D for which P is true.
+
+<li>
+constant c: an element of domain D
+
+<li>
+function f with arity n: function mapping n elements of domain D to another element of D
+
+<li>
+relation R with arity n: set of n tuples of elements of domain D for which R is true
+
+</ul>
+
+<p>
+You can find the truth value of sentences intuitively.
+</p>
+
+<p>
+Completeness: if formula A is logical consequence of set of sentences Γ, then A is provable from Γ.
+</p>
+
+<p>
+Soundness: if A is provable from Γ then A is true in any model of Γ
+</p>
+
+<div id="Logic and Modeling-Sets"><h2 id="Sets" class="header"><a href="#Logic and Modeling-Sets">Sets</a></h2></div>
+<p>
+Recap from logic and sets:
+</p>
+<ul>
+<li>
+empty set Ø = {x | false}
+
+<li>
+universal set U = {x | true}
+
+<li>
+union A ∪ B = {x | x ∈ A or x ∈ B}
+
+<li>
+intersection A ∩ B = {x | x ∈ A and x ∈ B}
+
+<li>
+complement Ā = {x | x ∉ A}
+
+<li>
+difference A \ B = {x | x ∈ A and x ∉ B}
+
+</ul>
+
+<p>
+Theorems:
+</p>
+<ul>
+<li>
+A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
+
+<li>
+(A \ B) \ C = A \ (B ∪ C)
+
+</ul>
+
+<div id="Logic and Modeling-Relations"><h2 id="Relations" class="header"><a href="#Logic and Modeling-Relations">Relations</a></h2></div>
+<p>
+definitions of properties:
+</p>
+<ul>
+<li>
+reflexivity: ∀a R(a,a)
+
+<li>
+transitivity: ∀a,b,c (R(a,b) ∧ R(b,c) → R(a,c))
+
+<li>
+antisymmetry: ∀a,b (R(a,b) ∧ R(b,a) → a = b)
+
+</ul>
+
+<div id="Logic and Modeling-Relations-Order types"><h3 id="Order types" class="header"><a href="#Logic and Modeling-Relations-Order types">Order types</a></h3></div>
+<p>
+partial order:
+</p>
+<ul>
+<li>
+reflexive
+
+<li>
+transitive
+
+<li>
+antisymmetric
+
+</ul>
+
+<p>
+total order:
+</p>
+<ul>
+<li>
+partial order
+
+<li>
+∀ a,b (R(a,b) ∨ R(b,a))
+
+</ul>
+
+<p>
+strict partial order: partial order but irreflexive
+</p>
+
+<p>
+strict total order:
+</p>
+<ul>
+<li>
+strict partial order
+
+<li>
+∀ a,b (R(a,b) ∨ (a=b) ∨ R(b,a))
+
+</ul>
+
+<p>
+equivalence relation:
+</p>
+<ul>
+<li>
+reflexive (∀a, a ≡ A)
+
+<li>
+symmetric
+
+<li>
+transitive
+
+</ul>
+
+<div id="Logic and Modeling-Natural numbers &amp; induction"><h2 id="Natural numbers &amp; induction" class="header"><a href="#Logic and Modeling-Natural numbers &amp; induction">Natural numbers &amp; induction</a></h2></div>
+<p>
+Set of natural numbers is N ∈ (0,∞)
+</p>
+
+<p>
+<span id="Logic and Modeling-Natural numbers &amp; induction-Principle of induction"></span><strong id="Principle of induction">Principle of induction</strong>: let P be a property of natural numbers. Suppose P holds for zero, and whenever P holds for a natural number n, then it holds for its successor n+1. Then P holds for every natural number.
+</p>
+
+<p>
+As a natural deduction rule:
+</p>
+
+<p>
+<img src="img-logic/induction-natural-deduction-rule.png" alt="Induction natural deduction rule" />
+</p>
+
+<div id="Logic and Modeling-Natural numbers &amp; induction-Recursive definitions"><h3 id="Recursive definitions" class="header"><a href="#Logic and Modeling-Natural numbers &amp; induction-Recursive definitions">Recursive definitions</a></h3></div>
+<p>
+Let A be any set, suppose a is in A, and g: N × A → A. Then there is a unique function f satisfying:
+</p>
+<ul>
+<li>
+f(0) = a
+
+<li>
+f(n+1) = g(n, f(n))
+
+</ul>
+
+<p>
+Typically to prove something about a recursively defined function is to use induction.
 </p>
 
     </div>

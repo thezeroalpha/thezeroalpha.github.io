@@ -3,6 +3,7 @@
     <link rel="Stylesheet" type="text/css" href="style.css" />
     <title>Databases</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" async src="https://cdn.jsdelivr.net/gh/mathjax/MathJax@2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
 <body>
     <a href="index.html">Index</a>
@@ -13,6 +14,198 @@
 <p>
 Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 </p>
+
+<div id="Contents" class="toc"><h1 id="Contents">Contents</a></h2></div>
+<ul>
+<li>
+<a href="Databases.html#Databases-What's probably on the exam">What's probably on the exam</a>
+
+<li>
+<a href="Databases.html#Databases-Introduction">Introduction</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Introduction-Relational databases">Relational databases</a>
+
+<li>
+<a href="Databases.html#Databases-Introduction-Database management system">Database management system</a>
+
+<li>
+<a href="Databases.html#Databases-Introduction-SQL: Structured Query Language">SQL: Structured Query Language</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-The relational model">The relational model</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-The relational model-Concepts: schema, state">Concepts: schema, state</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-The relational model-Concepts: schema, state-Data types">Data types</a>
+
+<li>
+<a href="Databases.html#Databases-The relational model-Concepts: schema, state-Relation schema">Relation schema</a>
+
+<li>
+<a href="Databases.html#Databases-The relational model-Concepts: schema, state-Tuples">Tuples</a>
+
+<li>
+<a href="Databases.html#Databases-The relational model-Concepts: schema, state-Database states">Database states</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-The relational model-Null values">Null values</a>
+
+<li>
+<a href="Databases.html#Databases-The relational model-Constraints">Constraints</a>
+
+<li>
+<a href="Databases.html#Databases-The relational model-Keys">Keys</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-The relational model-Keys-Foreign keys">Foreign keys</a>
+
+</ul>
+</ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models">Database design: Conceptual models</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML">Conceptual models: Entity-Relationship &amp; UML</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets">Entity sets</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets-Weak entity sets">Weak entity sets</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Relationship sets">Relationship sets</a>
+
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Is-a (inheritance)">Is-a (inheritance)</a>
+
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Aggregation">Aggregation</a>
+
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Summary">Summary</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Database design: Conceptual models-UML vs ER">UML vs ER</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Conceptual to relational models">Conceptual to relational models</a>
+
+<li>
+<a href="Databases.html#Databases-SQL Overview">SQL Overview</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-SQL Overview-Basics">Basics</a>
+
+<li>
+<a href="Databases.html#Databases-SQL Overview-Subqueries &amp; non-monotonic constructs">Subqueries &amp; non-monotonic constructs</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Aggregations">Aggregations</a>
+
+<li>
+<a href="Databases.html#Databases-Union, conditionals">Union, conditionals</a>
+
+<li>
+<a href="Databases.html#Databases-Order by">Order by</a>
+
+<li>
+<a href="Databases.html#Databases-Joins">Joins</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms">Relational normal forms</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies">Functional dependencies</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies-What is a functional dependency?">What is a functional dependency?</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies-Working with functional dependencies">Working with functional dependencies</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies-How to determine keys">How to determine keys</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies-Determinants">Determinants</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Functional dependencies-Consequences of bad database design">Consequences of bad database design</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms">Normal forms</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)">Boyce-Codd Normal Form (BCNF)</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Splitting relations">Splitting relations</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Synthesis">Synthesis</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms-Third normal form (3NF)">Third normal form (3NF)</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms-Third normal form (3NF)-Synthesis">Synthesis</a>
+
+</ul>
+</ul>
+</ul>
+</ul>
+
+<div id="Databases-What's probably on the exam"><h2 id="What's probably on the exam" class="header"><a href="#Databases-What's probably on the exam">What's probably on the exam</a></h2></div>
+<p>
+probably on exam:
+</p>
+<ul>
+<li>
+compute cover {attribute}+ -- needed everywhere
+
+<li>
+determine all minimal keys
+
+<li>
+find 'canonical' (minimal) set of FDs:
+
+<ul>
+<li>
+use for BCNF decomposition -- splitting
+
+<li>
+3NF synthesis algorithm
+
+</ul>
+<li>
+definitions of 4NF and multivalued FDs
+
+</ul>
 
 <div id="Databases-Introduction"><h2 id="Introduction" class="header"><a href="#Databases-Introduction">Introduction</a></h2></div>
 <p>
@@ -122,7 +315,7 @@ control access to data by users in parallel, without unexpected interactions amo
 </ul>
 
 <p>
-multiple users, concurrent access. transactions have ACID proeprties:
+multiple users, concurrent access. transactions have ACID properties:
 </p>
 <ul>
 <li>
@@ -158,7 +351,7 @@ SQL is declarative data manipulation language. The user says which conditions th
 </p>
 
 <p>
-It's more concise than imperaive languages, thus easier to maintain and cheaper to develop programs in it.
+It's more concise than imperative languages, thus easier to maintain and cheaper to develop programs in it.
 </p>
 
 <p>
@@ -515,7 +708,7 @@ how are the elements related to each other
 what are the constraints
 
 <li>
-modles: Entity/Relationship, UML
+models: Entity/Relationship, UML
 
 </ul>
 <li>
@@ -635,7 +828,7 @@ there has to be a total, one-to-may relationship set from identifying to weak en
 </p>
 
 <p>
-disciminator: a partial key, distinguishing weak entity only in combination with identifying entity. denoted by dashed underline.
+discriminator: a partial key, distinguishing weak entity only in combination with identifying entity. denoted by dashed underline.
 </p>
 
 <p>
@@ -682,7 +875,7 @@ if cardinalities are not given, the default is many-to-many.
 </p>
 
 <p>
-total participation: every entity in the entity set participates in at least one relationship in the relatinoship set
+total participation: every entity in the entity set participates in at least one relationship in the relationship set
 </p>
 
 <p>
@@ -715,7 +908,7 @@ constraints:
 </p>
 <ul>
 <li>
-membership: value-based, assigns entity to subclass based on attribute vlues
+membership: value-based, assigns entity to subclass based on attribute values
 
 <li>
 disjointness: an entity can belong to at most one subclass (default is overlapping, where it can belong to multiple)
@@ -751,7 +944,7 @@ if relationship set has attributes, name of relationship set is written in box a
 </p>
 
 <p>
-non-binary relationship sets are drawn witha diamond.
+non-binary relationship sets are drawn with a diamond.
 </p>
 
 <p>
@@ -922,7 +1115,7 @@ Method 3: one table with null values
 
 <ul>
 <li>
-form a single table with all local and specialised attributes
+form a single table with all local and specialized attributes
 
 </ul>
 </ul>
@@ -1061,7 +1254,685 @@ constructs:
 <li>
 <code>NOT EXISTS</code>: result of subquery is empty
 
+<li>
+"For all": 
+
+<ul>
+<li>
+no universal quantifier in SQL, but you can use <code>EXISTS</code>. In logic, <code>∀X(φ) ↔ ¬∃ X (¬ φ)</code>.
+
+<li>
+common pattern is <code>∀X (φ₁ → φ₂)</code> becomes <code>¬∃ X (φ₁ ∧ ¬ φ₂)</code>
+
 </ul>
+</ul>
+
+<p>
+Comparing values:
+</p>
+<ul>
+<li>
+<code>ALL</code>: compare with all values in a set, has to be true for all
+
+<li>
+<code>ANY</code>/<code>SOME</code>: has to be true for at least some values in a set (also, <code>x IN s</code> == <code>x = ANY s</code>)
+
+<li>
+for both, subquery has to return a single column
+
+<li>
+comparisons with subquery results (<code>POINTS = (SELECT ...)</code>) must return a single row
+
+</ul>
+
+<div id="Databases-Aggregations"><h2 id="Aggregations" class="header"><a href="#Databases-Aggregations">Aggregations</a></h2></div>
+<p>
+A view declaration registers a query (not the result) under an identifier
+</p>
+
+<p>
+Simple aggregation functions: COUNT, SUM, AVG, MAX, MIN
+</p>
+
+<p>
+Restrictions:
+</p>
+<ul>
+<li>
+aggregations can't be nested
+
+<li>
+aggregations can't be used in the <code>WHERE</code> clause
+
+<li>
+if aggregation function is used, and there's no <code>GROUP BY</code>, attributes can't appear in the <code>SELECT</code>
+
+</ul>
+
+<p>
+Null values and aggregations
+</p>
+<ul>
+<li>
+usually, they're ignored before the aggregation
+
+<li>
+<code>COUNT(*)</code> counts null values. it counts rows, not attribute values
+
+</ul>
+
+<p>
+GROUP BY partitions tuples of a table into groups, based on value equality for the GROUP BY attributes.
+It can never produce empty groups.
+Aggregation functions are applied to groups separately.
+Sequence of GROUP BY is not important.
+</p>
+
+<p>
+<code>HAVING</code> is a way to filter out groups based on some property. E.g. <code>HAVING SUM(POINTS) &gt;= 18</code>. <code>HAVING</code> should <em>only</em> contain aggregation functions, not single attributes.
+</p>
+
+<div id="Databases-Union, conditionals"><h2 id="Union, conditionals" class="header"><a href="#Databases-Union, conditionals">Union, conditionals</a></h2></div>
+<p>
+<code>UNION</code> combines results of two queries. there's no other way to make one result column to draw from different tables/columns.  
+subqueries must return tables with same number of columns and compatible data types.
+<code>UNION</code> eliminates duplicates, <code>UNION ALL</code> concatenates and keeps duplicates.
+</p>
+
+<p>
+Condition expressions can be used for stuff like:
+</p>
+
+<pre SQL>
+SELECT CASE WHEN CAT = 'H' THEN 'Homework'
+            WHEN CAT = 'M' then 'Midterm'
+            WHEN CAT = 'F' THEN 'Final'
+            ELSE 'Unknown category' END,
+        ENO, POINTS
+FROM STUDENTS S, RESULTS R
+WHERE S.SID = R.SID
+AND S.FIRST = 'Ann' AND S.LAST = 'SMITH'
+</pre>
+
+<p>
+To replace a null value, you can do the following (same result):
+</p>
+<ul>
+<li>
+<code>CASE WHEN x IS NOT NULL THEN x ELSE y END</code>
+
+<li>
+<code>COALESCE (x, y)</code>
+
+</ul>
+
+<div id="Databases-Order by"><h2 id="Order by" class="header"><a href="#Databases-Order by">Order by</a></h2></div>
+<p>
+<code>ORDER BY</code> allows list of sorting criteria.
+Can specify multiple attribute names:
+</p>
+<ul>
+<li>
+second attribute adds ordering in lexicographic order
+
+<li>
+you can sort in ASC or DESC order
+
+</ul>
+
+<p>
+May not be applied to a subquery.
+</p>
+
+<div id="Databases-Joins"><h2 id="Joins" class="header"><a href="#Databases-Joins">Joins</a></h2></div>
+<p>
+Types:
+</p>
+<ul>
+<li>
+<code>[INNER] JOIN</code>: usual join, eliminates tuples without a partner
+
+<li>
+<code>LEFT JOIN</code>: preserves rows of left table
+
+<li>
+<code>RIGHT JOIN</code>: preserves rows of right table
+
+<li>
+<code>FULL JOIN</code>: preserves rows of both tables
+
+<li>
+<code>CROSS JOIN</code>: Cartesian product in all combinations
+
+</ul>
+
+<p>
+Join predicates:
+</p>
+<ul>
+<li>
+NATURAL: yields comparison of columns with same name
+
+<li>
+USING (A1, ..., An) appended
+
+<li>
+<span class="todo">TODO</span>: a bunch of stuff here that's not on the slides
+
+</ul>
+
+<div id="Databases-Relational normal forms"><h2 id="Relational normal forms" class="header"><a href="#Databases-Relational normal forms">Relational normal forms</a></h2></div>
+<div id="Databases-Relational normal forms-Functional dependencies"><h3 id="Functional dependencies" class="header"><a href="#Databases-Relational normal forms-Functional dependencies">Functional dependencies</a></h3></div>
+<p>
+Functional dependencies are a generalization of keys. This theory defines when a relation is in normal form.
+</p>
+
+<p>
+functional dependency: if two rows agree on a value in one column, they must also agree on the other column
+e.g. here, functional dependency is <code>INAME → PHONE</code>, because phone number only depends on the instructor intuitively:
+</p>
+
+<p>
+<img src="img-databases/fd-table-example.png" alt="FD table example" />
+</p>
+
+<p>
+This is read as "<code>INAME</code> (functionally, uniquely) determines <code>PHONE</code>". 
+</p>
+
+<div id="Databases-Relational normal forms-Functional dependencies-What is a functional dependency?"><h4 id="What is a functional dependency?" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-What is a functional dependency?">What is a functional dependency?</a></h4></div>
+<ul>
+<li>
+like partial key, because it uniquely determines some attributes but not all
+
+<li>
+a constraint
+
+<li>
+A determinant is a 'minimal' functional dependency.
+
+<li>
+goal of database normalization is to turn functional dependencies into keys
+
+</ul>
+
+<p>
+Keys are functional dependencies.
+</p>
+
+<p>
+During database design, only unquestionable conditions should be used as functional dependencies.
+</p>
+
+<p>
+It's usually bad database design if schema's relations violate normal form. If it's violated, data is stored redundantly and information about different concepts is intermixed.
+</p>
+
+<div id="Databases-Relational normal forms-Functional dependencies-Working with functional dependencies"><h4 id="Working with functional dependencies" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-Working with functional dependencies">Working with functional dependencies</a></h4></div>
+<p>
+The database designer is not interested in all functional dependencies, but only in a representative functional dependency set that implies all others.
+</p>
+
+<p>
+Implications of functional dependencies:
+</p>
+<ul>
+<li>
+If A→B and B→C, then A→C
+
+<li>
+A→A always holds
+
+<li>
+Armstrong axioms:
+
+<ul>
+<li>
+If β ⊆ α, then α → β (reflexivity)
+
+<li>
+If α → β, then α ∪ γ → β ∪ γ (augmentation)
+
+<li>
+If α → β and β → γ, then α → γ (transitivity)
+
+</ul>
+</ul>
+
+<p>
+Computing the cover: for given set of attributes, see which they imply through FDs. Extended cover with those, and repeat.
+</p>
+<ul>
+<li>
+Cover of A ({A}+)? FDs A→B,C; B→E
+
+<ul>
+<li>
+{A}+ ⇒ {A,B,C} ⇒ {A,B,C,E}
+
+</ul>
+</ul>
+
+<p>
+Checking whether a → β is implied by a functional dependency set:
+</p>
+<ol>
+<li>
+computer cover α⁺ of α:
+
+<li>
+check if β ⊆ α⁺:
+
+<ul>
+<li>
+set of functional dependencies F implies α → β iff β ⊆ α⁺_F
+
+</ul>
+</ol>
+
+<p>
+example:
+</p>
+
+<p>
+<img src="img-databases/example-to-check-fd.png" alt="Example to check functional dependency" />
+</p>
+
+<div id="Databases-Relational normal forms-Functional dependencies-How to determine keys"><h4 id="How to determine keys" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-How to determine keys">How to determine keys</a></h4></div>
+<p>
+Determining a minimal key (slides 64-70)
+</p>
+<ul>
+<li>
+given:
+
+<ul>
+<li>
+R(A,B,C,D)
+
+<li>
+FDs: A→C; C→B,D
+
+</ul>
+<li>
+start with all attributes: {A,B,C,D}
+
+<li>
+For every attribute, see if we can remove it, which is possible if they are implied by an FD which is still in the attribute set.
+
+<ul>
+<li>
+{A,B,C,D} ⇒ {A,C} (FD2) ⇒ {A} (FD1)
+
+<li>
+thus {A} is a minimal key
+
+<li>
+order matters, you can end up with different keys!
+
+</ul>
+</ul>
+
+<p>
+determining all minimal keys (slides 71-88)
+</p>
+<ul>
+<li>
+given:
+
+<ul>
+<li>
+R(A,B,C,D)
+
+<li>
+FDs: A→C; C→B,D
+
+</ul>
+<li>
+Start with set of candidates: attributes that imply and are not implied (not in any right hand side)
+
+<ul>
+<li>
+{ {A} }
+
+</ul>
+<li>
+Find cover of smallest candidate key
+
+<ul>
+<li>
+{A} ⇒ {A,C} ⇒ {A,B,C,D}
+
+</ul>
+<li>
+If does not contain all attributes, extend candidate with missing others and repeat.
+
+<li>
+edge case: if there are no attributes that aren't in ay right hand side, then candidates is empty set { {} } and you extend with every attribute like { {A}, {B}, ...} 
+
+</ul>
+
+<div id="Databases-Relational normal forms-Functional dependencies-Determinants"><h4 id="Determinants" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-Determinants">Determinants</a></h4></div>
+<p>
+determinant: non-trivial, minimal functional dependency 
+</p>
+
+<p>
+{A1, ..., An} is determinant for {B1, ..., Bm} if:
+</p>
+<ul>
+<li>
+functional dependency A1, ..., An → B1, ..., Bm holds; and
+
+<li>
+left-hand side is minimal (if any Ai is removed, then it does not hold); and
+
+<li>
+it is non-trivial, i.e. {B1, ..., Bm} not subset of {A1, ..., An}
+
+</ul>
+
+<div id="Databases-Relational normal forms-Functional dependencies-Consequences of bad database design"><h4 id="Consequences of bad database design" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-Consequences of bad database design">Consequences of bad database design</a></h4></div>
+<p>
+usually if table contains an functional dependency that's not implied by a key, it's a sign of bad database design.
+</p>
+
+<p>
+leads to:
+</p>
+<ul>
+<li>
+redundant storage of certain facts
+
+<ul>
+<li>
+wastes storage space
+
+<li>
+hard to ensure integrity when updating, as all redundant copies need to be updated, wasting time
+
+<li>
+requires additional constraints to guarantee integrity
+
+</ul>
+<li>
+insert, update, deletion anomalies
+
+<ul>
+<li>
+update: when a single value needs to be changed, multiple tuples need to be updated, taking longer and maybe getting out of sync
+
+<li>
+insertion: when unrelated concepts are stored together in a single table
+
+<li>
+deletion: e.g. when last course of instructor is deleted, their phone number is lost
+
+</ul>
+</ul>
+
+<p>
+problem is that general FDs are not supported by relational databases. so you have to transform them into key constraints (database normalisation).
+</p>
+
+<div id="Databases-Relational normal forms-Normal forms"><h3 id="Normal forms" class="header"><a href="#Databases-Relational normal forms-Normal forms">Normal forms</a></h3></div>
+<p>
+Normal form types:
+</p>
+<ul>
+<li>
+Third Normal Form (3NF): standard relational normal form used in practice
+
+<li>
+Boyce-Codd Normal Form (BCNF): 
+
+<ul>
+<li>
+a bit more restrictive, easier to define, better for intuition
+
+<li>
+BCNF requires that all functional dependencies are keys.
+
+<li>
+ensures that key constraints automatically satisfy all FDs, so no more constraints are needed
+
+<li>
+anomalies (update/insertion/deletion) don't occur
+
+</ul>
+</ul>
+
+<p>
+Normalisation algorithms can construct good relation schemas from attributes and functional dependencies. When an ER model is well designed, resulting derived relational tables will automatically be in BCNF.
+</p>
+
+<p>
+First normal form (1NF):
+</p>
+<ul>
+<li>
+requires all table entries are atomic (not lists, sets, records, or relations)
+
+<li>
+all further normal forms assume that tables are in 1NF
+
+</ul>
+
+<div id="Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)"><h4 id="Boyce-Codd Normal Form (BCNF)" class="header"><a href="#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)">Boyce-Codd Normal Form (BCNF)</a></h4></div>
+<ul>
+<li>
+if all of its FDs are implied by its key constraints
+
+<li>
+in symbols:
+
+<ul>
+<li>
+for every FD A1,...,An → B1,...,Bm of R, we have
+
+<li>
+either {B1,...,Bm} ⊆ {A1,...,An} (the FD is trivial)
+
+<li>
+or {A1,...,An} contains a key of R
+
+</ul>
+<li>
+in short, if for every non-trivial functional dependency, left-hand side contains a key
+
+</ul>
+<blockquote>
+<img src="img-databases/example-of-checking-bcnf.png" alt="Example of checking BCNF" />
+</blockquote>
+
+<div id="Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Splitting relations"><h5 id="Splitting relations" class="header"><a href="#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Splitting relations">Splitting relations</a></h5></div>
+<p>
+If table R is not in BCNF, we can split it into two tables. You split based on violating FD.
+</p>
+
+<p>
+Table decomposition:
+</p>
+<ul>
+<li>
+if FD A1,...,An → B1,...,Bm violates BCNF:
+
+<ol>
+<li>
+create new relation S(A1,...,An,B1,...,Bm)
+
+<li>
+and remove B1,...,Bm from original relation R
+
+</ol>
+</ul>
+
+<p>
+Splitting has to be <span id="Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Splitting relations-lossless"></span><strong id="lossless">lossless</strong> so that you can reconstruct original relation by a join.
+</p>
+
+<p>
+Decomposition theorem: split is guaranteed to be lossless if intersection of attributes of new tables is a key of at least one of them.
+</p>
+
+<p>
+It's always possible to transform relation into BCNF by lossless splitting. The resulting schema can always represent all previously possible states, but it may be more general and allow states that do not exist in the old schema.
+</p>
+
+<p>
+With computable columns, splitting the relation is not the right solution - instead, define a view with the computed column.
+</p>
+
+<p>
+A good decomposition should guarantee preservation of FDs:
+</p>
+<ul>
+<li>
+and FD can refer only to attributes of a single relation
+
+<li>
+when splitting relation into two, there might be FDs that can't be expressed anymore (not preserved)
+
+</ul>
+
+<div id="Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Synthesis"><h5 id="Synthesis" class="header"><a href="#Databases-Relational normal forms-Normal forms-Boyce-Codd Normal Form (BCNF)-Synthesis">Synthesis</a></h5></div>
+<p>
+Determining canonical (minimal) set of FDs:
+</p>
+<ul>
+<li>
+given:
+
+<ul>
+<li>
+R(A,B,C,D,E)
+
+<li>
+FDs: D→A; E→A,D; C,D→A; A,E→C; B→A,D,E
+
+</ul>
+<li>
+Rewrite every FD as singular:
+
+<ul>
+<li>
+D→A, E→A, E→D, C,D→A, A,E→C, B→A, B→D, B→E
+
+</ul>
+<li>
+Minimise left hand side of every FD (aka is every FD minimal?)
+
+<ul>
+<li>
+drop C from C,D→A because D→A
+
+<li>
+drop A from A,E→C because E→A
+
+<li>
+so: D→A, E→A, E→D, D→A, E→C, B→A, B→D, B→E
+
+</ul>
+<li>
+Remove implied FDs (and trivial/duplicate) using lhs attributes (aka if we can determine rhs without the FD itself)
+
+<ul>
+<li>
+D→A, E→D, E→C, B→E
+
+</ul>
+</ul>
+
+<p>
+BCNF synthesis (relation R, set of FDs for R):
+</p>
+<ol>
+<li>
+Determine canonical set of FDs
+
+<ul>
+<li>
+e.g. D→A, E→D, E→C, B→E
+
+</ul>
+<li>
+Maximise rhs of FDs
+
+<ul>
+<li>
+{D}+ - D = {A}
+
+<li>
+\({E}_{-E}^+\) = {D,C,A}
+
+<li>
+\({B}_{-B}^+\) = {E,D,C,A}  ({B} is the minimal key in this case)
+
+</ul>
+<li>
+Split on violating FDs. For each FD, remove the rhs from relations and add a new relation, with the lhs of that FD being the key.
+
+</ol>
+
+<div id="Databases-Relational normal forms-Normal forms-Third normal form (3NF)"><h4 id="Third normal form (3NF)" class="header"><a href="#Databases-Relational normal forms-Normal forms-Third normal form (3NF)">Third normal form (3NF)</a></h4></div>
+<ul>
+<li>
+relation is in 3NF if for every non-trivial functional dependency:
+
+<ul>
+<li>
+left-hand side contains a key
+
+<li>
+or righthand side is attribute of minimal key
+
+</ul>
+</ul>
+
+<p>
+retains all FDs, so more popular than BCNF. If we leave table in 3NF, we have non-key constraints - the FDs that are not implied by keys.
+</p>
+
+<div id="Databases-Relational normal forms-Normal forms-Third normal form (3NF)-Synthesis"><h5 id="Synthesis" class="header"><a href="#Databases-Relational normal forms-Normal forms-Third normal form (3NF)-Synthesis">Synthesis</a></h5></div>
+<p>
+Produces lossless decomposition of relation into 3NF that preserves FDs.
+</p>
+
+<ol>
+<li>
+Determine canonical set of FDs
+
+<ul>
+<li>
+e.g. D→A, E→D, E→C, B→E
+
+</ul>
+<li>
+Merge FDs with same lhs and create relations from them
+
+<ul>
+<li>
+R1(<u>D</u>, A)
+
+<li>
+R2(<u>E</u>,C,D)
+
+<li>
+R3(<u>B</u>,E)
+
+</ul>
+<li>
+Check if any of relations has key of original relation. If not, create a new relation with attributes of the minimal key.
+
+<ul>
+<li>
+In this case, R(A,<u>B</u>,C,D,E); R3 has <u>B</u>, so don't need to do anything.
+
+</ul>
+<li>
+For all pairs of created relations: are they contained in another relation? If yes, remove.
+
+</ol>
 
     </div>
 </body>
