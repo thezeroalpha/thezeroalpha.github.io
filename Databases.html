@@ -18,7 +18,7 @@ Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 <div id="Contents" class="toc"><h1 id="Contents">Contents</a></h2></div>
 <ul>
 <li>
-<a href="Databases.html#Databases-What's probably on the exam">What's probably on the exam</a>
+<a href="Databases.html#Databases-Kind of a syllabus">Kind of a syllabus</a>
 
 <li>
 <a href="Databases.html#Databases-Introduction">Introduction</a>
@@ -177,13 +177,202 @@ Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 
 </ul>
 </ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-MVD &amp; 4NF">MVD &amp; 4NF</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-MVD &amp; 4NF-Multivalued dependencies (MVDs)">Multivalued dependencies (MVDs)</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-MVD &amp; 4NF-Fourth Normal Form (4NF)">Fourth Normal Form (4NF)</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Normal forms &amp; ER design">Normal forms &amp; ER design</a>
+
+<li>
+<a href="Databases.html#Databases-Relational normal forms-Denormalization">Denormalization</a>
+
 </ul>
 </ul>
 
-<div id="Databases-What's probably on the exam"><h2 id="What's probably on the exam" class="header"><a href="#Databases-What's probably on the exam">What's probably on the exam</a></h2></div>
+<div id="Databases-Kind of a syllabus"><h2 id="Kind of a syllabus" class="header"><a href="#Databases-Kind of a syllabus">Kind of a syllabus</a></h2></div>
 <p>
-probably on exam:
+Here's what you should be able to do for each chapter (directly from slides).
 </p>
+
+<p>
+Data modelling
+</p>
+<ul>
+<li>
+three phases of database design: conceptual, logical, physical
+
+<li>
+basic E/R concepts
+
+<ul>
+<li>
+entities, attributes, relationships, 'is a', weak entity sets, aggregation
+
+<li>
+cardinality/participation constraints
+
+</ul>
+<li>
+how UML corresponds with and differs from E/R
+
+<ul>
+<li>
+differences: basic syntax, aggregation, key specifications
+
+</ul>
+<li>
+how to make a conceptual model given a scenario (UML and ER)
+
+</ul>
+
+<p>
+Conceptual to relational model
+</p>
+<ul>
+<li>
+how to translate a conceptual model to a relational model
+
+<ul>
+<li>
+identifying keys
+
+<li>
+internal/external keys
+
+<li>
+(foreign) key constraints
+
+<li>
+multi-valued attributes
+
+<li>
+weak entity sets vs. composition
+
+<li>
+'is a'
+
+<li>
+representing cardinalities
+
+<li>
+recursive relationships
+
+<li>
+optimisation: removing relationship tables
+
+</ul>
+</ul>
+
+<p>
+Relational model:
+</p>
+<ul>
+<li>
+explain concepts of relational model:
+
+<ul>
+<li>
+schemas, state, domains
+
+<li>
+read various notations for relational schema
+
+</ul>
+<li>
+explain applications and problems of null values
+
+<li>
+explain integrity constraints and their importance
+
+<li>
+explain meaning of keys and foreign keys
+
+<li>
+develop simple relational schemas
+
+</ul>
+
+<p>
+SQL:
+</p>
+<ul>
+<li>
+write advanced SQL queries (nested, multiple variables)
+
+<li>
+aggregation, grouping, union
+
+<li>
+be comfortable with various join variants
+
+<li>
+evaluated correctness and equivalence of SQL queries (including possible presence of duplicate result tuples)
+
+</ul>
+
+<p>
+Relational normal forms:
+</p>
+<ul>
+<li>
+work with functional dependencies:
+
+<ul>
+<li>
+define what they are
+
+<li>
+detect them in database schemas
+
+<li>
+decide implication, determine keys
+
+</ul>
+<li>
+explain insert, update, delete anomalies
+
+<li>
+understand, explain, and use BCNF
+
+<ul>
+<li>
+test a given relation for BCNF
+
+<li>
+transform a relation into BCNF
+
+</ul>
+<li>
+understand, explain, and use 3NF
+
+<ul>
+<li>
+test a given relation for 3NF
+
+<li>
+transform a relation into 3NF
+
+</ul>
+<li>
+understand, explain MVDs and 4NF
+
+<li>
+detect normal form violations on the level of ER
+
+<li>
+explain when and how to denormalise a database schema
+
+<li>
+probably on exam:
+
 <ul>
 <li>
 compute cover {attribute}+ -- needed everywhere
@@ -205,6 +394,7 @@ use for BCNF decomposition -- splitting
 <li>
 definitions of 4NF and multivalued FDs
 
+</ul>
 </ul>
 
 <div id="Databases-Introduction"><h2 id="Introduction" class="header"><a href="#Databases-Introduction">Introduction</a></h2></div>
@@ -1608,7 +1798,7 @@ Find cover of smallest candidate key
 If does not contain all attributes, extend candidate with missing others and repeat.
 
 <li>
-edge case: if there are no attributes that aren't in ay right hand side, then candidates is empty set { {} } and you extend with every attribute like { {A}, {B}, ...} 
+edge case: if there are no attributes that aren't in any right hand side, then candidates is empty set { {} } and you extend with every attribute like { {A}, {B}, ...} 
 
 </ul>
 
@@ -1884,7 +2074,7 @@ relation is in 3NF if for every non-trivial functional dependency:
 left-hand side contains a key
 
 <li>
-or righthand side is attribute of minimal key
+or right-hand side is attribute of minimal key
 
 </ul>
 </ul>
@@ -1933,6 +2123,86 @@ In this case, R(A,<u>B</u>,C,D,E); R3 has <u>B</u>, so don't need to do anything
 For all pairs of created relations: are they contained in another relation? If yes, remove.
 
 </ol>
+
+<div id="Databases-Relational normal forms-MVD &amp; 4NF"><h3 id="MVD &amp; 4NF" class="header"><a href="#Databases-Relational normal forms-MVD &amp; 4NF">MVD &amp; 4NF</a></h3></div>
+<div id="Databases-Relational normal forms-MVD &amp; 4NF-Multivalued dependencies (MVDs)"><h4 id="Multivalued dependencies (MVDs)" class="header"><a href="#Databases-Relational normal forms-MVD &amp; 4NF-Multivalued dependencies (MVDs)">Multivalued dependencies (MVDs)</a></h4></div>
+<p>
+Constraints that give a necessary and sufficient condition for lossless decomposition. They lead to fourth normal form (4NF).
+</p>
+
+<p>
+Multivalued dependency <code>NAME ⤅ PROG_LANG</code> means that set of vales in in column PROG_LANG associated with every NAME is independent of all other columns. i.e. there's an embedded function from NAME to sets of PROG_LANG
+</p>
+
+<p>
+The MVD holds if, whenever two tuples agree on NAME, one can exchange their PROG_LANG values and the resulting tuples are in the same table.
+</p>
+
+<p>
+MVDs always come in pairs. For relation R(A1,...,An, B1,...,Bm, C1,...,Ck) these multivalued dependencies are equivalent:
+</p>
+<ul>
+<li>
+A1,...,An ⤅ B1,...,Bm
+
+<li>
+A1,...,An ⤅ C1,...,Ck
+
+</ul>
+
+<p>
+Every FD is also a MVD.
+</p>
+  
+<div id="Databases-Relational normal forms-MVD &amp; 4NF-Fourth Normal Form (4NF)"><h4 id="Fourth Normal Form (4NF)" class="header"><a href="#Databases-Relational normal forms-MVD &amp; 4NF-Fourth Normal Form (4NF)">Fourth Normal Form (4NF)</a></h4></div>
+<p>
+A relation is in in 4NF if every MVD A1,...,An ⤅ B1,...,Bm is either trivial, or implied by a key.
+</p>
+
+<p>
+If a relation is in 4NF, it's also automatically in BCNF.
+</p>
+
+<div id="Databases-Relational normal forms-Normal forms &amp; ER design"><h3 id="Normal forms &amp; ER design" class="header"><a href="#Databases-Relational normal forms-Normal forms &amp; ER design">Normal forms &amp; ER design</a></h3></div>
+<p>
+If a 'good' ER schema is transformed into the relational model, the result will satisfy all normal forms (4NF, BCNF, 3NF). If a normal form is violated, there's a flaw in the input ER schema.
+</p>
+
+<p>
+In the ER model, the entity has to be split in case of a violation.
+</p>
+
+<p>
+Violations of BCNF can also be due to wrong placement of an attribute.
+</p>
+
+<p>
+If an attribute of a ternary relationship only depends on two of the entities, it's a BCNF violation.
+</p>
+
+<p>
+Why normalize?
+</p>
+<ul>
+<li>
+Avoid redundancy
+
+<li>
+Store separate facts separately
+
+<li>
+Transform general integrity constraints into keys (DBMS constraints)
+
+</ul>
+
+<div id="Databases-Relational normal forms-Denormalization"><h3 id="Denormalization" class="header"><a href="#Databases-Relational normal forms-Denormalization">Denormalization</a></h3></div>
+<p>
+The process of adding redundant columns to the database to improve performance.
+</p>
+
+<p>
+This leads to the reintroduction of (some) anomalies, but you avoid huge amounts of joins.
+</p>
 
     </div>
 </body>
