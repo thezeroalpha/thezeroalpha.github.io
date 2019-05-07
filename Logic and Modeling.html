@@ -75,7 +75,7 @@
 <a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpretation of formulas with quantifiers and free variables">Interpretation of formulas with quantifiers and free variables</a>
 
 <li>
-<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpreting terms in model with enironment">Interpreting terms in model with enironment</a>
+<a href="Logic and Modeling.html#Logic and Modeling-First order logic-Interpreting terms in model with environment">Interpreting terms in model with environment</a>
 
 <li>
 <a href="Logic and Modeling.html#Logic and Modeling-First order logic-Semantical entailment in predicate logic">Semantical entailment in predicate logic</a>
@@ -99,20 +99,34 @@
 <li>
 <a href="Logic and Modeling.html#Logic and Modeling-Sets">Sets</a>
 
+<ul>
 <li>
-<a href="Logic and Modeling.html#Logic and Modeling-Relations">Relations</a>
+<a href="Logic and Modeling.html#Logic and Modeling-Sets-Relations">Relations</a>
 
 <ul>
 <li>
-<a href="Logic and Modeling.html#Logic and Modeling-Relations-Order types">Order types</a>
+<a href="Logic and Modeling.html#Logic and Modeling-Sets-Relations-Order types">Order types</a>
 
 </ul>
 <li>
-<a href="Logic and Modeling.html#Logic and Modeling-Natural numbers &amp; induction">Natural numbers &amp; induction</a>
+<a href="Logic and Modeling.html#Logic and Modeling-Sets-Natural numbers &amp; induction">Natural numbers &amp; induction</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Sets-Recursive definitions">Recursive definitions</a>
+
+</ul>
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Modal logic">Modal logic</a>
 
 <ul>
 <li>
-<a href="Logic and Modeling.html#Logic and Modeling-Natural numbers &amp; induction-Recursive definitions">Recursive definitions</a>
+<a href="Logic and Modeling.html#Logic and Modeling-Modal logic-Truth in worlds">Truth in worlds</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Modal logic-Truth in Kripke models">Truth in Kripke models</a>
+
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Modal logic-Semantic implication/entailment">Semantic implication/entailment</a>
 
 </ul>
 </ul>
@@ -819,7 +833,7 @@ A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)
 
 </ul>
 
-<div id="Logic and Modeling-Relations"><h2 id="Relations" class="header"><a href="#Logic and Modeling-Relations">Relations</a></h2></div>
+<div id="Logic and Modeling-Sets-Relations"><h3 id="Relations" class="header"><a href="#Logic and Modeling-Sets-Relations">Relations</a></h3></div>
 <p>
 definitions of properties:
 </p>
@@ -835,7 +849,7 @@ antisymmetry: ∀a,b (R(a,b) ∧ R(b,a) → a = b)
 
 </ul>
 
-<div id="Logic and Modeling-Relations-Order types"><h3 id="Order types" class="header"><a href="#Logic and Modeling-Relations-Order types">Order types</a></h3></div>
+<div id="Logic and Modeling-Sets-Relations-Order types"><h4 id="Order types" class="header"><a href="#Logic and Modeling-Sets-Relations-Order types">Order types</a></h4></div>
 <p>
 partial order:
 </p>
@@ -894,13 +908,13 @@ transitive
 
 </ul>
 
-<div id="Logic and Modeling-Natural numbers &amp; induction"><h2 id="Natural numbers &amp; induction" class="header"><a href="#Logic and Modeling-Natural numbers &amp; induction">Natural numbers &amp; induction</a></h2></div>
+<div id="Logic and Modeling-Sets-Natural numbers &amp; induction"><h3 id="Natural numbers &amp; induction" class="header"><a href="#Logic and Modeling-Sets-Natural numbers &amp; induction">Natural numbers &amp; induction</a></h3></div>
 <p>
 Set of natural numbers is N ∈ (0,∞)
 </p>
 
 <p>
-<span id="Logic and Modeling-Natural numbers &amp; induction-Principle of induction"></span><strong id="Principle of induction">Principle of induction</strong>: let P be a property of natural numbers. Suppose P holds for zero, and whenever P holds for a natural number n, then it holds for its successor n+1. Then P holds for every natural number.
+<span id="Logic and Modeling-Sets-Natural numbers &amp; induction-Principle of induction"></span><strong id="Principle of induction">Principle of induction</strong>: let P be a property of natural numbers. Suppose P holds for zero, and whenever P holds for a natural number n, then it holds for its successor n+1. Then P holds for every natural number.
 </p>
 
 <p>
@@ -911,7 +925,7 @@ As a natural deduction rule:
 <img src="img-logic/induction-natural-deduction-rule.png" alt="Induction natural deduction rule" />
 </p>
 
-<div id="Logic and Modeling-Natural numbers &amp; induction-Recursive definitions"><h3 id="Recursive definitions" class="header"><a href="#Logic and Modeling-Natural numbers &amp; induction-Recursive definitions">Recursive definitions</a></h3></div>
+<div id="Logic and Modeling-Sets-Recursive definitions"><h3 id="Recursive definitions" class="header"><a href="#Logic and Modeling-Sets-Recursive definitions">Recursive definitions</a></h3></div>
 <p>
 Let A be any set, suppose a is in A, and g: N × A → A. Then there is a unique function f satisfying:
 </p>
@@ -926,6 +940,81 @@ f(n+1) = g(n, f(n))
 
 <p>
 Typically to prove something about a recursively defined function is to use induction.
+</p>
+
+<div id="Logic and Modeling-Modal logic"><h2 id="Modal logic" class="header"><a href="#Logic and Modeling-Modal logic">Modal logic</a></h2></div>
+<p>
+modal logic allows reasoning about dynamics -- futures, knowledge, beliefs, etc.
+</p>
+
+<p>
+modalities (unary connectives):
+</p>
+<ul>
+<li>
+□ (box): sure, always, has to be, knows, guaranteed (kinda like ∀)
+
+<li>
+◇ (diamond): possibly, sometimes, maybe, believes is possible, possible result (kinda like ∃)
+
+</ul>
+
+<p>
+Kripke model <code>M = (W, R, L)</code> consists of:
+</p>
+<ul>
+<li>
+W worlds
+
+<li>
+R accessibility relation
+
+<li>
+L labeling function: which propositional letters are true in which world (<code>w ||- p ↔ p ∈ L(w)</code>)
+
+</ul>
+
+<p>
+Kripke models define truth <em>per world</em>.
+</p>
+
+<p>
+<img src="img-logic/kripke-model-and-graph.png" alt="Kripke model and graph" />
+</p>
+
+<div id="Logic and Modeling-Modal logic-Truth in worlds"><h3 id="Truth in worlds" class="header"><a href="#Logic and Modeling-Modal logic-Truth in worlds">Truth in worlds</a></h3></div>
+<p>
+<code>M, w ||- Φ</code> means formula Φ is true in world w of Kripke model M.
+</p>
+
+<p>
+◇ Φ is true in world w if there exists a world w' such that R(w, w') and Φ is true in w'.
+</p>
+
+<p>
+□ Φ is true in world w if Φ is true in all worlds w' with R(w, w'). special case when world has no outgoing edge, ◇ Φ never holds and □ Φ always holds.
+</p>
+
+<div id="Logic and Modeling-Modal logic-Truth in Kripke models"><h3 id="Truth in Kripke models" class="header"><a href="#Logic and Modeling-Modal logic-Truth in Kripke models">Truth in Kripke models</a></h3></div>
+<p>
+Φ is true in Kripke model <code>M = (W, R, L)</code> (i.e. M ⊨ Φ), iff x ||- Φ for every world x ∈ W.
+</p>
+
+<p>
+all propositional tautologies also hold in modal logic.
+</p>
+
+<div id="Logic and Modeling-Modal logic-Semantic implication/entailment"><h3 id="Semantic implication/entailment" class="header"><a href="#Logic and Modeling-Modal logic-Semantic implication/entailment">Semantic implication/entailment</a></h3></div>
+<p>
+M,w ⊨ ψ in every world w in every Kripke model where M,w ⊨ Φ₁, ..., M,w ⊨ Φn.
+</p>
+
+<p>
+modal validity: ⊨ ψ if in every world w in ever Kripke model M holds M,w ⊨ ψ.
+</p>
+
+<p>
+modal logical equivalence: <code>Φ ≡ ψ</code> if <code>M,w ⊨ Φ ↔ M,w ⊨ ψ</code>. in other words, Φ ≡ ψ ↔ Φ ⊨ ψ and ψ ⊨ Φ.
 </p>
 
     </div>

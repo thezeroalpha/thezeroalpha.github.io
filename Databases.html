@@ -195,6 +195,39 @@ Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 <a href="Databases.html#Databases-Relational normal forms-Denormalization">Denormalization</a>
 
 </ul>
+<li>
+<a href="Databases.html#Databases-Transactions">Transactions</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Transactions-Schedules">Schedules</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Serializability">Serializability</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies">Runtime serializability strategies</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking">Pessimistic: lock-based, two phase locking</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Deadlock handling">Deadlock handling</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Cascading rollbacks">Cascading rollbacks</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Strict 2 phase locking">Strict 2 phase locking</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Preclaiming 2 phase locking">Preclaiming 2 phase locking</a>
+
+</ul>
+</ul>
+</ul>
 </ul>
 
 <div id="Databases-Kind of a syllabus"><h2 id="Kind of a syllabus" class="header"><a href="#Databases-Kind of a syllabus">Kind of a syllabus</a></h2></div>
@@ -2202,6 +2235,296 @@ The process of adding redundant columns to the database to improve performance.
 
 <p>
 This leads to the reintroduction of (some) anomalies, but you avoid huge amounts of joins.
+</p>
+
+<div id="Databases-Transactions"><h2 id="Transactions" class="header"><a href="#Databases-Transactions">Transactions</a></h2></div>
+<p>
+transaction: a sequence of actions we want to perform on a database
+</p>
+
+<p>
+should be atomic: either run fully, or not at all.
+this avoids concurrency problems like:
+</p>
+<ul>
+<li>
+losing effects of one transaction due to uncontrolled overwrite by another ('lost update anomaly')
+
+<li>
+transaction reads partial result of another transaction ('inconsistent read anomaly')
+
+<li>
+transaction reads changes made by another transaction before they are rolled back ('dirty read anomaly')
+
+<li>
+transaction reads value which is afterwards changed by another transaction ('unrepeatable read anomaly')
+
+</ul>
+
+<p>
+For this, we need to get some ACID:
+</p>
+<ul>
+<li>
+Atomicity: transaction executes fully or not at all (commit or abort)
+
+<li>
+Consistency: transactions always leave database in consistent state, where all defined integrity constraints hold
+
+<li>
+Isolation: multiple users can modify database at the same time without seeing partial actions
+
+<li>
+Durability: when transaction is committed successfully, the data is persistent, regardless of crashes
+
+</ul>
+
+<p>
+transaction: a list of actions
+</p>
+<ul>
+<li>
+reads - R(O)
+
+<li>
+writes - W(O)
+
+<li>
+end with Commit or Abort
+
+<li>
+e.g.: T₁: R(V)&lt; R(Y), W(V), W(C), Commit
+
+</ul>
+
+<div id="Databases-Transactions-Schedules"><h3 id="Schedules" class="header"><a href="#Databases-Transactions-Schedules">Schedules</a></h3></div>
+<p>
+scheduler decides execution order of concurrent database access
+</p>
+
+<p>
+schedule is list of actions from set of transactions ('plan on how to execute transactions'). order in which 2 actions of transaction T appear in schedule must be same as order in T.
+</p>
+
+<div id="Databases-Transactions-Serializability"><h3 id="Serializability" class="header"><a href="#Databases-Transactions-Serializability">Serializability</a></h3></div>
+<p>
+serial schedule: if actions of different transactions are executed one after another (e.g. all of T2, then all of T1)
+</p>
+
+<p>
+serializable schedule: if its effect on database is same as that of some serial schedule
+</p>
+
+<p>
+actions in schedule conflict if they
+</p>
+<ul>
+<li>
+are from different transactions
+
+<li>
+and involve same data item
+
+<li>
+and one action is write
+
+</ul>
+
+<p>
+conflicts may cause schedule to not be serializable
+</p>
+
+<p>
+conflict types:
+</p>
+<ul>
+<li>
+write read (WR) - T₁ writes Y, then T₂ reads Y
+
+<li>
+read write (RW) - T₁ reads Y, then T₂ writes Y
+
+<li>
+write write (WW) - T₁ writes Y, then T₂ writes Y
+
+</ul>
+
+<p>
+we can swap actions of different transactions if actions are non-conflicting.
+</p>
+
+<p>
+conflict equivalent schedules: if they can be transformed into each other by swapping non-conflicting, adjacent transactions.
+</p>
+
+<p>
+conflict-serializable: if conflict equivalent to some serial schedule
+</p>
+
+<p>
+check it with a precedence graph:
+</p>
+<ul>
+<li>
+graph has node for each transaction
+
+<li>
+edge from T₁ to T₂ if conflicting action between T₁ and T₂ (with T₁ first)
+
+<li>
+conflict-serializable iff no cycle in the graph
+
+<li>
+if no cycles, serial schedule is a topological sort of precedence graph
+
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies"><h3 id="Runtime serializability strategies" class="header"><a href="#Databases-Transactions-Runtime serializability strategies">Runtime serializability strategies</a></h3></div>
+<p>
+serializability during runtime: system doesn't know which transactions will run, and which items they'll access
+</p>
+
+<p>
+strategies:
+</p>
+<ul>
+<li>
+Pessimistic: lock-based, timestamp based
+
+<li>
+Optimistic: read-set/write-set tracking, validation before commit
+
+<li>
+Multi-version techniques: eliminate concurrency control overhead for read-only queries
+
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking"><h4 id="Pessimistic: lock-based, two phase locking" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking">Pessimistic: lock-based, two phase locking</a></h4></div>
+<p>
+transactions must lock objects before using them
+</p>
+
+<p>
+types:
+</p>
+<ul>
+<li>
+shared lock (S-lock): acquired on Y before <em>reading</em> Y, many transactions can hold a shared lock on Y
+
+<li>
+exclusive lock (X-lock): acquired on Y before <em>writing</em> Y. transaction can hold exclusive lock on Y if no other transaction holds a lock on Y.
+
+</ul>
+
+<p>
+2 phase locking protocol:
+</p>
+<ul>
+<li>
+each transaction must get:
+
+<ul>
+<li>
+S-lock on object before reading it
+
+<li>
+X-lock on object before writing it
+
+</ul>
+<li>
+transaction can't get new locks once it releases any lock
+
+<li>
+any schedule that conforms to 2PL is conflict-serializable
+
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Deadlock handling"><h5 id="Deadlock handling" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Deadlock handling">Deadlock handling</a></h5></div>
+<p>
+2 PL has the risk of deadlocks where both transactions wait for each other indefinitely. need to detect deadlock.
+</p>
+
+<p>
+detection with Wait-for-Graphs
+</p>
+<ul>
+<li>
+system maintains wait-for-graph, where nodes are transactions and edges A→B mean A is waiting for B to release lock
+
+<li>
+system periodically checks for graph cycles
+
+<li>
+if cycle detected, you abort a transaction
+
+<li>
+selecting the victim is a challenge:
+
+<ul>
+<li>
+if you abort a young one, there will be starvation
+
+<li>
+if you abort an old one, you'll be throwing away what you invested in it
+
+<li>
+phrasing, dude.
+
+</ul>
+</ul>
+
+<p>
+detection with timeout
+</p>
+<ul>
+<li>
+let transactions block on a lock request for a limited time
+
+<li>
+after timeout, assume deadlock and abort T
+
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Cascading rollbacks"><h5 id="Cascading rollbacks" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Cascading rollbacks">Cascading rollbacks</a></h5></div>
+<p>
+cascadeless schedule
+</p>
+<ul>
+<li>
+delay reads, only read value produced by already committed transactions
+
+<li>
+so if a value is required, wait for the commit
+
+<li>
+no dirty reads, so abort doesn't cascade
+
+</ul>
+
+<p>
+recoverable schedule:
+</p>
+<ul>
+<li>
+delay commit - if T2 reads value written by T1, commit of T2 has to wait until after commit of T1
+
+</ul>
+
+<p>
+schedules should always be recoverable. all cascadeless schedules are recoverable.
+</p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Strict 2 phase locking"><h5 id="Strict 2 phase locking" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Strict 2 phase locking">Strict 2 phase locking</a></h5></div>
+<p>
+same as 2PL, but a transaction releases all locks only when it's completed (commit/rollback).
+it's cascadeless, but still has deadlocks.
+</p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Preclaiming 2 phase locking"><h5 id="Preclaiming 2 phase locking" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Preclaiming 2 phase locking">Preclaiming 2 phase locking</a></h5></div>
+<p>
+all needed locks are declared at start of transaction.
+therefore, no deadlocks.
+however, not applicable in multi-query transactions (where queries might depend on results of previous queries)
 </p>
 
     </div>
