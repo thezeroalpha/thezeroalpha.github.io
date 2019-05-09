@@ -225,6 +225,26 @@ Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 <li>
 <a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Preclaiming 2 phase locking">Preclaiming 2 phase locking</a>
 
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Granularity of locking">Granularity of locking</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Optimising performance">Optimising performance</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Isolation levels">Isolation levels</a>
+
+</ul>
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control">Optimistic concurrency control</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Validation">Validation</a>
+
+<li>
+<a href="Databases.html#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Multiversion concurrency control">Multiversion concurrency control</a>
+
 </ul>
 </ul>
 </ul>
@@ -428,6 +448,45 @@ use for BCNF decomposition -- splitting
 definitions of 4NF and multivalued FDs
 
 </ul>
+</ul>
+
+<p>
+Transactions:
+</p>
+<ul>
+<li>
+ACID properties, transactions
+
+<li>
+anomalies: lost update, dirty read, unrepeatable read, phantoms
+
+<li>
+transaction schedules, serializability, conflicts (rw/wr/ww)
+
+<li>
+conflict equivalent, conflict serializability
+
+<li>
+lock based concurrency control: 2 PL (strict, preclaiming)
+
+<li>
+cascading rollbacks, deadlocks, deadlock detection
+
+<li>
+cascadeless, recoverabl
+
+<li>
+granularity of locking, intention locks
+
+<li>
+SQL isolation levels: <code>READ UNCOMMITTED</code>, <code>READ COMMITTED</code>, <code>READ STBILITY</code>, <code>SERIALIZABLE</code>
+
+<li>
+optimistic concurrency approach
+
+<li>
+multiversion concurrency control, snapshot isolation
+
 </ul>
 
 <div id="Databases-Introduction"><h2 id="Introduction" class="header"><a href="#Databases-Introduction">Introduction</a></h2></div>
@@ -687,7 +746,7 @@ SQL notation:
 </p>
 
 <pre>
-CREATE TABLE exercises 
+CREATE TABLE exercises
     (CAT    CHAR(1),
      ENO    NUMERIC(2),
      TOPIC  VARCHAR(40),
@@ -909,7 +968,7 @@ deletion from table if the tuple is referenced via foreign key. either DBMS reje
 </ul>
 
 <p>
-only keys may be referenced. a table with composite key must be referenced by composite key that has same number of attributes. 
+only keys may be referenced. a table with composite key must be referenced by composite key that has same number of attributes.
 </p>
 
 <div id="Databases-Database design: Conceptual models"><h2 id="Database design: Conceptual models" class="header"><a href="#Databases-Database design: Conceptual models">Database design: Conceptual models</a></h2></div>
@@ -976,7 +1035,7 @@ ellipses represent attributes
 
 <ul>
 <li>
-double line - multivalued attributes 
+double line - multivalued attributes
 
 <li>
 dashed line - derived attributes
@@ -1043,7 +1102,7 @@ e.g. age computed from date of birth
 
 <div id="Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets-Weak entity sets"><h5 id="Weak entity sets" class="header"><a href="#Databases-Database design: Conceptual models-Conceptual models: Entity-Relationship &amp; UML-Entity sets-Weak entity sets">Weak entity sets</a></h5></div>
 <p>
-a weak entity set doesn't have a primary key. its existence depends on existence of an identifying entity set. 
+a weak entity set doesn't have a primary key. its existence depends on existence of an identifying entity set.
 </p>
 
 <p>
@@ -1289,7 +1348,7 @@ declared unique if appropriate
 </ul>
 
 <p>
-composite attributes are flattened out by creating separate column for each component attribute. 
+composite attributes are flattened out by creating separate column for each component attribute.
 </p>
 
 <p>
@@ -1478,7 +1537,7 @@ constructs:
 <code>NOT EXISTS</code>: result of subquery is empty
 
 <li>
-"For all": 
+"For all":
 
 <ul>
 <li>
@@ -1557,7 +1616,7 @@ Sequence of GROUP BY is not important.
 
 <div id="Databases-Union, conditionals"><h2 id="Union, conditionals" class="header"><a href="#Databases-Union, conditionals">Union, conditionals</a></h2></div>
 <p>
-<code>UNION</code> combines results of two queries. there's no other way to make one result column to draw from different tables/columns.  
+<code>UNION</code> combines results of two queries. there's no other way to make one result column to draw from different tables/columns.
 subqueries must return tables with same number of columns and compatible data types.
 <code>UNION</code> eliminates duplicates, <code>UNION ALL</code> concatenates and keeps duplicates.
 </p>
@@ -1660,7 +1719,7 @@ e.g. here, functional dependency is <code>INAME → PHONE</code>, because phone 
 </p>
 
 <p>
-This is read as "<code>INAME</code> (functionally, uniquely) determines <code>PHONE</code>". 
+This is read as "<code>INAME</code> (functionally, uniquely) determines <code>PHONE</code>".
 </p>
 
 <div id="Databases-Relational normal forms-Functional dependencies-What is a functional dependency?"><h4 id="What is a functional dependency?" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-What is a functional dependency?">What is a functional dependency?</a></h4></div>
@@ -1831,13 +1890,13 @@ Find cover of smallest candidate key
 If does not contain all attributes, extend candidate with missing others and repeat.
 
 <li>
-edge case: if there are no attributes that aren't in any right hand side, then candidates is empty set { {} } and you extend with every attribute like { {A}, {B}, ...} 
+edge case: if there are no attributes that aren't in any right hand side, then candidates is empty set { {} } and you extend with every attribute like { {A}, {B}, ...}
 
 </ul>
 
 <div id="Databases-Relational normal forms-Functional dependencies-Determinants"><h4 id="Determinants" class="header"><a href="#Databases-Relational normal forms-Functional dependencies-Determinants">Determinants</a></h4></div>
 <p>
-determinant: non-trivial, minimal functional dependency 
+determinant: non-trivial, minimal functional dependency
 </p>
 
 <p>
@@ -1907,7 +1966,7 @@ Normal form types:
 Third Normal Form (3NF): standard relational normal form used in practice
 
 <li>
-Boyce-Codd Normal Form (BCNF): 
+Boyce-Codd Normal Form (BCNF):
 
 <ul>
 <li>
@@ -2186,7 +2245,7 @@ A1,...,An ⤅ C1,...,Ck
 <p>
 Every FD is also a MVD.
 </p>
-  
+
 <div id="Databases-Relational normal forms-MVD &amp; 4NF-Fourth Normal Form (4NF)"><h4 id="Fourth Normal Form (4NF)" class="header"><a href="#Databases-Relational normal forms-MVD &amp; 4NF-Fourth Normal Form (4NF)">Fourth Normal Form (4NF)</a></h4></div>
 <p>
 A relation is in in 4NF if every MVD A1,...,An ⤅ B1,...,Bm is either trivial, or implied by a key.
@@ -2526,6 +2585,267 @@ all needed locks are declared at start of transaction.
 therefore, no deadlocks.
 however, not applicable in multi-query transactions (where queries might depend on results of previous queries)
 </p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Granularity of locking"><h5 id="Granularity of locking" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Granularity of locking">Granularity of locking</a></h5></div>
+<p>
+there's a tradeoff.
+the more specific your locking is (database, vs table, vs row level), the higher concurrency you have, and the higher overhead
+</p>
+
+<p>
+multi-granularity locking - decide granularity of locks held for each transaction depending on characteristics of transaction
+</p>
+
+<p>
+intention locks (do not conflict with each other):
+</p>
+<ul>
+<li>
+intention share (IS)
+
+<li>
+intention exclusive (IX)
+
+</ul>
+
+<p>
+an intention lock on coarser level of granularity means there is S/X lock on finer level of granularity.
+</p>
+
+<p>
+before a granule <em>g can</em> be locked in S/X mode, the transaction has to obtain an IS/IX lock on all coarser granularities containing <em>g</em>
+</p>
+
+<p>
+after all intention locks are granted, transaction can lock <em>g</em> in the announced mode
+</p>
+
+<p>
+levels of granularity: database → table → row
+</p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Optimising performance"><h5 id="Optimising performance" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Optimising performance">Optimising performance</a></h5></div>
+<p>
+for each query in log:
+</p>
+<ul>
+<li>
+analyse average time and variance for this type of query
+
+<ul>
+<li>
+if long delays or frequently aborts, might be contention
+
+</ul>
+<li>
+read only or updating query?
+
+<ul>
+<li>
+compute read-sets, write-sets
+
+<li>
+will it require row/table locks? shared/exclusive?
+
+</ul>
+</ul>
+
+<p>
+How do read- and write-sets of queries intersect? What is chance of conflicts?
+</p>
+
+<p>
+When you understand the query workload, you can:
+</p>
+<ul>
+<li>
+rewrite queries for smaller read- and write-sets
+
+<li>
+change scheduling of queries to reduce contention
+
+<li>
+use different isolation level for queries
+
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Isolation levels"><h5 id="Isolation levels" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Pessimistic: lock-based, two phase locking-Isolation levels">Isolation levels</a></h5></div>
+<p>
+some degree of inconsistency may be acceptable to get increased concurrency &amp; performance
+</p>
+
+<p>
+SQL-92 levels:
+</p>
+<ul>
+<li>
+<code>read uncommitted</code>: only write locks acquired, any row read can be concurrently changed by other transactions
+
+<li>
+<code>read committed</code>: read locks held for as long as application cursor sits on a current row, write locks as usual
+
+<li>
+<code>repeatable read</code>: strict 2PL, a transaction may read phantom rows if it runs an aggregation query twice
+
+<li>
+<code>serializable</code>: strict 2PL, multi-granularity locking. no phantom rows.
+
+</ul>
+
+<p>
+<img src="img-databases/sql-92-isolation-levels.png" alt="SQL-92 isolation levels" />
+</p>
+
+<p>
+phantom row problem: T1 locks all rows, but T2 inserts new row that isn't locked.
+</p>
+
+<p>
+solutions:
+</p>
+<ul>
+<li>
+multi-granularity locking (locking the table)
+
+<li>
+declarative locking - key-range or predicate locking
+
+</ul>
+
+<p>
+many applications don't need full serializability, selecting a weaker but acceptable isolation level is part of database tuning.
+</p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control"><h4 id="Optimistic concurrency control" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control">Optimistic concurrency control</a></h4></div>
+<p>
+hope for the best, only check that no conflicts happened when committing. this saves locking overhead.
+</p>
+
+<p>
+three phases:
+</p>
+<ol>
+<li>
+Read phase: execute transaction, but don't write data to disk. collect updates in transaction's private workspace
+
+<li>
+Validation phase: when transaction wants to commit, DBMS test whether execution correct, and abort if needed.
+
+<li>
+Write phase: transfer data from private workspace into database.
+
+</ol>
+
+<p>
+Phases 2, 3 have to be in non-interruptible critical section (val-write phase).
+</p>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Validation"><h5 id="Validation" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Validation">Validation</a></h5></div>
+<p>
+typically implemented by maintaining:
+</p>
+<ul>
+<li>
+read set RS(Tk) - attributes read by Tk
+
+<li>
+write set Ws(Tk) - attributes written by Tk
+
+</ul>
+
+<p>
+Backward-oriented optimistic concurrency control (BOCC)
+</p>
+<ul>
+<li>
+on commit, compare Tk against all <em>committed</em> transactions Ti
+
+<li>
+succeeds if
+
+<ul>
+<li>
+Ti committed before Tk started
+
+<li>
+or Rs(Tk) ∩ WS(Ti) = Ø
+
+</ul>
+</ul>
+
+<p>
+Forward-oriented optimistic concurrency control (FOCC)
+</p>
+<ul>
+<li>
+on commit, compare Tk against all <em>running</em> transactions Ti
+
+<li>
+succeeds if
+
+<ul>
+<li>
+Ws(Tk) ∩ RS(Ti) = Ø
+
+</ul>
+</ul>
+
+<div id="Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Multiversion concurrency control"><h5 id="Multiversion concurrency control" class="header"><a href="#Databases-Transactions-Runtime serializability strategies-Optimistic concurrency control-Multiversion concurrency control">Multiversion concurrency control</a></h5></div>
+<p>
+with old object versions around, read-only transactions never need to be blocked
+</p>
+<ul>
+<li>
+might see outdated but consistent version of data
+
+<li>
+like everything in query happened the moment it started
+
+</ul>
+
+<p>
+issues:
+</p>
+<ul>
+<li>
+versioning requires space and management overhead
+
+<li>
+update transactions still need concurrency control
+
+</ul>
+
+<p>
+snapshot isolation: 
+</p>
+<ul>
+<li>
+each transaction sees consistent snapshot of database corresponding to state at moment it started
+
+<li>
+read-only transactions don't have to lock anything
+
+<li>
+transactions conflict if write to same object
+
+<ul>
+<li>
+pessimistic concurrency control - only writes are locked
+
+<li>
+optimistic concurrency control - only write-sets interesting
+
+</ul>
+<li>
+does not guarantee serializability
+
+<li>
+avoids dirty read, unrepeatable read, phantom rows
+
+<li>
+introduces write skew, with complex assertions involving multiple tuples
+
+</ul>
 
     </div>
 </body>

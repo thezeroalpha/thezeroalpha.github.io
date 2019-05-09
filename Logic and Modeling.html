@@ -128,6 +128,9 @@
 <li>
 <a href="Logic and Modeling.html#Logic and Modeling-Modal logic-Semantic implication/entailment">Semantic implication/entailment</a>
 
+<li>
+<a href="Logic and Modeling.html#Logic and Modeling-Modal logic-Frames">Frames</a>
+
 </ul>
 </ul>
 
@@ -839,13 +842,19 @@ definitions of properties:
 </p>
 <ul>
 <li>
-reflexivity: ∀a R(a,a)
+reflexive: ∀x R(x,x)
 
 <li>
-transitivity: ∀a,b,c (R(a,b) ∧ R(b,c) → R(a,c))
+symmetric: ∀x ∀y (R(x,y) → R(y,x))
 
 <li>
-antisymmetry: ∀a,b (R(a,b) ∧ R(b,a) → a = b)
+transitive: ∀x ∀y ∀x ((R(x,y) ∧ R(y,x)) → R(x,z))
+
+<li>
+serial: ∀x ∃y R(x,y)
+
+<li>
+functional: ∀x ∃y (R(x,y) ∧ ∀z (R(x,z) → z=y))
 
 </ul>
 
@@ -1016,6 +1025,68 @@ modal validity: ⊨ ψ if in every world w in ever Kripke model M holds M,w ⊨ 
 <p>
 modal logical equivalence: <code>Φ ≡ ψ</code> if <code>M,w ⊨ Φ ↔ M,w ⊨ ψ</code>. in other words, Φ ≡ ψ ↔ Φ ⊨ ψ and ψ ⊨ Φ.
 </p>
+
+<div id="Logic and Modeling-Modal logic-Frames"><h3 id="Frames" class="header"><a href="#Logic and Modeling-Modal logic-Frames">Frames</a></h3></div>
+<p>
+frame: Kripke model without labeling. <code>F = (W,R)</code>, W worlds, R accessibility relation
+</p>
+
+<p>
+Φ is valid in frame F (i.e. F ⊨ Φ) if for <em>every</em> labeling L, Kripke model M = (W,R,L) makes Φ true.
+</p>
+
+<p>
+Correspondence of formulas and frame properties
+</p>
+<ul>
+<li>
+reflexive: 
+
+<ul>
+<li>
+F ⊨ □ p → p
+
+<li>
+F ⊨ p → ◇ p
+
+</ul>
+<li>
+symmetric: 
+
+<ul>
+<li>
+F ⊨ q → □ ◇ q
+
+<li>
+F ⊨ ◇ □ p → p
+
+</ul>
+<li>
+transitive: 
+
+<ul>
+<li>
+F ⊨ □ p → □ □ p
+
+<li>
+F ⊨ ◇ ◇ p → ◇ p
+
+</ul>
+<li>
+serial: 
+
+<ul>
+<li>
+F ⊨ ◇ T
+
+<li>
+F ⊨ □ p → ◇ p
+
+</ul>
+<li>
+functional: □ p ↔ ◇ p
+
+</ul>
 
     </div>
 </body>
