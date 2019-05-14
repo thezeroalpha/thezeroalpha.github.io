@@ -248,6 +248,36 @@ Slides are <a href="http://joerg.endrullis.de/databases/">here</a>
 </ul>
 </ul>
 </ul>
+<li>
+<a href="Databases.html#Databases-Database Application Programming">Database Application Programming</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic">Dynamic</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-JDBC">JDBC</a>
+
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-SQL injection">SQL injection</a>
+
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-Impedance mismatch">Impedance mismatch</a>
+
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-Object Relational Mapping">Object Relational Mapping</a>
+
+<ul>
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-Object Relational Mapping-ADO.NET entity framework">ADO.NET entity framework</a>
+
+<li>
+<a href="Databases.html#Databases-Database Application Programming-Dynamic-Object Relational Mapping-LinQ">LinQ</a>
+
+</ul>
+</ul>
+</ul>
 </ul>
 
 <div id="Databases-Kind of a syllabus"><h2 id="Kind of a syllabus" class="header"><a href="#Databases-Kind of a syllabus">Kind of a syllabus</a></h2></div>
@@ -473,7 +503,7 @@ lock based concurrency control: 2 PL (strict, preclaiming)
 cascading rollbacks, deadlocks, deadlock detection
 
 <li>
-cascadeless, recoverabl
+cascadeless, recoverable
 
 <li>
 granularity of locking, intention locks
@@ -486,6 +516,32 @@ optimistic concurrency approach
 
 <li>
 multiversion concurrency control, snapshot isolation
+
+</ul>
+
+<p>
+Database APIs:
+</p>
+<ul>
+<li>
+explain problem of impedance mismatch
+
+<li>
+be able to classify database app interfaces: static, dynamic, object-relational mapping
+
+<li>
+discuss advantages/disadvantages of API in terms of object navigation and complex query execution
+
+<li>
+understand object-relational mappings: Hibernate for Java, entity framework for .NET (but you don't have to program on the exam)
+
+<ul>
+<li>
+relate these to the ANSI SPARC 3-layer model and concepts of logical/physical data independence
+
+</ul>
+<li>
+explain advantages of LinQ and how it relates to impedance mismatch
 
 </ul>
 
@@ -2846,6 +2902,349 @@ avoids dirty read, unrepeatable read, phantom rows
 introduces write skew, with complex assertions involving multiple tuples
 
 </ul>
+
+<div id="Databases-Database Application Programming"><h2 id="Database Application Programming" class="header"><a href="#Databases-Database Application Programming">Database Application Programming</a></h2></div>
+<p>
+Various ways of using database tech:
+</p>
+
+<p>
+<img src="img-databases/using-database-tech.png" alt="Using database tech" />
+</p>
+
+<p>
+how to access database from apps:
+</p>
+<ul>
+<li>
+static embedded queries:
+
+<ul>
+<li>
+preprocessor-based, static SQL
+
+<li>
+e.g. SQLJ, Embedded SQL (C/C+)
+
+</ul>
+<li>
+dynamic:
+
+<ul>
+<li>
+SQL queries are constructed at runtime
+
+<li>
+e.g. JDBC, Python DATABASE-API, ODBC, etc.
+
+</ul>
+<li>
+object relational mappings (ORM), etc.:
+
+<ul>
+<li>
+hide navigational access behind objects
+
+<li>
+e.g. JPA/Hibernate, Ruby on Rails, ADO.NET/LinQ
+
+</ul>
+</ul>
+
+<div id="Databases-Database Application Programming-Dynamic"><h3 id="Dynamic" class="header"><a href="#Databases-Database Application Programming-Dynamic">Dynamic</a></h3></div>
+<div id="Databases-Database Application Programming-Dynamic-JDBC"><h4 id="JDBC" class="header"><a href="#Databases-Database Application Programming-Dynamic-JDBC">JDBC</a></h4></div>
+<p>
+provides APIs like <code>getInt(string)</code>, <code>getString(string)</code> to fetch cols by name. can run <code>executeQuery(sql query)</code> to run SQL statements.
+</p>
+
+<p>
+matches approx. SQL types to Java types, not always precise (String vs VARCHAR(20))
+</p>
+
+<p>
+<img src="img-databases/sql-types-to-java.png" alt="SQL types to Java" />
+</p>
+
+<p>
+to improve performance of JDBC apps:
+</p>
+<ul>
+<li>
+connection pooling: keep database connection open, reduces latency
+
+<li>
+prepared statements:
+
+<ul>
+<li>
+SQL calls that are repeated often
+
+<li>
+allows driver to optimise queries (precompiled by DBMS)
+
+<li>
+created with <code>Connection.prepareStatement()</code>
+
+<li>
+allows parameters
+
+<li>
+e.g.: <code>SELECT * FROM products WHERE id = ?</code>
+
+</ul>
+<li>
+store procedures to reduce roundtrips
+
+<ul>
+<li>
+written in DATABASE-specific language, not portable
+
+<li>
+accessed with <code>Connection.prepareCall()</code>
+
+</ul>
+<li>
+use driver that's bulk-transfer optimised
+
+<ul>
+<li>
+for large result sets
+
+<li>
+driver can send multiple tuples in a single network packet
+
+</ul>
+</ul>
+
+<div id="Databases-Database Application Programming-Dynamic-SQL injection"><h4 id="SQL injection" class="header"><a href="#Databases-Database Application Programming-Dynamic-SQL injection">SQL injection</a></h4></div>
+<p>
+Exploit SQL statement construction to run your own commands.
+</p>
+
+<p>
+Wrong:
+</p>
+
+<pre>
+stat.executeQuery("SELECT balance FROM accounts " + "WHERE name = '" + userName + "'" + " AND passwd = '" + userPassword + "'")
+</pre>
+
+<p>
+So if you fill <code>'; SELECT * FROM accounts</code>, it will show all accounts. You can also then update, drop, and do anything you want.
+</p>
+
+<p>
+Solution: don't use string concatenation, use prepared statements.
+</p>
+
+<pre>
+stat = conn.prepareStatement("SELECT balance FROM accounts " + "WHERE name = ? " + " AND passwd = ?");
+stat.setString(1, userName)
+stat.setString(2, userPassword)
+stat.executeQuery()
+</pre>
+
+<div id="Databases-Database Application Programming-Dynamic-Impedance mismatch"><h4 id="Impedance mismatch" class="header"><a href="#Databases-Database Application Programming-Dynamic-Impedance mismatch">Impedance mismatch</a></h4></div>
+<p>
+database query language does not match app programming language.
+</p>
+
+<p>
+static API (SQLJ):
+</p>
+<ul>
+<li>
+mismatch between SQL and Java types (<code>isNull</code>)
+
+<li>
+SQL checked for correctness at development time
+
+<li>
+inflexible (preprocessor needed)
+
+</ul>
+
+<p>
+dynamic API (JDBC):
+</p>
+<ul>
+<li>
+mismatch between SQL and Java types (<code>isNull</code>)
+
+<li>
+powerful, flexible, but error-prone
+
+<li>
+SQL query given as strings may be incorrect, no error checking at dev time and col names/types are unknown at compile time
+
+<li>
+risk of SQL injection
+
+</ul>
+
+<p>
+an object relational mapping is one attempt to improve even more.
+</p>
+
+<div id="Databases-Database Application Programming-Dynamic-Object Relational Mapping"><h4 id="Object Relational Mapping" class="header"><a href="#Databases-Database Application Programming-Dynamic-Object Relational Mapping">Object Relational Mapping</a></h4></div>
+<p>
+maps rows in tables to objects:
+</p>
+<ul>
+<li>
+table ≈ class
+
+<li>
+row ≈ object
+
+<li>
+foreign key navigation ≈ pointers/references
+
+</ul>
+
+<p>
+mapping from objects to database (automatic/designed). run-time library handles interaction with database.
+</p>
+
+<p>
+<img src="img-databases/jpa-orm-example.png" alt="JPA ORM example" />
+</p>
+
+<p>
+but you might end up being inefficient and doing a huge amount of stuff in Java that you could just do in SQL and have the DBMS optimise it for you.
+</p>
+
+<p>
+JPA/Hibernate HQL queries:
+</p>
+<ul>
+<li>
+a way to access members, e.g. <code>employee.department.name</code>
+
+<li>
+query may return objects
+
+<li>
+more efficient, under the hood it's translated to joins
+
+</ul>
+
+<p>
+Important aspects of ORM toolkits:
+</p>
+<ul>
+<li>
+mapping specification: map relational data onto objects
+
+<li>
+query language (e.g. HQL): adds object oriented features to SQL, typically queries as strings
+
+<li>
+persistence: transaction semantics, languages offer start of transactions/commit/abort
+
+<li>
+fetch strategies: danger of implementing queries in Java, object caching
+
+</ul>
+
+<p>
+Challenges of ORM:
+</p>
+<ul>
+<li>
+can introduce additional level of complexity, and be difficult to debug
+
+<li>
+performance analysis is problematic:
+
+<ul>
+<li>
+database queries are under the hood
+
+<li>
+sometimes you end up with very complex SQL queries
+
+<li>
+it's difficult to understand what caused the complexity
+
+</ul>
+</ul>
+
+<div id="Databases-Database Application Programming-Dynamic-Object Relational Mapping-ADO.NET entity framework"><h5 id="ADO.NET entity framework" class="header"><a href="#Databases-Database Application Programming-Dynamic-Object Relational Mapping-ADO.NET entity framework">ADO.NET entity framework</a></h5></div>
+<ul>
+<li>
+different apps can have different views on the data
+
+<li>
+views are fully client side. avoid polluting database schema with per-app views, no added database-side maintenance
+
+<li>
+powerful, broad set of updatable views, updatability can be statically verified
+
+<li>
+Entity Data Model (EDM):
+
+<ul>
+<li>
+data representation on client side
+
+<li>
+entity type: structured record with key
+
+<li>
+entity: instance of Entity Type
+
+<li>
+entity types can inherit from other entity types
+
+</ul>
+</ul>
+
+<div id="Databases-Database Application Programming-Dynamic-Object Relational Mapping-LinQ"><h5 id="LinQ" class="header"><a href="#Databases-Database Application Programming-Dynamic-Object Relational Mapping-LinQ">LinQ</a></h5></div>
+<p>
+Language Integrated Query. you can query data structures using SQL-like syntax
+</p>
+
+<p>
+advantages:
+</p>
+<ul>
+<li>
+queries are first-class citizens (not strings)
+
+<li>
+full type-checking and error checking for queries
+
+<li>
+allows to query all collection structures (lists, sets, etc.)
+
+</ul>
+
+<p>
+disadvantages:
+</p>
+<ul>
+<li>
+not portable, only C# and VB
+
+</ul>
+
+<p>
+so you can do like
+</p>
+
+<pre>
+int[] my array = new int[] { 5, 3, 2, 6, 4, 2, 5 };
+var oddNumbers = from i in myarray where i \% 2 == 1 select i;
+</pre>
+
+<p>
+the LinQ runtime translates that to an SQL query, and converts returned rows to objects. provides change tracking, concurrency control, object identity.
+</p>
+
+<p>
+under the hood, the LinQ query is actually chained function calls with lambda expressions.
+</p>
 
     </div>
 </body>
