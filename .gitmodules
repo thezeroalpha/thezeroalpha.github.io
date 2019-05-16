@@ -40,3 +40,6 @@
 [submodule "uni-notes/history-science-notes"]
 	path = uni-notes/history-science-notes
 	url = https://github.com/thezeroalpha/history-science-notes.git
+[submodule "uni-notes/logic-modelling-notes"]
+	path = uni-notes/logic-modelling-notes
+	url = https://github.com/thezeroalpha/logic-modelling-notes.git
