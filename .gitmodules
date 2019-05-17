@@ -43,3 +43,6 @@
 [submodule "uni-notes/logic-modelling-notes"]
 	path = uni-notes/logic-modelling-notes
 	url = https://github.com/thezeroalpha/logic-modelling-notes.git
+[submodule "uni-notes/databases-notes"]
+	path = uni-notes/databases-notes
+	url = https://github.com/thezeroalpha/databases-notes.git
