@@ -15,6 +15,8 @@ title: ZeroAlpha
 * [Intelligent Systems](https://thezeroalpha.github.io/is-notes)
 * [Linear Algebra](https://thezeroalpha.github.io/lin-algebra-notes)
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
+* [Logic & Modelling](https://thezeroalpha.github.io/logic-modelling-notes)
+* [Databases](https://thezeroalpha.github.io/databases-notes)
 
 ## Subject notes: Year 1
 
