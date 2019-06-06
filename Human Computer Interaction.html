@@ -8,7 +8,7 @@
     <a href="index.html">Index</a>
     <hr>
     <div class="content">
-
+    
 <div id="Human Computer Interaction"><h1 id="Human Computer Interaction" class="header"><a href="#Human Computer Interaction">Human Computer Interaction</a></h1></div>
 <p>
 HCI is concerned with design, evaluation, implementation of interactive computer systems
@@ -390,7 +390,7 @@ fail early and often.
 </p>
 
 <p>
-<img src="img-hci/3-stages-prototyping.png" alt="3 stages of prototyping graph" />
+<img src="../vimwiki/img-hci/3-stages-prototyping.png" alt="3 stages of prototyping graph" />
 </p>
 
 <div id="Human Computer Interaction-Prototypes-Designing the prototype"><h3 id="Designing the prototype" class="header"><a href="#Human Computer Interaction-Prototypes-Designing the prototype">Designing the prototype</a></h3></div>
@@ -500,6 +500,229 @@ but it's hard to prototype touch gestures (JS works decently)
 </ul>
 </ul>
 </ul>
+
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases"><h2 id="Personas, Scenarios, and use cases" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases">Personas, Scenarios, and use cases</a></h2></div>
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases-Goal directed design"><h3 id="Goal directed design" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases-Goal directed design">Goal directed design</a></h3></div>
+<p>
+Design activity that links requirements to implementation (what do you need, why? what are you solving?)
+</p>
+
+<p>
+Generally, you have marketers, decision makers, and developers making decisions, and the result is shit.
+What's missing is the user's perspective: goals, actions, motivations, responses, and the context (how it fits into the user's wider activities)
+</p>
+
+<p>
+Design interactions - mental models
+The user's mental model is not the implementation model, the user has to adapt to understand the implementation.
+It's better if design model is good fit for user model (unless it hides important features)
+</p>
+
+<p>
+Steps in design process:
+</p>
+<ul>
+<li>
+Research users: observation, interview, etc
+
+<li>
+Discover non-user goals (business, technical, whatever else)
+
+<li>
+Develop personas
+
+<li>
+Use personas in scenarios to establish design requirements
+
+<li>
+Find the functional requirements - use cases
+
+</ul>
+
+<p>
+Users react to a product on 3 levels:
+</p>
+<ul>
+<li>
+Visceral - the user's <em>immediate</em> reaction before even using the product, should trigger emotional responses that are appropriate
+
+<li>
+Behavioural - we need design that fits where the user currently is with knowledge, assumptions, and mental models
+
+<li>
+Reflective - integrating product and its values into wider life, and if done well, you get brand loyalty
+
+</ul>
+
+<p>
+User goals:
+</p>
+<ul>
+<li>
+Experience: how the user wants to feel (visceral)
+
+<li>
+End goals: what the user wants to do
+
+<li>
+Life goals: who the user wants to be
+
+</ul>
+
+<p>
+Non-user goals:
+</p>
+<ul>
+<li>
+Customer goals (the customer is <em>not</em> the user, like corporate IT buyers)
+
+<li>
+Business/organisational goals (increasing profit, market share, reducing costs, increase QOS)
+
+<li>
+Technical goals (maintaining security, cross-platformness, backwards compatibility)
+
+</ul>
+
+<p>
+User stories &amp; goals:
+</p>
+<ul>
+<li>
+As a &lt;type of user&gt; I want &lt;some goal&gt; so that &lt;some reason&gt;
+
+<li>
+As a &lt;persona&gt; I want &lt;action&gt; so that &lt;expected outcome&gt;
+
+<li>
+When &lt;situation&gt; I want to &lt;motivation&gt; so I can &lt;expected outcome&gt;
+
+</ul>
+
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases-Personas - archetypal users"><h3 id="Personas - archetypal users" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases-Personas - archetypal users">Personas - archetypal users</a></h3></div>
+<p>
+Modelling users: identify major goals and behaviours, then build models of idealised users ("personas")
+</p>
+
+<p>
+There isn't an 'average user', you use personas that capture important characteristics of users.
+</p>
+
+<p>
+Persona:
+</p>
+<ul>
+<li>
+Demographic details: name, occupation, age
+
+<li>
+Personal details: short biographical summary
+
+<li>
+Attitudinal deetails: mental model, pain points, feelings about stuff that has to be done
+
+<li>
+Goals and motivations: for using the product (maybe for life in general™)
+
+<li>
+Behavioural details: how they act when using the product
+
+<li>
+generally about half a page in length
+
+</ul>
+
+<p>
+Why?
+</p>
+<ul>
+<li>
+Coordination, getting a shared vision of the users and market
+
+<li>
+Communication between devs, designers, marketers, other stakeholders
+
+<li>
+Determining functionality and behaviour o product
+
+<li>
+Help design decisions without testing on users
+
+<li>
+they work. you don't focus on edge cases but on normal use, avoids the self-referential user (developers thinking users are like them), and avoids the elastic user (cuz users won't bend to your will, they don't give a shit)
+
+</ul>
+
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases-Scenarios"><h3 id="Scenarios" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases-Scenarios">Scenarios</a></h3></div>
+<p>
+Informal narrative descriptions:
+</p>
+<ul>
+<li>
+describe human activities in short stories
+
+<li>
+You can exlprore needs, requirements, contexts
+
+<li>
+Don't explicitly mention tech
+
+<li>
+Are written in the users' language (well, english in our case)
+
+<li>
+Have varying levels of detail
+
+<li>
+You focus on the user's perspective
+
+</ul>
+
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases-Design Requirements &amp; principles"><h3 id="Design Requirements &amp; principles" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases-Design Requirements &amp; principles">Design Requirements &amp; principles</a></h3></div>
+<ol>
+<li>
+Establish needs &amp; goals
+
+<ul>
+<li>
+what info do users need?
+
+<li>
+what capabilities?
+
+<li>
+what goals must be achieved (business, technical)?
+
+</ul>
+<li>
+Brainstorm
+
+<ul>
+<li>
+time-limited, like half an hour
+
+<li>
+write them <em>all</em> down
+
+<li>
+no criticism allowed
+
+<li>
+ideas are culled and refined later
+
+</ul>
+</ol>
+
+<p>
+Don't make the user feel stupid.
+Define what the product will do before designing how.
+</p>
+
+<div id="Human Computer Interaction-Personas, Scenarios, and use cases-Use Case"><h3 id="Use Case" class="header"><a href="#Human Computer Interaction-Personas, Scenarios, and use cases-Use Case">Use Case</a></h3></div>
+<p>
+Focus on user-stystem interaction instead of user's task itself.
+Describe processes as text or use case diagram
+</p>
 
     </div>
 </body>
