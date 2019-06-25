@@ -17,6 +17,7 @@ title: ZeroAlpha
 * [Software Design](https://thezeroalpha.github.io/softdesign-notes)
 * [Logic & Modelling](https://thezeroalpha.github.io/logic-modelling-notes)
 * [Databases](https://thezeroalpha.github.io/databases-notes)
+* [Human Computer Interaction](https://thezeroalpha.github.io/hci-notes)
 
 ## Subject notes: Year 1
 

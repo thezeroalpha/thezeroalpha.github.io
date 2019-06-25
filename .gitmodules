@@ -46,3 +46,6 @@
 [submodule "uni-notes/databases-notes"]
 	path = uni-notes/databases-notes
 	url = https://github.com/thezeroalpha/databases-notes.git
+[submodule "uni-notes/hci-notes"]
+	path = uni-notes/hci-notes
+	url = https://github.com/thezeroalpha/hci-notes.git
