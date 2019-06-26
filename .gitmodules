@@ -49,3 +49,6 @@
 [submodule "uni-notes/hci-notes"]
 	path = uni-notes/hci-notes
 	url = https://github.com/thezeroalpha/hci-notes.git
+[submodule "uni-notes/likelihood-notes"]
+	path = uni-notes/likelihood-notes
+	url = https://github.com/thezeroalpha/likelihood-notes.git
