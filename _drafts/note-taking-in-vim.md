@@ -37,6 +37,7 @@ Then, I start writing.
 To enter code, I use Vimwiki's preformatted text markdown, along with a class attribute.
 The general layout looks like this:
 
+{% raw %}
 ```markdown
 {{{class="code {language}"
 // code here
@@ -93,27 +94,27 @@ Then, I open it in Vim. and point the image links to the right image folder, usi
 Next, I generate a table of contents with `:VimwikiTOC`, and start splitting index.wiki into multiple files.
 
 I usually record two macros for splitting files:
-1. `V/^== kd:newpggddwvt=hy:p0v$gu:s/ /-/geA.wikiIw :let @"=expand("%<")k:on`
+1. `V/^== ^Mkd:new^Mpggddwvt=hy:^Fp0v$gu:s/ /-/ge^MA.wiki^[Iw ^M:let @"=expand("%<")^M^Wk:on^M`
     * this takes a main section out of the file and saves it as a new file, named after the section
     * breakdown:
-        * `V/^== `: make a visual line selection until the next '== ' at the start of the line. `` is the enter key.
+        * `V/^== ^M`: make a visual line selection until the next '== ' at the start of the line. `^M` is the enter key.
         * `kd`: go one line up and delete (so as not to delete the header of the next section)
-        * `:new`: create a new file
+        * `:new^M`: create a new file
         * `pggdd`: paste the deleted text, go to the start of the file, and delete the blank line at the top
         * `wvt=`: move one word forward, and make a visual selection until the next equal sign
         * `hy`: move one character backwards, then yank the selection
-        * `:`: open the command line, then immediately edit the command
+        * `:^F`: open the command line, then immediately edit the command
         * `p`: paste the yanked text (the name of the section)
         * `v$gu`: visually select until the end of line, then make all letters lowercase
-        * `:s/ /-/ge`: substitute all spaces with a dash, ignoring any errors
+        * `:s/ /-/ge^M`: substitute all spaces with a dash, ignoring any errors
         * `A.wiki`: append a '.wiki' extension
-        * ``: stop editing the command
+        * `^[`: stop editing the command
         * `Iw `: insert 'w ' at the start, preparing to write the buffer to the constructed filename
-        * ``: confirm the write
-        * `:let @"=expand("%<")`: save the filename without the extension to the `"` register, for use later in macro 2 below
-        * `k`: move focus one split up (to the large file with the table of contents)
-        * `:on`: close all other buffers
-2. `0f#"_dt#PF[a/0`
+        * `^M`: confirm the write
+        * `:let @"=expand("%<")^M`: save the filename without the extension to the `"` register, for use later in macro 2 below
+        * `^Wk`: move focus one split up (to the large file with the table of contents)
+        * `:on^M`: close all other buffers
+2. `0f#"_dt#PF[a/^[0`
     * this changes a link in the Vimwiki table of contents to point to the newly created file
     * breakdown:
         * `0`: go to the start of the line
@@ -121,10 +122,12 @@ I usually record two macros for splitting files:
         * `"_dt#`: delete up to the next '#', without saving the deleted characters to a register (discarding them into the black hole register)
         * `P`: insert the contents of the `"` register (I usually run this macro after number 1 above, so this register contains the filename)
         * `F[`: find the first previous occurrence of '['
-        * `a/`: append a '/' to indicate the root, and press escape (`` is the escape key)
+        * `a/^[`: append a '/' to indicate the root, and press escape (`^[` is the escape key)
         * `0`: go back to the start of the line
 
 I usually run macros 1 and 2 in sequence, so it ends up looking like this:
+
+<iframe src="/files/macros.mp4" frameborder="0" width="658px" height="542px"></iframe>
 
 After I run these a few times, I have a table-of-contents page that links to other pages.
 
@@ -144,3 +147,4 @@ Next, I generate HTML.
 * upload to repo
 * set up github pages
 * add as submodule to original page
+{% endraw %}
