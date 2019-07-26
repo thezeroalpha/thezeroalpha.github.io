@@ -127,7 +127,9 @@ I usually record two macros for splitting files:
 
 I usually run macros 1 and 2 in sequence, so it ends up looking like this:
 
-<iframe src="/files/macros.mp4" frameborder="0" width="658px" height="542px"></iframe>
+<video width="658px" height="542px" controls>
+<source src="/files/macros.mp4" type="video/mp4">
+</video>
 
 After I run these a few times, I have a table-of-contents page that links to other pages.
 
