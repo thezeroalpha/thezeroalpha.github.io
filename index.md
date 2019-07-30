@@ -7,6 +7,9 @@ title: ZeroAlpha
 
 [Current lecture notes.](Current lecture notes.html)
 
+## Subject notes: Year 3
+* [Equational Programming](https://thezeroalpha.github.io/equational-notes)
+
 ## Subject notes: Year 2
 
 * [Data Structures & Algorithms](https://thezeroalpha.github.io/dsa-notes)
@@ -51,5 +54,6 @@ Here's my [dotfiles repository](https://github.com/thezeroalpha/dotfiles).
 
 # Startpage
 
-I made a custom startpage that I use, called Zerotab.  
+I made a custom startpage that I use, called Zerotab.
+
 [Here it is](https://thezeroalpha.github.io/zerotab) ([and here's the Github repo](http://github.com/thezeroalpha/zerotab)).
