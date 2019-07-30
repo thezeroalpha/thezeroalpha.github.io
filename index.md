@@ -36,7 +36,6 @@ title: ZeroAlpha
 
 ## Various
 * [Requirements for honours, cum laude, etc.](/uni-requirements.md)
-* [Honours courses summary](/vu-hons-2.md)
 
 ---
 
