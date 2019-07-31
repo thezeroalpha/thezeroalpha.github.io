@@ -10,8 +10,8 @@ Editors are also a common topic of blog posts -- how to use a specific editor, h
 People mention Vim, Emacs, Atom, Sublime Text, VS Code...but nobody every talks about the editor that you use the most on the command line -- the shell prompt.
 In my opinion, the shell prompt is actually quite a powerful editor, and I hope this post will serve to convince you.
 
-Shells like Bash and Sh use a library called 'readline' to handle their input.
-Zsh has its own implementation called 'zle', which works similarly to readline.
+Shells like Bash and Sh use a library called 'Readline' to handle their input.
+Zsh has its own implementation called 'zle', which works similarly to Readline.
 Therefore, learning to use Readline properly and efficiently can, and probably will, speed up your workflow.
 
 This is not a beginner-level guide, so you should be familiar with the basics of adding text on the command line, such as tab completion.
