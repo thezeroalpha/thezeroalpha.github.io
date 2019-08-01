@@ -35,7 +35,7 @@ If it's not specified, the previous command is used.
 
 In ZSH, this second form is a bit different.
 To get the same behavior as in Bash, use `fc -e - pattern=replacement`.
-You don't need the `-s` flag, and `-e -` tell ZSH to skip the editor.
+You don't need the `-s` flag, and `-e -` tells ZSH to skip the editor.
 
 ![fc edit demo](/img/fc-demos/substitute.gif)
 
