@@ -2,7 +2,8 @@
 layout: post
 title: "Editing Efficiency in the Terminal: Learning Readline Bindings"
 author: zeroalpha
-date: 2019-08-01
+date: 2019-07-31
+categories: Guide
 ---
 
 Everyone has their favorite editor, and some would fight to the death to defend their editor.
