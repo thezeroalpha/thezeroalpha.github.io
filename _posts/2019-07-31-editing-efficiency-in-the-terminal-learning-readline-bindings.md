@@ -12,12 +12,12 @@ People mention Vim, Emacs, Atom, Sublime Text, VS Code...but nobody every talks 
 In my opinion, the shell prompt is actually quite a powerful editor, and I hope this post will serve to convince you.
 
 Shells like Bash and Sh use a library called 'Readline' to handle their input.
-Zsh has its own implementation called 'zle', which works similarly to Readline.
+Zsh has its own implementation called 'ZLE', which works similarly to Readline.
 Therefore, learning to use Readline properly and efficiently can, and probably will, speed up your workflow.
 
 This is not a beginner-level guide, so you should be familiar with the basics of adding text on the command line, such as tab completion.
 This post will introduce more advanced editing techniques to hopefully make you faster and more efficient.
-I will mostly be referring to Bash, and I will highlight the differences in zsh, because those are the shells that I work with.
+I will mostly be referring to Bash, and I will highlight the differences in ZSH, because those are the shells that I work with.
 However, they should work in all shells that use the Readline library.
 Also, for those of you who know about Readline editing modes, I will be using Emacs mode, because most of the time it's the default.
 
@@ -40,7 +40,7 @@ Here's how you move around with more efficiency:
     * `Ctrl-]`: search forwards for a character and jump to it (like `f` in Vim)
     * `Ctrl-Meta-]`: search backwards for a character and jump to it (like `F` in Vim)
 
-Searching is not set up by default in zsh.
+Searching is not set up by default in ZSH.
 Please see the [ZSH Specifics](#jump-to-a-character) section for information on how to set it up.
 
 To clear the screen, use `Ctrl-l`.
@@ -65,7 +65,7 @@ Then you can press `Meta-.` repeatedly to cycle through all previous arguments.
 ![Inserting args demo](/img/readline-demos/inserting args.gif)
 
 You can also press the two key combinations `Meta-NUM Ctrl-Meta-y` to insert the previous argument at position NUM.
-This particular key binding doesn't work in zsh by default, please see the [ZSH Specifics](#insert-an-argument-from-the-previous-command) section for information on how to set it up.
+This particular key binding doesn't work in ZSH by default, please see the [ZSH Specifics](#insert-an-argument-from-the-previous-command) section for information on how to set it up.
 
 ![Numerically insert arg](/img/readline-demos/num arg insert.gif)
 
@@ -81,7 +81,7 @@ To delete:
 * Line-by-line:
     * `Ctrl-k`: kill (delete) from the cursor to the end of the line
     * `Ctrl-u`: kill (delete) from the cursor to the end of the line
-    * zsh also offers a way to delete the entire line with one key binding, please see the [ZSH Specifics](#kill-a-whole-line) section for information.
+    * ZSH also offers a way to delete the entire line with one key binding, please see the [ZSH Specifics](#kill-a-whole-line) section for information.
 * Word-by-word:
     * `Meta-d`: delete from the cursor to the end of the word
     * `Ctrl-w`: delete from the cursor to the start of the previous space-delimited word
@@ -98,13 +98,13 @@ You can also switch ('transpose') the last two words in your command with `Meta-
 ![Transposing demos](/img/readline-demos/transposing.gif)
 
 If you have a lot of whitespace around your cursor, you can use `Meta-\` to delete it.
-This doesn't work in zsh by default, and I haven't found a way to set it up yet.
+This doesn't work in ZSH by default, and I haven't found a way to set it up yet.
 
 ![Whitespace demo](/img/readline-demos/delete whitespace.gif)
 
 Another one I use quite often is `Meta-#`, which comments the current line and starts a new one.
 You can remember it easily due to the fact that Bash comments start with '#'.
-There's a command for this in zsh, but you need to set a binding, so see the [ZSH Specifics](#comment-out-the-current-line) section.
+There's a command for this in ZSH, but you need to set a binding, so see the [ZSH Specifics](#comment-out-the-current-line) section.
 
 ![Commenting demo](/img/readline-demos/commenting.gif)
 
@@ -119,7 +119,7 @@ Yes, the Bash shell has built-in macro functionality, where you can record a ser
 Type `Ctrl-x (` to start recording a macro, and `Ctrl-x )` to stop recording a macro.
 Then, type `Ctrl-x e` to execute the macro that you just recorded.
 
-This works in Bash, but I haven't found a way to make it work in zsh yet.
+This works in Bash, but I haven't found a way to make it work in ZSH yet.
 
 ![Macro demo](/img/readline-demos/macros.gif)
 
@@ -130,9 +130,9 @@ ZSH gives you the key binding `Ctrl-x Ctrl-k` to kill the entire line.
 ## Jump to a character
 You have to bind a key to the vi-find-next-char and vi-find-prev-char functions.
 
-Put this in your `.zshrc`:
+Put this in your `.ZSHrc`:
 
-```zsh
+```ZSH
 bindkey '^]' vi-find-next-char
 bindkey '^\e]' vi-find-prev-char
 ```
@@ -140,11 +140,11 @@ bindkey '^\e]' vi-find-prev-char
 Now you can use the same Bash bindings to jump to a character, forwards and backwards.
 
 ## Insert an argument from the previous command
-For this to work, you have to define your own zsh 'widget', and then bind a key to it.
+For this to work, you have to define your own ZSH 'widget', and then bind a key to it.
 
-Put this in your `.zshrc`:
+Put this in your `.ZSHrc`:
 
-```zsh
+```ZSH
 # Define the function
 insert-arg-of-prev-cmd() {
     # Get the argument
@@ -161,7 +161,7 @@ insert-arg-of-prev-cmd() {
     zle end-of-line
 }
 
-# Create a zle widget
+# Create a ZLE widget
 zle -N insert-arg-of-prev-cmd
 
 # Bind 'Ctrl-Meta-y' to it
@@ -171,11 +171,11 @@ bindkey "\e^y" insert-arg-of-prev-cmd
 Now you can use the same bindings as in Bash to insert a specific argument of a previous command.
 
 ## Comment out the current line
-There's already a function for this in zsh, but you need to bind a key to it.
+There's already a function for this in ZSH, but you need to bind a key to it.
 
-Put this in your `.zshrc`:
+Put this in your `.ZSHrc`:
 
-```zsh
+```ZSH
 bindkey '\e#' pound-insert
 ```
 
