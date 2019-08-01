@@ -1,7 +1,7 @@
 theme: jekyll-theme-minimal
 url: "https://thezeroalpha.github.io"
 title: "ZeroAlpha"
-incremental: true
+incremental: false
 show_drafts: false
 plugins:
   - jekyll-feed
