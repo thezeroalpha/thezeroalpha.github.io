@@ -2,7 +2,9 @@
 layout: post
 title: "Toggle Dark Mode With a Single Shortcut on macOS"
 author: zeroalpha
+date: 2019-08-02
 ---
+
 Switching from light mode to dark mode is quite easy by itself.
 But what if you want to also change your Terminal theme and your Vim theme, all with a single keyboard shortcut?
 Then it gets a little more complicated, but it's still possible.
