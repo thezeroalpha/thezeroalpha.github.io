@@ -154,7 +154,12 @@ async def main(connection):
         elif "Dark" in p.name and is_dark_theme == "true":
             await p.async_make_default()
 
-iterm2.run_until_complete(main)
+# Run the script, surround it with a try catch to avoid throwing an error if
+#   iTerm isn't running.
+try:
+    iterm2.run_until_complete(main)
+except Exception as exception:
+    print("Error: ", exception)
 ```
 
 This script will accept an argument on the command line -- "true" or "false", depending on whether dark mode is on or off.
@@ -243,7 +248,12 @@ async def main(connection):
         elif "Dark" in p.name and is_dark_theme == "true":
             await p.async_make_default()
 
-iterm2.run_until_complete(main)
+# Run the script, surround it with a try catch to avoid throwing an error if
+#   iTerm isn't running.
+try:
+    iterm2.run_until_complete(main)
+except Exception as exception:
+    print("Error: ", exception)
 ```
 
 The relevant ~/.vimrc section (you have to replace the theme name placeholders):
