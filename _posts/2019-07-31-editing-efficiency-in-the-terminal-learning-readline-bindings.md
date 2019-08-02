@@ -81,7 +81,7 @@ Readline also offers a bunch of useful key bindings for more efficient editing.
 To delete:
 * Line-by-line:
     * `Ctrl-k`: kill (delete) from the cursor to the end of the line
-    * `Ctrl-u`: kill (delete) from the cursor to the end of the line
+    * `Ctrl-u`: kill (delete) from the cursor to the beginning of the line
     * ZSH also offers a way to delete the entire line with one key binding, please see the [ZSH Specifics](#kill-a-whole-line) section for information.
 * Word-by-word:
     * `Meta-d`: delete from the cursor to the end of the word
