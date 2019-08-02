@@ -116,7 +116,7 @@ When you save the file and quit the editor, it'll run the command that you edite
 ![Open in editor demo](/img/readline-demos/open in editor.gif)
 
 ## Macros
-Yes, the Bash shell has built-in macro functionality, where you can record a series of key strokes and then play them back whenever you want.
+Yes, Bash has built-in macro functionality, where you can record a series of key strokes and then play them back whenever you want.
 Type `Ctrl-x (` to start recording a macro, and `Ctrl-x )` to stop recording a macro.
 Then, type `Ctrl-x e` to execute the macro that you just recorded.
 
