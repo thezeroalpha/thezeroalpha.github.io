@@ -8,7 +8,7 @@ categories: Guide
 
 Everyone has their favorite editor, and some would fight to the death to defend their editor.
 Editors are also a common topic of blog posts -- how to use a specific editor, how to configure it, what plugins to use, etc.
-People mention Vim, Emacs, Atom, Sublime Text, VS Code...but nobody every talks about the editor that you use the most on the command line -- the shell prompt.
+People mention Vim, Emacs, Atom, Sublime Text, VS Code...but nobody ever talks about the editor that you use the most on the command line -- the shell prompt.
 In my opinion, the shell prompt is actually quite a powerful editor, and I hope this post will serve to convince you.
 
 Shells like Bash and Sh use a library called 'Readline' to handle their input.
@@ -52,19 +52,20 @@ One way to avoid re-typing commands is by using your history.
 
 To search your history, press `Ctrl-r` and type a string.
 Then, use `Ctrl-p` to go to older commands containing the search string, and `Ctrl-n` to go to newer ones.
+You can use `Ctrl-s` to search forward in your history (but I don't use this as much since I usually search for commands that I typed previously).
 
-You can also type a command like "ls", and then press `Meta-p` and `Meta-n` repeatedly to cycle through previous and next commands that contain "ls".
+You can also type a command like "ls", and then press `Meta-p` and `Meta-n` repeatedly to cycle through previous and next commands from your history that contain "ls".
 
 Another useful feature is reusing arguments of previous commands.
 You're probably familiar with expansions: `!!` for the previous command, `!$` for the last argument of the previous command, and `!:n-m` for arguments from the one at position n up to and including the one at position m.
-However, Readline also offers key bindings for arguments.
+Readline also offers key bindings for arguments, and these are often more convenient to use than expansions.
 
 To insert the last argument of the previous command, type `Meta-.`.
 Then you can press `Meta-.` repeatedly to cycle through all previous arguments.
 
 ![Inserting args demo](/img/readline-demos/inserting args.gif)
 
-You can also press the two key combinations `Meta-NUM Ctrl-Meta-y` to insert the previous argument at position NUM.
+You can also press the two key combinations `Meta-NUM Ctrl-Meta-y` to insert the previous argument at position NUM (with NUM being a number). The argument at position 0 is the command name.
 This particular key binding doesn't work in ZSH by default, please see the [ZSH Specifics](#insert-an-argument-from-the-previous-command) section for information on how to set it up.
 
 ![Numerically insert arg](/img/readline-demos/num arg insert.gif)
@@ -91,11 +92,11 @@ To delete:
     * `Ctrl-d`: delete the character under the cursor
 
 If you 'kill' (delete) some text, you can paste ('yank') it into some other line with `Ctrl-y`.
-You can cycle through everything you deleted with `Meta-y`.
+You can cycle through everything you previously deleted with `Meta-y`.
 
 You can also switch ('transpose') the last two words in your command with `Meta-t`, which is useful if you, for example, type the paths in a `mv` command in the wrong order.
 
-![Transposing demos](/img/readline-demos/transposing.gif)
+![Transposing demo](/img/readline-demos/transposing.gif)
 
 If you have a lot of whitespace around your cursor, you can use `Meta-\` to delete it.
 This doesn't work in ZSH by default, and I haven't found a way to set it up yet.
@@ -104,7 +105,7 @@ This doesn't work in ZSH by default, and I haven't found a way to set it up yet.
 
 Another one I use quite often is `Meta-#`, which comments the current line and starts a new one.
 You can remember it easily due to the fact that Bash comments start with '#'.
-There's a command for this in ZSH, but you need to set a binding, so see the [ZSH Specifics](#comment-out-the-current-line) section.
+There's a command for this in ZSH, but you need to set a key binding, so see the [ZSH Specifics](#comment-out-the-current-line) section.
 
 ![Commenting demo](/img/readline-demos/commenting.gif)
 
@@ -113,13 +114,12 @@ You can open the current line in your $EDITOR with `Ctrl-x Ctrl-e`, which often 
 
 ![Open in editor demo](/img/readline-demos/open in editor.gif)
 
-
 ## Macros
 Yes, the Bash shell has built-in macro functionality, where you can record a series of key strokes and then play them back whenever you want.
 Type `Ctrl-x (` to start recording a macro, and `Ctrl-x )` to stop recording a macro.
 Then, type `Ctrl-x e` to execute the macro that you just recorded.
 
-This works in Bash, but I haven't found a way to make it work in ZSH yet.
+This works in Bash and other shells that use Readline, but I haven't found a way to make it work in ZSH yet.
 
 ![Macro demo](/img/readline-demos/macros.gif)
 
@@ -130,9 +130,9 @@ ZSH gives you the key binding `Ctrl-x Ctrl-k` to kill the entire line.
 ## Jump to a character
 You have to bind a key to the vi-find-next-char and vi-find-prev-char functions.
 
-Put this in your `.ZSHrc`:
+Put this in your `.zshrc`:
 
-```ZSH
+```zsh
 bindkey '^]' vi-find-next-char
 bindkey '^\e]' vi-find-prev-char
 ```
@@ -142,9 +142,9 @@ Now you can use the same Bash bindings to jump to a character, forwards and back
 ## Insert an argument from the previous command
 For this to work, you have to define your own ZSH 'widget', and then bind a key to it.
 
-Put this in your `.ZSHrc`:
+Put this in your `.zshrc`:
 
-```ZSH
+```zsh
 # Define the function
 insert-arg-of-prev-cmd() {
     # Get the argument
@@ -173,9 +173,9 @@ Now you can use the same bindings as in Bash to insert a specific argument of a 
 ## Comment out the current line
 There's already a function for this in ZSH, but you need to bind a key to it.
 
-Put this in your `.ZSHrc`:
+Put this in your `.zshrc`:
 
-```ZSH
+```zsh
 bindkey '\e#' pound-insert
 ```
 
