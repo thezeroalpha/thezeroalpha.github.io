@@ -111,6 +111,7 @@ There's a command for this in ZSH, but you need to set a key binding, so see the
 
 Finally, if you're editing a really long command, you might want a full-featured editor.
 You can open the current line in your $EDITOR with `Ctrl-x Ctrl-e`, which often pops up Vim, Nano, or Emacs.
+When you save the file and quit the editor, it'll run the command that you edited.
 
 ![Open in editor demo](/img/readline-demos/open in editor.gif)
 
