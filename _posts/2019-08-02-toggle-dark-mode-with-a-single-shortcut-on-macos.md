@@ -3,6 +3,7 @@ layout: post
 title: "Toggle Dark Mode With a Single Shortcut on macOS"
 author: zeroalpha
 date: 2019-08-02
+categories: Guide
 ---
 
 Switching from light mode to dark mode is quite easy by itself.
