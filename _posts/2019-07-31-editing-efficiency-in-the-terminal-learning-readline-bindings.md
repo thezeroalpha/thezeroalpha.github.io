@@ -47,7 +47,11 @@ Please see the [ZSH Specifics](#jump-to-a-character) section for information on 
 
 To clear the screen, use `Ctrl-l`.
 
-![Movement demo](/img/readline-demos/movement.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/movement.mp4" />
+    <p>Demo of movement</p>
+</video>
+
 
 ## History
 One way to avoid re-typing commands is by using your history.
@@ -65,7 +69,11 @@ Readline also offers key bindings for arguments, and these are often more conven
 To insert the last argument of the previous command, type `Meta-.`.
 Then you can press `Meta-.` repeatedly to cycle through all previous arguments.
 
-![Inserting args demo](/img/readline-demos/inserting args.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/inserting args.mp4" />
+    <p>Demo of inserting arguments</p>
+</video>
+
 
 You can also press the two key combinations `Meta-NUM Ctrl-Meta-y` to insert the previous argument at position NUM (with NUM being a number). The argument at position 0 is the command name.
 This particular key binding doesn't work in ZSH by default, please see the [ZSH Specifics](#insert-an-argument-from-the-previous-command) section for information on how to set it up.
@@ -74,12 +82,20 @@ In shells that use Readline, you can actually use `Meta-.` instead of `Ctrl-Meta
 That is, you can type `Meta-NUM Meta-.` in the same way that you would with `Ctrl-Meta-y`.
 Unfortunately, this does not apply to ZSH, as in ZLE, `Meta-.` counts arguments from the end.
 
-![Numerically insert arg](/img/readline-demos/num arg insert.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/num arg insert.mp4" />
+    <p>Demo of inserting arguments by number</p>
+</video>
+
 
 Finally, there's the undo command.
 You can press `Ctrl-_` repeatedly to undo all the changes you made to a line.
 
-![Undo demo](/img/readline-demos/undo.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/undo.mp4" />
+    <p>Demo of undoing</p>
+</video>
+
 
 ## Editing
 Readline also offers a bunch of useful key bindings for more efficient editing.
@@ -102,18 +118,30 @@ You can cycle through everything you previously deleted with `Meta-y`.
 
 You can also switch ('transpose') the last two words in your command with `Meta-t`, which is useful if you, for example, type the paths in a `mv` command in the wrong order.
 
-![Transposing demo](/img/readline-demos/transposing.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/transposing.mp4" />
+    <p>Demo of transposing</p>
+</video>
+
 
 If you have a lot of whitespace around your cursor, you can use `Meta-\` to delete it.
 This doesn't work in ZSH by default, and I haven't found a way to set it up yet.
 
-![Whitespace demo](/img/readline-demos/delete whitespace.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/delete whitespace.mp4" />
+    <p>Demo of deleting whitespace around cursor</p>
+</video>
+
 
 Another one I use quite often is `Meta-#`, which comments the current line and starts a new one.
 You can remember it easily due to the fact that Bash comments start with '#'.
 There's a command for this in ZSH, but you need to set a key binding, so see the [ZSH Specifics](#comment-out-the-current-line) section.
 
-![Commenting demo](/img/readline-demos/commenting.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/commenting.mp4" />
+    <p>Demo of commenting</p>
+</video>
+
 
 Finally, if you're editing a really long command, you might want a full-featured editor.
 You can open the current line in your $EDITOR with `Ctrl-x Ctrl-e`, which often pops up Vim, Nano, or Emacs.
@@ -122,7 +150,11 @@ When you save the file and quit the editor, it'll run the command that you edite
 This is also a good way to avoid [pastejacking](https://thejh.net/misc/website-terminal-copy-paste), where you execute a potentially malicious command without knowing about it due to copy-pasting.
 You can press `Ctrl-x Ctrl-e` and then paste it into the editor, double check the command, and then save and exit to execute it.
 
-![Open in editor demo](/img/readline-demos/open in editor.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/open in editor.mp4" />
+    <p>Demo of opening in an editor</p>
+</video>
+
 
 ## Macros
 Yes, Bash has built-in macro functionality, where you can record a series of key strokes and then play them back whenever you want.
@@ -131,7 +163,11 @@ Then, type `Ctrl-x e` to execute the macro that you just recorded.
 
 This works in Bash and other shells that use Readline, but I haven't found a way to make it work in ZSH yet.
 
-![Macro demo](/img/readline-demos/macros.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/readline-demos/macros.mp4" />
+    <p>Demo of macros</p>
+</video>
+
 
 # ZSH specifics
 ## Kill a whole line
