@@ -16,7 +16,10 @@ The final setup is presented in the last section, ["Wrapping Up"](#wrapping-up).
 
 FYI, this is what I mean by toggling dark mode:
 
-![Demo of dark mode toggling](/img/dark-mode-switching.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/dark-mode-switching.mp4" />
+    <p>Video demo of switching dark mode</p>
+</video>
 
 ## Prerequisites
 I'm using [iTerm2](https://www.iterm2.com/) for my terminal, and [Pywal](https://github.com/dylanaraps/pywal) to set the theme.
