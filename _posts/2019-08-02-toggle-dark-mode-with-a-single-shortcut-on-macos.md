@@ -33,13 +33,14 @@ I have one called "wal-init.app" that looks like this:
 
 I then set it to run at login via System Preferences → Users & Groups → Login Items.
 If you do the same, make sure to change any paths to those that are relevant for your system.
-Parts of the wal-init app will explained in later sections of this post.
+Parts of the wal-init app will be explained in later sections of this post.
 
 In iTerm2, I have two profiles set up.
 One for the light theme, called "Default Light", which has an off-white background, a minimum contrast of around 60%, and a light bold color.
 The other is for the dark theme, called "Default Dark", and has a black background with "smart box cursor color" enabled.
 The final script can also switch between these profiles, so if you want to do this, you should set up similar profiles.
 It's a good idea to do this to avoid flashbanging yourself with every new window when dark mode is enabled, as it takes about a second for Pywal to react and change the theme.
+If you choose different names than "Default Light" and "Default Dark", make sure to also change those in the scripts.
 
 ![iTerm profiles for dark/light mode](/img/iterm-theme-profiles.png)
 
@@ -49,6 +50,7 @@ For example, I have mine in ~/Pictures/Backgrounds/.
 Also, create symbolic links (or aliases) to those pictures, and name them 'dark' and 'light' respectively.
 Once you're done, you should have two files: ~/Pictures/Backgrounds/dark.jpg and ~/Pictures/Backgrounds/light.jpg.
 These point to the dark theme and light theme backgrounds respectively.
+I'll be using these file paths in code examples, but they should be changed to fit your system.
 
 If you're using Vim and you want to switch color schemes, also make sure you have those prepared and saved in ~/.vim/colors/.
 
