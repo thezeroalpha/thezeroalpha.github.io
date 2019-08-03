@@ -19,10 +19,12 @@ This is not a beginner-level guide, so you should be familiar with the basics of
 This post will introduce more advanced editing techniques to hopefully make you faster and more efficient.
 I will mostly be referring to Bash, and I will highlight the differences in ZSH, because those are the shells that I work with.
 However, they should work in all shells that use the Readline library.
-Also, for those of you who know about Readline editing modes, I will be using Emacs mode, because most of the time it's the default.
+Also, for those of you who know about Readline editing modes, I will be using Emacs mode, because most of the time it's the default. 
+There's also [Vi mode](https://www.gnu.org/software/bash/manual/html_node/Readline-vi-Mode.html), which lets you edit the current line using Vi-style bindings, but I personally don't use this, as I don't see the value in modal editing for a single line.
 
 The notation I will use is `Ctrl` for the control key, and `Meta` for the meta key.
 The meta key is commonly the alt key, but I recommend googling how the meta key works for your particular OS and terminal.
+All commands that I'm covering here can also be found on the [Readline Cheat Sheet](https://readline.kablamo.org/emacs.html), it might be useful to keep this bookmarked for future reference.
 
 ## Movement
 Here's how you move around with more efficiency:
@@ -68,6 +70,10 @@ Then you can press `Meta-.` repeatedly to cycle through all previous arguments.
 You can also press the two key combinations `Meta-NUM Ctrl-Meta-y` to insert the previous argument at position NUM (with NUM being a number). The argument at position 0 is the command name.
 This particular key binding doesn't work in ZSH by default, please see the [ZSH Specifics](#insert-an-argument-from-the-previous-command) section for information on how to set it up.
 
+In shells that use Readline, you can actually use `Meta-.` instead of `Ctrl-Meta-y`, as it takes a numeric argument and will work the same way, and it's more convenient.
+That is, you can type `Meta-NUM Meta-.` in the same way that you would with `Ctrl-Meta-y`.
+Unfortunately, this does not apply to ZSH, as in ZLE, `Meta-.` counts arguments from the end.
+
 ![Numerically insert arg](/img/readline-demos/num arg insert.gif)
 
 Finally, there's the undo command.
@@ -112,6 +118,9 @@ There's a command for this in ZSH, but you need to set a key binding, so see the
 Finally, if you're editing a really long command, you might want a full-featured editor.
 You can open the current line in your $EDITOR with `Ctrl-x Ctrl-e`, which often pops up Vim, Nano, or Emacs.
 When you save the file and quit the editor, it'll run the command that you edited.
+
+This is also a good way to avoid [pastejacking](https://thejh.net/misc/website-terminal-copy-paste), where you execute a potentially malicious command without knowing about it due to copy-pasting.
+You can press `Ctrl-x Ctrl-e` and then paste it into the editor, double check the command, and then save and exit to execute it.
 
 ![Open in editor demo](/img/readline-demos/open in editor.gif)
 
