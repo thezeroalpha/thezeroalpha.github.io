@@ -24,7 +24,11 @@ Flags:
 * `-n`: don't print command numbers
 * `-r`: reverse the order of commands
 
-![fc edit demo](/img/fc-demos/edit.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/fc-demos/edit.mp4" />
+    <p>Demo of the editing form</p>
+    </video>
+
 
 ## Second form: `fc -s` to replace text in a previous command and re-run it
 In this form, you can do a global substitution (text replacement) across a previous command and re-execute it.
@@ -37,5 +41,9 @@ In ZSH, this second form is a bit different.
 To get the same behavior as in Bash, use `fc -e - pattern=replacement`.
 You don't need the `-s` flag, and `-e -` tells ZSH to skip the editor.
 
-![fc edit demo](/img/fc-demos/substitute.gif)
+<video width="100%" style="margin-bottom: 1em;" autoplay controls loop playsinline muted>
+    <source type="video/mp4" src="/video/fc-demos/substitute.mp4" />
+    <p>Demo of the substitute form</p>
+</video>
+
 
