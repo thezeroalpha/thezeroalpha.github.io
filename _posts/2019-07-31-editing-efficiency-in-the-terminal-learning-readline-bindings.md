@@ -19,12 +19,12 @@ This is not a beginner-level guide, so you should be familiar with the basics of
 This post will introduce more advanced editing techniques to hopefully make you faster and more efficient.
 I will mostly be referring to Bash, and I will highlight the differences in ZSH, because those are the shells that I work with.
 However, they should work in all shells that use the Readline library.
-Also, for those of you who know about Readline editing modes, I will be using Emacs mode, because most of the time it's the default. 
+Also, for those of you who know about Readline editing modes, I will be using Emacs mode, because most of the time it's the default.
 There's also [Vi mode](https://www.gnu.org/software/bash/manual/html_node/Readline-vi-Mode.html), which lets you edit the current line using Vi-style bindings, but I personally don't use this, as I don't see the value in modal editing for a single line.
 
 The notation I will use is `Ctrl` for the control key, and `Meta` for the meta key.
 The meta key is commonly the alt key, but I recommend googling how the meta key works for your particular OS and terminal.
-All commands that I'm covering here can also be found on the [Readline Cheat Sheet](https://readline.kablamo.org/emacs.html), it might be useful to keep this bookmarked for future reference.
+All commands that I'm covering here can also be found on the [Readline Cheat Sheet](https://readline.kablamo.org/emacs.html), it might be useful to keep that bookmarked for future reference.
 
 ## Movement
 Here's how you move around with more efficiency:
