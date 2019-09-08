@@ -4,6 +4,9 @@ title: "Partition Disks on the Command Line with diskutil"
 author: zeroalpha
 categories: Guide
 ---
+
+![Why Disk Utility sucks](/img/disk-utility-cannot-partition.png)
+
 List disks:
 
 ```bash
