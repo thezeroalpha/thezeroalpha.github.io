@@ -1,0 +1,1182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-10-23 Wed 22:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Alex Balgavy" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org5d0a8f3"><span class="underline">Kafka: distributed messaging system</span></a></li>
+<li><a href="#org0e45614">Intro</a>
+<ul>
+<li><a href="#org720bddb">lots of data generated at company</a>
+<ul>
+<li><a href="#org6e02318">user activity (clicks, likes, logins, etc.)</a></li>
+<li><a href="#orgac3489d">operational metrics (call stack, errors, CPU usage&#x2026;)</a></li>
+</ul>
+</li>
+<li><a href="#org741f964">it's now part of data pipeline for purposes:</a>
+<ul>
+<li><a href="#org4a71174">search relevance, recommendations, ad targeting, security</a></li>
+</ul>
+</li>
+<li><a href="#org5af52e3">real time usage of log data makes new challenges</a></li>
+<li><a href="#orgb8c3125">data is much larger</a></li>
+<li><a href="#org9ed1abc">enter Kafka: messaging system for log processing</a></li>
+<li><a href="#org42d0657"><span class="todo TODO">TODO</span> combines traditional log aggregators with messaging systems</a>
+<ul>
+<li><a href="#org7ed212d">distributed and scalable</a></li>
+<li><a href="#org8cab67c">offers high throughput</a></li>
+<li><a href="#orgcb743ae">API similar to messaging system</a></li>
+<li><a href="#orgc263937">lets apps consume logs in real time</a></li>
+<li><a href="#org22cc7cd">open source &amp; used in prod at LinkedIn for &gt;6 months</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgab3e6e8">Related work</a>
+<ul>
+<li><a href="#org52ea1ee">already have traditional enterprise messaging systems</a></li>
+<li><a href="#orgd732ebf">not good for log processing:</a>
+<ul>
+<li><a href="#org1c67013">mismatch in features offered by enterprise systems</a></li>
+<li><a href="#org919b8d4">often focus on many delivery guarantees</a></li>
+<li><a href="#org7c7af62">many don't focus on throughput as main design constraint</a></li>
+<li><a href="#orgffe91be">weak in distributed support</a></li>
+<li><a href="#org465decf">assume near immediate consumption of messages</a></li>
+</ul>
+</li>
+<li><a href="#org9832754">there are specialised log aggregators already</a>
+<ul>
+<li><a href="#org3774971">but most built for consuming log data offline</a></li>
+<li><a href="#orgd4e9ed7">and expose implementation details to consumer</a></li>
+<li><a href="#orgb4d6fae">and use "push" model where broker forwards data to consumers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orga209afb">Architecture &amp; Design principles</a>
+<ul>
+<li><a href="#orgb32f0c7">basic definitions</a>
+<ul>
+<li><a href="#org159ff06">topic: stream of messages for particular type</a></li>
+<li><a href="#org53572d6">producer publishes messages to a topic</a></li>
+<li><a href="#orgb57949a">brokers: set of servers that hold published messages</a></li>
+<li><a href="#org5334852">consumer can subscribe to topics from brokers</a></li>
+<li><a href="#org0d55eb9">consumer consumes messages in topics by pulling data from brokers</a></li>
+</ul>
+</li>
+<li><a href="#orgd504971">example consumer code:</a>
+<ul>
+<li><a href="#org41c0f49">messages published are evenly distributed into substreams</a></li>
+<li><a href="#org4fcde00">each message stream gives iterator ifc over stream of messages being produced</a></li>
+<li><a href="#orgce79258">consumer iterates over every message in stream, processes payload</a></li>
+<li><a href="#org2634dd3">message stream iterator never terminates</a></li>
+<li><a href="#org199c94f">blocks until new messages available</a></li>
+</ul>
+</li>
+<li><a href="#orgbe51e34">example producer code:</a>
+<ul>
+<li><a href="#orgc543547">message ontains payload of bytes (serialization is up to user)</a></li>
+<li><a href="#org729eb6c">can send set of messages in one publish request</a></li>
+</ul>
+</li>
+<li><a href="#org4c32788">architecture:</a>
+<ul>
+<li><a href="#org4870edf">./kafka-architecture.png</a></li>
+<li><a href="#orgc362499">cluster consists of multiple brokers</a></li>
+<li><a href="#orgeddd47e">topic divided into multiple partitions</a></li>
+<li><a href="#orgec488c0">each broker stores one or more of partitions</a></li>
+<li><a href="#orgeb0158d">multiple producers/consumers can pub/get messages at the same time</a></li>
+</ul>
+</li>
+<li><a href="#org648e90d">efficiency on single partition</a>
+<ul>
+<li><a href="#org46811d7">simple storage:</a></li>
+<li><a href="#org62da6e0">efficient transfer:</a></li>
+<li><a href="#org48ce6ab">avoid explicitly caching msgs in memory</a></li>
+<li><a href="#orgecd2b89">optimize network access for consumers</a></li>
+<li><a href="#orgd51b88f">stateless broker</a></li>
+</ul>
+</li>
+<li><a href="#orgfc4c70d">Distributed coordination</a>
+<ul>
+<li><a href="#org70bf93a">each producer publish msg to</a></li>
+<li><a href="#org6536ebc">consumer groups</a></li>
+<li><a href="#org995259e">goal - divide messages stored in brokers evenly among consumers without coordination overhead</a></li>
+<li><a href="#org222af79">two decisions:</a></li>
+<li><a href="#org0f151ab">employ Zookeeper to help coordination</a></li>
+<li><a href="#org65646cd">when consumer starts, or notified through that watcher, consumer initiates rebalance process</a></li>
+<li><a href="#org2f2b3f3">when multiple consumers in group, each notified of broker/consumer change</a></li>
+<li><a href="#org495c305">when new consumer group created, no offset available in offset registry</a></li>
+</ul>
+</li>
+<li><a href="#org64d29e2">Delivery guarantees</a>
+<ul>
+<li><a href="#orgdd52633">in general, at-least-once delivery</a></li>
+<li><a href="#orgd993c93">messages from single partition delivered to consumer in order</a></li>
+<li><a href="#orge76a3c2">no guarantee on ordering from different partitions</a></li>
+<li><a href="#org04ef18f">avoid log corruption - store CRC for each message in log</a></li>
+<li><a href="#org968faf7">if broker goes down, message stored on itnoet yet consumed becomes unavailable</a></li>
+<li><a href="#orgd60ea6f">if storage system on broker permanently damaged, unconsumed message lost forever</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org757687a">Kafka at LinkedIn</a>
+<ul>
+<li><a href="#orgefcca4d">one Kafka cluster with each datacenter where user-facing services run</a>
+<ul>
+<li><a href="#orgdf16545">frontend generates log data, publishes to local Kafka brokers in batches</a></li>
+<li><a href="#org275c2c1">hardware load-balancer distributes publish requests to set Kafka brokers evenly</a></li>
+<li><a href="#orgcf53de3">deployment diagram:</a></li>
+</ul>
+</li>
+<li><a href="#orge5e9ee7">another cluster in datacenter for offline analysis</a>
+<ul>
+<li><a href="#org49003ee">runs set of embedded consumers pulling data from Kafka instances in live datacenters</a></li>
+<li><a href="#org0a2f8b7">runs data load jobs to pull data from the replica cluster of Kafka into Hadoop and data warehouse</a></li>
+<li><a href="#org7b01483">use for prototyping</a></li>
+</ul>
+</li>
+<li><a href="#org5ab93d8">end-to-end latency without tuning is ~10 seconds avg</a></li>
+<li><a href="#org2dffe20">accumulates 100s GB of data, close to 1B messages per day</a></li>
+</ul>
+</li>
+<li><a href="#org0fe9a76">Experimental results</a>
+<ul>
+<li><a href="#orga7b25a2">compard Kafka with Apache ActiveMQ (implementation of JMS) and RabbitMQ</a></li>
+<li><a href="#org49bdc13">two machines - one as broker, other as producer/consumer</a></li>
+<li><a href="#orgcd0ca6f">producer test:</a>
+<ul>
+<li><a href="#org15e5a5f">setup</a></li>
+<li><a href="#org9c8ec0a">results</a></li>
+</ul>
+</li>
+<li><a href="#org10edb4e">consumer test:</a>
+<ul>
+<li><a href="#orgaf3be9d">setup</a></li>
+<li><a href="#orgdcc2f26">results:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org5c92c30">Conclusion &amp; Future works</a>
+<ul>
+<li><a href="#org347e522">for processing huge volume of log data stream</a></li>
+<li><a href="#org0b3a80d">employs pull-based consumption model</a>
+<ul>
+<li><a href="#org38df6b1">lets app consume data at its own rate and rewind when needed</a></li>
+</ul>
+</li>
+<li><a href="#org607a028">focus on log processing apps -&gt; much higher throughput</a></li>
+<li><a href="#orgf10421e">successfully used at LinkedIn for offline and online apps</a></li>
+<li><a href="#orgb9f6265">future:</a>
+<ul>
+<li><a href="#org3c3c42f">builtin replication across brokers: duarbility, data availability</a></li>
+<li><a href="#orge4204e2">stream processing capability</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5d0a8f3" class="outline-2">
+<h2 id="org5d0a8f3"><span class="section-number-2"></span> <span class="underline">Kafka: distributed messaging system</span></h2>
+</div>
+<div id="outline-container-org0e45614" class="outline-2">
+<h2 id="org0e45614"><span class="section-number-2"></span> Intro</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org720bddb" class="outline-3">
+<h3 id="org720bddb"><span class="section-number-3"></span> lots of data generated at company</h3>
+<div class="outline-text-3" id="text-2-1">
+</div>
+<div id="outline-container-org6e02318" class="outline-4">
+<h4 id="org6e02318"><span class="section-number-4"></span> user activity (clicks, likes, logins, etc.)</h4>
+</div>
+<div id="outline-container-orgac3489d" class="outline-4">
+<h4 id="orgac3489d"><span class="section-number-4"></span> operational metrics (call stack, errors, CPU usage&#x2026;)</h4>
+</div>
+</div>
+<div id="outline-container-org741f964" class="outline-3">
+<h3 id="org741f964"><span class="section-number-3"></span> it's now part of data pipeline for purposes:</h3>
+<div class="outline-text-3" id="text-2-2">
+</div>
+<div id="outline-container-org4a71174" class="outline-4">
+<h4 id="org4a71174"><span class="section-number-4"></span> search relevance, recommendations, ad targeting, security</h4>
+</div>
+</div>
+<div id="outline-container-org5af52e3" class="outline-3">
+<h3 id="org5af52e3"><span class="section-number-3"></span> real time usage of log data makes new challenges</h3>
+</div>
+<div id="outline-container-orgb8c3125" class="outline-3">
+<h3 id="orgb8c3125"><span class="section-number-3"></span> data is much larger</h3>
+</div>
+<div id="outline-container-org9ed1abc" class="outline-3">
+<h3 id="org9ed1abc"><span class="section-number-3"></span> enter Kafka: messaging system for log processing</h3>
+</div>
+<div id="outline-container-org42d0657" class="outline-3">
+<h3 id="org42d0657"><span class="section-number-3"></span> <span class="todo TODO">TODO</span> combines traditional log aggregators with messaging systems</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-org7ed212d" class="outline-4">
+<h4 id="org7ed212d"><span class="section-number-4"></span> distributed and scalable</h4>
+</div>
+<div id="outline-container-org8cab67c" class="outline-4">
+<h4 id="org8cab67c"><span class="section-number-4"></span> offers high throughput</h4>
+</div>
+<div id="outline-container-orgcb743ae" class="outline-4">
+<h4 id="orgcb743ae"><span class="section-number-4"></span> API similar to messaging system</h4>
+</div>
+<div id="outline-container-orgc263937" class="outline-4">
+<h4 id="orgc263937"><span class="section-number-4"></span> lets apps consume logs in real time</h4>
+</div>
+<div id="outline-container-org22cc7cd" class="outline-4">
+<h4 id="org22cc7cd"><span class="section-number-4"></span> open source &amp; used in prod at LinkedIn for &gt;6 months</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgab3e6e8" class="outline-2">
+<h2 id="orgab3e6e8"><span class="section-number-2"></span> Related work</h2>
+<div class="outline-text-2" id="text-3">
+</div>
+<div id="outline-container-org52ea1ee" class="outline-3">
+<h3 id="org52ea1ee"><span class="section-number-3"></span> already have traditional enterprise messaging systems</h3>
+</div>
+<div id="outline-container-orgd732ebf" class="outline-3">
+<h3 id="orgd732ebf"><span class="section-number-3"></span> not good for log processing:</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org1c67013" class="outline-4">
+<h4 id="org1c67013"><span class="section-number-4"></span> mismatch in features offered by enterprise systems</h4>
+</div>
+<div id="outline-container-org919b8d4" class="outline-4">
+<h4 id="org919b8d4"><span class="section-number-4"></span> often focus on many delivery guarantees</h4>
+<div class="outline-text-4" id="text-3-2-2">
+</div>
+<ol class="org-ol">
+<li><a id="org0d21f64"></a>e.g. IBM Websphere MQ - transactional supports, app can insert messages into multiple queues atomically<br /></li>
+<li><a id="org2fe9e13"></a>JMS - every message can be acknowledged out of consumption, possibly out of order<br /></li>
+<li><a id="org5ffa6e6"></a><span class="todo TODO">TODO</span> need to explain JMS/Websphere in the presentation<br /></li>
+<li><a id="org3e8da62"></a>authors think this is overkill for collecting log data<br />
+<ol class="org-ol">
+<li><a id="org42d8034"></a>increases complexity of API and implementation<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org7c7af62" class="outline-4">
+<h4 id="org7c7af62"><span class="section-number-4"></span> many don't focus on throughput as main design constraint</h4>
+<div class="outline-text-4" id="text-3-2-3">
+</div>
+<ol class="org-ol">
+<li><a id="org574d442"></a>JMS no API for producer to batch messages into one request - each needs full TCP/IP roundtrip<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgffe91be" class="outline-4">
+<h4 id="orgffe91be"><span class="section-number-4"></span> weak in distributed support</h4>
+<div class="outline-text-4" id="text-3-2-4">
+</div>
+<ol class="org-ol">
+<li><a id="org9041984"></a>no easy partitioning/storing on multiple machines<br /></li>
+</ol>
+</div>
+<div id="outline-container-org465decf" class="outline-4">
+<h4 id="org465decf"><span class="section-number-4"></span> assume near immediate consumption of messages</h4>
+<div class="outline-text-4" id="text-3-2-5">
+</div>
+<ol class="org-ol">
+<li><a id="orgc1c6ddb"></a>and performance degrades if queue<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org9832754" class="outline-3">
+<h3 id="org9832754"><span class="section-number-3"></span> there are specialised log aggregators already</h3>
+<div class="outline-text-3" id="text-3-3">
+</div>
+<div id="outline-container-org3774971" class="outline-4">
+<h4 id="org3774971"><span class="section-number-4"></span> but most built for consuming log data offline</h4>
+</div>
+<div id="outline-container-orgd4e9ed7" class="outline-4">
+<h4 id="orgd4e9ed7"><span class="section-number-4"></span> and expose implementation details to consumer</h4>
+</div>
+<div id="outline-container-orgb4d6fae" class="outline-4">
+<h4 id="orgb4d6fae"><span class="section-number-4"></span> and use "push" model where broker forwards data to consumers</h4>
+<div class="outline-text-4" id="text-3-3-3">
+</div>
+<ol class="org-ol">
+<li><a id="org1ed31ff"></a>the team wants "pull" model - each user can retrieve messages at its max rate and not higher<br /></li>
+<li><a id="orgf83148e"></a>would also make it easier to rewind a consumer (discussed later)<br /></li>
+<li><a id="orgf01b113"></a><span class="todo TODO">TODO</span> link to rewind discussion<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orga209afb" class="outline-2">
+<h2 id="orga209afb"><span class="section-number-2"></span> Architecture &amp; Design principles</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgb32f0c7" class="outline-3">
+<h3 id="orgb32f0c7"><span class="section-number-3"></span> basic definitions</h3>
+<div class="outline-text-3" id="text-4-1">
+</div>
+<div id="outline-container-org159ff06" class="outline-4">
+<h4 id="org159ff06"><span class="section-number-4"></span> topic: stream of messages for particular type</h4>
+</div>
+<div id="outline-container-org53572d6" class="outline-4">
+<h4 id="org53572d6"><span class="section-number-4"></span> producer publishes messages to a topic</h4>
+</div>
+<div id="outline-container-orgb57949a" class="outline-4">
+<h4 id="orgb57949a"><span class="section-number-4"></span> brokers: set of servers that hold published messages</h4>
+</div>
+<div id="outline-container-org5334852" class="outline-4">
+<h4 id="org5334852"><span class="section-number-4"></span> consumer can subscribe to topics from brokers</h4>
+<div class="outline-text-4" id="text-4-1-4">
+</div>
+<ol class="org-ol">
+<li><a id="org31b20a5"></a>more than one consumer on a topic possible<br /></li>
+</ol>
+</div>
+<div id="outline-container-org0d55eb9" class="outline-4">
+<h4 id="org0d55eb9"><span class="section-number-4"></span> consumer consumes messages in topics by pulling data from brokers</h4>
+</div>
+</div>
+<div id="outline-container-orgd504971" class="outline-3">
+<h3 id="orgd504971"><span class="section-number-3"></span> example consumer code:</h3>
+<div class="outline-text-3" id="text-4-2">
+<div class="org-src-container">
+<pre class="src src-cpp">streams[] = Consumer.createMessageStreams(&#8220;topic1&#8221;, 1);
+<span style="color: #3a81c3; font-weight: bold;">for</span> (message : streams[0]) {
+  bytes = message.payload();
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">do something with the bytes</span>
+}
+</pre>
+</div>
+</div>
+<div id="outline-container-org41c0f49" class="outline-4">
+<h4 id="org41c0f49"><span class="section-number-4"></span> messages published are evenly distributed into substreams</h4>
+</div>
+<div id="outline-container-org4fcde00" class="outline-4">
+<h4 id="org4fcde00"><span class="section-number-4"></span> each message stream gives iterator ifc over stream of messages being produced</h4>
+</div>
+<div id="outline-container-orgce79258" class="outline-4">
+<h4 id="orgce79258"><span class="section-number-4"></span> consumer iterates over every message in stream, processes payload</h4>
+</div>
+<div id="outline-container-org2634dd3" class="outline-4">
+<h4 id="org2634dd3"><span class="section-number-4"></span> message stream iterator never terminates</h4>
+</div>
+<div id="outline-container-org199c94f" class="outline-4">
+<h4 id="org199c94f"><span class="section-number-4"></span> blocks until new messages available</h4>
+</div>
+</div>
+<div id="outline-container-orgbe51e34" class="outline-3">
+<h3 id="orgbe51e34"><span class="section-number-3"></span> example producer code:</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-src-container">
+<pre class="src src-cpp">producer = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Producer</span>(...);
+message = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Message</span>(&#8220;test message str&#8221;.getBytes());
+set = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">MessageSet</span>(message);
+producer.send(&#8220;topic1&#8221;, set);
+</pre>
+</div>
+</div>
+<div id="outline-container-orgc543547" class="outline-4">
+<h4 id="orgc543547"><span class="section-number-4"></span> message ontains payload of bytes (serialization is up to user)</h4>
+</div>
+<div id="outline-container-org729eb6c" class="outline-4">
+<h4 id="org729eb6c"><span class="section-number-4"></span> can send set of messages in one publish request</h4>
+</div>
+</div>
+<div id="outline-container-org4c32788" class="outline-3">
+<h3 id="org4c32788"><span class="section-number-3"></span> architecture:</h3>
+<div class="outline-text-3" id="text-4-4">
+</div>
+<div id="outline-container-org4870edf" class="outline-4">
+<h4 id="org4870edf"><span class="section-number-4"></span> <img src="./kafka-architecture.png" alt="kafka-architecture.png" /></h4>
+</div>
+<div id="outline-container-orgc362499" class="outline-4">
+<h4 id="orgc362499"><span class="section-number-4"></span> cluster consists of multiple brokers</h4>
+</div>
+<div id="outline-container-orgeddd47e" class="outline-4">
+<h4 id="orgeddd47e"><span class="section-number-4"></span> topic divided into multiple partitions</h4>
+</div>
+<div id="outline-container-orgec488c0" class="outline-4">
+<h4 id="orgec488c0"><span class="section-number-4"></span> each broker stores one or more of partitions</h4>
+</div>
+<div id="outline-container-orgeb0158d" class="outline-4">
+<h4 id="orgeb0158d"><span class="section-number-4"></span> multiple producers/consumers can pub/get messages at the same time</h4>
+</div>
+</div>
+<div id="outline-container-org648e90d" class="outline-3">
+<h3 id="org648e90d"><span class="section-number-3"></span> efficiency on single partition</h3>
+<div class="outline-text-3" id="text-4-5">
+</div>
+<div id="outline-container-org46811d7" class="outline-4">
+<h4 id="org46811d7"><span class="section-number-4"></span> simple storage:</h4>
+<div class="outline-text-4" id="text-4-5-1">
+</div>
+<ol class="org-ol">
+<li><a id="org091199f"></a>each partition of topic &lt;-&gt; logical log<br /></li>
+<li><a id="org5d8e573"></a>log is implemented as set of segment files around the same size<br /></li>
+<li><a id="org01dc9da"></a>when producer pubs message to partition, broker appends to last segment file<br /></li>
+<li><a id="orgd442063"></a>only flush to disk after:<br />
+<ol class="org-ol">
+<li><a id="orgade8561"></a>some number (configable) have been published<br /></li>
+<li><a id="orgbbcd698"></a>or some time elapsed<br /></li>
+</ol>
+</li>
+<li><a id="org2af52c6"></a>msg only exposed to consumers after flushed<br /></li>
+<li><a id="org53e731b"></a>no explicit msg id, addressed by logical offset in log<br />
+<ol class="org-ol">
+<li><a id="orge9a0ae3"></a>avoids overhead of maintaining indexes that map ids to locations<br /></li>
+<li><a id="org5b2bcdc"></a>next id = current id + len(current message)<br /></li>
+</ol>
+</li>
+<li><a id="orgecff07a"></a>consumer consumes from partition sequentially<br /></li>
+<li><a id="orgb1021e7"></a>consumer acknowledges a message offset =&gt; received all msgs prior to that offset in the part<br />
+<ol class="org-ol">
+<li><a id="org1356584"></a>consumer issuing async pull request to broker to get buffer of data for app<br /></li>
+<li><a id="org9edce8d"></a>each pull request has offset of msg at start of consumption and n of bytes to fetch<br /></li>
+<li><a id="orgd292096"></a>broker keeps in memory sorted list of offsets<br />
+<ol class="org-ol">
+<li><a id="org587302d"></a>including offset of first message in every segment file<br /></li>
+</ol>
+</li>
+<li><a id="orga7341cb"></a>broker locates segment file with requested message by searching offset list<br /></li>
+<li><a id="org509a427"></a>then sends data back to consumer<br /></li>
+<li><a id="orgc211c52"></a>consumer receives message and computes offset of next message to consume<br />
+<ol class="org-ol">
+<li><a id="org8f54d81"></a>uses that offset in next pull request<br /></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><a id="orge001300"></a>layout of kafka log:<br />
+<div class="outline-text-5" id="text-4-5-1-9">
+
+<div class="figure">
+<p><img src="./kafka-log-layout.png" alt="kafka-log-layout.png" />
+</p>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org62da6e0" class="outline-4">
+<h4 id="org62da6e0"><span class="section-number-4"></span> efficient transfer:</h4>
+<div class="outline-text-4" id="text-4-5-2">
+</div>
+<ol class="org-ol">
+<li><a id="org0dc15f1"></a>careful about transferring data in/out<br /></li>
+<li><a id="org249da60"></a>producer can submit set of msgs in one send req<br /></li>
+<li><a id="org8b698ca"></a>consumer:<br />
+<ol class="org-ol">
+<li><a id="org8231a54"></a>end user API iterates one message at a time<br /></li>
+<li><a id="org73ec35b"></a>but each pull request actually also retrieves multiple msgs up to certain size (KB)<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org48ce6ab" class="outline-4">
+<h4 id="org48ce6ab"><span class="section-number-4"></span> avoid explicitly caching msgs in memory</h4>
+<div class="outline-text-4" id="text-4-5-3">
+</div>
+<ol class="org-ol">
+<li><a id="orgc80b570"></a>instead rely on fs page cache<br />
+<ol class="org-ol">
+<li><a id="org2dd1215"></a>retains warm cache even if broker restarts<br /></li>
+<li><a id="org6a264f3"></a>very little overhead in garbage collecting<br />
+<ol class="org-ol">
+<li><a id="orgfa51070"></a>efficient implementation in VM-based lang feasible<br /></li>
+</ol>
+</li>
+<li><a id="orgd664b9a"></a>prod/cons both access segment files sequentially, normal OS caching is effective<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgecd2b89" class="outline-4">
+<h4 id="orgecd2b89"><span class="section-number-4"></span> optimize network access for consumers</h4>
+<div class="outline-text-4" id="text-4-5-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgea1bb9e"></a>multi-subscriber system<br /></li>
+<li><a id="org34e0a14"></a>single msg can be consumed multiple times by diff consumers<br /></li>
+<li><a id="org1798199"></a>typical send bytes local file to remote socket:<br />
+<div class="outline-text-5" id="text-4-5-4-3">
+<ol class="org-ol">
+<li>read data from storage media to page cache in OS</li>
+<li>copy data in page cache to app buffer</li>
+<li>copy app buffer to another kernel buffer</li>
+<li>send kernel buffer to socket</li>
+</ol>
+</div>
+</li>
+<li><a id="orgffb6535"></a>this is 4 data copying, 2 syscalls<br /></li>
+<li><a id="orge731746"></a>Kafka uses sendfile API on Unix systems - efficient delivery broker to consumer<br />
+<ol class="org-ol">
+<li><a id="org784209e"></a>directly transfer bytes from file channel to socket channel<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgd51b88f" class="outline-4">
+<h4 id="orgd51b88f"><span class="section-number-4"></span> stateless broker</h4>
+<div class="outline-text-4" id="text-4-5-5">
+</div>
+<ol class="org-ol">
+<li><a id="org34379c7"></a>info about how much each consumer consumed isn't in broker, but in consumer<br />
+<ol class="org-ol">
+<li><a id="org88d0542"></a>reduces complexity and overhead on broker<br /></li>
+<li><a id="orgc4dc3e7"></a>makes it harder to delete message<br />
+<ol class="org-ol">
+<li><a id="org488ea77"></a>broker doesn't know if all subscribers consumed message<br /></li>
+</ol>
+</li>
+<li><a id="orgb0e2d61"></a>solved by using time-based SLA for retention policy<br />
+<ol class="org-ol">
+<li><a id="org3edb17b"></a><span class="todo TODO">TODO</span> definition of SLA<br /></li>
+<li><a id="orgc2cf6bb"></a>auto delete message if retained in broker longer than some time (7 days)<br /></li>
+<li><a id="org10e942c"></a>allows consumer to rewind to old offset and re-consume data<br />
+<ol class="org-ol">
+<li><a id="org8a32639"></a>not a queue, but essential feature for many consumers<br /></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-orgfc4c70d" class="outline-3">
+<h3 id="orgfc4c70d"><span class="section-number-3"></span> Distributed coordination</h3>
+<div class="outline-text-3" id="text-4-6">
+</div>
+<div id="outline-container-org70bf93a" class="outline-4">
+<h4 id="org70bf93a"><span class="section-number-4"></span> each producer publish msg to</h4>
+<div class="outline-text-4" id="text-4-6-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb052c8b"></a>randomly selected partition<br /></li>
+<li><a id="org4c5ccce"></a>or semantically determined partition, by paritioning key and function<br /></li>
+</ol>
+</div>
+<div id="outline-container-org6536ebc" class="outline-4">
+<h4 id="org6536ebc"><span class="section-number-4"></span> consumer groups</h4>
+<div class="outline-text-4" id="text-4-6-2">
+</div>
+<ol class="org-ol">
+<li><a id="org26cfd9b"></a>each consists of one or more consumers that consume set of subscribed topics<br /></li>
+<li><a id="orgf0ba0ba"></a>each message delivered to only one of consumers within the group<br /></li>
+<li><a id="org548b223"></a>different groups independently consume full set of subscribed messages<br /></li>
+<li><a id="org128abe7"></a>no coordination required across consumer groups<br /></li>
+</ol>
+</div>
+<div id="outline-container-org995259e" class="outline-4">
+<h4 id="org995259e"><span class="section-number-4"></span> goal - divide messages stored in brokers evenly among consumers without coordination overhead</h4>
+</div>
+<div id="outline-container-org222af79" class="outline-4">
+<h4 id="org222af79"><span class="section-number-4"></span> two decisions:</h4>
+<div class="outline-text-4" id="text-4-6-4">
+</div>
+<ol class="org-ol">
+<li><a id="orgd325c9b"></a>partition within topic is smallest unit of parallelism<br />
+<ol class="org-ol">
+<li><a id="orgaa175e5"></a>at any point, all messages from one partition consumed only by single consumer in each consumer group<br /></li>
+<li><a id="orgb6cf51e"></a>avoids coordinating who consumes what messages (locking)<br /></li>
+</ol>
+</li>
+<li><a id="org3e24143"></a>no central "master" node; let consumers coordinate among themselves in decentralised fashion<br />
+<ol class="org-ol">
+<li><a id="org0075a91"></a>if master, have to worry about master failures<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org0f151ab" class="outline-4">
+<h4 id="org0f151ab"><span class="section-number-4"></span> employ Zookeeper to help coordination</h4>
+<div class="outline-text-4" id="text-4-6-5">
+</div>
+<ol class="org-ol">
+<li><a id="org3e4b479"></a>what is<br />
+<ol class="org-ol">
+<li><a id="org97daa29"></a>consensus service<br /></li>
+<li><a id="orgee3d665"></a>simple, fs-like API - work with paths<br /></li>
+</ol>
+</li>
+<li><a id="org28d0893"></a>detect addition/removal of brokers/consumers<br /></li>
+<li><a id="orgdf9194a"></a>trigger rebalance process when this happens<br /></li>
+<li><a id="org892552c"></a>maintain consumption relationship, keep track of consumed offset of each partition<br />
+<ol class="org-ol">
+<li><a id="org9990028"></a>when broker starts, stores info in broker/consumer registry in Zookeeper<br /></li>
+<li><a id="orgbe134d7"></a>registry contains broker's hostname, port, set of topics &amp; partitions on it<br /></li>
+<li><a id="org016a62a"></a>consumer groups assocd with ownership and offset registries in Zookeeper<br /></li>
+<li><a id="org8b123da"></a>ownership registry has one path per subbed partition, path val id of consumer currently consuming it<br /></li>
+<li><a id="orgb581e47"></a>offset registry stores for each subbed partition the offset of last consumed msg in partition<br /></li>
+</ol>
+</li>
+<li><a id="org4cdac16"></a>if broker fails, all partitions on it removed from broker registry<br /></li>
+<li><a id="org7d8640b"></a>each consumer registers Zookeeper watchers on broker and consumer registries<br />
+<ol class="org-ol">
+<li><a id="orgc8f011e"></a>will be notified if change occurs<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-org65646cd" class="outline-4">
+<h4 id="org65646cd"><span class="section-number-4"></span> when consumer starts, or notified through that watcher, consumer initiates rebalance process</h4>
+<div class="outline-text-4" id="text-4-6-6">
+</div>
+<ol class="org-ol">
+<li><a id="orge953980"></a>determines new subset of partitions to consume from<br /></li>
+<li><a id="org2b78272"></a>algorithm for rebalancing:<br />
+<div class="outline-text-5" id="text-4-6-6-2">
+
+<div class="figure">
+<p><img src="./rebalance-algorithm.png" alt="rebalance-algorithm.png" />
+</p>
+</div>
+</div>
+</li>
+<li><a id="org743c876"></a>description of algorithm:<br />
+<div class="outline-text-5" id="text-4-6-6-3">
+<blockquote>
+<p>
+By reading the broker and the consumer registry from Zookeeper, the consumer first computes the set (PT) of partitions available for each subscribed topic T and the set (CT) of consumers subscribing to T.
+It then range-partitions PT into |CT| chunks and deterministically picks one chunk to own.
+For each partition the consumer picks, it writes itself as the new owner of the partition in the ownership registry.
+Finally, the consumer begins a thread to pull data from each owned partition, starting from the offset stored in the offset registry.
+As messages get pulled from a partition, the consumer periodically updates the latest consumed offset in the offset registry
+</p>
+</blockquote>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org2f2b3f3" class="outline-4">
+<h4 id="org2f2b3f3"><span class="section-number-4"></span> when multiple consumers in group, each notified of broker/consumer change</h4>
+<div class="outline-text-4" id="text-4-6-7">
+</div>
+<ol class="org-ol">
+<li><a id="org7122699"></a>may be notified at different times<br /></li>
+<li><a id="org2ed0f64"></a>so a consumer could try to steal partition owned by another consumer<br /></li>
+<li><a id="org81d6128"></a>then first consumer releases all partitions it owns, then waits and rebalances<br /></li>
+<li><a id="org139bac6"></a>rebalance usually stabilises after only few retries<br /></li>
+</ol>
+</div>
+<div id="outline-container-org495c305" class="outline-4">
+<h4 id="org495c305"><span class="section-number-4"></span> when new consumer group created, no offset available in offset registry</h4>
+<div class="outline-text-4" id="text-4-6-8">
+</div>
+<ol class="org-ol">
+<li><a id="org0bfd34a"></a>consumers begin at smallest or largest offset (dep on config) available on each subbed partition<br /></li>
+<li><a id="org829ccd4"></a>uses API that's provided on brokers<br /></li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org64d29e2" class="outline-3">
+<h3 id="org64d29e2"><span class="section-number-3"></span> Delivery guarantees</h3>
+<div class="outline-text-3" id="text-4-7">
+</div>
+<div id="outline-container-orgdd52633" class="outline-4">
+<h4 id="orgdd52633"><span class="section-number-4"></span> in general, at-least-once delivery</h4>
+<div class="outline-text-4" id="text-4-7-1">
+</div>
+<ol class="org-ol">
+<li><a id="org1b0cfeb"></a>exactly-once would need two-phase commits, not necessary for authors' applications<br /></li>
+<li><a id="orgd068051"></a>most of time, message delivered exactly once to each consumer group<br /></li>
+<li><a id="org9df96b2"></a>if consumer process crashes without clean shutdown, the one that takes over may get duplicate messages<br />
+<ol class="org-ol">
+<li><a id="org2311036"></a>after last offset successfully committed to zookeeper<br /></li>
+</ol>
+</li>
+<li><a id="org350b935"></a>handling duplicates is up to application<br />
+<ol class="org-ol">
+<li><a id="orgc5f83d1"></a>more cost-effective than two-phase commits<br /></li>
+</ol>
+</li>
+</ol>
+</div>
+<div id="outline-container-orgd993c93" class="outline-4">
+<h4 id="orgd993c93"><span class="section-number-4"></span> messages from single partition delivered to consumer in order</h4>
+</div>
+<div id="outline-container-orge76a3c2" class="outline-4">
+<h4 id="orge76a3c2"><span class="section-number-4"></span> no guarantee on ordering from different partitions</h4>
+</div>
+<div id="outline-container-org04ef18f" class="outline-4">
+<h4 id="org04ef18f"><span class="section-number-4"></span> avoid log corruption - store CRC for each message in log</h4>
+<div class="outline-text-4" id="text-4-7-4">
+</div>
+<ol class="org-ol">
+<li><a id="org3e40c38"></a>CRC - cyclic redundancy check<br /></li>
+<li><a id="orgb7a506b"></a>if IO error on broker, Kafka runs recovery process to remove inconsistent CRC messages<br /></li>
+</ol>
+</div>
+<div id="outline-container-org968faf7" class="outline-4">
+<h4 id="org968faf7"><span class="section-number-4"></span> if broker goes down, message stored on itnoet yet consumed becomes unavailable</h4>
+</div>
+<div id="outline-container-orgd60ea6f" class="outline-4">
+<h4 id="orgd60ea6f"><span class="section-number-4"></span> if storage system on broker permanently damaged, unconsumed message lost forever</h4>
+<div class="outline-text-4" id="text-4-7-6">
+</div>
+<ol class="org-ol">
+<li><a id="org1c7a84a"></a>in fugure, plan to add built-in replication in Kafka to store each message on multiple brokers<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org757687a" class="outline-2">
+<h2 id="org757687a"><span class="section-number-2"></span> Kafka at LinkedIn</h2>
+<div class="outline-text-2" id="text-5">
+</div>
+<div id="outline-container-orgefcca4d" class="outline-3">
+<h3 id="orgefcca4d"><span class="section-number-3"></span> one Kafka cluster with each datacenter where user-facing services run</h3>
+<div class="outline-text-3" id="text-5-1">
+</div>
+<div id="outline-container-orgdf16545" class="outline-4">
+<h4 id="orgdf16545"><span class="section-number-4"></span> frontend generates log data, publishes to local Kafka brokers in batches</h4>
+</div>
+<div id="outline-container-org275c2c1" class="outline-4">
+<h4 id="org275c2c1"><span class="section-number-4"></span> hardware load-balancer distributes publish requests to set Kafka brokers evenly</h4>
+</div>
+<div id="outline-container-orgcf53de3" class="outline-4">
+<h4 id="orgcf53de3"><span class="section-number-4"></span> deployment diagram:</h4>
+<div class="outline-text-4" id="text-5-1-3">
+
+<div class="figure">
+<p><img src="./kafka-deployment.png" alt="kafka-deployment.png" />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orge5e9ee7" class="outline-3">
+<h3 id="orge5e9ee7"><span class="section-number-3"></span> another cluster in datacenter for offline analysis</h3>
+<div class="outline-text-3" id="text-5-2">
+</div>
+<div id="outline-container-org49003ee" class="outline-4">
+<h4 id="org49003ee"><span class="section-number-4"></span> runs set of embedded consumers pulling data from Kafka instances in live datacenters</h4>
+</div>
+<div id="outline-container-org0a2f8b7" class="outline-4">
+<h4 id="org0a2f8b7"><span class="section-number-4"></span> runs data load jobs to pull data from the replica cluster of Kafka into Hadoop and data warehouse</h4>
+</div>
+<div id="outline-container-org7b01483" class="outline-4">
+<h4 id="org7b01483"><span class="section-number-4"></span> use for prototyping</h4>
+</div>
+</div>
+<div id="outline-container-org5ab93d8" class="outline-3">
+<h3 id="org5ab93d8"><span class="section-number-3"></span> end-to-end latency without tuning is ~10 seconds avg</h3>
+</div>
+<div id="outline-container-org2dffe20" class="outline-3">
+<h3 id="org2dffe20"><span class="section-number-3"></span> accumulates 100s GB of data, close to 1B messages per day</h3>
+</div>
+</div>
+<div id="outline-container-org0fe9a76" class="outline-2">
+<h2 id="org0fe9a76"><span class="section-number-2"></span> Experimental results</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orga7b25a2" class="outline-3">
+<h3 id="orga7b25a2"><span class="section-number-3"></span> compard Kafka with Apache ActiveMQ (implementation of JMS) and RabbitMQ</h3>
+</div>
+<div id="outline-container-org49bdc13" class="outline-3">
+<h3 id="org49bdc13"><span class="section-number-3"></span> two machines - one as broker, other as producer/consumer</h3>
+</div>
+<div id="outline-container-orgcd0ca6f" class="outline-3">
+<h3 id="orgcd0ca6f"><span class="section-number-3"></span> producer test:</h3>
+<div class="outline-text-3" id="text-6-3">
+</div>
+<div id="outline-container-org15e5a5f" class="outline-4">
+<h4 id="org15e5a5f"><span class="section-number-4"></span> setup</h4>
+<div class="outline-text-4" id="text-6-3-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgcf173c8"></a>broker in all systems async flush messages to persistence store<br /></li>
+<li><a id="org04a3e42"></a>for each system, single producer publish 10M messages, each 200 bytes<br /></li>
+<li><a id="org4e90520"></a>Kafka: send in batches of size 1 and 50<br /></li>
+<li><a id="org1213a70"></a>others don't have easy way to batch messages, assume it used size 1<br /></li>
+</ol>
+</div>
+<div id="outline-container-org9c8ec0a" class="outline-4">
+<h4 id="org9c8ec0a"><span class="section-number-4"></span> results</h4>
+<div class="outline-text-4" id="text-6-3-2">
+</div>
+<ol class="org-ol">
+<li><a id="org7180770"></a>x-axis: amount of data sent to broker over time in MB<br /></li>
+<li><a id="orgb697de3"></a>y-axis: producer throughput (msg per sec)<br /></li>
+<li><a id="orgad1fdc1"></a>average, Kafka can publish rate 50K, 400K msg per sec for 1,50 batch<br />
+<div class="outline-text-5" id="text-6-3-2-3">
+
+<div class="figure">
+<p><img src="./producer-performance.png" alt="producer-performance.png" />
+</p>
+</div>
+</div>
+</li>
+<li><a id="org4c1cfd2"></a>why better?<br />
+<ol class="org-ol">
+<li><a id="orga116665"></a>producer doesn't wait for acks from broker<br />
+<ol class="org-ol">
+<li><a id="orgbc71e8d"></a>sends messages as fast as broker can handle<br /></li>
+<li><a id="org4508a44"></a>significantly increased throughput<br /></li>
+<li><a id="org92af92e"></a>valid optimization for log aggregation<br />
+<ol class="org-ol">
+<li><a id="orge3b73c3"></a>data sent async to avoid introducing latency into live serving of traffic<br /></li>
+</ol>
+</li>
+<li><a id="org957aa11"></a>but no guarantee that every pubbed message received by broker<br /></li>
+<li><a id="orgceb72ae"></a>ok tradeoff, but future plan to address this<br /></li>
+</ol>
+</li>
+<li><a id="orgcd91c3b"></a>more efficient storage format<br />
+<ol class="org-ol">
+<li><a id="org9ecf5b0"></a>avg overhead per message is 9 bytes<br /></li>
+<li><a id="org6ad91b3"></a>ActiveMQ: 144 bytes (heavy message header for JMS, cost of maintaining indexing structures)<br /></li>
+<li><a id="org756b599"></a><br /></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-org10edb4e" class="outline-3">
+<h3 id="org10edb4e"><span class="section-number-3"></span> consumer test:</h3>
+<div class="outline-text-3" id="text-6-4">
+</div>
+<div id="outline-container-orgaf3be9d" class="outline-4">
+<h4 id="orgaf3be9d"><span class="section-number-4"></span> setup</h4>
+<div class="outline-text-4" id="text-6-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="orgb20dcd1"></a>all systems used single consumer to retrieve total of 10M messages<br /></li>
+<li><a id="org238dc79"></a>preconfigd so each pull request prefetch approx same amount data (~1K messages)<br /></li>
+<li><a id="orgaee5e65"></a>ActiveMQ and RabbitMQ: automatic consumer ack<br /></li>
+</ol>
+</div>
+<div id="outline-container-orgdcc2f26" class="outline-4">
+<h4 id="orgdcc2f26"><span class="section-number-4"></span> results:</h4>
+<div class="outline-text-4" id="text-6-4-2">
+</div>
+<ol class="org-ol">
+<li><a id="org8a246ef"></a>x-axis: accumulated consumed msg in MB<br /></li>
+<li><a id="org13547c3"></a>y-axis: msg per sec<br /></li>
+<li><a id="orgff1103a"></a>Kafka: 22K msg per second<br />
+<div class="outline-text-5" id="text-6-4-2-3">
+
+<div class="figure">
+<p><img src="./consumer-performance.png" alt="consumer-performance.png" />
+</p>
+</div>
+</div>
+</li>
+<li><a id="orgf9f6d4e"></a>why better?<br />
+<ol class="org-ol">
+<li><a id="orgc7a1eda"></a>more efficienty storage format - less bytes transferred broker to consumer<br /></li>
+<li><a id="org5e2479f"></a>in ActiveMQ/RabbitMQ, broker maintains delivery state of every msg<br />
+<ol class="org-ol">
+<li><a id="orgc153b8c"></a>e.g. in ActiveMQ, one thread writing DB pages to disks<br /></li>
+</ol>
+</li>
+<li><a id="orgd2c8d0f"></a>sendfile API reduces transmission overhead<br /></li>
+</ol>
+</li>
+<li><a id="org579beeb"></a>point: specialized system =&gt; potential performance gain<br /></li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c92c30" class="outline-2">
+<h2 id="org5c92c30"><span class="section-number-2"></span> Conclusion &amp; Future works</h2>
+<div class="outline-text-2" id="text-7">
+</div>
+<div id="outline-container-org347e522" class="outline-3">
+<h3 id="org347e522"><span class="section-number-3"></span> for processing huge volume of log data stream</h3>
+</div>
+<div id="outline-container-org0b3a80d" class="outline-3">
+<h3 id="org0b3a80d"><span class="section-number-3"></span> employs pull-based consumption model</h3>
+<div class="outline-text-3" id="text-7-2">
+</div>
+<div id="outline-container-org38df6b1" class="outline-4">
+<h4 id="org38df6b1"><span class="section-number-4"></span> lets app consume data at its own rate and rewind when needed</h4>
+</div>
+</div>
+<div id="outline-container-org607a028" class="outline-3">
+<h3 id="org607a028"><span class="section-number-3"></span> focus on log processing apps -&gt; much higher throughput</h3>
+</div>
+<div id="outline-container-orgf10421e" class="outline-3">
+<h3 id="orgf10421e"><span class="section-number-3"></span> successfully used at LinkedIn for offline and online apps</h3>
+</div>
+<div id="outline-container-orgb9f6265" class="outline-3">
+<h3 id="orgb9f6265"><span class="section-number-3"></span> future:</h3>
+<div class="outline-text-3" id="text-7-5">
+</div>
+<div id="outline-container-org3c3c42f" class="outline-4">
+<h4 id="org3c3c42f"><span class="section-number-4"></span> builtin replication across brokers: duarbility, data availability</h4>
+<div class="outline-text-4" id="text-7-5-1">
+</div>
+<ol class="org-ol">
+<li><a id="orga27da79"></a>support async and sync replication models<br /></li>
+<li><a id="org700520c"></a>allow app to choose level of redundancy based on its req on durability, availability, throughput<br /></li>
+</ol>
+</div>
+<div id="outline-container-orge4204e2" class="outline-4">
+<h4 id="orge4204e2"><span class="section-number-4"></span> stream processing capability</h4>
+<div class="outline-text-4" id="text-7-5-2">
+</div>
+<ol class="org-ol">
+<li><a id="org4d77e89"></a>after getting messages, real-time apps often do similar things<br />
+<ol class="org-ol">
+<li><a id="orgbf3091e"></a>window-based counting<br /></li>
+<li><a id="org9d63670"></a>joining msg with recrds in secondary store or msg in other stream<br /></li>
+</ol>
+</li>
+<li><a id="org5ccec4b"></a>supported by semantically partitioning msg on join key during publishing<br />
+<ol class="org-ol">
+<li><a id="org873773c"></a>all msg sent with particular key go to same partition<br /></li>
+<li><a id="org230a93f"></a>so arrive at single consumer process<br /></li>
+</ol>
+</li>
+<li><a id="orgdff1b7b"></a>is foundation for processing distributed streams across cluster of consumers<br /></li>
+<li><a id="org7a47d65"></a>top level library of stream utilities would be useful<br /></li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Alex Balgavy</p>
+<p class="date">Created: 2019-10-23 Wed 22:43</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
