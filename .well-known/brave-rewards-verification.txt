@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: thezeroalpha.github.io
+Token: 8a5eac2ce6f802b06ecefb3dc5cbe4403624837deef9ca92c269c61173378342
