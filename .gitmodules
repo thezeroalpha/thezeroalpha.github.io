@@ -55,3 +55,9 @@
 [submodule "uni-notes/equational-notes"]
 	path = uni-notes/equational-notes
 	url = https://github.com/thezeroalpha/equational-notes.git
+[submodule "uni-notes/ml-notes"]
+	path = uni-notes/ml-notes
+	url = https://github.com/thezeroalpha/ml-notes.git
+[submodule "uni-notes/automata-complexity-notes"]
+	path = uni-notes/automata-complexity-notes
+	url = https://github.com/thezeroalpha/automata-complexity-notes.git
