@@ -61,3 +61,6 @@
 [submodule "uni-notes/automata-complexity-notes"]
 	path = uni-notes/automata-complexity-notes
 	url = https://github.com/thezeroalpha/automata-complexity-notes.git
+[submodule "blog"]
+	path = blog
+	url = https://github.com/thezeroalpha/blog.git
