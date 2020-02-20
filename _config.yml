@@ -2,5 +2,3 @@ url: "https://thezeroalpha.github.io"
 title: "ZeroAlpha"
 incremental: false
 show_drafts: false
-plugins:
-  - jekyll-feed
