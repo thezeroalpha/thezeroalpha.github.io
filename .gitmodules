@@ -1,66 +1,6 @@
 [submodule "zerotab"]
 	path = zerotab
 	url = https://github.com/thezeroalpha/zerotab.git
-[submodule "uni-notes/compnet-notes"]
-	path = uni-notes/compnet-notes
-	url = https://github.com/thezeroalpha/compnet-notes.git
-[submodule "uni-notes/is-notes"]
-	path = uni-notes/is-notes
-	url = https://github.com/thezeroalpha/is-notes.git
-[submodule "uni-notes/webtech-notes"]
-	path = uni-notes/webtech-notes
-	url = https://github.com/thezeroalpha/webtech-notes.git
-[submodule "uni-notes/sysarch-notes"]
-	path = uni-notes/sysarch-notes
-	url = https://github.com/thezeroalpha/sysarch-notes.git
-[submodule "uni-notes/logicsets-notes"]
-	path = uni-notes/logicsets-notes
-	url = https://github.com/thezeroalpha/logicsets-notes.git
-[submodule "uni-notes/networksgraphs-notes"]
-	path = uni-notes/networksgraphs-notes
-	url = https://github.com/thezeroalpha/networksgraphs-notes.git
-[submodule "uni-notes/physcomp-notes"]
-	path = uni-notes/physcomp-notes
-	url = https://github.com/thezeroalpha/physcomp-notes.git
-[submodule "uni-notes/stats-notes"]
-	path = uni-notes/stats-notes
-	url = https://github.com/thezeroalpha/stats-notes.git
-[submodule "uni-notes/dsa-notes"]
-	path = uni-notes/dsa-notes
-	url = https://github.com/thezeroalpha/dsa-notes.git
-[submodule "uni-notes/os-notes"]
-	path = uni-notes/os-notes
-	url = https://github.com/thezeroalpha/os-notes.git
-[submodule "uni-notes/lin-algebra-notes"]
-	path = uni-notes/lin-algebra-notes
-	url = https://github.com/thezeroalpha/lin-algebra-notes.git
-[submodule "uni-notes/softdesign-notes"]
-	path = uni-notes/softdesign-notes
-	url = https://github.com/thezeroalpha/softdesign-notes.git
-[submodule "uni-notes/history-science-notes"]
-	path = uni-notes/history-science-notes
-	url = https://github.com/thezeroalpha/history-science-notes.git
-[submodule "uni-notes/logic-modelling-notes"]
-	path = uni-notes/logic-modelling-notes
-	url = https://github.com/thezeroalpha/logic-modelling-notes.git
-[submodule "uni-notes/databases-notes"]
-	path = uni-notes/databases-notes
-	url = https://github.com/thezeroalpha/databases-notes.git
-[submodule "uni-notes/hci-notes"]
-	path = uni-notes/hci-notes
-	url = https://github.com/thezeroalpha/hci-notes.git
-[submodule "uni-notes/likelihood-notes"]
-	path = uni-notes/likelihood-notes
-	url = https://github.com/thezeroalpha/likelihood-notes.git
-[submodule "uni-notes/equational-notes"]
-	path = uni-notes/equational-notes
-	url = https://github.com/thezeroalpha/equational-notes.git
-[submodule "uni-notes/ml-notes"]
-	path = uni-notes/ml-notes
-	url = https://github.com/thezeroalpha/ml-notes.git
-[submodule "uni-notes/automata-complexity-notes"]
-	path = uni-notes/automata-complexity-notes
-	url = https://github.com/thezeroalpha/automata-complexity-notes.git
 [submodule "blog"]
 	path = blog
 	url = https://github.com/thezeroalpha/blog.git
