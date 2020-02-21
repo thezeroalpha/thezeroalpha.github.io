@@ -9,7 +9,7 @@
 
 separate app instead of mobile browser:
 
-* viewer capabilities (zoom etc.) will be easier to conrol
+* viewer capabilities (zoom etc.) will be easier to control
 * less hampered by browser compatibility and browser development issues/updates
 
 WebVR already being replaced by WebXR. so if polyfill, should use [webxr-polyfill](https://github.com/immersive-web/webxr-polyfill)
@@ -17,7 +17,7 @@ WebVR already being replaced by WebXR. so if polyfill, should use [webxr-polyfil
 
 NGL issues/possibilities for VR:
 
-* stereocamera implemented in NGL, seems to be working. example on how ot use a different camera system. comment in question is [here](https://github.com/arose/ngl/commit/bfc251d302c3e88cefc23060865d72a93211e9e7)
+* stereocamera implemented in NGL, seems to be working. example on how to use a different camera system. comment in question is [here](https://github.com/arose/ngl/commit/bfc251d302c3e88cefc23060865d72a93211e9e7)
     * however, does not seem to work properly on mobile due to some specific (OpenGL?) settings. jittering around objects with white background on iPhone.
 * can use specific framework for VR that does device and camera for us (alternative to polyfill)
     * A-Frame -- easy to use, easy to set up VR environments, allows even merging of e.g. proteins and other 3D objects
