@@ -28,4 +28,4 @@ Here's my [dotfiles repository](https://github.com/thezeroalpha/dotfiles).
 
 I made a custom startpage that I use, called Zerotab.
 
-[Here it is](https://thezeroalpha.github.io/zerotab) ([and here's the Github repo](http://github.com/thezeroalpha/zerotab)).
+[Here it is](https://zeroalpha.codes/zerotab) ([and here's the Github repo](http://github.com/thezeroalpha/zerotab)).
