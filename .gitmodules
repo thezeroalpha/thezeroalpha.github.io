@@ -1,9 +1,0 @@
-[submodule "zerotab"]
-	path = zerotab
-	url = https://github.com/thezeroalpha/zerotab.git
-[submodule "blog"]
-	path = blog
-	url = https://github.com/thezeroalpha/blog.git
-[submodule "lecture-notes"]
-	path = lecture-notes
-	url = https://github.com/thezeroalpha/lecture-notes.git
